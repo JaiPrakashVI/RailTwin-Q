@@ -1,83 +1,171 @@
 {
-    "optimization_tick": 120,
+    "optimization_tick": 60,
     "solver_comparison": {
         "exact": {
-            "energy": 0.0,
-            "runtime_seconds": 0.001,
+            "energy": -0.353,
+            "runtime_seconds": 0.0,
             "optimality_gap_percent": 0.0,
             "valid": true,
             "violation_count": 0
         },
         "greedy": {
-            "energy": 0.0,
+            "energy": -0.353,
             "runtime_seconds": 0.0,
             "optimality_gap_percent": 0.0,
             "valid": true,
             "violation_count": 0
         },
         "local_search": {
-            "energy": 0.0,
+            "energy": -0.353,
             "runtime_seconds": 0.0,
             "optimality_gap_percent": 0.0,
             "valid": true,
             "violation_count": 0
         },
         "simulated_annealing": {
-            "energy": 0.0,
-            "runtime_seconds": 0.1826,
+            "energy": -0.353,
+            "runtime_seconds": 0.0952,
             "optimality_gap_percent": 0.0,
             "valid": true,
             "violation_count": 0
         },
         "qaoa": {
-            "energy": 0.285,
-            "runtime_seconds": 0.0277,
-            "optimality_gap_percent": 100.0,
+            "energy": -0.063,
+            "runtime_seconds": 0.0337,
+            "optimality_gap_percent": 82.15,
             "valid": true,
             "violation_count": 0
         },
         "hybrid_qaoa": {
-            "energy": 0.0,
-            "runtime_seconds": 0.0277,
+            "energy": -0.353,
+            "runtime_seconds": 0.0347,
             "optimality_gap_percent": 0.0,
             "valid": true,
             "violation_count": 0
         }
     },
     "selected_solver": "HYBRID_QAOA",
-    "selected_actions": [],
+    "selected_actions": [
+        {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Sapthagiri Express"
+        },
+        {
+            "action_id": 5,
+            "action": "SPEED_ADJUST",
+            "target": "Kerala Express"
+        }
+    ],
+    "selected_bitstring": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+    ],
+    "reduced_variables": {
+        "1": {
+            "action_id": 1,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "variable_symbol": "x_1",
+            "index": 0
+        },
+        "2": {
+            "action_id": 2,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "variable_symbol": "x_2",
+            "index": 1
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "variable_symbol": "x_3",
+            "index": 2
+        },
+        "4": {
+            "action_id": 4,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "variable_symbol": "x_4",
+            "index": 3
+        },
+        "5": {
+            "action_id": 5,
+            "action": "SPEED_ADJUST",
+            "target": "Kerala Express",
+            "variable_symbol": "x_5",
+            "index": 4
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Express",
+            "variable_symbol": "x_6",
+            "index": 5
+        }
+    },
+    "best_energy": -0.353,
+    "exact_energy": -0.353,
+    "warm_start_used": true,
+    "initial_state_vector": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+    ],
     "constraint_validation": {
         "valid": true,
         "violations": 0,
         "details": []
     },
     "counterfactual_results": {
-        "baseline_delay": 90.46,
-        "optimized_delay": 90.46,
-        "delay_reduction_percent": 0.0,
-        "baseline_congestion": 5.0,
-        "optimized_congestion": 5.0,
+        "baseline_delay": 106.1,
+        "optimized_delay": 108.03,
+        "delay_reduction_percent": -1.82,
+        "baseline_congestion": 6.25,
+        "optimized_congestion": 6.25,
         "congestion_reduction_percent": 0.0
     },
     "quantum_metrics": {
         "status": "SUCCESS",
         "backend": "NumPyVectorSimulator",
-        "qubits": 7,
-        "circuit_depth": 30,
+        "qubits": 6,
+        "circuit_depth": 24,
         "qaoa_reps": 2,
         "shots": 1024
     },
     "winners": {
         "objective_winner": "EXACT",
-        "runtime_winner": "GREEDY",
+        "runtime_winner": "EXACT",
         "delay_reduction_winner": "QAOA",
         "passenger_impact_winner": "EXACT",
-        "energy_winner": "EXACT"
+        "energy_winner": "QAOA"
     },
     "explanations": [
         {
-            "type": "BASELINE",
-            "text": "No active interventions selected. Simulator continues with default timetables."
+            "type": "SUMMARY",
+            "text": "Optimizer HYBRID_QAOA selected 2 cooperative action(s) yielding -1.82% delay reduction and 0.0% platform/track congestion reduction."
+        },
+        {
+            "type": "ACTION_EXPLANATION",
+            "action_id": 3,
+            "text": "Action 1: Hold Train Sapthagiri Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."
+        },
+        {
+            "type": "ACTION_EXPLANATION",
+            "action_id": 5,
+            "text": "Action 2: Speed Adjust for Train Kerala Express. Accelerates train speed profile by 20% to clear track sections and prevent cascading spacing delays."
+        },
+        {
+            "type": "FEASIBILITY",
+            "text": "Constraint Validator check: PASS. All track/platform capacity constraints are satisfied."
         }
     ]
 }

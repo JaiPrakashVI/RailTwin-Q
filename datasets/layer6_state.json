@@ -1,0 +1,20 @@
+{
+    "state": "MONITORING",
+    "active_disruptions": 0,
+    "network_delay": 23.42,
+    "congestion": 9.2,
+    "active_interventions": [],
+    "cycle_number": 1,
+    "tick": 120,
+    "last_opt_tick": 15,
+    "next_eligible_tick": 120,
+    "qubits": 3,
+    "warm_start": false,
+    "delta_utility": 0.053,
+    "trigger_reason": "MEDIUM: Event-triggered re-optimization: Heavy Rain",
+    "current_plan_utility": 0.053,
+    "new_plan_utility": 0.053,
+    "solver_name": "HYBRID_QAOA",
+    "reoptimization_count": 1,
+    "recovery_status": "RECOVERED"
+}

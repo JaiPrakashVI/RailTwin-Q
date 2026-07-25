@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "experiment_id": "exp_final_1784737365",
-        "timestamp": "2026-07-22T16:22:45Z",
+        "experiment_id": "exp_final_1784895997",
+        "timestamp": "2026-07-24T12:26:37Z",
         "random_seed": 42,
         "qubo_size": 8,
         "qaoa_depth": 2,
@@ -28,45 +28,45 @@
             "energy": -2.2176,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.0384,
+            "runtime_q": 0.0387,
             "runtime_c": 0.0,
-            "total_runtime": 0.0384,
+            "total_runtime": 0.0387,
             "class_evals": 0
         },
         "noisy_qaoa": {
             "energy": -2.2176,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1472,
+            "runtime_q": 0.1967,
             "runtime_c": 0.0,
-            "total_runtime": 0.1472,
+            "total_runtime": 0.1967,
             "class_evals": 0
         },
         "noisy_qaoa_ls": {
             "energy": -2.2176,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1472,
+            "runtime_q": 0.1967,
             "runtime_c": 0.0,
-            "total_runtime": 0.1472,
+            "total_runtime": 0.1967,
             "class_evals": 6
         },
         "noisy_qaoa_sa": {
             "energy": -2.2176,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1472,
-            "runtime_c": 0.0746,
-            "total_runtime": 0.2218,
+            "runtime_q": 0.1967,
+            "runtime_c": 0.0857,
+            "total_runtime": 0.2824,
             "class_evals": 100
         },
         "hybrid_qaoa": {
             "energy": -2.2176,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1472,
+            "runtime_q": 0.1967,
             "runtime_c": 0.0,
-            "total_runtime": 0.1472,
+            "total_runtime": 0.1967,
             "class_evals": 115
         },
         "greedy": {
@@ -83,9 +83,139 @@
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
             "runtime_q": 0.0,
-            "runtime_c": 0.0724,
-            "total_runtime": 0.0724,
+            "runtime_c": 0.0886,
+            "total_runtime": 0.0886,
             "class_evals": 100
+        }
+    },
+    "noise_robustness": [
+        {
+            "noise_level": 0.0,
+            "raw_energy": -2.2176,
+            "raw_gap": 0.0,
+            "hybrid_energy": -2.2176,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.01,
+            "raw_energy": -2.2176,
+            "raw_gap": 0.0,
+            "hybrid_energy": -2.2176,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.05,
+            "raw_energy": -2.2176,
+            "raw_gap": 0.0,
+            "hybrid_energy": -2.2176,
+            "hybrid_gap": 0.0
+        },
+        {
+            "noise_level": 0.1,
+            "raw_energy": -2.2176,
+            "raw_gap": 0.0,
+            "hybrid_energy": -2.2176,
+            "hybrid_gap": 0.0
+        }
+    ],
+    "depth_sweeps": [
+        {
+            "p": 1,
+            "mean_energy": -1.7225,
+            "approx_ratio": 0.7767,
+            "circuit_depth": 12,
+            "gate_count": 15,
+            "two_qubit_gates": 6,
+            "runtime_ms": 41.21
+        },
+        {
+            "p": 2,
+            "mean_energy": -2.2176,
+            "approx_ratio": 1.0,
+            "circuit_depth": 24,
+            "gate_count": 30,
+            "two_qubit_gates": 12,
+            "runtime_ms": 48.66
+        },
+        {
+            "p": 3,
+            "mean_energy": -2.2176,
+            "approx_ratio": 1.0,
+            "circuit_depth": 36,
+            "gate_count": 45,
+            "two_qubit_gates": 18,
+            "runtime_ms": 76.26
+        },
+        {
+            "p": 4,
+            "mean_energy": -2.2176,
+            "approx_ratio": 1.0,
+            "circuit_depth": 48,
+            "gate_count": 60,
+            "two_qubit_gates": 24,
+            "runtime_ms": 53.16
+        }
+    ],
+    "statistical_evaluation": {
+        "exact": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_dev": 0.4258,
+            "ci": [
+                -3.2465,
+                -2.7187
+            ],
+            "best": -3.7541,
+            "worst": -2.2336,
+            "mean_runtime_ms": 0.43,
+            "success_rate": 80.0,
+            "opt_hit_rate": 100.0,
+            "opt_gap": 0.0
+        },
+        "greedy": {
+            "mean_energy": -2.9159,
+            "median_energy": -3.0018,
+            "std_dev": 0.4684,
+            "ci": [
+                -3.2062,
+                -2.6256
+            ],
+            "best": -3.7541,
+            "worst": -2.1648,
+            "mean_runtime_ms": 0.05,
+            "success_rate": 80.0,
+            "opt_hit_rate": 60.0,
+            "opt_gap": 2.39
+        },
+        "simulated_annealing": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_dev": 0.4258,
+            "ci": [
+                -3.2465,
+                -2.7187
+            ],
+            "best": -3.7541,
+            "worst": -2.2336,
+            "mean_runtime_ms": 113.43,
+            "success_rate": 80.0,
+            "opt_hit_rate": 100.0,
+            "opt_gap": 0.0
+        },
+        "hybrid_qaoa": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_dev": 0.4258,
+            "ci": [
+                -3.2465,
+                -2.7187
+            ],
+            "best": -3.7541,
+            "worst": -2.2336,
+            "mean_runtime_ms": 64.29,
+            "success_rate": 80.0,
+            "opt_hit_rate": 100.0,
+            "opt_gap": 0.0
         }
     }
 }

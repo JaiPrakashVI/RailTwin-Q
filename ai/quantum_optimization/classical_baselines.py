@@ -91,14 +91,19 @@ class ClassicalBaselines:
         return current_bitstring, current_energy, runtime
 
     @classmethod
-    def solve_simulated_annealing(cls, num_vars: int, qubo_matrix: dict, seed=42) -> tuple:
+    def solve_simulated_annealing(cls, num_vars: int, qubo_matrix: dict, seed=42, initial_state=None) -> tuple:
         """
         Simulated Annealing solver with Metropolis temperature schedule.
+        Supports warm starting from initial_state.
         """
         random.seed(seed)
         start_time = time.time()
         
-        current_bitstring = [random.randint(0, 1) for _ in range(num_vars)]
+        if initial_state is not None:
+            current_bitstring = list(initial_state)
+        else:
+            current_bitstring = [random.randint(0, 1) for _ in range(num_vars)]
+            
         current_energy = cls.evaluate_qubo(current_bitstring, qubo_matrix)
         
         best_bitstring = list(current_bitstring)
@@ -133,14 +138,19 @@ class ClassicalBaselines:
         return best_bitstring, best_energy, runtime
 
     @classmethod
-    def solve_local_search(cls, num_vars: int, qubo_matrix: dict) -> tuple:
+    def solve_local_search(cls, num_vars: int, qubo_matrix: dict, initial_state=None) -> tuple:
         """
-        Local Search refinement (hill climbing from a random starting point).
+        Local Search refinement (hill climbing from a starting point).
+        Supports warm starting from initial_state.
         """
         start_time = time.time()
-        # Random initial state
         random.seed(42)
-        current_bitstring = [random.randint(0, 1) for _ in range(num_vars)]
+        
+        if initial_state is not None:
+            current_bitstring = list(initial_state)
+        else:
+            current_bitstring = [random.randint(0, 1) for _ in range(num_vars)]
+            
         current_energy = cls.evaluate_qubo(current_bitstring, qubo_matrix)
 
         improved = True

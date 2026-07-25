@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layer 5: Hybrid Quantum Optimization Presentation Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0b0f19; color: #f3f4f6; font-family: 'Outfit', sans-serif; padding: 45px; line-height: 1.6; }
+        .header { font-size: 2.8rem; font-weight:700; color: #8b5cf6; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:40px; text-align: center; }
+        .section-title { font-size: 1.8rem; font-weight:700; color: #6366f1; margin-top: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom:8px; }
+        .card { background: #111827; border: 1px solid #1f2937; border-radius:16px; padding:30px; margin-bottom:25px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4); }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align:left; border-bottom: 1px solid #1f2937; }
+        th { background: rgba(255,255,255,0.02); color: #8b5cf6; font-weight:600; }
+        .badge { background-color: #f59e0b; padding: 5px 12px; border-radius:12px; font-weight:600; color: #fff; display: inline-block; margin-top: 10px; }
+        .highlight { color: #10b981; font-weight: 600; }
+        pre { background: #0b0f19; border: 1px solid #1f2937; border-radius: 8px; padding: 15px; overflow-x: auto; color: #a5b4fc; font-family: monospace; font-size: 0.95rem; }
+    </style>
+</head>
+<body>
+    <div class="header">RailTwin-Q: Layer 5 Research Presentation Report</div>
+
+    <div class="card">
+        <div class="section-title">Section 1: Layer 5 Architecture</div>
+        <p>The complete Layer 5 pipeline manages candidate railways actions, builds a multi-objective cost structure, encodes topology limits, solves the binary optimization problem, and pushes solutions into the Digital Twin re-simulation:</p>
+        <pre>
+Layer 4: Decision Intelligence Engine
+              │
+              ▼
+      Candidate Railway Actions
+              │
+              ▼
+     Feasibility + Reduction
+              │
+              ▼
+       Multi-Objective QUBO
+              │
+       ┌──────┴───────┐
+       ▼              ▼
+ Classical Solvers   QAOA
+       │              │
+       └──────┬───────┘
+              ▼
+       Hybrid QAOA Refinement
+              │
+              ▼
+       Constraint Validation
+              │
+              ▼
+ Digital Twin Counterfactual Simulation
+              │
+              ▼
+     Actual Operational Outcome
+              │
+              ▼
+      Final Decision Evaluation
+        </pre>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 2: Railway QUBO Formulation</div>
+        <p>We formulate the railway decision selection problem as a Quadratic Unconstrained Binary Optimization (QUBO) problem where decision variables represent whether an intervention action is selected (1) or not (0). Crucially, raw and normalized metrics are strictly separated:</p>
+        <ul>
+            <li><strong>Delay Reduction</strong>: Uses <code>predicted_30min_reduction</code> matching the 30-minute re-simulation horizon.</li>
+            <li><strong>Directions</strong>: Maximization objectives (like delay saving) are subtracted (<code>-weight * normalized</code>) while minimization objectives (like risk/complexity) are added (<code>+weight * normalized</code>).</li>
+            <li>All metrics are validated to reside strictly within [-1.0, 1.0].</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 3: Constraint Encoding</div>
+        <p>Topology limits, platform/track capacities, and safety headways are translated into linear and quadratic penalties. We enforce conflicts and requirements relationships:</p>
+        <ul>
+            <li><strong>Conflicts (Mutual Exclusion)</strong>: <code>P * x_i * x_j</code> (penalizes concurrent selection).</li>
+            <li><strong>Dependencies (x_j requires x_i)</strong>: <code>P * x_j * (1 - x_i)</code> (penalizes selecting target without source).</li>
+            <li><strong>Platform & Track Capacity</strong>: Quadratic penalties enforcing platform limits and track congestion thresholds.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 4: Classical vs Quantum Benchmark (Scenario Single Run)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Solver</th>
+                    <th>QUBO Energy</th>
+                    <th>Optimality Gap</th>
+                    <th>Feasibility</th>
+                    <th>Delay Saved (DT)</th>
+                    <th>Delay Reduction %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Exact Solver</td>
+                    <td class="highlight">-0.0260</td>
+                    <td>0.00%</td>
+                    <td>PASS</td>
+                    <td>0.26 mins</td>
+                    <td>0.4%</td>
+                </tr>
+                <tr>
+                    <td>Greedy</td>
+                    <td>-0.0234</td>
+                    <td>10.00%</td>
+                    <td>PASS</td>
+                    <td>0.23 mins</td>
+                    <td>0.4%</td>
+                </tr>
+                <tr>
+                    <td>Simulated Annealing</td>
+                    <td class="highlight">-0.0260</td>
+                    <td>0.00%</td>
+                    <td>PASS</td>
+                    <td>0.26 mins</td>
+                    <td>0.4%</td>
+                </tr>
+                <tr>
+                    <td>Raw QAOA</td>
+                    <td>-0.0182</td>
+                    <td>30.00%</td>
+                    <td>PASS</td>
+                    <td>0.18 mins</td>
+                    <td>0.3%</td>
+                </tr>
+                <tr>
+                    <td>Hybrid QAOA</td>
+                    <td class="highlight">-0.0260</td>
+                    <td>0.00%</td>
+                    <td>PASS</td>
+                    <td>0.26 mins</td>
+                    <td>0.4%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 5: Hybrid QAOA Architecture</div>
+        <p>The Hybrid QAOA pipeline consists of an 8-stage refinement process to avoid local minima traps:</p>
+        <pre>
+QAOA Candidate Generation
+        ↓
+Top-K Extraction (up to 8 configurations)
+        ↓
+Deduplication
+        ↓
+Feasibility Filtering
+        ↓
+1-bit Neighborhood Search (bit-flip sweeps)
+        ↓
+2-bit Neighborhood Search (pairwise swaps)
+        ↓
+Simulated Annealing Refinement
+        ↓
+Final Feasible Solution
+        </pre>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 6: Digital Twin Counterfactual Validation</div>
+        <p>We evaluate each action plan directly in the cloned state vector of the simulator ticks:</p>
+        <ul>
+            <li><strong>Baseline Average Delay</strong>: 58.99 minutes</li>
+            <li><strong>Optimized Average Delay</strong>: 58.73 minutes</li>
+            <li><strong>Actual Saved Delay</strong>: 0.26 minutes (0.4% reduction)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 7: Multi-Seed Statistical Results (N=8)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Solver</th>
+                    <th>Mean Energy</th>
+                    <th>Median Energy</th>
+                    <th>Std Dev</th>
+                    <th>95% CI</th>
+                    <th>Mean Runtime</th>
+                    <th>Success Rate</th>
+                    <th>Opt Hit Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">EXACT</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.9826</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.0805</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.4258</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">[-3.2465, -2.7187]</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.7541</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2336</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.43 ms</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">80.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#8b5cf6; font-weight:600;">100.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.00%</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">GREEDY</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.9159</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.0018</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.4684</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">[-3.2062, -2.6256]</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.7541</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.1648</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.05 ms</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">80.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#8b5cf6; font-weight:600;">60.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">2.39%</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">SIMULATED ANNEALING</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.9826</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.0805</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.4258</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">[-3.2465, -2.7187]</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.7541</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2336</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">113.43 ms</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">80.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#8b5cf6; font-weight:600;">100.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.00%</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">HYBRID QAOA</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.9826</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.0805</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.4258</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">[-3.2465, -2.7187]</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-3.7541</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2336</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">64.29 ms</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">80.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#8b5cf6; font-weight:600;">100.0%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.00%</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 8: QAOA Depth and Noise Results</div>
+        <h3>QAOA Depth Sweeps (N=6)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Depth (p)</th>
+                    <th>Energy</th>
+                    <th>Approx Ratio</th>
+                    <th>Circuit Depth</th>
+                    <th>Gate Count</th>
+                    <th>2-Qubit Gates</th>
+                    <th>Runtime</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">p = 1</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-1.7225</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">0.7767</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">12</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">15</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">6</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">41.21 ms</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">p = 2</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">1.0000</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">24</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">30</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">12</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">48.66 ms</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">p = 3</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">1.0000</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">36</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">45</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">18</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">76.26 ms</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">p = 4</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">1.0000</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">48</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">60</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">24</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">53.16 ms</td>
+        </tr>
+        
+            </tbody>
+        </table>
+        
+        <h3 style="margin-top: 25px;">Noise Robustness Sweeps</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Noise Level</th>
+                    <th>Raw QAOA Energy</th>
+                    <th>Raw QAOA Gap</th>
+                    <th>Hybrid QAOA Energy</th>
+                    <th>Hybrid QAOA Gap</th>
+                    <th>Recovery Gap</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">0.0% depolarizing</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#ef4444;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981;">0.00% recovered</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">1.0% depolarizing</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#ef4444;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981;">0.00% recovered</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">5.0% depolarizing</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#ef4444;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981;">0.00% recovered</td>
+        </tr>
+        
+        <tr>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight:600;">10.0% depolarizing</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#ef4444;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">-2.2176</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981; font-weight:600;">0.00%</td>
+            <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; color:#10b981;">0.00% recovered</td>
+        </tr>
+        
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 9: Quantum Advantage Readiness Scorecard</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Readiness Metric</th>
+                    <th>Classical Solver</th>
+                    <th>Ideal QAOA</th>
+                    <th>Hybrid QAOA</th>
+                    <th>Classification Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Solution Quality</strong></td>
+                    <td>100.0% (Exact)</td>
+                    <td>100.0% (Suboptimal)</td>
+                    <td>100.0% (Refined)</td>
+                    <td>Classical Advantage</td>
+                </tr>
+                <tr>
+                    <td><strong>Execution Runtime</strong></td>
+                    <td>0.430 ms</td>
+                    <td>64.29 ms</td>
+                    <td>64.29 ms</td>
+                    <td>Classical Advantage</td>
+                </tr>
+                <tr>
+                    <td><strong>Scalability Limits</strong></td>
+                    <td>N = 100 (Greedy/SA)</td>
+                    <td>N &lt; 25 (Statevector memory)</td>
+                    <td>N &lt; 25 (Statevector memory)</td>
+                    <td>Classical Advantage</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <span class="badge">Quantum Potential / No Demonstrated Quantum Advantage</span>
+    </div>
+
+    <div class="card">
+        <div class="section-title">Section 10: Scientific Conclusion</div>
+        <p><strong>Verdict</strong>: Hybrid quantum-classical optimization demonstrated reliable optimum recovery and robustness against QAOA local minima, while quantum advantage was not observed at the tested problem sizes. Raw QAOA solutions are vulnerable to local minima traps and hardware noise, but classical refinement successfully repairs configurations to retrieve global optimality.</p>
+    </div>
+</body>
+</html>

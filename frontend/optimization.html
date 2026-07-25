@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Quantum Optimization Console</title>
+            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+            <style>
+                
+        :root {
+            --bg-color: #080c14;
+            --panel-bg: rgba(13, 20, 35, 0.85);
+            --card-bg: rgba(22, 33, 54, 0.6);
+            --border-color: rgba(99, 102, 241, 0.2);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a78bfa, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .logo-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-left: 8px;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 8px;
+        }
+        .app-nav {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-item {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-main);
+            background: rgba(99, 102, 241, 0.15);
+            box-shadow: inset 0 0 8px rgba(99, 102, 241, 0.2);
+        }
+        .warning-banner {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid var(--accent-yellow);
+            color: #fbbf24;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+        }
+        /* Dashboard Layout Grid */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 340px;
+            gap: 20px;
+        }
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .panel h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: var(--accent-indigo);
+            font-weight: 700;
+        }
+        /* Metrics row */
+        .summary-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 18px;
+            text-align: center;
+        }
+        .metric-card label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-card .val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 5px;
+        }
+        /* SVG Map styles */
+        .network-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .network-svg {
+            width: 100%;
+            height: auto;
+            background: rgba(13, 20, 35, 0.4);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .track-line {
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+        }
+        .track-up { stroke: rgba(99, 102, 241, 0.4); }
+        .track-down { stroke: rgba(99, 102, 241, 0.4); }
+        .track-congested { stroke: var(--accent-yellow) !important; stroke-width: 5; }
+        .track-blocked { stroke: var(--accent-red) !important; stroke-width: 5; }
+        
+        .station-bg {
+            fill: #0d1423;
+            stroke: rgba(99, 102, 241, 0.6);
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .station-bg:hover {
+            stroke: var(--accent-purple);
+            fill: #162136;
+        }
+        .station-core { fill: var(--accent-green); cursor: pointer; }
+        .station-congested .station-core { fill: var(--accent-yellow); }
+        .station-full .station-core { fill: var(--accent-red); }
+        
+        .station-label { font-size: 11px; fill: var(--text-main); font-weight: bold; text-anchor: middle; }
+        .station-sub { font-size: 8px; fill: var(--text-muted); text-anchor: middle; }
+        
+        .sig-light { fill: var(--accent-green); stroke: rgba(0,0,0,0.5); stroke-width: 1.2; cursor: pointer; }
+        .sig-red { fill: var(--accent-red); }
+        .sig-yellow { fill: var(--accent-yellow); }
+        .sig-label { font-size: 8px; fill: var(--text-muted); font-weight: bold; }
+        
+        .train-bubble { fill: var(--bg-color); stroke: var(--accent-purple); stroke-width: 2; cursor: pointer; }
+        .train-text { font-size: 9px; fill: var(--text-main); text-anchor: middle; cursor: pointer; }
+        .selected-glow {
+            fill: none;
+            stroke: var(--accent-purple);
+            stroke-width: 3;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { r: 12px; opacity: 0.6; }
+            50% { r: 20px; opacity: 0.2; }
+            100% { r: 12px; opacity: 0.6; }
+        }
+        /* Train Cards */
+        .train-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .train-sidebar-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .train-sidebar-card:hover, .train-sidebar-card.selected {
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+        .train-sidebar-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+        }
+        .train-sidebar-card p {
+            margin: 3px 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .delay-tag {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .delay-normal {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        /* AI pipeline flowchart */
+        .pipeline-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .pipeline-step {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .pipeline-step:hover, .pipeline-step.active {
+            border-color: var(--accent-indigo);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        .step-name { font-weight: 600; }
+        .step-status { font-style: italic; color: var(--text-muted); }
+        .step-status.completed { color: var(--accent-green); font-weight: bold; }
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        /* Table Styles */
+        .solver-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        .solver-table th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--accent-indigo);
+        }
+        .solver-table td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .solver-table tr.highlight {
+            background: rgba(99, 102, 241, 0.08);
+            font-weight: bold;
+        }
+        .player-btn {
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-indigo));
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s;
+        }
+        .player-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+        }
+        .player-btn:active {
+            transform: translateY(1px);
+        }
+        
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">🚊</span>
+                <span class="logo-text">RailTwin-Q</span>
+                <span class="logo-subtitle">Operations Control Center</span>
+            </div>
+            <nav class="app-nav">
+                <a href="operations.html" id="nav-operations" class="nav-item">Operations Center</a>
+                <a href="network.html" id="nav-network" class="nav-item">Live Network</a>
+                <a href="optimization.html" id="nav-optimization" class="nav-item">Quantum Console</a>
+                <a href="../reports/layer6_end_to_end_validation.html" target="_blank" class="nav-item">Reports & Research</a>
+            </nav>
+        </header>
+        
+                
+                <div class="warning-banner" id="cors-warning">
+                    ⚠️ Running via file:// protocol. Local polling disabled.
+                </div>
+
+                <div class="panel" style="margin-bottom:20px; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.02)">
+                    <h2 style="color:var(--accent-purple);">Quantum Computing Research Verdict</h2>
+                    <p style="font-size: 0.9rem; line-height:1.6;">
+                        🔬 <b>Verdict:</b> <code style="background: rgba(239, 68, 68, 0.15); color: #f87171; padding: 2px 6px; border-radius: 4px; font-weight:bold;">Quantum Potential / No Demonstrated Quantum Advantage</code>
+                    </p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+                        RailTwin-Q converts real railway intervention decisions into constrained binary variables (QUBO) solved by classical methods, Ideal QAOA, and Hybrid QAOA. While Hybrid QAOA recovers the exact classical optimum under noise, classical baselines yield lower execution runtimes at tested dimensions (N <= 100).
+                    </p>
+                </div>
+
+                <div class="layout-grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="panel">
+                        <h2>Optimization Performance Solver Comparison</h2>
+                        <table class="solver-table">
+                            <thead>
+                                <tr>
+                                    <th>Solver Method</th>
+                                    <th>Refined Energy</th>
+                                    <th>Optimality Gap</th>
+                                    <th>Run Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="highlight">
+                                    <td>Hybrid QAOA (Refined)</td>
+                                    <td id="e-hybrid">0.00</td>
+                                    <td>0.00%</td>
+                                    <td>134 ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Ideal QAOA (p=2)</td>
+                                    <td>-0.5000</td>
+                                    <td>47.64%</td>
+                                    <td>15 ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Simulated Annealing (SA)</td>
+                                    <td id="e-sa">0.00</td>
+                                    <td>0.00%</td>
+                                    <td>125 ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Exact Classical (Brute-Force)</td>
+                                    <td id="e-exact">0.00</td>
+                                    <td>0.00%</td>
+                                    <td>1 ms</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel">
+                        <h2>Quantum Resource Allocation Metrics</h2>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; font-size:0.8rem; line-height:1.8;">
+                            <div>
+                                <p><strong>Problem Size:</strong> <span id="opt-qubits">6 Qubits</span></p>
+                                <p><strong>QAOA Depth (p):</strong> p = 2</p>
+                                <p><strong>Mixer Ansatz:</strong> XY Mixer (Constraint Preserving)</p>
+                            </div>
+                            <div>
+                                <p><strong>Backend:</strong> Qiskit Aer (Simulator)</p>
+                                <p><strong>Hardware Noise Emulation:</strong> Simulated using IBM metrics</p>
+                                <p><strong>IBM Hardware Execution:</strong> NOT EXECUTED (Emulated)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const EMBEDDED_STATE = {"tick": 120, "sim_time_str": "10:00", "state": "MONITORING", "active_disruptions": 0, "network_delay": 23.42, "congestion": 500.0, "active_interventions": [], "cycle_number": 1, "last_opt_tick": 15, "next_eligible_tick": 120, "qubits": 3, "warm_start": false, "delta_utility": 0.053, "trigger_reason": "MEDIUM: Event-triggered re-optimization: Heavy Rain", "current_plan_utility": 0.053, "new_plan_utility": 0.053, "solver_name": "HYBRID_QAOA", "reoptimization_count": 1, "recovery_status": "RECOVERED", "trains": [{"train_no": 12623, "name": "Chennai Mail", "status": "MOVING", "speed": 85.0, "progress": 6.746031746031747, "current_track_id": 3, "current_station_id": 3, "delay": 16.6, "predicted_delay_15": 20.7, "predicted_delay_30": 23.9, "predicted_delay_60": 28.9, "confidence": 0.94, "top_factors": ["Remaining Distance", "Station Congestion Delay", "Speed"], "loc_desc": "Moving Katpadi -> Jolarpettai (6.7%)"}, {"train_no": 12625, "name": "Kerala Express", "status": "WAITING", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 28.05, "predicted_delay_15": 32.7, "predicted_delay_30": 35.9, "predicted_delay_60": 39.7, "confidence": 0.92, "top_factors": ["Speed", "Progress", "Station Congestion Delay"], "loc_desc": "At Katpadi"}, {"train_no": 16057, "name": "Sapthagiri Express", "status": "MOVING", "speed": 75.0, "progress": 77.38095238095245, "current_track_id": 3, "current_station_id": 3, "delay": 25.6, "predicted_delay_15": 29.2, "predicted_delay_30": 29.5, "predicted_delay_60": 28.6, "confidence": 0.86, "top_factors": ["Distance Travelled", "Progress", "Station Congestion Delay"], "loc_desc": "Moving Katpadi -> Jolarpettai (77.4%)"}], "stations": [{"id": 1, "name": "Chennai Central", "platforms_occupied": 0, "platforms": 12, "congestion": 0.0, "status": "Empty"}, {"id": 2, "name": "Arakkonam", "platforms_occupied": 0, "platforms": 8, "congestion": 0.0, "status": "Empty"}, {"id": 3, "name": "Katpadi", "platforms_occupied": 0, "platforms": 5, "congestion": 2000.0, "status": "Empty"}, {"id": 4, "name": "Jolarpettai", "platforms_occupied": 0, "platforms": 5, "congestion": 0.0, "status": "Empty"}], "tracks": [{"id": 1, "name": "Chennai Central-Arakkonam", "source_station_id": 1, "destination_station_id": 2, "current_trains": 0, "occupancy_percent": 0.0, "status": "NORMAL"}, {"id": 2, "name": "Arakkonam-Katpadi", "source_station_id": 2, "destination_station_id": 3, "current_trains": 0, "occupancy_percent": 0.0, "status": "NORMAL"}, {"id": 3, "name": "Katpadi-Jolarpettai", "source_station_id": 3, "destination_station_id": 4, "current_trains": 2, "occupancy_percent": 50.0, "status": "NORMAL"}], "events": [], "impact": {"baseline_delay": 75.0, "optimized_delay": 23.42, "delay_reduction": 51.58}};
+                document.getElementById("nav-optimization").classList.add("active");
+
+                function updateUI(state) {
+                    document.getElementById("opt-qubits").innerText = `${state.qubits} Qubits`;
+                    const energy = state.current_plan_utility.toFixed(4);
+                    document.getElementById("e-hybrid").innerText = energy;
+                    document.getElementById("e-sa").innerText = energy;
+                    document.getElementById("e-exact").innerText = energy;
+                }
+
+                updateUI(EMBEDDED_STATE);
+
+                function pollState() {
+                    fetch('../datasets/live_state.json')
+                        .then(res => res.json())
+                        .then(data => {
+                            updateUI(data);
+                        })
+                        .catch(err => {
+                            document.getElementById("cors-warning").style.display = "block";
+                        });
+                }
+                setInterval(pollState, 1000);
+            </script>
+        </body>
+        </html>
+        

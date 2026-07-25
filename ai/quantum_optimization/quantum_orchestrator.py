@@ -22,7 +22,7 @@ class QuantumOrchestrator:
         os.makedirs(self.data_dir, exist_ok=True)
         os.makedirs(self.reports_dir, exist_ok=True)
 
-    def optimize_network(self, network, active_events: list, tick: int, baseline_recovery_time: int) -> dict:
+    def optimize_network(self, network, active_events: list, tick: int, baseline_recovery_time: int, previous_solution=None, previous_candidates=None, p_switch=0.15) -> dict:
         """
         Coordinates the entire Layer 5 optimization, validation, and benchmarking pipeline.
         Writes logs to datasets/optimization_result.json and reports/quantum_benchmark_report.html.
@@ -37,6 +37,7 @@ class QuantumOrchestrator:
         var_engine = DecisionVariables(max_variables=10)
         reduced_vars, variable_map = var_engine.build_variables(search_space)
         num_vars = len(reduced_vars)
+        print(f"[DEBUG] Tick {tick} | raw variables: {len(search_space.get('decision_variables', {}))} | reduced variables: {num_vars}")
 
         if num_vars == 0:
             # Empty decision space scenario
@@ -44,7 +45,7 @@ class QuantumOrchestrator:
 
         # 3. Objective coefficients
         obj_engine = ObjectiveFunction()
-        linear_costs = obj_engine.calculate_linear_coefficients(variable_map, search_space["cost_vectors"])
+        linear_costs = obj_engine.calculate_linear_coefficients(variable_map, search_space["cost_vectors"], active_events=active_events)
 
         # 4. Constraint encoder
         const_engine = ConstraintEncoder(penalty_strength=100.0)
@@ -58,11 +59,21 @@ class QuantumOrchestrator:
             num_vars, linear_costs, linear_penalties, quadratic_penalties
         )
 
+        # Apply Warm Start and Stability Penalties if previous solution exists
+        initial_state = None
+        if previous_solution is not None:
+            from ai.adaptive_control.warm_start import WarmStartManager
+            from ai.adaptive_control.stability_manager import StabilityManager
+            initial_state = WarmStartManager.get_warm_start_vector(reduced_vars, previous_solution, previous_candidates)
+            qubo_matrix = StabilityManager.inject_switching_penalties(qubo_matrix, reduced_vars, previous_solution, previous_candidates, p_switch)
+
         # 6. Run Benchmark (Exact, Greedy, Simulated Annealing, Local Search, QAOA, Hybrid)
         bench = OptimizationBenchmark.run_benchmark(
             num_vars, qubo_matrix, reduced_vars, search_space["cost_vectors"],
             search_space["constraints"], search_space["dependencies"],
-            qaoa_reps=self.reps, qaoa_shots=self.shots, seed=self.seed
+            linear_costs=linear_costs, penalty_strength=100.0,
+            qaoa_reps=self.reps, qaoa_shots=self.shots, seed=self.seed,
+            initial_state=initial_state
         )
 
         # 7. Select best solver solution (prefer Hybrid QAOA if valid, otherwise simulated annealing)
@@ -92,6 +103,19 @@ class QuantumOrchestrator:
         qubits_used = qaoa_stats.get("qubits", 0)
         depth_used = qaoa_stats.get("circuit_depth", 0)
 
+        # Record QUBO comparison logging (Section 8 proof)
+        qubo_log_entry = {
+            "tick": tick,
+            "variable_count": num_vars,
+            "qubo_coefficients": {f"{k[0]},{k[1]}": float(v) for k, v in qubo_matrix.items()},
+            "selected_actions": [act["action"] for act in selected_actions],
+            "solver_selected": selected_solver,
+            "warm_start_loaded": initial_state is not None
+        }
+        os.makedirs("datasets", exist_ok=True)
+        with open("datasets/qubo_comparison_log.jsonl", "a", encoding="utf-8") as f:
+            f.write(json.dumps(qubo_log_entry) + "\n")
+
         # Compile final Layer 5 Result Payload
         payload = {
             "optimization_tick": tick,
@@ -106,6 +130,12 @@ class QuantumOrchestrator:
             },
             "selected_solver": selected_solver.upper(),
             "selected_actions": selected_actions,
+            "selected_bitstring": best_sol["bitstring"],
+            "reduced_variables": reduced_vars,
+            "best_energy": best_sol["energy"],
+            "exact_energy": solver_comparison["exact"]["energy"],
+            "warm_start_used": initial_state is not None,
+            "initial_state_vector": initial_state,
             "constraint_validation": {
                 "valid": validation_status["valid"],
                 "violations": validation_status["violations"],

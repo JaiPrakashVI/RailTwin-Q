@@ -13,11 +13,24 @@ class ObjectiveFunction:
         self.weights = weights if weights is not None else self.DEFAULT_WEIGHTS
         self.structured_schemas = {}
 
-    def calculate_linear_coefficients(self, variable_map: dict, cost_vectors: list) -> dict:
+    def calculate_linear_coefficients(self, variable_map: dict, cost_vectors: list, active_events: list = None) -> dict:
         """
         Computes the linear coefficient for each decision variable in the QUBO based on the strict multi-objective schema.
         Prevents the QUBO builder from mixing raw and normalized values.
         """
+        if active_events:
+            self.weights = {
+                "delay": 0.85,
+                "congestion": 0.05,
+                "passenger": 0.03,
+                "risk": 0.03,
+                "energy": 0.02,
+                "operational_cost": 0.01,
+                "schedule_stability": 0.01
+            }
+        else:
+            self.weights = self.DEFAULT_WEIGHTS
+
         linear_coefficients = {}
         cost_map = {cv["action_id"]: cv["cost_vector"] for cv in cost_vectors}
 
@@ -32,7 +45,7 @@ class ObjectiveFunction:
             schema = {
                 "delay_reduction_minutes": {
                     "raw": theoretical,
-                    "normalized": float(-predicted_30 / 10.0),  # negative cost represents benefit
+                    "normalized": float(predicted_30 / 10.0),  # positive normalized value
                     "weight": self.weights.get("delay", 0.40),
                     "direction": "maximize",
                     "unit": "minutes",
@@ -40,7 +53,7 @@ class ObjectiveFunction:
                 },
                 "congestion": {
                     "raw": float(cost_vector.get("platform_usage", 0.0) * 0.5 + cost_vector.get("track_utilization", 0.0) * 0.5),
-                    "normalized": float(cost_vector.get("platform_usage", 0.0) * 0.5 + cost_vector.get("track_utilization", 0.0) * 0.5),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("platform_usage", 0.0) * 0.5 + cost_vector.get("track_utilization", 0.0) * 0.5))),
                     "weight": self.weights.get("congestion", 0.15),
                     "direction": "minimize",
                     "unit": "occupancy_ratio",
@@ -48,7 +61,7 @@ class ObjectiveFunction:
                 },
                 "passenger_impact": {
                     "raw": float(cost_vector.get("passenger_delay", 0.0)),
-                    "normalized": float(cost_vector.get("passenger_delay", 0.0)),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("passenger_delay", 0.0)))),
                     "weight": self.weights.get("passenger", 0.15),
                     "direction": "minimize",
                     "unit": "index",
@@ -56,7 +69,7 @@ class ObjectiveFunction:
                 },
                 "safety_risk": {
                     "raw": float(cost_vector.get("safety_risk", 0.0)),
-                    "normalized": float(cost_vector.get("safety_risk", 0.0)),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("safety_risk", 0.0)))),
                     "weight": self.weights.get("risk", 0.15),
                     "direction": "minimize",
                     "unit": "risk_index",
@@ -64,7 +77,7 @@ class ObjectiveFunction:
                 },
                 "energy": {
                     "raw": float(cost_vector.get("energy_consumption", 0.0)),
-                    "normalized": float(cost_vector.get("energy_consumption", 0.0)),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("energy_consumption", 0.0)))),
                     "weight": self.weights.get("energy", 0.05),
                     "direction": "minimize",
                     "unit": "kWh",
@@ -72,7 +85,7 @@ class ObjectiveFunction:
                 },
                 "operational_cost": {
                     "raw": float(cost_vector.get("operational_complexity", 0.0)),
-                    "normalized": float(cost_vector.get("operational_complexity", 0.0)),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("operational_complexity", 0.0)))),
                     "weight": self.weights.get("operational_cost", 0.05),
                     "direction": "minimize",
                     "unit": "index",
@@ -80,7 +93,7 @@ class ObjectiveFunction:
                 },
                 "schedule_stability": {
                     "raw": float(cost_vector.get("schedule_stability", 0.0)),
-                    "normalized": float(cost_vector.get("schedule_stability", 0.0)),
+                    "normalized": float(min(1.0, max(0.0, cost_vector.get("schedule_stability", 0.0)))),
                     "weight": self.weights.get("schedule_stability", 0.05),
                     "direction": "minimize",
                     "unit": "index",
@@ -90,10 +103,18 @@ class ObjectiveFunction:
 
             self.structured_schemas[action_id] = schema
 
-            # 2. Compute strictly weighted normalized coefficients
-            cost_value = sum(
-                meta["weight"] * meta["normalized"] for meta in schema.values()
-            )
+            # 2. Compute strictly weighted normalized coefficients based on optimization direction
+            cost_value = 0.0
+            for name, meta in schema.items():
+                # Enforce safety assertions for normalized metrics (must be within [-1, 1])
+                val = meta["normalized"]
+                assert -1.0 - 1e-6 <= val <= 1.0 + 1e-6, f"Anomaly: mixed normalized and raw metrics for {name}: {val}"
+                
+                if meta["direction"] == "maximize":
+                    cost_value -= meta["weight"] * val
+                else:
+                    cost_value += meta["weight"] * val
+
             linear_coefficients[idx] = float(cost_value)
 
         return linear_coefficients

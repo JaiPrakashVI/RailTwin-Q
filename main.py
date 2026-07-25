@@ -8,6 +8,7 @@ from services.graph_builder import GraphBuilder
 from services.state_engine import StateEngine
 from services.movement_engine import MovementEngine
 from services.event_system import SignalFailureEvent, HeavyRainEvent
+from services.frontend_generator import FrontendGenerator
 
 def format_time(minutes):
     hrs = (8 + (minutes // 60)) % 24
@@ -367,6 +368,106 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
                 <div style="font-size: 0.75rem; color: var(--accent-green); font-weight: bold; background: rgba(16,185,129,0.1); border: 1px solid var(--accent-green); border-radius: 4px; padding: 5px; text-align: center;">
                     -{l5_data.get('counterfactual_results', {}).get('delay_reduction_percent', 0.0)}% Delay | -{l5_data.get('counterfactual_results', {}).get('congestion_reduction_percent', 0.0)}% Congestion
                 </div>
+            </div>
+            """
+        except Exception:
+            pass
+
+    l6_html = ""
+    l6_state_path = os.path.join("datasets", "layer6_state.json")
+    if os.path.exists(l6_state_path):
+        try:
+            with open(l6_state_path, "r", encoding="utf-8") as f:
+                l6_data = json.load(f)
+                
+            active_intvs_str = ""
+            for intv in l6_data.get("active_interventions", []):
+                active_intvs_str += f"<li><b>[{intv['type']}]</b> {intv['target']} ({intv['status']})</li>"
+            if not active_intvs_str:
+                active_intvs_str = "<li>No active interventions</li>"
+                
+            st = l6_data.get("state", "MONITORING")
+            st_colors = {
+                "MONITORING": "var(--accent-green)",
+                "ASSESSING": "var(--accent-yellow)",
+                "OPTIMIZING": "var(--accent-purple)",
+                "INTERVENING": "var(--accent-indigo)",
+                "REOPTIMIZING": "var(--accent-yellow)",
+                "EMERGENCY": "var(--accent-red)",
+                "RECOVERING": "var(--accent-green)"
+            }
+            color_hex = st_colors.get(st, "var(--text-main)")
+            
+            active_intvs_str = ""
+            for intv in l6_data.get("active_interventions", []):
+                active_intvs_str += f"<li><b>[{intv['type']}]</b> {intv['target']} - status: <span style='color:var(--accent-green);font-weight:600;'>{intv['status']}</span> (expected save: {intv.get('expected_delay_reduction', 0.0)}m)</li>"
+            if not active_intvs_str:
+                active_intvs_str = "<li>No active interventions</li>"
+                
+            st = l6_data.get("state", "MONITORING")
+            st_colors = {
+                "MONITORING": "var(--accent-green)",
+                "ASSESSING": "var(--accent-yellow)",
+                "OPTIMIZING": "var(--accent-purple)",
+                "INTERVENING": "var(--accent-indigo)",
+                "REOPTIMIZING": "var(--accent-yellow)",
+                "EMERGENCY": "var(--accent-red)",
+                "RECOVERING": "var(--accent-green)"
+            }
+            color_hex = st_colors.get(st, "var(--text-main)")
+            
+            # Map timeline highlight index
+            timeline_steps = ["DISRUPTION", "DETECTION", "OPTIMIZATION", "INTERVENTION", "FEEDBACK", "REOPTIMIZATION", "NEW INTERVENTION", "RECOVERY"]
+            highlight_index = 0
+            if st == "ASSESSING": highlight_index = 1
+            elif st == "OPTIMIZING": highlight_index = 2
+            elif st == "INTERVENING": highlight_index = 3
+            elif st == "REOPTIMIZING": highlight_index = 5
+            elif st == "EMERGENCY": highlight_index = 6
+            elif st == "RECOVERING": highlight_index = 7
+            
+            timeline_html = "<div style='display:flex; flex-wrap:wrap; gap:4px; font-size:0.6rem; margin-top:8px; line-height:1.8; color:var(--text-muted);'>"
+            for idx, step in enumerate(timeline_steps):
+                is_active = (idx == highlight_index)
+                color = "background:var(--accent-indigo); color:#ffffff; font-weight:bold; border-radius:4px; padding:2px 4px;" if is_active else "background:rgba(255,255,255,0.05); padding:2px 4px; border-radius:4px;"
+                arrow = " &rarr; " if idx < len(timeline_steps) - 1 else ""
+                timeline_html += f"<span style='{color}'>{step}</span>{arrow}"
+            timeline_html += "</div>"
+            
+            l6_html = f"""
+            <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--accent-indigo); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; margin-top: 20px;">
+                <h3 style="margin-top: 0; border-bottom: 1px solid var(--accent-indigo); padding-bottom: 6px; color: var(--accent-indigo); font-size: 0.95rem;">Layer 6: Adaptive Control Center</h3>
+                
+                <p style="margin: 0 0 10px 0; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    <b>Controller State:</b> <span style="color: {color_hex}; font-weight:bold;">{st}</span><br>
+                    <b>Disruptions Active:</b> {l6_data.get('active_disruptions', 0)}<br>
+                    <b>Network Delay:</b> {l6_data.get('network_delay', 0.0)} mins<br>
+                    <b>Network Congestion:</b> {l6_data.get('congestion', 0.0)}%<br>
+                    <b>Current Tick:</b> {tick}<br>
+                    <b>Last Opt Tick:</b> {l6_data.get('last_opt_tick', 0)}<br>
+                    <b>Next Re-Opt Eligibility:</b> Tick {l6_data.get('next_eligible_tick', 0)}<br>
+                    <b>Recovery Status:</b> <span style="font-weight:600; color:var(--accent-green);">{l6_data.get('recovery_status', 'NORMAL')}</span>
+                </p>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Current Interventions</h4>
+                <ul style="list-style: none; padding: 0; margin: 0 0 12px 0; font-size: 0.75rem; line-height: 1.4; color: var(--text-muted);">
+                    {active_intvs_str}
+                </ul>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Optimization Cycle Info</h4>
+                <p style="margin: 0 0 10px 0; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    <b>Reoptimization Count:</b> #{l6_data.get('reoptimization_count', 0)}<br>
+                    <b>Qubits (Variables):</b> {l6_data.get('qubits', 0)}<br>
+                    <b>Warm Start:</b> {"Yes" if l6_data.get('warm_start') else "No"}<br>
+                    <b>Current Plan Utility:</b> {l6_data.get('current_plan_utility', 0.0)}<br>
+                    <b>New Plan Utility:</b> {l6_data.get('new_plan_utility', 0.0)}<br>
+                    <b>Delta Utility (&Delta;U):</b> {l6_data.get('delta_utility', 0.0)}<br>
+                    <b>Solver Name:</b> {l6_data.get('solver_name', 'None')}<br>
+                    <b>Trigger Reason:</b> <span style="font-style:italic;">{l6_data.get('trigger_reason', 'None')}</span>
+                </p>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Closed-Loop Control Flow Timeline</h4>
+                {timeline_html}
             </div>
             """
         except Exception:
@@ -856,6 +957,7 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
                     {timeline_html}
                 </div>
                 {l5_html}
+                {l6_html}
             </div>
         </div>
     </div>
@@ -941,6 +1043,14 @@ def main():
     
     history_records_to_write = []
     congestion_history_records = []
+    simulation_history = []
+
+    # Initialize Layer 6 Control Orchestrator
+    from ai.adaptive_control.control_orchestrator import ControlOrchestrator
+    from ai.quantum_optimization.quantum_orchestrator import QuantumOrchestrator
+    
+    control_orchestrator = ControlOrchestrator()
+    orchestrator_l5 = QuantumOrchestrator()
 
     print("\n[Step 5] Starting simulation loop (120 minutes)...")
     time.sleep(1)
@@ -981,33 +1091,12 @@ def main():
         preds_propagation = propagation_predictor.get_predictions_for_tick(network, tick, sim_time_str, active_events, preds_delay, preds_congestion)
 
         # -------------------------------------------------------------
-        # RUN LAYER 5 QUANTUM OPTIMIZATION ENGINE
+        # RUN LAYER 6 ADAPTIVE CONTROL ORCHESTRATOR
         # -------------------------------------------------------------
-        from ai.quantum_optimization.quantum_orchestrator import QuantumOrchestrator
-        orchestrator = QuantumOrchestrator()
         baseline_rec_time = preds_propagation.get("expected_recovery", {}).get("expected_recovery_time_mins", 0)
-        quantum_results = orchestrator.optimize_network(network, active_events, tick, baseline_rec_time)
-
-        # Apply optimal action modifications back to the main Digital Twin simulation
-        if quantum_results.get("selected_actions"):
-            for act in quantum_results["selected_actions"]:
-                train_name = act.get("target", "")
-                action_type = act.get("action", "")
-
-                train_obj = network.get_train_by_no(train_name)
-                if not train_obj:
-                    for t_obj in network.trains:
-                        if t_obj.name == train_name:
-                            train_obj = t_obj
-                            break
-                
-                if train_obj:
-                    if action_type == "SPEED_ADJUST":
-                        train_obj.base_speed = min(train_obj.base_speed * 1.02, train_obj.max_speed)
-                    elif action_type == "PLATFORM_SWAP":
-                        train_obj.is_priority_train = True
-                    elif action_type == "HOLD":
-                        train_obj.dwell_time_remaining = max(train_obj.dwell_time_remaining, 1)
+        quantum_results = control_orchestrator.orchestrate_tick(
+            network, active_events, tick, baseline_rec_time, orchestrator_l5
+        )
 
         # Log Delay Decisions
         for p in preds_delay:
@@ -1116,6 +1205,13 @@ def main():
 
         # Generate HTML visual web dashboard
         generate_web_dashboard(network, tick, sim_time_str, active_events, preds_delay, preds_congestion, preds_propagation)
+        
+        # Compile judge-facing operations dashboard pages
+        try:
+            current_state = FrontendGenerator.generate_pages(network, tick, sim_time_str, active_events, preds_delay, preds_congestion, preds_propagation, control_orchestrator, simulation_history)
+            simulation_history.append(current_state)
+        except Exception as ex:
+            print(f"Error compiling operations dashboard: {ex}")
 
         # Render statuses every 15 minutes
         if tick % 15 == 0 or tick in [15, 45, 55, 80]:
@@ -1174,10 +1270,25 @@ def main():
     rep_path = PropagationEvaluationEngine.generate_evaluation_report(propagation_predictor.history_csv, "reports")
     print(f" -> Saved disruption propagation evaluation report to {rep_path}.")
 
+    # Finalize Layer 6 Control Reports
+    control_orchestrator.finalize_simulation()
+    print(" -> Saved Layer 6 adaptive control reports to reports/layer6_adaptive_control_report.html and reports/layer6_closed_loop_report.html.")
+
     # Generate Layer 4 Decision Space Evaluation HTML Report
     from ai.decision_space.evaluation import DecisionEvaluationEngine
     dec_rep_path = DecisionEvaluationEngine.generate_decision_report("datasets", "reports")
     print(f" -> Saved decision space evaluation report to {dec_rep_path}.")
+
+    # Save simulation history log for front-end playback
+    try:
+        os.makedirs("frontend/datasets", exist_ok=True)
+        with open("datasets/simulation_history.json", "w", encoding="utf-8") as f:
+            json.dump(simulation_history, f)
+        with open("frontend/datasets/simulation_history.json", "w", encoding="utf-8") as f:
+            json.dump(simulation_history, f)
+        print(f" -> Saved simulation playback history to datasets/simulation_history.json and frontend/datasets/simulation_history.json ({len(simulation_history)} ticks).")
+    except Exception as ex:
+        print(f"Error saving simulation playback history: {ex}")
 
     # 4. Summarize results
     print("\n" + "=" * 80)

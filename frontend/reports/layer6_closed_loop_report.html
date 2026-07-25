@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layer 6 Closed-Loop Calibration Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #10b981; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { background: rgba(255,255,255,0.05); color: #10b981; font-weight:600; padding:10px; text-align:left; }
+        td { padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+    <div class="header">Layer 6 Closed-Loop Simulation Outcomes Feedback</div>
+    
+    <div class="card">
+        <h2>Prediction vs Actual Realized Outcomes Feedback (Calibration Engine inputs)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:center;">Tick</th>
+                    <th>Action Type</th>
+                    <th>Target Entity</th>
+                    <th style="text-align:center;">Expected Delay Reduction</th>
+                    <th style="text-align:center;">Actual Delay Reduction</th>
+                    <th style="text-align:center;">Absolute Error</th>
+                    <th style="text-align:center;">Error %</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">16</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Train A</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">6.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">5.20 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.80 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">13.3%</td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

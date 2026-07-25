@@ -106,6 +106,7 @@ We executed these high-priority research-grade extensions:
 4. `reports/quantum_advantage_readiness.html`: Scorecard evaluating Solution Quality, Runtime, Scalability, Feasibility, and Noise Robustness.
 5. `reports/layer5_end_to_end_validation.html`: Cloned Digital Twin counterfactual validation outcomes.
 6. `reports/layer5_scalability_report.html`: Sizing sweeps summary comparing QAOA abort limits vs classical heuristic efficiency.
+7. `reports/layer5_final_validation.html`: Comprehensive 10-Section Presentation Report.
 
 ### Final Experimental JSON Datasets Generated
 1. `datasets/layer5_final_benchmark.json`: Multi-seed noise deconstruction raw results.
@@ -116,6 +117,66 @@ We executed these high-priority research-grade extensions:
 ### Scientific Conclusion
 **Verdict**: *Quantum Potential / No Demonstrated Quantum Advantage* (Quantum advantage was not observed at the tested scales; however, Hybrid QAOA reliably matched exact solvers, exhibiting robust optimum recovery and resistance to local minima).
 
+---
 
+## 6. Layer 6: Receding-Horizon Adaptive Control & Autonomous Simulation Re-Optimization
+
+We have successfully implemented and validated **Layer 6: Receding-Horizon Adaptive Control & Autonomous Simulation Re-Optimization**. The receding-horizon closed-loop control architecture is demonstrated in a simulated Digital Twin environment, coordinating real-time state observations, anomaly triggers, re-optimization cooldowns, dynamic warm starting, stability penalties, decision quality gating, action execution, and outcome feedback loops.
+
+### 1. Subsystem Architecture (`ai/adaptive_control/`)
+The following modules were implemented under `ai/adaptive_control/`:
+* [state_monitor.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/state_monitor.py): Observes active train status, average delays, platform utilization, track capacities, and returns formatted state snapshots.
+* [event_detector.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/event_detector.py): Detects state changes to identify anomalies (e.g. weather shifts, new disruptions, platform bottlenecks).
+* [trigger_engine.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/trigger_engine.py): Manages triggers and re-optimization cooldown boundaries (minimum 5-tick interval, bypassed by critical high-severity disruption events).
+* [receding_horizon.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/receding_horizon.py): Defines sliding receding-horizon lookahead windows (default 30 minutes).
+* [warm_start.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/warm_start.py): Maps previous solutions to current variable signatures to construct warm-started initial states for SA and QAOA.
+* [stability_manager.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/stability_manager.py): Modifies QUBO matrices to inject switching costs using $C_{\text{switch}} = P_{\text{switch}} \times |x_i - x_i^{\text{prev}}|$, suppressing control oscillations.
+* [action_executor.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/action_executor.py): Dynamically adjusts dwell times, speeds, and priorities in the simulator based on valid action vectors.
+* [feedback_engine.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/feedback_engine.py): Tracks execution performance and measures actual delay reduction compared to predictions.
+* [recovery_monitor.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/recovery_monitor.py): Checks stabilization thresholds to trigger state recovery.
+* [adaptive_controller.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/adaptive_controller.py): Implements the core Controller State Machine:
+  - **States**: `MONITORING`, `ASSESSING`, `OPTIMIZING`, `INTERVENING`, `RECOVERING`, `REOPTIMIZING`, `EMERGENCY`.
+  - **Action Lifecycles**: `PROPOSED`, `VALIDATED`, `APPLIED`, `ACTIVE`, `PARTIALLY_EFFECTIVE`, `FAILED`, `EXPIRED`, `REVOKED`, `COMPLETED`.
+  - **Decision Quality Gate**: Validates that $\Delta \text{Utility} = \text{Utility}_{\text{new}} - \text{Utility}_{\text{current}} - \text{SwitchingCost} > \epsilon$ (where $\epsilon \approx 0.05$).
+* [control_report_generator.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/control_report_generator.py): Compiles premium, dark-themed HTML control reports.
+* [control_orchestrator.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/adaptive_control/control_orchestrator.py): Central coordinating engine executing the tick-by-tick closed-loop workflow.
+
+---
+
+### 2. Validation Deliverables & Reports
+The validation run executed a full 120-minute simulation tick loop and successfully generated:
+1. `reports/layer6_adaptive_control_report.html`: Tracks controller state history, transitions, active anomalies, and re-optimization cycle metrics.
+2. `reports/layer6_closed_loop_report.html`: Tracks logged action lifecycles, feedback estimates, predicted vs actual savings, and decision gate utility improvements.
+3. `datasets/layer6_state.json`: Real-time controller snapshot exported dynamically.
+4. `datasets/layer6_feedback_log.jsonl`: Event logging for action outcome feedback.
+5. **Adaptive Control Center Web Panel**: Displayed live in the sidebar of [dashboard.html](file:///c:/Users/idhay/Desktop/RailTwin-Q/datasets/dashboard.html).
+
+---
+
+## 7. RailTwin-Q Operations Control Center (All Phases Completed)
+
+We have successfully implemented and validated all six visual and interactive phases for the judge-facing Operations Control Center command console.
+
+### Summary of Completed Phases:
+1. **Phase 1: Live Railway Network (SVG Layout)**
+   * Built an interactive schematic SVG map mapping stations and tracks.
+   * Double tracks (Up and Down lines) change colors (Blue/Yellow/Red) based on active blocks occupancy.
+   * Six dynamic signals (`SIG-01` to `SIG-06`) transition to caution (Yellow) or stop (Red) when disruptions block tracks.
+2. **Phase 2: Layer 2–6 Pipeline Visualization**
+   * Designed a clickable flowchart on the right-hand panel showing the active simulation layers (Layer 1 to Layer 6).
+   * Clicking on any layer updates the **Pipeline Diagnostics panel** in real-time, showing parameters like XGBoost Prediction MAE, LSTM congestion status, QUBO variables count, and receding-horizon triggers.
+3. **Phase 3: Quantum Optimization Console**
+   * Implemented the [optimization.html](file:///c:/Users/idhay/Desktop/RailTwin-Q/frontend/optimization.html) page displaying exact classical solver energies (brute-force) against simulated annealing and Hybrid QAOA.
+   * Emits a scientifically honest verdict explaining the current lack of hardware quantum advantage at smaller dimensions ($N \le 100$).
+4. **Phase 4: Receding-Horizon Control Event Timeline**
+   * Parsed the simulation log files (`trigger_engine_log.jsonl`, `decision_gate_log.jsonl`, `qubo_comparison_log.jsonl`) to construct a unified chronological list of controller events.
+   * Shows events dynamically matching the current play tick!
+5. **Phase 5: Before / After Counterfactual Impact Analysis**
+   * Displays the cumulative delay savings (baseline vs. optimized schedule delays) at each tick of the simulation.
+6. **Phase 6: 60-Second Disruption Replay Mode**
+   * Implemented a browser-side Playback Player bar: features **Play/Pause**, **Reset**, **Speed Multipliers (1x, 2x, 5x)**, and a **Timeline Range Scrub Slider**.
+   * The complete 121-tick simulation state array is serialized directly into the HTML code at compile-time. This bypasses browser CORS blockages, allowing the entire 120-minute simulation replay to execute with fluid SVG animations natively via the `file://` protocol. If run on a local HTTP server, the page falls back to live AJAX polling of `live_state.json`.
+
+---
 
 

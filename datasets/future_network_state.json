@@ -2,7 +2,7 @@
     "future_state": {
         "tick": 120,
         "time": "10:00",
-        "cascade_severity_index": 51.8,
+        "cascade_severity_index": 52.7,
         "severity_level": "Moderate",
         "cascade_forecasts": {
             "15": {
@@ -165,8 +165,8 @@
                 "name": "Chennai Mail",
                 "current_delay": 16.6,
                 "pred_15": 20.66,
-                "pred_30": 23.92,
-                "pred_60": 28.89,
+                "pred_30": 23.91,
+                "pred_60": 28.88,
                 "confidence": 0.94,
                 "status": "MOVING",
                 "route_id": 1,
@@ -181,11 +181,11 @@
                 "type": "train",
                 "train_no": 12625,
                 "name": "Kerala Express",
-                "current_delay": 27.02,
-                "pred_15": 31.11,
-                "pred_30": 33.98,
-                "pred_60": 37.76,
-                "confidence": 0.86,
+                "current_delay": 28.05,
+                "pred_15": 32.68,
+                "pred_30": 35.85,
+                "pred_60": 39.69,
+                "confidence": 0.92,
                 "status": "WAITING",
                 "route_id": 1,
                 "route_index": 2,
@@ -200,10 +200,10 @@
                 "train_no": 16057,
                 "name": "Sapthagiri Express",
                 "current_delay": 25.6,
-                "pred_15": 29.22,
-                "pred_30": 29.56,
-                "pred_60": 28.77,
-                "confidence": 0.87,
+                "pred_15": 29.2,
+                "pred_30": 29.51,
+                "pred_60": 28.61,
+                "confidence": 0.86,
                 "status": "MOVING",
                 "route_id": 1,
                 "route_index": 2,
@@ -246,7 +246,7 @@
                 "trains_waiting": 1,
                 "current_congestion": 20.0,
                 "pred_congestion_30": 20.0,
-                "average_delay": 27.02,
+                "average_delay": 28.05,
                 "id": "station_3"
             },
             {
@@ -287,7 +287,7 @@
                 "capacity": 4,
                 "trains_on_track": 2,
                 "current_occupancy": 50.0,
-                "pred_occupancy_30": 49.48,
+                "pred_occupancy_30": 49.86,
                 "blocked": false,
                 "id": "track_3"
             }
@@ -322,7 +322,7 @@
             },
             {
                 "propagation_probability": 0.24,
-                "expected_delay_transfer": 13.5,
+                "expected_delay_transfer": 14.0,
                 "transfer_time": 5,
                 "reason": "Platform Starvation Dwell",
                 "confidence": 80.0,
@@ -351,8 +351,8 @@
             {
                 "id": 12625,
                 "name": "Kerala Express",
-                "criticality_score": 49.9,
-                "delay": 27.02
+                "criticality_score": 51.1,
+                "delay": 28.05
             },
             {
                 "id": 12623,
@@ -418,7 +418,7 @@
             {
                 "id": 12625,
                 "name": "Kerala Express",
-                "risk_score": 25.9
+                "risk_score": 26.5
             },
             {
                 "id": 12623,

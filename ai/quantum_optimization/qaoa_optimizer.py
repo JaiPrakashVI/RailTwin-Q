@@ -9,7 +9,7 @@ class QAOAOptimizer:
         self.seed = seed
 
     def solve(self, num_vars: int, qubo_matrix: dict, method="COBYLA", n_starts=3, 
-              mode="SIMULATOR", depolarizing_noise=0.0, bit_flip_noise=0.0, readout_noise=0.0) -> dict:
+              mode="SIMULATOR", depolarizing_noise=0.0, bit_flip_noise=0.0, readout_noise=0.0, initial_state=None) -> dict:
         """
         Executes QAOA using an advanced statevector simulator supporting:
         - Mode separation (SIMULATOR, AER, IBM_QUANTUM)
@@ -77,8 +77,22 @@ class QAOAOptimizer:
 
         # 5. Define QAOA ansatz simulation
         def get_qaoa_state(gamma, beta):
-            # Start in equal superposition |+>
-            state = np.ones(num_states, dtype=complex) / np.sqrt(num_states)
+            if initial_state is not None:
+                # Warm-started initial state vector preparation
+                delta = 0.3927  # bias angle parameter
+                qubit_states = []
+                for val in initial_state:
+                    if val == 1:
+                        qubit_states.append(np.array([np.sin(delta), np.cos(delta)], dtype=complex))
+                    else:
+                        qubit_states.append(np.array([np.cos(delta), np.sin(delta)], dtype=complex))
+                # Tensor product starting from rightmost bit to leftmost bit
+                state = qubit_states[num_vars - 1]
+                for q in range(num_vars - 2, -1, -1):
+                    state = np.kron(state, qubit_states[q])
+            else:
+                # Start in equal superposition |+>
+                state = np.ones(num_states, dtype=complex) / np.sqrt(num_states)
             
             # Apply reps of Cost and Mixer unitaries
             for r in range(self.reps):

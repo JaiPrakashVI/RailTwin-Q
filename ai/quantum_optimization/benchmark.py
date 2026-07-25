@@ -7,7 +7,9 @@ from ai.quantum_optimization.solution_validator import SolutionValidator
 
 class OptimizationBenchmark:
     @staticmethod
-    def run_benchmark(num_vars: int, qubo_matrix: dict, reduced_vars: dict, cost_vectors: list, constraints: dict, dependencies: dict, qaoa_reps=2, qaoa_shots=1024, seed=42) -> dict:
+    def run_benchmark(num_vars: int, qubo_matrix: dict, reduced_vars: dict, cost_vectors: list, 
+                      constraints: dict, dependencies: dict, linear_costs: dict, penalty_strength: float = 100.0, 
+                      qaoa_reps=2, qaoa_shots=1024, seed=42, initial_state=None) -> dict:
         """
         Runs all solvers, computes exact optimality gaps, identifies categorical winners,
         and aggregates complete solver performance benchmarks.
@@ -26,6 +28,12 @@ class OptimizationBenchmark:
             "validation": val_exact,
             "optimality_gap_percent": 0.0
         }
+
+        # Run automated safety and formulation audits on exact solution
+        SolutionValidator.audit_pipeline(
+            qubo_matrix, linear_costs, bit_exact, reduced_vars,
+            cost_vectors, constraints, dependencies, penalty_strength
+        )
 
         # Helper to compute optimality gap
         def calc_gap(energy):
@@ -47,7 +55,7 @@ class OptimizationBenchmark:
         }
 
         # 3. Local Search Solver
-        bit_ls, energy_ls, time_ls = ClassicalBaselines.solve_local_search(num_vars, qubo_matrix)
+        bit_ls, energy_ls, time_ls = ClassicalBaselines.solve_local_search(num_vars, qubo_matrix, initial_state=initial_state)
         act_ls = SolutionDecoder.decode_solution(bit_ls, reduced_vars)
         val_ls = SolutionValidator.validate_plan(act_ls, constraints, dependencies)
         results["local_search"] = {
@@ -60,7 +68,7 @@ class OptimizationBenchmark:
         }
 
         # 4. Simulated Annealing
-        bit_sa, energy_sa, time_sa = ClassicalBaselines.solve_simulated_annealing(num_vars, qubo_matrix, seed)
+        bit_sa, energy_sa, time_sa = ClassicalBaselines.solve_simulated_annealing(num_vars, qubo_matrix, seed, initial_state=initial_state)
         act_sa = SolutionDecoder.decode_solution(bit_sa, reduced_vars)
         val_sa = SolutionValidator.validate_plan(act_sa, constraints, dependencies)
         results["simulated_annealing"] = {
@@ -74,7 +82,7 @@ class OptimizationBenchmark:
 
         # 5. Quantum QAOA
         qaoa_solver = QAOAOptimizer(reps=qaoa_reps, shots=qaoa_shots, seed=seed)
-        qaoa_res = qaoa_solver.solve(num_vars, qubo_matrix)
+        qaoa_res = qaoa_solver.solve(num_vars, qubo_matrix, initial_state=initial_state)
         bit_qaoa = qaoa_res["bitstring"]
         energy_qaoa = qaoa_res["energy"]
         time_qaoa = qaoa_res["runtime_seconds"]
