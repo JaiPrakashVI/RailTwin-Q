@@ -8,7 +8,8 @@ class Train:
         speed,
         delay,
         train_type="PASSENGER",
-        max_speed=110
+        max_speed=110,
+        priority=3
     ):
         self.train_no = train_no
         self.name = name
@@ -22,9 +23,10 @@ class Train:
         self.delay = delay
         self.delay_change_last_tick = 0.0
 
-        # Train categorization
-        self.train_type = train_type # PASSENGER, EXPRESS, SUPERFAST, FREIGHT
-        self.is_priority_train = train_type in ["EXPRESS", "SUPERFAST"]
+        # Train categorization & Priority
+        self.train_type = train_type # PASSENGER, EXPRESS, SUPERFAST, FREIGHT, MAINTENANCE
+        self.priority = priority
+        self.is_priority_train = train_type in ["EXPRESS", "SUPERFAST"] or priority <= 2
 
         # Movement tracking
         self.status = "WAITING"  # Starts at the station waiting to depart
@@ -47,4 +49,4 @@ class Train:
         self.secondary_delay_reason = "NORMAL"
 
     def __str__(self):
-        return f"{self.train_no} - {self.name} ({self.train_type})"
+        return f"{self.train_no} - {self.name} ({self.train_type}, P{self.priority})"

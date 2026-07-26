@@ -3,51 +3,310 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Kerala Express",
             "feasible": true,
             "variable_symbol": "x_1"
         },
         "2": {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Sapthagiri Express",
+            "target": "Shatabdi Express",
             "feasible": true,
             "variable_symbol": "x_2"
         },
         "3": {
             "action_id": 3,
-            "action": "HOLD",
-            "target": "Chennai Mail",
+            "action": "REROUTE",
+            "target": "Grand Trunk Express",
             "feasible": true,
             "variable_symbol": "x_3"
         },
         "4": {
             "action_id": 4,
-            "action": "HOLD",
-            "target": "Kerala Express",
+            "action": "REROUTE",
+            "target": "Tirupati Express",
             "feasible": true,
             "variable_symbol": "x_4"
         },
         "5": {
             "action_id": 5,
-            "action": "HOLD",
-            "target": "Sapthagiri Express",
+            "action": "REROUTE",
+            "target": "Lalbagh Express",
             "feasible": true,
             "variable_symbol": "x_5"
         },
         "6": {
             "action_id": 6,
-            "action": "SPEED_ADJUST",
-            "target": "Chennai Mail",
+            "action": "REROUTE",
+            "target": "Jolarpettai Heavy Freight",
             "feasible": true,
             "variable_symbol": "x_6"
         },
         "7": {
             "action_id": 7,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "feasible": true,
+            "variable_symbol": "x_7"
+        },
+        "8": {
+            "action_id": 8,
+            "action": "REROUTE",
+            "target": "Chennai Mail Return",
+            "feasible": true,
+            "variable_symbol": "x_8"
+        },
+        "9": {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Double Decker Express",
+            "feasible": true,
+            "variable_symbol": "x_9"
+        },
+        "10": {
+            "action_id": 10,
+            "action": "REROUTE",
+            "target": "Katpadi Goods Freight",
+            "feasible": true,
+            "variable_symbol": "x_10"
+        },
+        "11": {
+            "action_id": 11,
+            "action": "REROUTE",
+            "target": "Lalbagh Return",
+            "feasible": true,
+            "variable_symbol": "x_11"
+        },
+        "12": {
+            "action_id": 12,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "feasible": true,
+            "variable_symbol": "x_12"
+        },
+        "13": {
+            "action_id": 13,
+            "action": "REROUTE",
+            "target": "Tirupati Container Freight",
+            "feasible": true,
+            "variable_symbol": "x_13"
+        },
+        "14": {
+            "action_id": 14,
+            "action": "REROUTE",
+            "target": "Sapthagiri Return",
+            "feasible": true,
+            "variable_symbol": "x_14"
+        },
+        "15": {
+            "action_id": 15,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "feasible": true,
+            "variable_symbol": "x_15"
+        },
+        "16": {
+            "action_id": 16,
+            "action": "HOLD",
+            "target": "Chennai Mail Return",
+            "feasible": true,
+            "variable_symbol": "x_16"
+        },
+        "17": {
+            "action_id": 17,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "feasible": true,
+            "variable_symbol": "x_17"
+        },
+        "18": {
+            "action_id": 18,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "feasible": true,
+            "variable_symbol": "x_18"
+        },
+        "19": {
+            "action_id": 19,
+            "action": "HOLD",
+            "target": "Shatabdi Express",
+            "feasible": true,
+            "variable_symbol": "x_19"
+        },
+        "20": {
+            "action_id": 20,
+            "action": "HOLD",
+            "target": "Grand Trunk Express",
+            "feasible": true,
+            "variable_symbol": "x_20"
+        },
+        "21": {
+            "action_id": 21,
+            "action": "HOLD",
+            "target": "Double Decker Express",
+            "feasible": true,
+            "variable_symbol": "x_21"
+        },
+        "22": {
+            "action_id": 22,
+            "action": "HOLD",
+            "target": "Tirupati Express",
+            "feasible": true,
+            "variable_symbol": "x_22"
+        },
+        "23": {
+            "action_id": 23,
+            "action": "HOLD",
+            "target": "Arakkonam Coal Freight",
+            "feasible": true,
+            "variable_symbol": "x_23"
+        },
+        "24": {
+            "action_id": 24,
+            "action": "HOLD",
+            "target": "Katpadi Goods Freight",
+            "feasible": true,
+            "variable_symbol": "x_24"
+        },
+        "25": {
+            "action_id": 25,
+            "action": "HOLD",
+            "target": "Tirupati Container Freight",
+            "feasible": true,
+            "variable_symbol": "x_25"
+        },
+        "26": {
+            "action_id": 26,
+            "action": "HOLD",
+            "target": "Lalbagh Express",
+            "feasible": true,
+            "variable_symbol": "x_26"
+        },
+        "27": {
+            "action_id": 27,
+            "action": "HOLD",
+            "target": "Lalbagh Return",
+            "feasible": true,
+            "variable_symbol": "x_27"
+        },
+        "28": {
+            "action_id": 28,
+            "action": "HOLD",
+            "target": "Sapthagiri Return",
+            "feasible": true,
+            "variable_symbol": "x_28"
+        },
+        "29": {
+            "action_id": 29,
+            "action": "HOLD",
+            "target": "Jolarpettai Heavy Freight",
+            "feasible": true,
+            "variable_symbol": "x_29"
+        },
+        "30": {
+            "action_id": 30,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "feasible": true,
+            "variable_symbol": "x_30"
+        },
+        "31": {
+            "action_id": 31,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail Return",
+            "feasible": true,
+            "variable_symbol": "x_31"
+        },
+        "32": {
+            "action_id": 32,
+            "action": "SPEED_ADJUST",
+            "target": "Kerala Express",
+            "feasible": true,
+            "variable_symbol": "x_32"
+        },
+        "33": {
+            "action_id": 33,
             "action": "SPEED_ADJUST",
             "target": "Sapthagiri Express",
             "feasible": true,
-            "variable_symbol": "x_7"
+            "variable_symbol": "x_33"
+        },
+        "34": {
+            "action_id": 34,
+            "action": "SPEED_ADJUST",
+            "target": "Shatabdi Express",
+            "feasible": true,
+            "variable_symbol": "x_34"
+        },
+        "35": {
+            "action_id": 35,
+            "action": "SPEED_ADJUST",
+            "target": "Grand Trunk Express",
+            "feasible": true,
+            "variable_symbol": "x_35"
+        },
+        "36": {
+            "action_id": 36,
+            "action": "SPEED_ADJUST",
+            "target": "Double Decker Express",
+            "feasible": true,
+            "variable_symbol": "x_36"
+        },
+        "37": {
+            "action_id": 37,
+            "action": "SPEED_ADJUST",
+            "target": "Tirupati Express",
+            "feasible": true,
+            "variable_symbol": "x_37"
+        },
+        "38": {
+            "action_id": 38,
+            "action": "SPEED_ADJUST",
+            "target": "Arakkonam Coal Freight",
+            "feasible": true,
+            "variable_symbol": "x_38"
+        },
+        "39": {
+            "action_id": 39,
+            "action": "SPEED_ADJUST",
+            "target": "Katpadi Goods Freight",
+            "feasible": true,
+            "variable_symbol": "x_39"
+        },
+        "40": {
+            "action_id": 40,
+            "action": "SPEED_ADJUST",
+            "target": "Tirupati Container Freight",
+            "feasible": true,
+            "variable_symbol": "x_40"
+        },
+        "41": {
+            "action_id": 41,
+            "action": "SPEED_ADJUST",
+            "target": "Lalbagh Express",
+            "feasible": true,
+            "variable_symbol": "x_41"
+        },
+        "42": {
+            "action_id": 42,
+            "action": "SPEED_ADJUST",
+            "target": "Lalbagh Return",
+            "feasible": true,
+            "variable_symbol": "x_42"
+        },
+        "43": {
+            "action_id": 43,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Return",
+            "feasible": true,
+            "variable_symbol": "x_43"
+        },
+        "44": {
+            "action_id": 44,
+            "action": "SPEED_ADJUST",
+            "target": "Jolarpettai Heavy Freight",
+            "feasible": true,
+            "variable_symbol": "x_44"
         }
     },
     "constraints": {
@@ -58,25 +317,55 @@
                 "available_slots": 12
             },
             "station_2": {
+                "max_platforms": 6,
+                "current_platforms_occupied": 0,
+                "available_slots": 6
+            },
+            "station_3": {
+                "max_platforms": 8,
+                "current_platforms_occupied": 2,
+                "available_slots": 6
+            },
+            "station_4": {
                 "max_platforms": 8,
                 "current_platforms_occupied": 0,
                 "available_slots": 8
             },
-            "station_3": {
-                "max_platforms": 5,
+            "station_5": {
+                "max_platforms": 4,
                 "current_platforms_occupied": 0,
-                "available_slots": 5
+                "available_slots": 4
             },
-            "station_4": {
-                "max_platforms": 5,
+            "station_6": {
+                "max_platforms": 4,
                 "current_platforms_occupied": 0,
-                "available_slots": 5
+                "available_slots": 4
+            },
+            "station_7": {
+                "max_platforms": 6,
+                "current_platforms_occupied": 0,
+                "available_slots": 6
+            },
+            "station_8": {
+                "max_platforms": 6,
+                "current_platforms_occupied": 0,
+                "available_slots": 6
+            },
+            "station_9": {
+                "max_platforms": 3,
+                "current_platforms_occupied": 1,
+                "available_slots": 2
+            },
+            "station_10": {
+                "max_platforms": 6,
+                "current_platforms_occupied": 0,
+                "available_slots": 6
             }
         },
         "track_capacities": {
             "track_1": {
                 "capacity": 5,
-                "current_trains": 0,
+                "current_trains": 6,
                 "blocked": false
             },
             "track_2": {
@@ -86,7 +375,42 @@
             },
             "track_3": {
                 "capacity": 4,
-                "current_trains": 2,
+                "current_trains": 5,
+                "blocked": false
+            },
+            "track_4": {
+                "capacity": 3,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_5": {
+                "capacity": 4,
+                "current_trains": 1,
+                "blocked": false
+            },
+            "track_6": {
+                "capacity": 3,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_7": {
+                "capacity": 3,
+                "current_trains": 3,
+                "blocked": false
+            },
+            "track_8": {
+                "capacity": 3,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_9": {
+                "capacity": 2,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_10": {
+                "capacity": 4,
+                "current_trains": 0,
                 "blocked": false
             }
         },
@@ -145,48 +469,258 @@
         },
         {
             "action_id": 3,
-            "action": "HOLD",
+            "action": "REROUTE",
             "cost_vector": {
-                "delay_saved": -0.3,
-                "passenger_delay": 0.6,
-                "energy_consumption": 0.0,
-                "fuel_cost": 0.0,
-                "crew_impact": 0.4,
-                "track_utilization": 0.2,
-                "platform_usage": 0.5,
-                "maintenance_impact": 0.0,
-                "schedule_stability": 0.5,
-                "operational_complexity": 0.3,
-                "safety_risk": 0.05,
-                "delay": -6.0,
-                "risk": 2.5,
-                "energy": 0.0,
-                "operational_cost": 1.5
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
             }
         },
         {
             "action_id": 4,
-            "action": "HOLD",
+            "action": "REROUTE",
             "cost_vector": {
-                "delay_saved": -0.3,
-                "passenger_delay": 0.6,
-                "energy_consumption": 0.0,
-                "fuel_cost": 0.0,
-                "crew_impact": 0.4,
-                "track_utilization": 0.2,
-                "platform_usage": 0.5,
-                "maintenance_impact": 0.0,
-                "schedule_stability": 0.5,
-                "operational_complexity": 0.3,
-                "safety_risk": 0.05,
-                "delay": -6.0,
-                "risk": 2.5,
-                "energy": 0.0,
-                "operational_cost": 1.5
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
             }
         },
         {
             "action_id": 5,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 6,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 7,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 8,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 9,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 10,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 11,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 12,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 13,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 14,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 15,
             "action": "HOLD",
             "cost_vector": {
                 "delay_saved": -0.3,
@@ -207,7 +741,301 @@
             }
         },
         {
-            "action_id": 6,
+            "action_id": 16,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 17,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 18,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 19,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 20,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 21,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 22,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 23,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 24,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 25,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 26,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 27,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 28,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 29,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 30,
             "action": "SPEED_ADJUST",
             "cost_vector": {
                 "delay_saved": -0.2,
@@ -228,7 +1056,280 @@
             }
         },
         {
-            "action_id": 7,
+            "action_id": 31,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 32,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 33,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 34,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 35,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 36,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 37,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 38,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 39,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 40,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 41,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 42,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 43,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 44,
             "action": "SPEED_ADJUST",
             "cost_vector": {
                 "delay_saved": -0.2,
@@ -261,28 +1362,213 @@
             "robustness_rating": 66
         },
         "3": {
-            "delay_reduction_mins": 6.0,
-            "passenger_saved_count": 400,
-            "robustness_rating": 83
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
         },
         "4": {
-            "delay_reduction_mins": 6.0,
-            "passenger_saved_count": 400,
-            "robustness_rating": 83
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
         },
         "5": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
+        },
+        "6": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 380,
+            "robustness_rating": 66
+        },
+        "7": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
+        },
+        "8": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
+        },
+        "9": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
+        },
+        "10": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 380,
+            "robustness_rating": 66
+        },
+        "11": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 380,
+            "robustness_rating": 66
+        },
+        "12": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 950,
+            "robustness_rating": 66
+        },
+        "13": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 380,
+            "robustness_rating": 66
+        },
+        "14": {
+            "delay_reduction_mins": 14.0,
+            "passenger_saved_count": 665,
+            "robustness_rating": 66
+        },
+        "15": {
             "delay_reduction_mins": 6.0,
             "passenger_saved_count": 400,
             "robustness_rating": 83
         },
-        "6": {
+        "16": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "17": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "18": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "19": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "20": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "21": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "22": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "23": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 160,
+            "robustness_rating": 83
+        },
+        "24": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 160,
+            "robustness_rating": 83
+        },
+        "25": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 160,
+            "robustness_rating": 83
+        },
+        "26": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "27": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 160,
+            "robustness_rating": 83
+        },
+        "28": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 280,
+            "robustness_rating": 83
+        },
+        "29": {
+            "delay_reduction_mins": 6.0,
+            "passenger_saved_count": 160,
+            "robustness_rating": 83
+        },
+        "30": {
             "delay_reduction_mins": 4.0,
             "passenger_saved_count": 1000,
             "robustness_rating": 83
         },
-        "7": {
+        "31": {
             "delay_reduction_mins": 4.0,
             "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "32": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "33": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "34": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "35": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "36": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "37": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "38": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "39": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "40": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "41": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 1000,
+            "robustness_rating": 83
+        },
+        "42": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 400,
+            "robustness_rating": 83
+        },
+        "43": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 700,
+            "robustness_rating": 83
+        },
+        "44": {
+            "delay_reduction_mins": 4.0,
+            "passenger_saved_count": 400,
             "robustness_rating": 83
         }
     },
@@ -301,7 +1587,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12623,
+                "train_id": 12625,
                 "station_id": 0
             },
             "2": {
@@ -317,11 +1603,203 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16057,
+                "train_id": 12007,
                 "station_id": 0
             },
             "3": {
                 "action_id": 3,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12616,
+                "station_id": 0
+            },
+            "4": {
+                "action_id": 4,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16053,
+                "station_id": 0
+            },
+            "5": {
+                "action_id": 5,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12607,
+                "station_id": 0
+            },
+            "6": {
+                "action_id": 6,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58207,
+                "station_id": 0
+            },
+            "7": {
+                "action_id": 7,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12623,
+                "station_id": 0
+            },
+            "8": {
+                "action_id": 8,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12624,
+                "station_id": 0
+            },
+            "9": {
+                "action_id": 9,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 22625,
+                "station_id": 0
+            },
+            "10": {
+                "action_id": 10,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58203,
+                "station_id": 0
+            },
+            "11": {
+                "action_id": 11,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12608,
+                "station_id": 0
+            },
+            "12": {
+                "action_id": 12,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16057,
+                "station_id": 0
+            },
+            "13": {
+                "action_id": 13,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58205,
+                "station_id": 0
+            },
+            "14": {
+                "action_id": 14,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16058,
+                "station_id": 0
+            },
+            "15": {
+                "action_id": 15,
                 "action": "HOLD",
                 "requires": [
                     "upstream_block_free"
@@ -336,8 +1814,24 @@
                 "train_id": 12623,
                 "station_id": 0
             },
-            "4": {
-                "action_id": 4,
+            "16": {
+                "action_id": 16,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12624,
+                "station_id": 0
+            },
+            "17": {
+                "action_id": 17,
                 "action": "HOLD",
                 "requires": [
                     "upstream_block_free"
@@ -352,8 +1846,8 @@
                 "train_id": 12625,
                 "station_id": 0
             },
-            "5": {
-                "action_id": 5,
+            "18": {
+                "action_id": 18,
                 "action": "HOLD",
                 "requires": [
                     "upstream_block_free"
@@ -368,8 +1862,184 @@
                 "train_id": 16057,
                 "station_id": 0
             },
-            "6": {
-                "action_id": 6,
+            "19": {
+                "action_id": 19,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12007,
+                "station_id": 0
+            },
+            "20": {
+                "action_id": 20,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12616,
+                "station_id": 0
+            },
+            "21": {
+                "action_id": 21,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 22625,
+                "station_id": 0
+            },
+            "22": {
+                "action_id": 22,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16053,
+                "station_id": 0
+            },
+            "23": {
+                "action_id": 23,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58201,
+                "station_id": 0
+            },
+            "24": {
+                "action_id": 24,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58203,
+                "station_id": 0
+            },
+            "25": {
+                "action_id": 25,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58205,
+                "station_id": 0
+            },
+            "26": {
+                "action_id": 26,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12607,
+                "station_id": 0
+            },
+            "27": {
+                "action_id": 27,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12608,
+                "station_id": 0
+            },
+            "28": {
+                "action_id": 28,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16058,
+                "station_id": 0
+            },
+            "29": {
+                "action_id": 29,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58207,
+                "station_id": 0
+            },
+            "30": {
+                "action_id": 30,
                 "action": "SPEED_ADJUST",
                 "requires": [
                     "speed_limits_within_bounds"
@@ -384,8 +2054,40 @@
                 "train_id": 12623,
                 "station_id": 0
             },
-            "7": {
-                "action_id": 7,
+            "31": {
+                "action_id": 31,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12624,
+                "station_id": 0
+            },
+            "32": {
+                "action_id": 32,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12625,
+                "station_id": 0
+            },
+            "33": {
+                "action_id": 33,
                 "action": "SPEED_ADJUST",
                 "requires": [
                     "speed_limits_within_bounds"
@@ -399,67 +2101,2433 @@
                 ],
                 "train_id": 16057,
                 "station_id": 0
+            },
+            "34": {
+                "action_id": 34,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12007,
+                "station_id": 0
+            },
+            "35": {
+                "action_id": 35,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12616,
+                "station_id": 0
+            },
+            "36": {
+                "action_id": 36,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 22625,
+                "station_id": 0
+            },
+            "37": {
+                "action_id": 37,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16053,
+                "station_id": 0
+            },
+            "38": {
+                "action_id": 38,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58201,
+                "station_id": 0
+            },
+            "39": {
+                "action_id": 39,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58203,
+                "station_id": 0
+            },
+            "40": {
+                "action_id": 40,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58205,
+                "station_id": 0
+            },
+            "41": {
+                "action_id": 41,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12607,
+                "station_id": 0
+            },
+            "42": {
+                "action_id": 42,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12608,
+                "station_id": 0
+            },
+            "43": {
+                "action_id": 43,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16058,
+                "station_id": 0
+            },
+            "44": {
+                "action_id": 44,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 58207,
+                "station_id": 0
             }
         },
         "edges": [
             {
                 "source": "1",
-                "target": "3",
+                "target": "17",
                 "relationship": "CONFLICTS_WITH"
             },
             {
                 "source": "1",
-                "target": "7",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "44",
                 "relationship": "COMPATIBLE"
             },
             {
                 "source": "2",
-                "target": "5",
+                "target": "19",
                 "relationship": "CONFLICTS_WITH"
             },
             {
                 "source": "2",
-                "target": "6",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "44",
                 "relationship": "COMPATIBLE"
             },
             {
                 "source": "3",
+                "target": "20",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "3",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "22",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "4",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "4",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "26",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "5",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "5",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "29",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "6",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "15",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "7",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "16",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "8",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "21",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "9",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "9",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "24",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "10",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "10",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "27",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "11",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "11",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "18",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "12",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "12",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "25",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "13",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "13",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "28",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "14",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "14",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "15",
+                "target": "7",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "15",
+                "target": "30",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "16",
+                "target": "8",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "16",
+                "target": "31",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "17",
                 "target": "1",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "3",
-                "target": "6",
+                "source": "17",
+                "target": "32",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "5",
+                "source": "18",
+                "target": "12",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "18",
+                "target": "33",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "19",
                 "target": "2",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "5",
-                "target": "7",
+                "source": "19",
+                "target": "34",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "6",
-                "target": "2",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "6",
+                "source": "20",
                 "target": "3",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "7",
+                "source": "20",
+                "target": "35",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "21",
+                "target": "9",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "21",
+                "target": "36",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "22",
+                "target": "4",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "22",
+                "target": "37",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "23",
+                "target": "38",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "24",
+                "target": "10",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "24",
+                "target": "39",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "25",
+                "target": "13",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "25",
+                "target": "40",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "26",
+                "target": "5",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "26",
+                "target": "41",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "27",
+                "target": "11",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "27",
+                "target": "42",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "28",
+                "target": "14",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "28",
+                "target": "43",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "29",
+                "target": "6",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "29",
+                "target": "44",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "30",
                 "target": "1",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "7",
+                "source": "30",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
                 "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "15",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "31",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "31",
+                "target": "16",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "32",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "32",
+                "target": "17",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "33",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "33",
+                "target": "18",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "34",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "34",
+                "target": "19",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "35",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "20",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "36",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "36",
+                "target": "21",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "37",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "37",
+                "target": "22",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "38",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "38",
+                "target": "23",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "39",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "39",
+                "target": "24",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "40",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "40",
+                "target": "25",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "41",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "41",
+                "target": "26",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "42",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "42",
+                "target": "27",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "43",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "43",
+                "target": "28",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "44",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "3",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "4",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "5",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "8",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "9",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "10",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "11",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "12",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "13",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "14",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "44",
+                "target": "29",
                 "relationship": "CONFLICTS_WITH"
             }
         ]
@@ -469,7 +4537,7 @@
             {
                 "action_id": 1,
                 "action": "REROUTE",
-                "target": "Chennai Mail",
+                "target": "Kerala Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -480,7 +4548,7 @@
             {
                 "action_id": 2,
                 "action": "REROUTE",
-                "target": "Sapthagiri Express",
+                "target": "Shatabdi Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -490,6 +4558,83 @@
             },
             {
                 "action_id": 3,
+                "action": "REROUTE",
+                "target": "Grand Trunk Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 4,
+                "action": "REROUTE",
+                "target": "Tirupati Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 5,
+                "action": "REROUTE",
+                "target": "Lalbagh Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 7,
+                "action": "REROUTE",
+                "target": "Chennai Mail",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 8,
+                "action": "REROUTE",
+                "target": "Chennai Mail Return",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 9,
+                "action": "REROUTE",
+                "target": "Double Decker Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 12,
+                "action": "REROUTE",
+                "target": "Sapthagiri Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 15,
                 "action": "HOLD",
                 "target": "Chennai Mail",
                 "delay_cost": -6.0,
@@ -500,7 +4645,18 @@
                 "robustness": 0.83
             },
             {
-                "action_id": 4,
+                "action_id": 16,
+                "action": "HOLD",
+                "target": "Chennai Mail Return",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 17,
                 "action": "HOLD",
                 "target": "Kerala Express",
                 "delay_cost": -6.0,
@@ -511,7 +4667,7 @@
                 "robustness": 0.83
             },
             {
-                "action_id": 5,
+                "action_id": 18,
                 "action": "HOLD",
                 "target": "Sapthagiri Express",
                 "delay_cost": -6.0,
@@ -522,7 +4678,62 @@
                 "robustness": 0.83
             },
             {
-                "action_id": 6,
+                "action_id": 19,
+                "action": "HOLD",
+                "target": "Shatabdi Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 20,
+                "action": "HOLD",
+                "target": "Grand Trunk Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 21,
+                "action": "HOLD",
+                "target": "Double Decker Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 22,
+                "action": "HOLD",
+                "target": "Tirupati Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 26,
+                "action": "HOLD",
+                "target": "Lalbagh Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 30,
                 "action": "SPEED_ADJUST",
                 "target": "Chennai Mail",
                 "delay_cost": -4.0,
@@ -533,7 +4744,29 @@
                 "robustness": 0.83
             },
             {
-                "action_id": 7,
+                "action_id": 31,
+                "action": "SPEED_ADJUST",
+                "target": "Chennai Mail Return",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 32,
+                "action": "SPEED_ADJUST",
+                "target": "Kerala Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 33,
                 "action": "SPEED_ADJUST",
                 "target": "Sapthagiri Express",
                 "delay_cost": -4.0,
@@ -542,10 +4775,65 @@
                 "passenger_saved_percent": 1.0,
                 "operational_cost": 1.0,
                 "robustness": 0.83
+            },
+            {
+                "action_id": 34,
+                "action": "SPEED_ADJUST",
+                "target": "Shatabdi Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 35,
+                "action": "SPEED_ADJUST",
+                "target": "Grand Trunk Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 36,
+                "action": "SPEED_ADJUST",
+                "target": "Double Decker Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 37,
+                "action": "SPEED_ADJUST",
+                "target": "Tirupati Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 41,
+                "action": "SPEED_ADJUST",
+                "target": "Lalbagh Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
             }
         ],
-        "total_candidates": 7,
-        "non_dominated_count": 7
+        "total_candidates": 44,
+        "non_dominated_count": 27
     },
     "decision_embeddings": {
         "1": {
@@ -576,32 +4864,162 @@
         },
         "3": {
             "action_id": 3,
-            "action": "HOLD",
+            "action": "REROUTE",
             "embedding_vector": [
-                6.0,
-                0.0,
-                2.5,
-                0.4,
-                0.5,
-                0.85,
-                0.83
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
             ]
         },
         "4": {
             "action_id": 4,
-            "action": "HOLD",
+            "action": "REROUTE",
             "embedding_vector": [
-                6.0,
-                0.0,
-                2.5,
-                0.4,
-                0.5,
-                0.85,
-                0.83
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
             ]
         },
         "5": {
             "action_id": 5,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "6": {
+            "action_id": 6,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.38,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "7": {
+            "action_id": 7,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "8": {
+            "action_id": 8,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "9": {
+            "action_id": 9,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "10": {
+            "action_id": 10,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.38,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "11": {
+            "action_id": 11,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.38,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "12": {
+            "action_id": 12,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "13": {
+            "action_id": 13,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.38,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "14": {
+            "action_id": 14,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.665,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "15": {
+            "action_id": 15,
             "action": "HOLD",
             "embedding_vector": [
                 6.0,
@@ -613,8 +5031,190 @@
                 0.83
             ]
         },
-        "6": {
-            "action_id": 6,
+        "16": {
+            "action_id": 16,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "17": {
+            "action_id": 17,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "18": {
+            "action_id": 18,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "19": {
+            "action_id": 19,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "20": {
+            "action_id": 20,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "21": {
+            "action_id": 21,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "22": {
+            "action_id": 22,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "23": {
+            "action_id": 23,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.16,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "24": {
+            "action_id": 24,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.16,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "25": {
+            "action_id": 25,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.16,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "26": {
+            "action_id": 26,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "27": {
+            "action_id": 27,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.16,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "28": {
+            "action_id": 28,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.28,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "29": {
+            "action_id": 29,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.16,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "30": {
+            "action_id": 30,
             "action": "SPEED_ADJUST",
             "embedding_vector": [
                 4.0,
@@ -626,14 +5226,183 @@
                 0.83
             ]
         },
-        "7": {
-            "action_id": 7,
+        "31": {
+            "action_id": 31,
             "action": "SPEED_ADJUST",
             "embedding_vector": [
                 4.0,
                 4.0,
                 7.5,
                 1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "32": {
+            "action_id": 32,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "33": {
+            "action_id": 33,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "34": {
+            "action_id": 34,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "35": {
+            "action_id": 35,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "36": {
+            "action_id": 36,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "37": {
+            "action_id": 37,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "38": {
+            "action_id": 38,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.4,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "39": {
+            "action_id": 39,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.4,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "40": {
+            "action_id": 40,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.4,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "41": {
+            "action_id": 41,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "42": {
+            "action_id": 42,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.4,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "43": {
+            "action_id": 43,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.7,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "44": {
+            "action_id": 44,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                0.4,
                 0.2,
                 0.93,
                 0.83
@@ -654,30 +5423,252 @@
             "worst_case_delay_saved": 9.9
         },
         "3": {
-            "confidence_score": 0.85,
-            "best_case_delay_saved": 7.8,
-            "expected_delay_saved": 6.0,
-            "worst_case_delay_saved": 4.2
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
         },
         "4": {
-            "confidence_score": 0.85,
-            "best_case_delay_saved": 7.8,
-            "expected_delay_saved": 6.0,
-            "worst_case_delay_saved": 4.2
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
         },
         "5": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "6": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "7": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "8": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "9": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "10": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "11": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "12": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "13": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "14": {
+            "confidence_score": 0.91,
+            "best_case_delay_saved": 18.5,
+            "expected_delay_saved": 14.2,
+            "worst_case_delay_saved": 9.9
+        },
+        "15": {
             "confidence_score": 0.85,
             "best_case_delay_saved": 7.8,
             "expected_delay_saved": 6.0,
             "worst_case_delay_saved": 4.2
         },
-        "6": {
+        "16": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "17": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "18": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "19": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "20": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "21": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "22": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "23": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "24": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "25": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "26": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "27": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "28": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "29": {
+            "confidence_score": 0.85,
+            "best_case_delay_saved": 7.8,
+            "expected_delay_saved": 6.0,
+            "worst_case_delay_saved": 4.2
+        },
+        "30": {
             "confidence_score": 0.93,
             "best_case_delay_saved": 5.9,
             "expected_delay_saved": 4.5,
             "worst_case_delay_saved": 3.1
         },
-        "7": {
+        "31": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "32": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "33": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "34": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "35": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "36": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "37": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "38": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "39": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "40": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "41": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "42": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "43": {
+            "confidence_score": 0.93,
+            "best_case_delay_saved": 5.9,
+            "expected_delay_saved": 4.5,
+            "worst_case_delay_saved": 3.1
+        },
+        "44": {
             "confidence_score": 0.93,
             "best_case_delay_saved": 5.9,
             "expected_delay_saved": 4.5,
@@ -688,7 +5679,7 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Kerala Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -698,7 +5689,7 @@
         "2": {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Sapthagiri Express",
+            "target": "Shatabdi Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -707,6 +5698,126 @@
         },
         "3": {
             "action_id": 3,
+            "action": "REROUTE",
+            "target": "Grand Trunk Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "4": {
+            "action_id": 4,
+            "action": "REROUTE",
+            "target": "Tirupati Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "5": {
+            "action_id": 5,
+            "action": "REROUTE",
+            "target": "Lalbagh Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "6": {
+            "action_id": 6,
+            "action": "REROUTE",
+            "target": "Jolarpettai Heavy Freight",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 380,
+            "confidence": "91%"
+        },
+        "7": {
+            "action_id": 7,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "8": {
+            "action_id": 8,
+            "action": "REROUTE",
+            "target": "Chennai Mail Return",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "9": {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Double Decker Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "10": {
+            "action_id": 10,
+            "action": "REROUTE",
+            "target": "Katpadi Goods Freight",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 380,
+            "confidence": "91%"
+        },
+        "11": {
+            "action_id": 11,
+            "action": "REROUTE",
+            "target": "Lalbagh Return",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 380,
+            "confidence": "91%"
+        },
+        "12": {
+            "action_id": 12,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "13": {
+            "action_id": 13,
+            "action": "REROUTE",
+            "target": "Tirupati Container Freight",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 380,
+            "confidence": "91%"
+        },
+        "14": {
+            "action_id": 14,
+            "action": "REROUTE",
+            "target": "Sapthagiri Return",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 665,
+            "confidence": "91%"
+        },
+        "15": {
+            "action_id": 15,
             "action": "HOLD",
             "target": "Chennai Mail",
             "reason": "Safety block buffer capacity drops below safety limits.",
@@ -715,8 +5826,18 @@
             "passengers_saved": 400,
             "confidence": "85%"
         },
-        "4": {
-            "action_id": 4,
+        "16": {
+            "action_id": 16,
+            "action": "HOLD",
+            "target": "Chennai Mail Return",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "17": {
+            "action_id": 17,
             "action": "HOLD",
             "target": "Kerala Express",
             "reason": "Safety block buffer capacity drops below safety limits.",
@@ -725,8 +5846,8 @@
             "passengers_saved": 400,
             "confidence": "85%"
         },
-        "5": {
-            "action_id": 5,
+        "18": {
+            "action_id": 18,
             "action": "HOLD",
             "target": "Sapthagiri Express",
             "reason": "Safety block buffer capacity drops below safety limits.",
@@ -735,8 +5856,118 @@
             "passengers_saved": 400,
             "confidence": "85%"
         },
-        "6": {
-            "action_id": 6,
+        "19": {
+            "action_id": 19,
+            "action": "HOLD",
+            "target": "Shatabdi Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "20": {
+            "action_id": 20,
+            "action": "HOLD",
+            "target": "Grand Trunk Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "21": {
+            "action_id": 21,
+            "action": "HOLD",
+            "target": "Double Decker Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "22": {
+            "action_id": 22,
+            "action": "HOLD",
+            "target": "Tirupati Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "23": {
+            "action_id": 23,
+            "action": "HOLD",
+            "target": "Arakkonam Coal Freight",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 160,
+            "confidence": "85%"
+        },
+        "24": {
+            "action_id": 24,
+            "action": "HOLD",
+            "target": "Katpadi Goods Freight",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 160,
+            "confidence": "85%"
+        },
+        "25": {
+            "action_id": 25,
+            "action": "HOLD",
+            "target": "Tirupati Container Freight",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 160,
+            "confidence": "85%"
+        },
+        "26": {
+            "action_id": 26,
+            "action": "HOLD",
+            "target": "Lalbagh Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "27": {
+            "action_id": 27,
+            "action": "HOLD",
+            "target": "Lalbagh Return",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 160,
+            "confidence": "85%"
+        },
+        "28": {
+            "action_id": 28,
+            "action": "HOLD",
+            "target": "Sapthagiri Return",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 280,
+            "confidence": "85%"
+        },
+        "29": {
+            "action_id": 29,
+            "action": "HOLD",
+            "target": "Jolarpettai Heavy Freight",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 160,
+            "confidence": "85%"
+        },
+        "30": {
+            "action_id": 30,
             "action": "SPEED_ADJUST",
             "target": "Chennai Mail",
             "reason": "Safety spacing adjustments scheduled.",
@@ -745,14 +5976,144 @@
             "passengers_saved": 1000,
             "confidence": "93%"
         },
-        "7": {
-            "action_id": 7,
+        "31": {
+            "action_id": 31,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail Return",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "32": {
+            "action_id": 32,
+            "action": "SPEED_ADJUST",
+            "target": "Kerala Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "33": {
+            "action_id": 33,
             "action": "SPEED_ADJUST",
             "target": "Sapthagiri Express",
             "reason": "Safety spacing adjustments scheduled.",
             "expected_delay_saved": "4.0 mins",
             "trade_off": "None.",
             "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "34": {
+            "action_id": 34,
+            "action": "SPEED_ADJUST",
+            "target": "Shatabdi Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "35": {
+            "action_id": 35,
+            "action": "SPEED_ADJUST",
+            "target": "Grand Trunk Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "36": {
+            "action_id": 36,
+            "action": "SPEED_ADJUST",
+            "target": "Double Decker Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "37": {
+            "action_id": 37,
+            "action": "SPEED_ADJUST",
+            "target": "Tirupati Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "38": {
+            "action_id": 38,
+            "action": "SPEED_ADJUST",
+            "target": "Arakkonam Coal Freight",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 400,
+            "confidence": "93%"
+        },
+        "39": {
+            "action_id": 39,
+            "action": "SPEED_ADJUST",
+            "target": "Katpadi Goods Freight",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 400,
+            "confidence": "93%"
+        },
+        "40": {
+            "action_id": 40,
+            "action": "SPEED_ADJUST",
+            "target": "Tirupati Container Freight",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 400,
+            "confidence": "93%"
+        },
+        "41": {
+            "action_id": 41,
+            "action": "SPEED_ADJUST",
+            "target": "Lalbagh Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "42": {
+            "action_id": 42,
+            "action": "SPEED_ADJUST",
+            "target": "Lalbagh Return",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 400,
+            "confidence": "93%"
+        },
+        "43": {
+            "action_id": 43,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Return",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 700,
+            "confidence": "93%"
+        },
+        "44": {
+            "action_id": 44,
+            "action": "SPEED_ADJUST",
+            "target": "Jolarpettai Heavy Freight",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 400,
             "confidence": "93%"
         }
     }

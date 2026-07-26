@@ -1,6 +1,37 @@
 [
   {
     "route_id": 1,
-    "stations": [1, 2, 3, 4]
+    "name": "Main Trunk Corridor (MAS - AJJ - KPD - JTJ)",
+    "stations": [1, 4, 8, 10]
+  },
+  {
+    "route_id": 2,
+    "name": "Reverse Trunk Corridor (JTJ - KPD - AJJ - MAS)",
+    "stations": [10, 8, 4, 1]
+  },
+  {
+    "route_id": 3,
+    "name": "South Bypass Route (MAS - TBM - CJ - AJJ - KPD - JTJ)",
+    "stations": [1, 2, 5, 4, 8, 10]
+  },
+  {
+    "route_id": 4,
+    "name": "Tirupati Branch Corridor (MAS - AJJ - TRT - TPTY)",
+    "stations": [1, 4, 6, 7]
+  },
+  {
+    "route_id": 5,
+    "name": "Reverse Tirupati Corridor (TPTY - TRT - AJJ - MAS)",
+    "stations": [7, 6, 4, 1]
+  },
+  {
+    "route_id": 6,
+    "name": "South Suburban Line (MAS - TBM - CGL)",
+    "stations": [1, 2, 3]
+  },
+  {
+    "route_id": 7,
+    "name": "Vellore Cantonment Spur (MAS - AJJ - KPD - VLR)",
+    "stations": [1, 4, 8, 9]
   }
 ]

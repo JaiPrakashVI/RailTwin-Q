@@ -1,26 +1,112 @@
 [
   {
     "id": 1,
+    "name": "Chennai Central - Arakkonam Trunk",
     "source_station_id": 1,
-    "destination_station_id": 2,
+    "destination_station_id": 4,
     "distance": 69,
     "max_speed": 110,
-    "capacity": 5
+    "capacity": 5,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
   },
   {
     "id": 2,
-    "source_station_id": 2,
-    "destination_station_id": 3,
-    "distance": 61,
-    "max_speed": 110,
-    "capacity": 4
+    "name": "Chennai Central - Tambaram Main Line",
+    "source_station_id": 1,
+    "destination_station_id": 2,
+    "distance": 25,
+    "max_speed": 100,
+    "capacity": 4,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
   },
   {
     "id": 3,
-    "source_station_id": 3,
-    "destination_station_id": 4,
+    "name": "Arakkonam - Katpadi Main Line",
+    "source_station_id": 4,
+    "destination_station_id": 8,
+    "distance": 61,
+    "max_speed": 110,
+    "capacity": 4,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 4,
+    "name": "Tambaram - Kanchipuram Branch",
+    "source_station_id": 2,
+    "destination_station_id": 5,
+    "distance": 35,
+    "max_speed": 90,
+    "capacity": 3,
+    "track_type": "SINGLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 5,
+    "name": "Katpadi - Jolarpettai Trunk Line",
+    "source_station_id": 8,
+    "destination_station_id": 10,
     "distance": 84,
     "max_speed": 110,
-    "capacity": 4
+    "capacity": 4,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 6,
+    "name": "Arakkonam - Tiruttani Link",
+    "source_station_id": 4,
+    "destination_station_id": 6,
+    "distance": 14,
+    "max_speed": 90,
+    "capacity": 3,
+    "track_type": "SINGLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 7,
+    "name": "Tiruttani - Tirupati Line",
+    "source_station_id": 6,
+    "destination_station_id": 7,
+    "distance": 68,
+    "max_speed": 100,
+    "capacity": 3,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 8,
+    "name": "Kanchipuram - Arakkonam Bypass",
+    "source_station_id": 5,
+    "destination_station_id": 4,
+    "distance": 28,
+    "max_speed": 90,
+    "capacity": 3,
+    "track_type": "SINGLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 9,
+    "name": "Katpadi - Vellore Cantonment Spur",
+    "source_station_id": 8,
+    "destination_station_id": 9,
+    "distance": 10,
+    "max_speed": 70,
+    "capacity": 2,
+    "track_type": "SINGLE_TRACK",
+    "direction": "BOTH"
+  },
+  {
+    "id": 10,
+    "name": "Tambaram - Chengalpattu South Line",
+    "source_station_id": 2,
+    "destination_station_id": 3,
+    "distance": 31,
+    "max_speed": 100,
+    "capacity": 4,
+    "track_type": "DOUBLE_TRACK",
+    "direction": "BOTH"
   }
 ]

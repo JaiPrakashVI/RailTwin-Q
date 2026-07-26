@@ -1,0 +1,37 @@
+[
+  {
+    "disruption_id": "DIS-01",
+    "type": "SIGNAL_FAILURE",
+    "name": "Signal Failure at Arakkonam Junction",
+    "station_id": 4,
+    "track_id": 3,
+    "signal_id": "SIG-04",
+    "start_tick": 15,
+    "duration_ticks": 45,
+    "severity": "HIGH",
+    "impact_delay_mins": 18.4
+  },
+  {
+    "disruption_id": "DIS-02",
+    "type": "HEAVY_RAIN",
+    "name": "Monsoon Heavy Rain & Speed Restriction",
+    "station_id": 2,
+    "track_id": 4,
+    "start_tick": 20,
+    "duration_ticks": 50,
+    "severity": "MEDIUM",
+    "speed_reduction_percent": 40.0
+  },
+  {
+    "disruption_id": "DIS-03",
+    "type": "UNEXPECTED_DELAY",
+    "name": "Freight Train 58201 Engine Breakdown",
+    "station_id": 8,
+    "track_id": 5,
+    "train_no": 58201,
+    "start_tick": 25,
+    "duration_ticks": 35,
+    "severity": "MEDIUM",
+    "impact_delay_mins": 15.0
+  }
+]

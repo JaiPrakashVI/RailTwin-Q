@@ -3,8 +3,7 @@
 > A Hybrid Quantum-AI Digital Twin for Intelligent Railway Traffic Optimization
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![HTML5/CSS3](https://img.shields.io/badge/HTML5/CSS3-Presentation-orange)
 ![Qiskit](https://img.shields.io/badge/Qiskit-Quantum-6929C4)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
@@ -23,7 +22,7 @@ RailTwin-Q provides a virtual representation of railway operations that continuo
 - Railway Digital Twin
 - Train Delay Prediction
 - Congestion Forecasting
-- Reinforcement Learning Dispatcher
+- Receding-Horizon MPC Adaptive Control
 - Hybrid Quantum Optimization (QAOA/QUBO)
 - Intelligent Signal Recommendation
 - Interactive Operations Dashboard
@@ -46,7 +45,7 @@ RailTwin-Q provides a virtual representation of railway operations that continuo
         ┌───────────────────┼───────────────────┐
         │                   │                   │
         ▼                   ▼                   ▼
-Delay Prediction   Congestion Prediction   RL Dispatcher
+Delay Prediction   Congestion Prediction   Decision Space
         │                   │                   │
         └───────────────────┼───────────────────┘
                             ▼

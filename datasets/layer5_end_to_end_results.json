@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "experiment_id": "exp_final_1784895997",
-        "timestamp": "2026-07-24T12:26:37Z",
+        "experiment_id": "exp_final_1785084224",
+        "timestamp": "2026-07-26T16:43:44Z",
         "random_seed": 42,
         "qubo_size": 8,
         "qaoa_depth": 2,
@@ -24,9 +24,9 @@
         }
     },
     "end_to_end": {
-        "baseline_delay": 58.989999999999995,
-        "exact_delay": 58.73,
-        "delay_saved": 0.259999999999998,
-        "delay_saved_percent": 0.44
+        "baseline_delay": 356.06,
+        "exact_delay": 350.55,
+        "delay_saved": 5.509999999999991,
+        "delay_saved_percent": 1.55
     }
 }

@@ -653,7 +653,7 @@ def run_depth_sweep(size=6):
             "approx_ratio": round(approx_ratio, 4),
             "circuit_depth": res["circuit_depth"],
             "gate_count": res["gate_count"],
-            "two_qubit_gates": res["two_qubit_gate_count"],
+            "two_qubit_gates": res["two_qubit_gates"],
             "runtime_ms": round(res["runtime_seconds"] * 1000.0, 2)
         })
     return results

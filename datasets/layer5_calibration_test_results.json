@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "experiment_id": "exp_final_1784895997",
-        "timestamp": "2026-07-24T12:26:37Z",
+        "experiment_id": "exp_final_1785084224",
+        "timestamp": "2026-07-26T16:43:44Z",
         "random_seed": 42,
         "qubo_size": 8,
         "qaoa_depth": 2,

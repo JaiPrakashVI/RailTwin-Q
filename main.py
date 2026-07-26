@@ -117,18 +117,18 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
                 loc_desc = "At Katpadi"
             elif train.current_station_id == 4:
                 pos_pct = 100.0
-                loc_desc = "At Jolarpettai"
+                loc_desc = f"At {network.get_station_by_id(train.current_station_id).name if network.get_station_by_id(train.current_station_id) else 'Station'}"
         else:
             p = train.progress / 100.0
-            if train.current_track_id == 1: # Chennai -> Arakkonam
-                pos_pct = p * 30.0
-                loc_desc = f"Moving Chennai Central -> Arakkonam ({train.progress:.1f}%)"
-            elif train.current_track_id == 2: # Arakkonam -> Katpadi
-                pos_pct = 30.0 + p * (65.0 - 30.0)
-                loc_desc = f"Moving Arakkonam -> Katpadi ({train.progress:.1f}%)"
-            elif train.current_track_id == 3: # Katpadi -> Jolarpettai
-                pos_pct = 65.0 + p * (100.0 - 65.0)
-                loc_desc = f"Moving Katpadi -> Jolarpettai ({train.progress:.1f}%)"
+            track = network.get_track_by_id(train.current_track_id)
+            if track:
+                src_name = network.get_station_by_id(track.source_station_id).name if network.get_station_by_id(track.source_station_id) else "Station"
+                dest_name = network.get_station_by_id(track.destination_station_id).name if network.get_station_by_id(track.destination_station_id) else "Station"
+                pos_pct = min(95.0, max(5.0, (track.source_station_id / 10.0) * 100.0 + p * 10.0))
+                loc_desc = f"Moving {src_name} -> {dest_name} ({train.progress:.1f}%)"
+            else:
+                pos_pct = 50.0
+                loc_desc = "In transit"
 
         # Position marker HTML (offsets vertically to prevent overlaps)
         offset_y = (train.train_no % 3) * 12 - 6
@@ -185,10 +185,10 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
             """
 
     # Station occupancy indicators
-    c_central = network.get_station_by_id(1)
-    arakkonam = network.get_station_by_id(2)
-    katpadi = network.get_station_by_id(3)
-    jolarpettai = network.get_station_by_id(4)
+    c_central = network.get_station_by_id(1) or network.stations[0]
+    arakkonam = network.get_station_by_id(4) or network.stations[1]
+    katpadi = network.get_station_by_id(8) or network.stations[2]
+    jolarpettai = network.get_station_by_id(10) or network.stations[3]
 
     # Format Network predictions targets
     net_c_15 = p_net.get("network_congestion", 0.0)

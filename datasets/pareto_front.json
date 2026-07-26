@@ -3,7 +3,7 @@
         {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Kerala Express",
             "delay_cost": -14.0,
             "risk": 10.0,
             "energy": 7.0,
@@ -14,7 +14,7 @@
         {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Sapthagiri Express",
+            "target": "Shatabdi Express",
             "delay_cost": -14.0,
             "risk": 10.0,
             "energy": 7.0,
@@ -24,6 +24,83 @@
         },
         {
             "action_id": 3,
+            "action": "REROUTE",
+            "target": "Grand Trunk Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 4,
+            "action": "REROUTE",
+            "target": "Tirupati Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 5,
+            "action": "REROUTE",
+            "target": "Lalbagh Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 7,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 8,
+            "action": "REROUTE",
+            "target": "Chennai Mail Return",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Double Decker Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 12,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 15,
             "action": "HOLD",
             "target": "Chennai Mail",
             "delay_cost": -6.0,
@@ -34,7 +111,18 @@
             "robustness": 0.83
         },
         {
-            "action_id": 4,
+            "action_id": 16,
+            "action": "HOLD",
+            "target": "Chennai Mail Return",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 17,
             "action": "HOLD",
             "target": "Kerala Express",
             "delay_cost": -6.0,
@@ -45,7 +133,7 @@
             "robustness": 0.83
         },
         {
-            "action_id": 5,
+            "action_id": 18,
             "action": "HOLD",
             "target": "Sapthagiri Express",
             "delay_cost": -6.0,
@@ -56,7 +144,62 @@
             "robustness": 0.83
         },
         {
-            "action_id": 6,
+            "action_id": 19,
+            "action": "HOLD",
+            "target": "Shatabdi Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 20,
+            "action": "HOLD",
+            "target": "Grand Trunk Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 21,
+            "action": "HOLD",
+            "target": "Double Decker Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 22,
+            "action": "HOLD",
+            "target": "Tirupati Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 26,
+            "action": "HOLD",
+            "target": "Lalbagh Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 30,
             "action": "SPEED_ADJUST",
             "target": "Chennai Mail",
             "delay_cost": -4.0,
@@ -67,7 +210,29 @@
             "robustness": 0.83
         },
         {
-            "action_id": 7,
+            "action_id": 31,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail Return",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 32,
+            "action": "SPEED_ADJUST",
+            "target": "Kerala Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 33,
             "action": "SPEED_ADJUST",
             "target": "Sapthagiri Express",
             "delay_cost": -4.0,
@@ -76,8 +241,63 @@
             "passenger_saved_percent": 1.0,
             "operational_cost": 1.0,
             "robustness": 0.83
+        },
+        {
+            "action_id": 34,
+            "action": "SPEED_ADJUST",
+            "target": "Shatabdi Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 35,
+            "action": "SPEED_ADJUST",
+            "target": "Grand Trunk Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 36,
+            "action": "SPEED_ADJUST",
+            "target": "Double Decker Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 37,
+            "action": "SPEED_ADJUST",
+            "target": "Tirupati Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 41,
+            "action": "SPEED_ADJUST",
+            "target": "Lalbagh Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
         }
     ],
-    "total_candidates": 7,
-    "non_dominated_count": 7
+    "total_candidates": 44,
+    "non_dominated_count": 27
 }

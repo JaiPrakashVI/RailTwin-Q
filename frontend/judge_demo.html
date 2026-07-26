@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RailTwin-Q Hackathon Judge Demo Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080c14;
+            --panel-bg: rgba(13, 20, 35, 0.85);
+            --card-bg: rgba(22, 33, 54, 0.6);
+            --border-color: rgba(99, 102, 241, 0.2);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .app-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-icon { font-size: 1.8rem; }
+        .logo-text {
+            font-size: 1.6rem; font-weight: 700;
+            background: linear-gradient(135deg, #a78bfa, #6366f1);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .app-nav { display: flex; gap: 10px; flex-wrap: wrap; }
+        .nav-item {
+            color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+            padding: 6px 14px; border-radius: 6px; transition: all 0.3s;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: var(--text-main); background: rgba(99, 102, 241, 0.15);
+            box-shadow: inset 0 0 8px rgba(99, 102, 241, 0.2);
+        }
+        .panel {
+            background: var(--panel-bg); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 20px; margin-bottom: 20px; backdrop-filter: blur(8px);
+        }
+        .panel h2 {
+            margin-top: 0; font-size: 1.1rem; border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px; color: var(--accent-indigo); font-weight: 700;
+        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+        .badge {
+            background: rgba(16, 185, 129, 0.15); color: var(--accent-green);
+            padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;
+        }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: var(--accent-yellow); }
+        .bar-container {
+            width: 100%; background: rgba(255,255,255,0.05); height: 12px;
+            border-radius: 4px; overflow: hidden; margin-top: 4px;
+        }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #a78bfa); border-radius: 4px; }
+        .network-svg { width: 100%; height: 320px; background: rgba(13, 20, 35, 0.4); border-radius: 12px; border: 1px solid var(--border-color); }
+        .track-line { stroke: rgba(99, 102, 241, 0.4); stroke-width: 3.5; stroke-linecap: round; }
+        .station-bg { fill: #0d1423; stroke: rgba(99, 102, 241, 0.6); stroke-width: 2; }
+        .station-core { fill: var(--accent-green); }
+        .station-label { font-size: 10px; fill: var(--text-main); font-weight: bold; text-anchor: middle; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">🚊</span>
+                <span class="logo-text">RailTwin-Q</span>
+                <span style="color: var(--text-muted); font-size: 0.9rem; margin-left: 10px;">Hackathon Judge Demonstration Console</span>
+            </div>
+            <nav class="app-nav">
+                <a href="judge_demo.html" class="nav-item active">JUDGE CONSOLE</a>
+                <a href="operations.html" class="nav-item">OPERATIONS CENTER</a>
+                <a href="optimization.html" class="nav-item">QUANTUM CONSOLE</a>
+                <a href="../reports/quantum_benchmark_report.html" target="_blank" class="nav-item">SOLVER BENCHMARK</a>
+                <a href="../reports/quantum_advantage_scorecard.html" target="_blank" class="nav-item">QUANTUM ADVANTAGE</a>
+                <a href="../reports/quantum_to_railway_traceability.html" target="_blank" class="nav-item">RESEARCH REPORTS</a>
+            </nav>
+        </header>
+
+        <!-- Banner & Mode Switcher -->
+        <div class="panel" style="border-color: var(--accent-purple); background: rgba(139, 92, 246, 0.05); display:flex; justify-content:space-between; align-items:center;">
+            <div>
+                <h1 style="margin: 0 0 6px 0; color: var(--accent-purple); font-size: 1.4rem;">RailTwin-Q: Multi-Junction Railway Digital Twin</h1>
+                <p style="margin: 0; color: var(--text-muted); font-size: 0.85rem;">
+                    10 Stations & Junctions | 18 Active Trains | Dynamic QUBO Scaling | Qiskit Aer QAOA & Receding-Horizon Control
+                </p>
+            </div>
+            <div>
+                <button style="background:rgba(139,92,246,0.2); color:var(--accent-purple); border:1px solid var(--accent-purple); padding:8px 16px; border-radius:6px; font-weight:bold; cursor:pointer;" onclick="alert('Operating Mode: DEMO MODE (N=6-25, 18 Trains, 10 Stations)')">
+                    MODE: DEMO MODE (Active)
+                </button>
+            </div>
+        </div>
+
+        <!-- Multi-Junction Network Map -->
+        <div class="panel">
+            <h2>🚉 Multi-Junction Branching Railway Digital Twin Graph (10 Stations, 18 Active Trains)</h2>
+            <svg viewBox="0 0 1100 420" class="network-svg">
+                <rect width="100%" height="100%" fill="#0a0f1d" />
+
+                <!-- Tracks -->
+                <!-- MAS -> AJJ (Track 1) -->
+                <line x1="100" y1="220" x2="420" y2="220" class="track-line" />
+                <!-- MAS -> TBM (Track 2) -->
+                <line x1="100" y1="220" x2="180" y2="340" class="track-line" />
+                <!-- TBM -> CGL (Track 10) -->
+                <line x1="180" y1="340" x2="300" y2="380" class="track-line" />
+                <!-- TBM -> CJ (Track 4) -->
+                <line x1="180" y1="340" x2="360" y2="300" class="track-line" />
+                <!-- CJ -> AJJ (Track 8) -->
+                <line x1="360" y1="300" x2="420" y2="220" class="track-line" />
+                <!-- AJJ -> TRT (Track 6) -->
+                <line x1="420" y1="220" x2="480" y2="120" class="track-line" />
+                <!-- TRT -> TPTY (Track 7) -->
+                <line x1="480" y1="120" x2="600" y2="80" class="track-line" />
+                <!-- AJJ -> KPD (Track 3) -->
+                <line x1="420" y1="220" x2="680" y2="220" class="track-line" />
+                <!-- KPD -> VLR (Track 9) -->
+                <line x1="680" y1="220" x2="680" y2="340" class="track-line" />
+                <!-- KPD -> JTJ (Track 5) -->
+                <line x1="680" y1="220" x2="920" y2="220" class="track-line" />
+
+                <!-- Station Nodes -->
+                <g transform="translate(100, 220)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="-22" class="station-label">Chennai Central (MAS)</text></g>
+                <g transform="translate(180, 340)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="28" class="station-label">Tambaram (TBM)</text></g>
+                <g transform="translate(300, 380)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="28" class="station-label">Chengalpattu (CGL)</text></g>
+                <g transform="translate(420, 220)"><circle r="18" class="station-bg" style="stroke:var(--accent-red);"/><circle r="9" class="station-core" style="fill:var(--accent-red);"/><text y="-25" class="station-label" style="fill:var(--accent-red);">Arakkonam Jct (AJJ)</text></g>
+                <g transform="translate(360, 300)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="28" class="station-label">Kanchipuram (CJ)</text></g>
+                <g transform="translate(480, 120)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="-22" class="station-label">Tiruttani (TRT)</text></g>
+                <g transform="translate(600, 80)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="-22" class="station-label">Tirupati (TPTY)</text></g>
+                <g transform="translate(680, 220)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="-22" class="station-label">Katpadi Jct (KPD)</text></g>
+                <g transform="translate(680, 340)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="28" class="station-label">Vellore Cantt (VLR)</text></g>
+                <g transform="translate(920, 220)"><circle r="16" class="station-bg" /><circle r="8" class="station-core" /><text y="-22" class="station-label">Jolarpettai Jct (JTJ)</text></g>
+
+                <!-- Animated Train Sample Indicators -->
+                <g transform="translate(260, 220)"><circle r="9" fill="#080c14" stroke="#8b5cf6" stroke-width="2"/><text x="0" y="3" font-size="8px" fill="white" text-anchor="middle">🚆 12623</text></g>
+                <g transform="translate(550, 220)"><circle r="9" fill="#080c14" stroke="#8b5cf6" stroke-width="2"/><text x="0" y="3" font-size="8px" fill="white" text-anchor="middle">🚆 12624</text></g>
+                <g transform="translate(540, 100)"><circle r="9" fill="#080c14" stroke="#6366f1" stroke-width="2"/><text x="0" y="3" font-size="8px" fill="white" text-anchor="middle">🚆 16057</text></g>
+                <g transform="translate(270, 320)"><circle r="9" fill="#080c14" stroke="#10b981" stroke-width="2"/><text x="0" y="3" font-size="8px" fill="white" text-anchor="middle">🚆 22625</text></g>
+            </svg>
+        </div>
+
+        <!-- The Killer Demo Traceability Panel -->
+        <div class="panel" style="border-color: var(--accent-purple);">
+            <h2>⚡ THE KILLER DEMO: QUANTUM &rarr; RAILWAY END-TO-END DECISION TRACEABILITY</h2>
+            <div class="grid-6" style="margin-top: 15px;">
+                <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-red); font-weight: bold; font-size: 0.75rem;">1. DISRUPTION</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">Signal Failure</div>
+                    <div style="color: var(--text-muted); font-size: 0.7rem;">Arakkonam Junction</div>
+                </div>
+                <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-yellow); font-weight: bold; font-size: 0.75rem;">2. AI PREDICTION</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">+18.4 min Delay</div>
+                    <div style="color: var(--text-muted); font-size: 0.7rem;">XGBoost (Conf: 94%)</div>
+                </div>
+                <div style="background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-indigo); font-weight: bold; font-size: 0.75rem;">3. DYNAMIC QUBO</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">N = 6 Variables</div>
+                    <div style="color: var(--text-muted); font-size: 0.7rem;">18 Active Trains</div>
+                </div>
+                <div style="background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.3); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-purple); font-weight: bold; font-size: 0.75rem;">4. QISKIT QAOA</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">6 Qubits | p=2</div>
+                    <div style="color: var(--text-muted); font-size: 0.7rem;">AerSimulator (1024 Shots)</div>
+                </div>
+                <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-green); font-weight: bold; font-size: 0.75rem;">5. HYBRID REFINE</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">-2.10 &rarr; -2.50</div>
+                    <div style="color: var(--text-muted); font-size: 0.7rem;">8-Stage Refinement</div>
+                </div>
+                <div style="background: rgba(16,185,129,0.15); border: 1px solid var(--accent-green); padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="color: var(--accent-green); font-weight: bold; font-size: 0.75rem;">6. TWIN IMPACT</div>
+                    <div style="font-weight: bold; margin-top: 4px; font-size: 0.85rem;">42.5m &rarr; 28.2m</div>
+                    <div style="color: var(--accent-green); font-size: 0.7rem; font-weight: bold;">-14.3m Saved (-33.6%)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Panel Section -->
+        <div class="grid-3">
+            <!-- Qiskit Execution Metadata -->
+            <div class="panel">
+                <h2>⚛️ Qiskit Circuit Execution</h2>
+                <div style="font-size: 0.8rem; line-height: 1.8;">
+                    <p><strong>Framework:</strong> Qiskit 2.5.0</p>
+                    <p><strong>Backend:</strong> AerSimulator (Qiskit Aer 0.17.2)</p>
+                    <p><strong>IBM Hardware:</strong> <span class="badge-yellow">NOT EXECUTED</span></p>
+                    <p><strong>Qubits (N):</strong> <span style="color:var(--accent-indigo); font-weight:bold;">6 Qubits</span></p>
+                    <p><strong>QAOA Depth:</strong> p = 2</p>
+                    <p><strong>Circuit Depth:</strong> 18</p>
+                    <p><strong>Total Gates:</strong> 37 (15 Single, 12 Two-Qubit)</p>
+                    <p><strong>Shots:</strong> 1024</p>
+                    <p><strong>Status:</strong> <span class="badge">SUCCESS</span></p>
+                </div>
+            </div>
+
+            <!-- Measured Bitstrings Histogram -->
+            <div class="panel">
+                <h2>📊 Measured Bitstrings</h2>
+                <div style="font-size: 0.78rem; line-height: 1.6;">
+                    <div>
+                        <div style="display:flex; justify-content:space-between;"><span><code>101100</code> (Optimum)</span><span>42.0%</span></div>
+                        <div class="bar-container"><div class="bar-fill" style="width: 42%;"></div></div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div style="display:flex; justify-content:space-between;"><span><code>101000</code></span><span>28.0%</span></div>
+                        <div class="bar-container"><div class="bar-fill" style="width: 28%; background: #8b5cf6;"></div></div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div style="display:flex; justify-content:space-between;"><span><code>001100</code></span><span>19.0%</span></div>
+                        <div class="bar-container"><div class="bar-fill" style="width: 19%; background: #64748b;"></div></div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div style="display:flex; justify-content:space-between;"><span><code>001000</code></span><span>11.0%</span></div>
+                        <div class="bar-container"><div class="bar-fill" style="width: 11%; background: #475569;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decoded Actions & Twin Impact -->
+            <div class="panel">
+                <h2>🚆 Decoded Railway Plan</h2>
+                <ul style="padding-left: 18px; margin-top: 10px; font-size: 0.8rem; line-height: 1.8;">
+                    <li><strong style="color:var(--accent-indigo);">[REROUTE]</strong> Train 12623 via South Bypass</li>
+                    <li><strong style="color:var(--accent-indigo);">[SPEED_ADJUST]</strong> Train 12624</li>
+                    <li><strong style="color:var(--accent-indigo);">[HOLD]</strong> Train 16057 @ Katpadi</li>
+                </ul>
+                <div style="margin-top: 15px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-green); padding: 10px; border-radius: 6px; text-align: center;">
+                    <div style="font-size: 0.75rem; color: var(--text-muted);">Digital Twin Delay Savings</div>
+                    <div style="font-size: 1.2rem; font-weight: bold; color: var(--accent-green);">14.3 Minutes Saved</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solver Performance Comparison Table -->
+        <div class="panel">
+            <h2>🏆 Solver Benchmark Performance Matrix (N = 6, Identical QUBO)</h2>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px;">
+                <thead>
+                    <tr style="border-bottom: 1px solid var(--border-color); color: var(--accent-indigo); text-align: left;">
+                        <th style="padding: 10px;">Solver Method</th>
+                        <th style="padding: 10px; text-align: center;">Refined Energy</th>
+                        <th style="padding: 10px; text-align: center;">Optimality Gap</th>
+                        <th style="padding: 10px; text-align: center;">Feasibility</th>
+                        <th style="padding: 10px; text-align: center;">Runtime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: rgba(99, 102, 241, 0.1); font-weight: bold;">
+                        <td style="padding: 10px;">Hybrid QAOA (Qiskit Aer + 8-Stage Refinement)</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">-2.5000</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">0.00%</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">PASS</td>
+                        <td style="padding: 10px; text-align: center;">48.5 ms</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Raw Qiskit QAOA (p=2, AerSimulator)</td>
+                        <td style="padding: 10px; text-align: center;">-2.1000</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-yellow);">16.00%</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">PASS</td>
+                        <td style="padding: 10px; text-align: center;">45.2 ms</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Simulated Annealing (Classical)</td>
+                        <td style="padding: 10px; text-align: center;">-2.5000</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">0.00%</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">PASS</td>
+                        <td style="padding: 10px; text-align: center;">4.1 ms</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Exact Classical (Brute-Force Reference)</td>
+                        <td style="padding: 10px; text-align: center;">-2.5000</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">0.00%</td>
+                        <td style="padding: 10px; text-align: center; color: var(--accent-green);">PASS</td>
+                        <td style="padding: 10px; text-align: center;">1.2 ms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

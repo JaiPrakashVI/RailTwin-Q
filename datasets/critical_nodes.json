@@ -1,35 +1,149 @@
 {
     "critical_trains": [
         {
-            "id": 16057,
-            "name": "Sapthagiri Express",
-            "criticality_score": 52.6,
-            "delay": 25.6
-        },
-        {
             "id": 12625,
             "name": "Kerala Express",
-            "criticality_score": 51.1,
-            "delay": 28.05
+            "criticality_score": 100.0,
+            "delay": 76.58
+        },
+        {
+            "id": 16057,
+            "name": "Sapthagiri Express",
+            "criticality_score": 100.0,
+            "delay": 96.21
+        },
+        {
+            "id": 12007,
+            "name": "Shatabdi Express",
+            "criticality_score": 100.0,
+            "delay": 88.52
+        },
+        {
+            "id": 16053,
+            "name": "Tirupati Express",
+            "criticality_score": 100.0,
+            "delay": 88.11
+        },
+        {
+            "id": 12607,
+            "name": "Lalbagh Express",
+            "criticality_score": 100.0,
+            "delay": 98.76
+        },
+        {
+            "id": 16058,
+            "name": "Sapthagiri Return",
+            "criticality_score": 100.0,
+            "delay": 93.5
+        },
+        {
+            "id": 58207,
+            "name": "Jolarpettai Heavy Freight",
+            "criticality_score": 100.0,
+            "delay": 120.82
         },
         {
             "id": 12623,
             "name": "Chennai Mail",
-            "criticality_score": 41.8,
+            "criticality_score": 97.1,
+            "delay": 65.75
+        },
+        {
+            "id": 12616,
+            "name": "Grand Trunk Express",
+            "criticality_score": 88.5,
+            "delay": 61.09
+        },
+        {
+            "id": 58205,
+            "name": "Tirupati Container Freight",
+            "criticality_score": 86.0,
+            "delay": 67.35
+        },
+        {
+            "id": 58203,
+            "name": "Katpadi Goods Freight",
+            "criticality_score": 80.6,
+            "delay": 60.36
+        },
+        {
+            "id": 12608,
+            "name": "Lalbagh Return",
+            "criticality_score": 66.9,
+            "delay": 39.74
+        },
+        {
+            "id": 12624,
+            "name": "Chennai Mail Return",
+            "criticality_score": 65.8,
+            "delay": 38.8
+        },
+        {
+            "id": 22625,
+            "name": "Double Decker Express",
+            "criticality_score": 58.3,
+            "delay": 32.58
+        },
+        {
+            "id": 58201,
+            "name": "Arakkonam Coal Freight",
+            "criticality_score": 57.6,
+            "delay": 44.6
+        },
+        {
+            "id": 40003,
+            "name": "Chengalpattu Commuter",
+            "criticality_score": 19.9,
             "delay": 16.6
+        },
+        {
+            "id": 40001,
+            "name": "Tambaram Local",
+            "criticality_score": 17.9,
+            "delay": 14.89
+        },
+        {
+            "id": 90001,
+            "name": "Track Inspection Car",
+            "criticality_score": 2.9,
+            "delay": 2.4
         }
     ],
     "critical_stations": [
         {
+            "id": 9,
+            "name": "Vellore Cantonment",
+            "criticality_score": 16.7,
+            "congestion": 33.33
+        },
+        {
             "id": 3,
-            "name": "Katpadi",
-            "criticality_score": 24.4,
-            "congestion": 20.0
+            "name": "Chengalpattu",
+            "criticality_score": 12.5,
+            "congestion": 25.0
         },
         {
             "id": 4,
-            "name": "Jolarpettai",
-            "criticality_score": 4.4,
+            "name": "Arakkonam Junction",
+            "criticality_score": 1.1,
+            "congestion": 0.0
+        },
+        {
+            "id": 7,
+            "name": "Tirupati",
+            "criticality_score": 1.1,
+            "congestion": 0.0
+        },
+        {
+            "id": 8,
+            "name": "Katpadi Junction",
+            "criticality_score": 1.1,
+            "congestion": 0.0
+        },
+        {
+            "id": 10,
+            "name": "Jolarpettai Junction",
+            "criticality_score": 1.1,
             "congestion": 0.0
         },
         {
@@ -40,7 +154,19 @@
         },
         {
             "id": 2,
-            "name": "Arakkonam",
+            "name": "Tambaram",
+            "criticality_score": 0.0,
+            "congestion": 0.0
+        },
+        {
+            "id": 5,
+            "name": "Kanchipuram",
+            "criticality_score": 0.0,
+            "congestion": 0.0
+        },
+        {
+            "id": 6,
+            "name": "Tiruttani",
             "criticality_score": 0.0,
             "congestion": 0.0
         }
@@ -48,18 +174,60 @@
     "critical_tracks": [
         {
             "id": 3,
-            "criticality_score": 53.3,
-            "occupancy": 50.0,
+            "criticality_score": 76.5,
+            "occupancy": 125.0,
             "status": "NORMAL"
         },
         {
             "id": 1,
+            "criticality_score": 75.6,
+            "occupancy": 120.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 7,
+            "criticality_score": 64.3,
+            "occupancy": 100.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 5,
+            "criticality_score": 32.2,
+            "occupancy": 25.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 2,
             "criticality_score": 20.0,
             "occupancy": 0.0,
             "status": "NORMAL"
         },
         {
-            "id": 2,
+            "id": 4,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 6,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 8,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 9,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 10,
             "criticality_score": 20.0,
             "occupancy": 0.0,
             "status": "NORMAL"

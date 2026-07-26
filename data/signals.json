@@ -1,0 +1,82 @@
+[
+  {
+    "signal_id": "SIG-01",
+    "track_id": 1,
+    "station_id": 1,
+    "name": "MAS Outer Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-02",
+    "track_id": 1,
+    "station_id": 4,
+    "name": "AJJ Home Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-03",
+    "track_id": 2,
+    "station_id": 2,
+    "name": "TBM Junction Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-04",
+    "track_id": 3,
+    "station_id": 4,
+    "name": "AJJ West Starter Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-05",
+    "track_id": 3,
+    "station_id": 8,
+    "name": "KPD Home Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-06",
+    "track_id": 5,
+    "station_id": 8,
+    "name": "KPD West Starter Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-07",
+    "track_id": 5,
+    "station_id": 10,
+    "name": "JTJ Home Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-08",
+    "track_id": 6,
+    "station_id": 4,
+    "name": "AJJ North Branch Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-09",
+    "track_id": 7,
+    "station_id": 6,
+    "name": "TRT Outer Signal",
+    "state": "GREEN",
+    "is_failed": false
+  },
+  {
+    "signal_id": "SIG-10",
+    "track_id": 8,
+    "station_id": 5,
+    "name": "CJ Bypass Signal",
+    "state": "GREEN",
+    "is_failed": false
+  }
+]

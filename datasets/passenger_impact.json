@@ -21,26 +21,126 @@
     },
     "3": {
         "action_id": 3,
-        "action": "HOLD",
-        "passengers_delayed": 600,
-        "passengers_saved": 400,
-        "missed_connections_avoided": -3,
-        "station_crowd_reduction_percent": -10.0,
-        "platform_crowd_reduction_percent": -15.0,
-        "passenger_waiting_time_reduction_mins": 1
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
     },
     "4": {
         "action_id": 4,
-        "action": "HOLD",
-        "passengers_delayed": 600,
-        "passengers_saved": 400,
-        "missed_connections_avoided": -3,
-        "station_crowd_reduction_percent": -10.0,
-        "platform_crowd_reduction_percent": -15.0,
-        "passenger_waiting_time_reduction_mins": 1
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
     },
     "5": {
         "action_id": 5,
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "6": {
+        "action_id": 6,
+        "action": "REROUTE",
+        "passengers_delayed": 20,
+        "passengers_saved": 380,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "7": {
+        "action_id": 7,
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "8": {
+        "action_id": 8,
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "9": {
+        "action_id": 9,
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "10": {
+        "action_id": 10,
+        "action": "REROUTE",
+        "passengers_delayed": 20,
+        "passengers_saved": 380,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "11": {
+        "action_id": 11,
+        "action": "REROUTE",
+        "passengers_delayed": 20,
+        "passengers_saved": 380,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "12": {
+        "action_id": 12,
+        "action": "REROUTE",
+        "passengers_delayed": 50,
+        "passengers_saved": 950,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "13": {
+        "action_id": 13,
+        "action": "REROUTE",
+        "passengers_delayed": 20,
+        "passengers_saved": 380,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "14": {
+        "action_id": 14,
+        "action": "REROUTE",
+        "passengers_delayed": 35,
+        "passengers_saved": 665,
+        "missed_connections_avoided": 12,
+        "station_crowd_reduction_percent": 45.0,
+        "platform_crowd_reduction_percent": 15.0,
+        "passenger_waiting_time_reduction_mins": 13
+    },
+    "15": {
+        "action_id": 15,
         "action": "HOLD",
         "passengers_delayed": 600,
         "passengers_saved": 400,
@@ -49,8 +149,148 @@
         "platform_crowd_reduction_percent": -15.0,
         "passenger_waiting_time_reduction_mins": 1
     },
-    "6": {
-        "action_id": 6,
+    "16": {
+        "action_id": 16,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "17": {
+        "action_id": 17,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "18": {
+        "action_id": 18,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "19": {
+        "action_id": 19,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "20": {
+        "action_id": 20,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "21": {
+        "action_id": 21,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "22": {
+        "action_id": 22,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "23": {
+        "action_id": 23,
+        "action": "HOLD",
+        "passengers_delayed": 240,
+        "passengers_saved": 160,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "24": {
+        "action_id": 24,
+        "action": "HOLD",
+        "passengers_delayed": 240,
+        "passengers_saved": 160,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "25": {
+        "action_id": 25,
+        "action": "HOLD",
+        "passengers_delayed": 240,
+        "passengers_saved": 160,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "26": {
+        "action_id": 26,
+        "action": "HOLD",
+        "passengers_delayed": 600,
+        "passengers_saved": 400,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "27": {
+        "action_id": 27,
+        "action": "HOLD",
+        "passengers_delayed": 240,
+        "passengers_saved": 160,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "28": {
+        "action_id": 28,
+        "action": "HOLD",
+        "passengers_delayed": 420,
+        "passengers_saved": 280,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "29": {
+        "action_id": 29,
+        "action": "HOLD",
+        "passengers_delayed": 240,
+        "passengers_saved": 160,
+        "missed_connections_avoided": -3,
+        "station_crowd_reduction_percent": -10.0,
+        "platform_crowd_reduction_percent": -15.0,
+        "passenger_waiting_time_reduction_mins": 1
+    },
+    "30": {
+        "action_id": 30,
         "action": "SPEED_ADJUST",
         "passengers_delayed": 0,
         "passengers_saved": 1000,
@@ -59,11 +299,141 @@
         "platform_crowd_reduction_percent": 5.0,
         "passenger_waiting_time_reduction_mins": 4
     },
-    "7": {
-        "action_id": 7,
+    "31": {
+        "action_id": 31,
         "action": "SPEED_ADJUST",
         "passengers_delayed": 0,
         "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "32": {
+        "action_id": 32,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "33": {
+        "action_id": 33,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "34": {
+        "action_id": 34,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "35": {
+        "action_id": 35,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "36": {
+        "action_id": 36,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "37": {
+        "action_id": 37,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "38": {
+        "action_id": 38,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 400,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "39": {
+        "action_id": 39,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 400,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "40": {
+        "action_id": 40,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 400,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "41": {
+        "action_id": 41,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 1000,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "42": {
+        "action_id": 42,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 400,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "43": {
+        "action_id": 43,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 700,
+        "missed_connections_avoided": 2,
+        "station_crowd_reduction_percent": 5.0,
+        "platform_crowd_reduction_percent": 5.0,
+        "passenger_waiting_time_reduction_mins": 4
+    },
+    "44": {
+        "action_id": 44,
+        "action": "SPEED_ADJUST",
+        "passengers_delayed": 0,
+        "passengers_saved": 400,
         "missed_connections_avoided": 2,
         "station_crowd_reduction_percent": 5.0,
         "platform_crowd_reduction_percent": 5.0,

@@ -2,25 +2,199 @@
   {
     "train_no": 12623,
     "name": "Chennai Mail",
+    "train_type": "SUPERFAST",
+    "priority": 1,
     "route_id": 1,
     "current_station_id": 1,
     "speed": 85,
-    "delay": 0
+    "delay": 0,
+    "max_speed": 130
+  },
+  {
+    "train_no": 12624,
+    "name": "Chennai Mail Return",
+    "train_type": "SUPERFAST",
+    "priority": 1,
+    "route_id": 2,
+    "current_station_id": 10,
+    "speed": 85,
+    "delay": 5,
+    "max_speed": 130
   },
   {
     "train_no": 12625,
     "name": "Kerala Express",
+    "train_type": "EXPRESS",
+    "priority": 2,
     "route_id": 1,
     "current_station_id": 1,
     "speed": 90,
-    "delay": 0
+    "delay": 0,
+    "max_speed": 110
   },
   {
     "train_no": 16057,
     "name": "Sapthagiri Express",
-    "route_id": 1,
-    "current_station_id": 2,
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 4,
+    "current_station_id": 4,
     "speed": 75,
-    "delay": 10
+    "delay": 10,
+    "max_speed": 110
+  },
+  {
+    "train_no": 12007,
+    "name": "Shatabdi Express",
+    "train_type": "SUPERFAST",
+    "priority": 1,
+    "route_id": 1,
+    "current_station_id": 1,
+    "speed": 105,
+    "delay": 0,
+    "max_speed": 130
+  },
+  {
+    "train_no": 12616,
+    "name": "Grand Trunk Express",
+    "train_type": "SUPERFAST",
+    "priority": 1,
+    "route_id": 5,
+    "current_station_id": 7,
+    "speed": 95,
+    "delay": 2,
+    "max_speed": 130
+  },
+  {
+    "train_no": 22625,
+    "name": "Double Decker Express",
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 3,
+    "current_station_id": 1,
+    "speed": 80,
+    "delay": 0,
+    "max_speed": 110
+  },
+  {
+    "train_no": 16053,
+    "name": "Tirupati Express",
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 4,
+    "current_station_id": 1,
+    "speed": 75,
+    "delay": 0,
+    "max_speed": 110
+  },
+  {
+    "train_no": 40001,
+    "name": "Tambaram Local",
+    "train_type": "PASSENGER",
+    "priority": 4,
+    "route_id": 6,
+    "current_station_id": 1,
+    "speed": 60,
+    "delay": 0,
+    "max_speed": 90
+  },
+  {
+    "train_no": 40003,
+    "name": "Chengalpattu Commuter",
+    "train_type": "PASSENGER",
+    "priority": 4,
+    "route_id": 6,
+    "current_station_id": 2,
+    "speed": 55,
+    "delay": 3,
+    "max_speed": 90
+  },
+  {
+    "train_no": 58201,
+    "name": "Arakkonam Coal Freight",
+    "train_type": "FREIGHT",
+    "priority": 5,
+    "route_id": 1,
+    "current_station_id": 4,
+    "speed": 45,
+    "delay": 15,
+    "max_speed": 75
+  },
+  {
+    "train_no": 58203,
+    "name": "Katpadi Goods Freight",
+    "train_type": "FREIGHT",
+    "priority": 5,
+    "route_id": 2,
+    "current_station_id": 8,
+    "speed": 50,
+    "delay": 8,
+    "max_speed": 75
+  },
+  {
+    "train_no": 58205,
+    "name": "Tirupati Container Freight",
+    "train_type": "FREIGHT",
+    "priority": 5,
+    "route_id": 4,
+    "current_station_id": 6,
+    "speed": 40,
+    "delay": 12,
+    "max_speed": 75
+  },
+  {
+    "train_no": 90001,
+    "name": "Track Inspection Car",
+    "train_type": "MAINTENANCE",
+    "priority": 3,
+    "route_id": 7,
+    "current_station_id": 8,
+    "speed": 35,
+    "delay": 0,
+    "max_speed": 60
+  },
+  {
+    "train_no": 12607,
+    "name": "Lalbagh Express",
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 1,
+    "current_station_id": 1,
+    "speed": 85,
+    "delay": 0,
+    "max_speed": 110
+  },
+  {
+    "train_no": 12608,
+    "name": "Lalbagh Return",
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 2,
+    "current_station_id": 10,
+    "speed": 85,
+    "delay": 0,
+    "max_speed": 110
+  },
+  {
+    "train_no": 16058,
+    "name": "Sapthagiri Return",
+    "train_type": "EXPRESS",
+    "priority": 2,
+    "route_id": 5,
+    "current_station_id": 7,
+    "speed": 75,
+    "delay": 0,
+    "max_speed": 110
+  },
+  {
+    "train_no": 58207,
+    "name": "Jolarpettai Heavy Freight",
+    "train_type": "FREIGHT",
+    "priority": 5,
+    "route_id": 1,
+    "current_station_id": 1,
+    "speed": 45,
+    "delay": 20,
+    "max_speed": 75
   }
 ]

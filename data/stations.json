@@ -2,29 +2,121 @@
   {
     "station_id": 1,
     "name": "Chennai Central",
-    "latitude": 13.0827,
-    "longitude": 80.2707,
-    "platforms": 12
+    "code": "MAS",
+    "platforms": 12,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 220,
+    "y": 220,
+    "station_type": "TERMINUS",
+    "is_junction": false
   },
   {
     "station_id": 2,
-    "name": "Arakkonam",
-    "latitude": 13.0846,
-    "longitude": 79.6704,
-    "platforms": 8
+    "name": "Tambaram",
+    "code": "TBM",
+    "platforms": 6,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 220,
+    "y": 340,
+    "station_type": "JUNCTION",
+    "is_junction": true
   },
   {
     "station_id": 3,
-    "name": "Katpadi",
-    "latitude": 12.9818,
-    "longitude": 79.1396,
-    "platforms": 5
+    "name": "Chengalpattu",
+    "code": "CGL",
+    "platforms": 8,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 450,
+    "y": 340,
+    "station_type": "JUNCTION",
+    "is_junction": true
   },
   {
     "station_id": 4,
-    "name": "Jolarpettai",
-    "latitude": 12.5694,
-    "longitude": 78.5833,
-    "platforms": 5
+    "name": "Arakkonam Junction",
+    "code": "AJJ",
+    "platforms": 8,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 450,
+    "y": 220,
+    "station_type": "MAJOR_JUNCTION",
+    "is_junction": true
+  },
+  {
+    "station_id": 5,
+    "name": "Kanchipuram",
+    "code": "CJ",
+    "platforms": 4,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 220,
+    "y": 430,
+    "station_type": "BRANCH",
+    "is_junction": false
+  },
+  {
+    "station_id": 6,
+    "name": "Tiruttani",
+    "code": "TRT",
+    "platforms": 4,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 450,
+    "y": 130,
+    "station_type": "BRANCH",
+    "is_junction": false
+  },
+  {
+    "station_id": 7,
+    "name": "Tirupati",
+    "code": "TPTY",
+    "platforms": 6,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 450,
+    "y": 50,
+    "station_type": "TERMINUS",
+    "is_junction": false
+  },
+  {
+    "station_id": 8,
+    "name": "Katpadi Junction",
+    "code": "KPD",
+    "platforms": 6,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 680,
+    "y": 220,
+    "station_type": "MAJOR_JUNCTION",
+    "is_junction": true
+  },
+  {
+    "station_id": 9,
+    "name": "Vellore Cantonment",
+    "code": "VLR",
+    "platforms": 3,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 680,
+    "y": 340,
+    "station_type": "BRANCH",
+    "is_junction": false
+  },
+  {
+    "station_id": 10,
+    "name": "Jolarpettai Junction",
+    "code": "JTJ",
+    "platforms": 6,
+    "platforms_occupied": 0,
+    "station_congestion_score": 0.0,
+    "x": 900,
+    "y": 220,
+    "station_type": "MAJOR_JUNCTION",
+    "is_junction": true
   }
 ]

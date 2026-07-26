@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "experiment_id": "exp_final_1784895997",
-        "timestamp": "2026-07-24T12:26:37Z",
+        "experiment_id": "exp_final_1785084224",
+        "timestamp": "2026-07-26T16:43:44Z",
         "random_seed": 42,
         "qubo_size": 8,
         "qaoa_depth": 2,
@@ -30,23 +30,23 @@
             "circuit_depth": 15,
             "solvers": {
                 "greedy": {
-                    "energy": -1.952,
+                    "energy": -4.6752,
                     "runtime": 0.0,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -1.952,
-                    "runtime": 0.0912,
+                    "energy": -4.6752,
+                    "runtime": 0.1165,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
-                    "energy": -1.952,
-                    "runtime": 0.0339,
-                    "opt_gap": 0.0
+                    "energy": -2.7889,
+                    "runtime": 1.0125,
+                    "opt_gap": 40.35
                 },
                 "hybrid_qaoa": {
-                    "energy": -1.952,
-                    "runtime": 0.0339,
+                    "energy": -4.6752,
+                    "runtime": 1.013,
                     "opt_gap": 0.0
                 }
             }
@@ -57,23 +57,23 @@
             "circuit_depth": 24,
             "solvers": {
                 "greedy": {
-                    "energy": -3.078,
+                    "energy": -7.5596,
                     "runtime": 0.001,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -3.078,
-                    "runtime": 0.0875,
+                    "energy": -7.5596,
+                    "runtime": 0.1203,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
-                    "energy": -2.4876,
-                    "runtime": 0.0401,
-                    "opt_gap": 19.18
+                    "energy": 0.3595,
+                    "runtime": 1.3809,
+                    "opt_gap": 104.76
                 },
                 "hybrid_qaoa": {
-                    "energy": -3.078,
-                    "runtime": 0.0416,
+                    "energy": -7.5596,
+                    "runtime": 1.3819,
                     "opt_gap": 0.0
                 }
             }
@@ -84,23 +84,23 @@
             "circuit_depth": 30,
             "solvers": {
                 "greedy": {
-                    "energy": -2.7679,
-                    "runtime": 0.001,
-                    "opt_gap": 17.82
+                    "energy": -10.3398,
+                    "runtime": 0.0,
+                    "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -3.3679,
-                    "runtime": 0.1329,
+                    "energy": -10.3398,
+                    "runtime": 0.1382,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
-                    "energy": -3.3172,
-                    "runtime": 0.076,
-                    "opt_gap": 1.51
+                    "energy": -5.9555,
+                    "runtime": 2.1971,
+                    "opt_gap": 42.4
                 },
                 "hybrid_qaoa": {
-                    "energy": -3.3679,
-                    "runtime": 0.077,
+                    "energy": -10.3398,
+                    "runtime": 2.2001,
                     "opt_gap": 0.0
                 }
             }
@@ -111,24 +111,24 @@
             "circuit_depth": 45,
             "solvers": {
                 "greedy": {
-                    "energy": -4.1776,
-                    "runtime": 0.001,
-                    "opt_gap": 5.24
+                    "energy": -5.3604,
+                    "runtime": 0.0,
+                    "opt_gap": 28.78
                 },
                 "simulated_annealing": {
-                    "energy": -4.4086,
-                    "runtime": 0.157,
+                    "energy": -7.5263,
+                    "runtime": 0.2085,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
-                    "energy": -3.9836,
-                    "runtime": 2.8921,
-                    "opt_gap": 9.64
+                    "energy": 122.6419,
+                    "runtime": 5.1774,
+                    "opt_gap": 1729.5
                 },
                 "hybrid_qaoa": {
-                    "energy": -4.4086,
-                    "runtime": 2.9237,
-                    "opt_gap": 0.0
+                    "energy": -7.2371,
+                    "runtime": 5.1871,
+                    "opt_gap": 3.84
                 }
             }
         },
@@ -138,24 +138,24 @@
             "circuit_depth": 60,
             "solvers": {
                 "greedy": {
-                    "energy": -5.5287,
-                    "runtime": 0.0037,
-                    "opt_gap": 3.83
+                    "energy": -13.7446,
+                    "runtime": 0.002,
+                    "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -5.7488,
-                    "runtime": 0.3574,
+                    "energy": -13.7446,
+                    "runtime": 0.1608,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
-                    "energy": 0.0,
-                    "runtime": 0.0,
-                    "opt_gap": 100.0
+                    "energy": 201.7633,
+                    "runtime": 23.3044,
+                    "opt_gap": 1567.94
                 },
                 "hybrid_qaoa": {
-                    "energy": -5.7488,
-                    "runtime": 0.2752,
-                    "opt_gap": 0.0
+                    "energy": -7.5023,
+                    "runtime": 23.3442,
+                    "opt_gap": 45.42
                 }
             }
         },
@@ -165,13 +165,13 @@
             "circuit_depth": 75,
             "solvers": {
                 "greedy": {
-                    "energy": -6.011,
-                    "runtime": 0.0045,
+                    "energy": -13.1633,
+                    "runtime": 0.005,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -6.3082,
-                    "runtime": 0.4583,
+                    "energy": -14.2118,
+                    "runtime": 0.539,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
@@ -194,13 +194,13 @@
             "circuit_depth": 90,
             "solvers": {
                 "greedy": {
-                    "energy": -6.1128,
-                    "runtime": 0.0077,
+                    "energy": -11.3725,
+                    "runtime": 0.0083,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -7.148,
-                    "runtime": 0.5575,
+                    "energy": -12.2739,
+                    "runtime": 0.627,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
@@ -223,13 +223,13 @@
             "circuit_depth": 120,
             "solvers": {
                 "greedy": {
-                    "energy": -8.8515,
-                    "runtime": 0.0236,
+                    "energy": -17.4366,
+                    "runtime": 0.0139,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -9.3703,
-                    "runtime": 0.8988,
+                    "energy": -17.4366,
+                    "runtime": 1.0978,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
@@ -252,13 +252,13 @@
             "circuit_depth": 150,
             "solvers": {
                 "greedy": {
-                    "energy": -10.3527,
-                    "runtime": 0.0488,
+                    "energy": -16.775,
+                    "runtime": 0.0333,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -10.5905,
-                    "runtime": 1.4866,
+                    "energy": -17.9742,
+                    "runtime": 1.6118,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
@@ -281,13 +281,13 @@
             "circuit_depth": 225,
             "solvers": {
                 "greedy": {
-                    "energy": -9.6525,
-                    "runtime": 0.1491,
+                    "energy": -17.513,
+                    "runtime": 0.0975,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -10.372,
-                    "runtime": 2.7221,
+                    "energy": -20.3104,
+                    "runtime": 3.3909,
                     "opt_gap": 0.0
                 },
                 "qaoa": {
@@ -310,13 +310,13 @@
             "circuit_depth": 300,
             "solvers": {
                 "greedy": {
-                    "energy": -11.4896,
-                    "runtime": 0.3333,
+                    "energy": -19.5927,
+                    "runtime": 0.3168,
                     "opt_gap": 0.0
                 },
                 "simulated_annealing": {
-                    "energy": -12.6676,
-                    "runtime": 4.3696,
+                    "energy": -19.499,
+                    "runtime": 6.8966,
                     "opt_gap": 0.0
                 },
                 "qaoa": {

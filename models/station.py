@@ -5,13 +5,23 @@ class Station:
         name,
         latitude,
         longitude,
-        platforms
+        platforms,
+        code=None,
+        x=0,
+        y=0,
+        station_type="REGULAR",
+        is_junction=False
     ):
         self.station_id = station_id
         self.name = name
+        self.code = code or f"ST{station_id}"
         self.latitude = latitude
         self.longitude = longitude
+        self.x = x
+        self.y = y
         self.platforms = platforms
+        self.station_type = station_type
+        self.is_junction = is_junction
 
         # State / occupancy variables
         self.trains_waiting = 0
@@ -34,4 +44,4 @@ class Station:
         self.future_station_congestion = 0.0
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} ({self.code})"

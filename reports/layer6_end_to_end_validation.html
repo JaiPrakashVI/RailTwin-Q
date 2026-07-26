@@ -48,32 +48,136 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">15</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">MONITORING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">ASSESSING</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">WEATHER_CHANGE</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Weather Change</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NEW_DISRUPTION</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">MEDIUM: Event-triggered re-optimization: Heavy Rain</td>
             </tr>
             
             <tr>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">15</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">ASSESSING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">WEATHER_CHANGE</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Optimizing</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NEW_DISRUPTION</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
             </tr>
             
             <tr>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">16</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">15</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">APPLY_NEW_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Plan Applied</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">New schedule applied successfully: 0 actions active</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">30</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Time-based periodic optimization (15 minutes interval)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">30</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">30</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">45</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NEW_DISRUPTION</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">HIGH: Immediate re-optimization triggered by Signal Failure (bypasses cooldown)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">45</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NEW_DISRUPTION</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">45</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">54</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">WEATHER_CHANGE</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">MEDIUM: Event-triggered re-optimization: WEATHER_CHANGE</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">54</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">WEATHER_CHANGE</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">54</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">60</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Time-based periodic optimization (15 minutes interval)</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">60</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">REOPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">60</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
             </tr>
             
             <tr>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">69</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">RECOVERING</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NETWORK_RECOVERY</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Disruptions cleared and system stable</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">69</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">RECOVERING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">MONITORING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">NETWORK_RECOVERY</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Network recovered</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Passive network monitoring</td>
             </tr>
             
             </tbody>
@@ -121,16 +225,6 @@
             </thead>
             <tbody>
                 
-            <tr>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">16</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Train A</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">6.00 min</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">5.20 min</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.80 min</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">13.3%</td>
-            </tr>
-            
             </tbody>
         </table>
     </div>
@@ -169,7 +263,7 @@
             </div>
             <div class="metric-card">
                 <div>Disruptions Detected</div>
-                <div class="metric-val">2</div>
+                <div class="metric-val">6</div>
             </div>
             <div class="metric-card">
                 <div>Re-Optimization Cycles</div>
@@ -177,11 +271,11 @@
             </div>
             <div class="metric-card">
                 <div>Interventions Proposed</div>
-                <div class="metric-val">1</div>
+                <div class="metric-val">0</div>
             </div>
             <div class="metric-card">
                 <div>Interventions Applied</div>
-                <div class="metric-val">1</div>
+                <div class="metric-val">0</div>
             </div>
             <div class="metric-card">
                 <div>Warm Start Usage Rate</div>
@@ -189,11 +283,11 @@
             </div>
             <div class="metric-card">
                 <div>Avg Prediction Error</div>
-                <div class="metric-val">0.80 mins</div>
+                <div class="metric-val">0.00 mins</div>
             </div>
             <div class="metric-card">
                 <div>Avg Error Percentage</div>
-                <div class="metric-val">13.3%</div>
+                <div class="metric-val">0.0%</div>
             </div>
         </div>
     </div>

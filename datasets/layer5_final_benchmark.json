@@ -1,7 +1,7 @@
 {
     "metadata": {
-        "experiment_id": "exp_final_1784895997",
-        "timestamp": "2026-07-24T12:26:37Z",
+        "experiment_id": "exp_final_1785084224",
+        "timestamp": "2026-07-26T16:43:44Z",
         "random_seed": 42,
         "qubo_size": 8,
         "qaoa_depth": 2,
@@ -25,52 +25,52 @@
     },
     "noise_deconstruction": {
         "ideal_qaoa": {
-            "energy": -2.2176,
-            "opt_gap": 0.0,
-            "approx_ratio": 1.0,
-            "runtime_q": 0.0387,
+            "energy": -5.4177,
+            "opt_gap": 1.29,
+            "approx_ratio": 0.9871,
+            "runtime_q": 1.215,
             "runtime_c": 0.0,
-            "total_runtime": 0.0387,
+            "total_runtime": 1.215,
             "class_evals": 0
         },
         "noisy_qaoa": {
-            "energy": -2.2176,
-            "opt_gap": 0.0,
-            "approx_ratio": 1.0,
-            "runtime_q": 0.1967,
+            "energy": -5.4177,
+            "opt_gap": 1.29,
+            "approx_ratio": 0.9871,
+            "runtime_q": 1.2781,
             "runtime_c": 0.0,
-            "total_runtime": 0.1967,
+            "total_runtime": 1.2781,
             "class_evals": 0
         },
         "noisy_qaoa_ls": {
-            "energy": -2.2176,
+            "energy": -5.4882,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1967,
-            "runtime_c": 0.0,
-            "total_runtime": 0.1967,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.001,
+            "total_runtime": 1.2791,
             "class_evals": 6
         },
         "noisy_qaoa_sa": {
-            "energy": -2.2176,
+            "energy": -5.4882,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1967,
-            "runtime_c": 0.0857,
-            "total_runtime": 0.2824,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.1065,
+            "total_runtime": 1.3846,
             "class_evals": 100
         },
         "hybrid_qaoa": {
-            "energy": -2.2176,
+            "energy": -5.4882,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
-            "runtime_q": 0.1967,
-            "runtime_c": 0.0,
-            "total_runtime": 0.1967,
+            "runtime_q": 1.2781,
+            "runtime_c": 0.001,
+            "total_runtime": 1.2791,
             "class_evals": 115
         },
         "greedy": {
-            "energy": -2.2176,
+            "energy": -5.4882,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
             "runtime_q": 0.0,
@@ -79,142 +79,142 @@
             "class_evals": 6
         },
         "simulated_annealing": {
-            "energy": -2.2176,
+            "energy": -5.4882,
             "opt_gap": 0.0,
             "approx_ratio": 1.0,
             "runtime_q": 0.0,
-            "runtime_c": 0.0886,
-            "total_runtime": 0.0886,
+            "runtime_c": 0.1307,
+            "total_runtime": 0.1307,
             "class_evals": 100
         }
     },
     "noise_robustness": [
         {
             "noise_level": 0.0,
-            "raw_energy": -2.2176,
-            "raw_gap": 0.0,
-            "hybrid_energy": -2.2176,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
             "hybrid_gap": 0.0
         },
         {
             "noise_level": 0.01,
-            "raw_energy": -2.2176,
-            "raw_gap": 0.0,
-            "hybrid_energy": -2.2176,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
             "hybrid_gap": 0.0
         },
         {
             "noise_level": 0.05,
-            "raw_energy": -2.2176,
-            "raw_gap": 0.0,
-            "hybrid_energy": -2.2176,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
             "hybrid_gap": 0.0
         },
         {
             "noise_level": 0.1,
-            "raw_energy": -2.2176,
-            "raw_gap": 0.0,
-            "hybrid_energy": -2.2176,
+            "raw_energy": -5.4177,
+            "raw_gap": 1.29,
+            "hybrid_energy": -5.4882,
             "hybrid_gap": 0.0
         }
     ],
     "depth_sweeps": [
         {
             "p": 1,
-            "mean_energy": -1.7225,
-            "approx_ratio": 0.7767,
-            "circuit_depth": 12,
-            "gate_count": 15,
-            "two_qubit_gates": 6,
-            "runtime_ms": 41.21
+            "mean_energy": -5.4882,
+            "approx_ratio": 1.0,
+            "circuit_depth": 13,
+            "gate_count": 33,
+            "two_qubit_gates": 10,
+            "runtime_ms": 580.7
         },
         {
             "p": 2,
-            "mean_energy": -2.2176,
-            "approx_ratio": 1.0,
+            "mean_energy": -5.4177,
+            "approx_ratio": 0.9871,
             "circuit_depth": 24,
-            "gate_count": 30,
-            "two_qubit_gates": 12,
-            "runtime_ms": 48.66
+            "gate_count": 60,
+            "two_qubit_gates": 20,
+            "runtime_ms": 1424.6
         },
         {
             "p": 3,
-            "mean_energy": -2.2176,
+            "mean_energy": -5.4882,
             "approx_ratio": 1.0,
-            "circuit_depth": 36,
-            "gate_count": 45,
-            "two_qubit_gates": 18,
-            "runtime_ms": 76.26
+            "circuit_depth": 35,
+            "gate_count": 87,
+            "two_qubit_gates": 30,
+            "runtime_ms": 2193.0
         },
         {
             "p": 4,
-            "mean_energy": -2.2176,
-            "approx_ratio": 1.0,
-            "circuit_depth": 48,
-            "gate_count": 60,
-            "two_qubit_gates": 24,
-            "runtime_ms": 53.16
+            "mean_energy": -2.9524,
+            "approx_ratio": 0.5379,
+            "circuit_depth": 46,
+            "gate_count": 114,
+            "two_qubit_gates": 40,
+            "runtime_ms": 2800.1
         }
     ],
     "statistical_evaluation": {
         "exact": {
-            "mean_energy": -2.9826,
-            "median_energy": -3.0805,
-            "std_dev": 0.4258,
+            "mean_energy": -6.5227,
+            "median_energy": -6.3884,
+            "std_dev": 2.5506,
             "ci": [
-                -3.2465,
-                -2.7187
+                -8.1036,
+                -4.9418
             ],
-            "best": -3.7541,
-            "worst": -2.2336,
-            "mean_runtime_ms": 0.43,
-            "success_rate": 80.0,
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 0.3,
+            "success_rate": 100.0,
             "opt_hit_rate": 100.0,
             "opt_gap": 0.0
         },
         "greedy": {
-            "mean_energy": -2.9159,
-            "median_energy": -3.0018,
-            "std_dev": 0.4684,
+            "mean_energy": -6.4939,
+            "median_energy": -6.3884,
+            "std_dev": 2.5855,
             "ci": [
-                -3.2062,
-                -2.6256
+                -8.0964,
+                -4.8915
             ],
-            "best": -3.7541,
-            "worst": -2.1648,
-            "mean_runtime_ms": 0.05,
-            "success_rate": 80.0,
-            "opt_hit_rate": 60.0,
-            "opt_gap": 2.39
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 0.0,
+            "success_rate": 100.0,
+            "opt_hit_rate": 90.0,
+            "opt_gap": 0.81
         },
         "simulated_annealing": {
-            "mean_energy": -2.9826,
-            "median_energy": -3.0805,
-            "std_dev": 0.4258,
+            "mean_energy": -6.5227,
+            "median_energy": -6.3884,
+            "std_dev": 2.5506,
             "ci": [
-                -3.2465,
-                -2.7187
+                -8.1036,
+                -4.9418
             ],
-            "best": -3.7541,
-            "worst": -2.2336,
-            "mean_runtime_ms": 113.43,
-            "success_rate": 80.0,
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 116.9,
+            "success_rate": 100.0,
             "opt_hit_rate": 100.0,
             "opt_gap": 0.0
         },
         "hybrid_qaoa": {
-            "mean_energy": -2.9826,
-            "median_energy": -3.0805,
-            "std_dev": 0.4258,
+            "mean_energy": -6.5227,
+            "median_energy": -6.3883,
+            "std_dev": 2.5506,
             "ci": [
-                -3.2465,
-                -2.7187
+                -8.1036,
+                -4.9418
             ],
-            "best": -3.7541,
-            "worst": -2.2336,
-            "mean_runtime_ms": 64.29,
-            "success_rate": 80.0,
-            "opt_hit_rate": 100.0,
+            "best": -12.0394,
+            "worst": -3.2442,
+            "mean_runtime_ms": 1716.32,
+            "success_rate": 100.0,
+            "opt_hit_rate": 0.0,
             "opt_gap": 0.0
         }
     }

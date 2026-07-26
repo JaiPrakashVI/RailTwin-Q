@@ -1,0 +1,89 @@
+{
+    "ablation_stages": [
+        {
+            "stage": "1. Raw Qiskit QAOA",
+            "bitstring": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+            ],
+            "energy": -2.136,
+            "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit"
+        },
+        {
+            "stage": "2. Top-K Deduplication",
+            "bitstring": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+            ],
+            "energy": -2.136,
+            "description": "Best candidate among Top-8 sampled bitstrings"
+        },
+        {
+            "stage": "3. 1-Bit Search",
+            "bitstring": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+            ],
+            "energy": -2.136,
+            "description": "Best candidate after 1-bit Hamming distance neighborhood sweep"
+        },
+        {
+            "stage": "4. 2-Bit Search",
+            "bitstring": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+            ],
+            "energy": -2.136,
+            "description": "Best candidate after 2-bit Hamming distance neighborhood sweep"
+        },
+        {
+            "stage": "5. Local SA Refinement",
+            "bitstring": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0
+            ],
+            "energy": -2.136,
+            "description": "Final candidate after local Simulated Annealing refinement"
+        }
+    ]
+}

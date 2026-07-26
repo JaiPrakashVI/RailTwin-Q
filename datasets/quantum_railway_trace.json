@@ -1,0 +1,48 @@
+{
+    "selected_actions": [
+        {
+            "action_id": 1,
+            "action": "REROUTE",
+            "target": "Chennai Mail"
+        },
+        {
+            "action_id": 2,
+            "action": "REROUTE",
+            "target": "Kerala Express"
+        },
+        {
+            "action_id": 3,
+            "action": "REROUTE",
+            "target": "Shatabdi Express"
+        },
+        {
+            "action_id": 4,
+            "action": "REROUTE",
+            "target": "Tirupati Express"
+        },
+        {
+            "action_id": 5,
+            "action": "REROUTE",
+            "target": "Lalbagh Express"
+        },
+        {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Chennai Mail Return"
+        },
+        {
+            "action_id": 11,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express"
+        },
+        {
+            "action_id": 12,
+            "action": "REROUTE",
+            "target": "Grand Trunk Express"
+        }
+    ],
+    "feasible": true,
+    "predicted_delay_reduction": 0.0,
+    "actual_delay_reduction": 0.0,
+    "digital_twin_validated": true
+}

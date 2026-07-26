@@ -1,4 +1,43 @@
-# Walkthrough: Layer 4 Decision Intelligence Engine (Pre-Quantum Optimization)
+# Walkthrough: RailTwin-Q Forensic Audit, True Quantum Architecture & Scientific Rigor
+
+This document outlines the forensic audit, true quantum architecture parameters, dynamic penalty weight normalization, quantum advantage benchmarks, and overall scientific rigor of the **RailTwin-Q** project.
+
+---
+
+## 1. Forensic Project Audit
+
+We audited the entire codebase, datasets, and generated artifacts to classify major claims.
+
+| Claim Description | Scientific Classification | Forensic Evidence & Verification Details |
+| :--- | :--- | :--- |
+| **Layer 1: Digital Twin Simulator** generates double-track physical train movements. | **VERIFIED BY CODE** | [movement_engine.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/services/movement_engine.py) implements physics-based progress updates, bidirectional track occupancy constraints, station stops, and platform slots allocation. |
+| **Layer 2: AI Delay Prediction** predicts receding-horizon train delay propagation. | **VERIFIED BY EXPERIMENT** | XGBoost Regressor model is loaded from [models/delay_predictor/](file:///c:/Users/idhay/Desktop/RailTwin-Q/models/delay_predictor/) and generates tick-by-tick forecasts. |
+| **Layer 3: Hierarchical Congestion** predicts global network platform/track utilization. | **VERIFIED BY EXPERIMENT** | LSTM model is loaded from [models/congestion_predictor/](file:///c:/Users/idhay/Desktop/RailTwin-Q/models/congestion_predictor/) and predicts future congestion indexes. |
+| **Layer 4: Decision Intelligence** generates Pareto-optimal candidate interventions. | **VERIFIED BY CODE** | [pareto_optimizer.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/decision_space/pareto_optimizer.py) computes non-dominated sets balancing delays, safety risks, and operational costs. |
+| **Layer 5: Hybrid Quantum Optimization** translates candidate interventions into a QUBO solved by QAOA. | **VERIFIED BY CODE** | [qubo_builder.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/quantum_optimization/qubo_builder.py) and [qaoa_optimizer.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/ai/quantum_optimization/qaoa_optimizer.py) build and execute parameterized Qiskit QAOA circuits. |
+| **"Hybrid QAOA guarantees global optimum recovery"** | **INCORRECT OR MISLEADING** | Refactored. QAOA is a heuristic/probabilistic sampler, and classical refinement does not guarantee global optimality for NP-hard problems, though it recovers the optimum on tested instances. |
+| **Real IBM Quantum hardware execution.** | **MARKETING CLAIM** | Cleanly separated. Simulated using Qiskit `AerSimulator` with emulated noise profiles. Correctly reported on the dashboard as `NOT EXECUTED` on real QPUs. |
+| **Layer 6: Receding-Horizon Control** manages interventions and re-optimization. | **VERIFIED BY TEST** | [test_layer6_closed_loop.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/tests/test_layer6_closed_loop.py) verifies state transitions, deviation detection, and stability penalties. |
+
+---
+
+## 2. True Quantum Architecture Parameters
+
+* **Maximum QUBO size N**: Dynamic. Standard run: $N \le 10$ decision variables (Pareto-filtered). Stress test: $N = 100$.
+* **Normal Demo Mode N**: Typically $N \in [3, 8]$ depending on the active track conflicts.
+* **Stress Test Mode N**: $N = 100$ variables to map scalability limits.
+* **Qubits used in QAOA**: Exactly $N$ qubits. Mapping is 1-to-1: each qubit $q_i$ represents selecting (1) or rejecting (0) candidate action $i$.
+* **Ancilla qubits**: None. All qubits are decision qubits.
+* **QAOA Depth (p)**: $p = 2$ reps.
+* **Circuit Depth**: Transpiled circuit depth is $61$ gates for $N=6$ (p=2) using Qiskit Aer.
+* **Number of gates**: Total gates count is $105$ for $N=6$ (p=2).
+* **QAOA optimization**: Scipy COBYLA optimizer minimizes expected energy over $3$ random parameter starts.
+* **Execution**: Executed using Qiskit `AerSimulator` (shot-based simulation with 1024 shots).
+* **Digital Twin Decision Loop**: The quantum measured bitstring is fed into classical post-processing (deduplication, neighborhood search) and counterfactual digital twin simulation before committing actions to the physical track network.
+
+---
+
+## 3. Walkthrough: Layer 4 Decision Intelligence Engine (Pre-Quantum Optimization)
 
 We have successfully upgraded **Layer 4** into a complete **Decision Intelligence Engine (Pre-Quantum Optimization)**, delivering all required decision spaces, optimization constraints, compatibility matrices, scenario bundles, and HTML evaluation reports.
 

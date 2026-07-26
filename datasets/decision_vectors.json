@@ -27,32 +27,162 @@
     },
     "3": {
         "action_id": 3,
-        "action": "HOLD",
+        "action": "REROUTE",
         "embedding_vector": [
-            6.0,
-            0.0,
-            2.5,
-            0.4,
-            0.5,
-            0.85,
-            0.83
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
         ]
     },
     "4": {
         "action_id": 4,
-        "action": "HOLD",
+        "action": "REROUTE",
         "embedding_vector": [
-            6.0,
-            0.0,
-            2.5,
-            0.4,
-            0.5,
-            0.85,
-            0.83
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
         ]
     },
     "5": {
         "action_id": 5,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "6": {
+        "action_id": 6,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.38,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "7": {
+        "action_id": 7,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "8": {
+        "action_id": 8,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "9": {
+        "action_id": 9,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "10": {
+        "action_id": 10,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.38,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "11": {
+        "action_id": 11,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.38,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "12": {
+        "action_id": 12,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "13": {
+        "action_id": 13,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.38,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "14": {
+        "action_id": 14,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.665,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "15": {
+        "action_id": 15,
         "action": "HOLD",
         "embedding_vector": [
             6.0,
@@ -64,8 +194,190 @@
             0.83
         ]
     },
-    "6": {
-        "action_id": 6,
+    "16": {
+        "action_id": 16,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "17": {
+        "action_id": 17,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "18": {
+        "action_id": 18,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "19": {
+        "action_id": 19,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "20": {
+        "action_id": 20,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "21": {
+        "action_id": 21,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "22": {
+        "action_id": 22,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "23": {
+        "action_id": 23,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.16,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "24": {
+        "action_id": 24,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.16,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "25": {
+        "action_id": 25,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.16,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "26": {
+        "action_id": 26,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "27": {
+        "action_id": 27,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.16,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "28": {
+        "action_id": 28,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.28,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "29": {
+        "action_id": 29,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.16,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "30": {
+        "action_id": 30,
         "action": "SPEED_ADJUST",
         "embedding_vector": [
             4.0,
@@ -77,14 +389,183 @@
             0.83
         ]
     },
-    "7": {
-        "action_id": 7,
+    "31": {
+        "action_id": 31,
         "action": "SPEED_ADJUST",
         "embedding_vector": [
             4.0,
             4.0,
             7.5,
             1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "32": {
+        "action_id": 32,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "33": {
+        "action_id": 33,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "34": {
+        "action_id": 34,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "35": {
+        "action_id": 35,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "36": {
+        "action_id": 36,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "37": {
+        "action_id": 37,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "38": {
+        "action_id": 38,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.4,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "39": {
+        "action_id": 39,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.4,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "40": {
+        "action_id": 40,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.4,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "41": {
+        "action_id": 41,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "42": {
+        "action_id": 42,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.4,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "43": {
+        "action_id": 43,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.7,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "44": {
+        "action_id": 44,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            0.4,
             0.2,
             0.93,
             0.83
