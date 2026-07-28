@@ -67,7 +67,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 0.001,
+            "runtime_seconds": 0.0016,
             "actions": [
                 {
                     "action_id": 1,
@@ -229,7 +229,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 0.001,
+            "runtime_seconds": 0.0005,
             "actions": [
                 {
                     "action_id": 1,
@@ -553,7 +553,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 0.0818,
+            "runtime_seconds": 0.1076,
             "actions": [
                 {
                     "action_id": 1,
@@ -722,7 +722,7 @@
             "qubo_energy": -2.136,
             "ising_energy": -4.1865,
             "constant_offset": 2.0505,
-            "runtime_seconds": 1.9758,
+            "runtime_seconds": 2.6215,
             "actions": [
                 {
                     "action_id": 1,
@@ -889,7 +889,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 1.9758,
+            "runtime_seconds": 2.6215,
             "actions": [
                 {
                     "action_id": 1,
@@ -1051,7 +1051,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 2.0801,
+            "runtime_seconds": 2.7204,
             "actions": [
                 {
                     "action_id": 1,
@@ -1214,7 +1214,7 @@
                 0
             ],
             "energy": -2.136,
-            "runtime_seconds": 1.9769,
+            "runtime_seconds": 2.6231,
             "actions": [
                 {
                     "action_id": 1,
@@ -1362,8 +1362,8 @@
             "approximation_ratio": 1.0,
             "raw_qaoa_energy": -2.136,
             "improvement": 0.0,
-            "quantum_runtime_seconds": 1.9758,
-            "classical_postprocessing_runtime_seconds": 0.0011,
+            "quantum_runtime_seconds": 2.6215,
+            "classical_postprocessing_runtime_seconds": 0.0016,
             "ablation_stages": [
                 {
                     "stage": "1. Raw Qiskit QAOA",

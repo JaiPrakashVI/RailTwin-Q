@@ -2,7 +2,7 @@
     "1": {
         "action_id": 1,
         "action": "REROUTE",
-        "target": "Kerala Express",
+        "target": "Chennai Mail",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12,7 +12,7 @@
     "2": {
         "action_id": 2,
         "action": "REROUTE",
-        "target": "Shatabdi Express",
+        "target": "Kerala Express",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -22,7 +22,7 @@
     "3": {
         "action_id": 3,
         "action": "REROUTE",
-        "target": "Grand Trunk Express",
+        "target": "Shatabdi Express",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -62,7 +62,7 @@
     "7": {
         "action_id": 7,
         "action": "REROUTE",
-        "target": "Chennai Mail",
+        "target": "Chennai Mail Return",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -72,7 +72,7 @@
     "8": {
         "action_id": 8,
         "action": "REROUTE",
-        "target": "Chennai Mail Return",
+        "target": "Double Decker Express",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -82,11 +82,11 @@
     "9": {
         "action_id": 9,
         "action": "REROUTE",
-        "target": "Double Decker Express",
+        "target": "Arakkonam Coal Freight",
         "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
         "expected_delay_saved": "14.0 mins",
         "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
+        "passengers_saved": 380,
         "confidence": "91%"
     },
     "10": {

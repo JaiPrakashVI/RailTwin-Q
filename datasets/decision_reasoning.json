@@ -2,6 +2,49 @@
     "1": {
         "action_id": 1,
         "action": "REROUTE",
+        "target": "Chennai Mail",
+        "reasoning_chain": [
+            "Downstream track segment congested or blocked",
+            "Train Chennai Mail progress delayed on primary track route",
+            "Propagation delay spreads to following trains via safety blocks",
+            "Bypass route via alternate track selected for Train Chennai Mail",
+            "Primary track segment occupancy drops by 30%",
+            "Total network delay propagation drops by 14.2 minutes"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Track Congestion",
+                "Safety Block Spacing",
+                "Bypass Route Trigger",
+                "Delay Mitigation"
+            ],
+            "edges": [
+                {
+                    "source": "Track Congestion",
+                    "target": "Safety Block Spacing"
+                },
+                {
+                    "source": "Safety Block Spacing",
+                    "target": "Bypass Route Trigger"
+                },
+                {
+                    "source": "Bypass Route Trigger",
+                    "target": "Delay Mitigation"
+                }
+            ]
+        },
+        "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+        "confidence": 0.91,
+        "expected_improvement_mins": 14.2,
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 21.299999999999997,
+            "expected_recovery_reduction": 11
+        }
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
         "target": "Kerala Express",
         "reasoning_chain": [
             "Downstream track segment congested or blocked",
@@ -42,8 +85,8 @@
             "expected_recovery_reduction": 11
         }
     },
-    "2": {
-        "action_id": 2,
+    "3": {
+        "action_id": 3,
         "action": "REROUTE",
         "target": "Shatabdi Express",
         "reasoning_chain": [
@@ -77,49 +120,6 @@
             ]
         },
         "explanation_text": "Downstream track segment congested or blocked -> Train Shatabdi Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Shatabdi Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-        "confidence": 0.91,
-        "expected_improvement_mins": 14.2,
-        "expected_effects": {
-            "delay_reduction_minutes": 14.2,
-            "station_congestion_reduction": 21.299999999999997,
-            "expected_recovery_reduction": 11
-        }
-    },
-    "3": {
-        "action_id": 3,
-        "action": "REROUTE",
-        "target": "Grand Trunk Express",
-        "reasoning_chain": [
-            "Downstream track segment congested or blocked",
-            "Train Grand Trunk Express progress delayed on primary track route",
-            "Propagation delay spreads to following trains via safety blocks",
-            "Bypass route via alternate track selected for Train Grand Trunk Express",
-            "Primary track segment occupancy drops by 30%",
-            "Total network delay propagation drops by 14.2 minutes"
-        ],
-        "causal_graph": {
-            "nodes": [
-                "Track Congestion",
-                "Safety Block Spacing",
-                "Bypass Route Trigger",
-                "Delay Mitigation"
-            ],
-            "edges": [
-                {
-                    "source": "Track Congestion",
-                    "target": "Safety Block Spacing"
-                },
-                {
-                    "source": "Safety Block Spacing",
-                    "target": "Bypass Route Trigger"
-                },
-                {
-                    "source": "Bypass Route Trigger",
-                    "target": "Delay Mitigation"
-                }
-            ]
-        },
-        "explanation_text": "Downstream track segment congested or blocked -> Train Grand Trunk Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Grand Trunk Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
         "confidence": 0.91,
         "expected_improvement_mins": 14.2,
         "expected_effects": {
@@ -260,49 +260,6 @@
     "7": {
         "action_id": 7,
         "action": "REROUTE",
-        "target": "Chennai Mail",
-        "reasoning_chain": [
-            "Downstream track segment congested or blocked",
-            "Train Chennai Mail progress delayed on primary track route",
-            "Propagation delay spreads to following trains via safety blocks",
-            "Bypass route via alternate track selected for Train Chennai Mail",
-            "Primary track segment occupancy drops by 30%",
-            "Total network delay propagation drops by 14.2 minutes"
-        ],
-        "causal_graph": {
-            "nodes": [
-                "Track Congestion",
-                "Safety Block Spacing",
-                "Bypass Route Trigger",
-                "Delay Mitigation"
-            ],
-            "edges": [
-                {
-                    "source": "Track Congestion",
-                    "target": "Safety Block Spacing"
-                },
-                {
-                    "source": "Safety Block Spacing",
-                    "target": "Bypass Route Trigger"
-                },
-                {
-                    "source": "Bypass Route Trigger",
-                    "target": "Delay Mitigation"
-                }
-            ]
-        },
-        "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-        "confidence": 0.91,
-        "expected_improvement_mins": 14.2,
-        "expected_effects": {
-            "delay_reduction_minutes": 14.2,
-            "station_congestion_reduction": 21.299999999999997,
-            "expected_recovery_reduction": 11
-        }
-    },
-    "8": {
-        "action_id": 8,
-        "action": "REROUTE",
         "target": "Chennai Mail Return",
         "reasoning_chain": [
             "Downstream track segment congested or blocked",
@@ -343,8 +300,8 @@
             "expected_recovery_reduction": 11
         }
     },
-    "9": {
-        "action_id": 9,
+    "8": {
+        "action_id": 8,
         "action": "REROUTE",
         "target": "Double Decker Express",
         "reasoning_chain": [
@@ -378,6 +335,49 @@
             ]
         },
         "explanation_text": "Downstream track segment congested or blocked -> Train Double Decker Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Double Decker Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+        "confidence": 0.91,
+        "expected_improvement_mins": 14.2,
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 21.299999999999997,
+            "expected_recovery_reduction": 11
+        }
+    },
+    "9": {
+        "action_id": 9,
+        "action": "REROUTE",
+        "target": "Arakkonam Coal Freight",
+        "reasoning_chain": [
+            "Downstream track segment congested or blocked",
+            "Train Arakkonam Coal Freight progress delayed on primary track route",
+            "Propagation delay spreads to following trains via safety blocks",
+            "Bypass route via alternate track selected for Train Arakkonam Coal Freight",
+            "Primary track segment occupancy drops by 30%",
+            "Total network delay propagation drops by 14.2 minutes"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Track Congestion",
+                "Safety Block Spacing",
+                "Bypass Route Trigger",
+                "Delay Mitigation"
+            ],
+            "edges": [
+                {
+                    "source": "Track Congestion",
+                    "target": "Safety Block Spacing"
+                },
+                {
+                    "source": "Safety Block Spacing",
+                    "target": "Bypass Route Trigger"
+                },
+                {
+                    "source": "Bypass Route Trigger",
+                    "target": "Delay Mitigation"
+                }
+            ]
+        },
+        "explanation_text": "Downstream track segment congested or blocked -> Train Arakkonam Coal Freight progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Arakkonam Coal Freight -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
         "confidence": 0.91,
         "expected_improvement_mins": 14.2,
         "expected_effects": {

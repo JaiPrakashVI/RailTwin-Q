@@ -82,8 +82,8 @@
     "9": {
         "action_id": 9,
         "action": "REROUTE",
-        "passengers_delayed": 50,
-        "passengers_saved": 950,
+        "passengers_delayed": 20,
+        "passengers_saved": 380,
         "missed_connections_avoided": 12,
         "station_crowd_reduction_percent": 45.0,
         "platform_crowd_reduction_percent": 15.0,

@@ -3,7 +3,7 @@
         {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Kerala Express",
+            "target": "Chennai Mail",
             "delay_cost": -14.0,
             "risk": 10.0,
             "energy": 7.0,
@@ -14,7 +14,7 @@
         {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Shatabdi Express",
+            "target": "Kerala Express",
             "delay_cost": -14.0,
             "risk": 10.0,
             "energy": 7.0,
@@ -25,7 +25,7 @@
         {
             "action_id": 3,
             "action": "REROUTE",
-            "target": "Grand Trunk Express",
+            "target": "Shatabdi Express",
             "delay_cost": -14.0,
             "risk": 10.0,
             "energy": 7.0,
@@ -58,17 +58,6 @@
         {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
-            "delay_cost": -14.0,
-            "risk": 10.0,
-            "energy": 7.0,
-            "passenger_saved_percent": 0.95,
-            "operational_cost": 3.5,
-            "robustness": 0.66
-        },
-        {
-            "action_id": 8,
-            "action": "REROUTE",
             "target": "Chennai Mail Return",
             "delay_cost": -14.0,
             "risk": 10.0,
@@ -78,7 +67,7 @@
             "robustness": 0.66
         },
         {
-            "action_id": 9,
+            "action_id": 8,
             "action": "REROUTE",
             "target": "Double Decker Express",
             "delay_cost": -14.0,
@@ -299,5 +288,5 @@
         }
     ],
     "total_candidates": 44,
-    "non_dominated_count": 27
+    "non_dominated_count": 26
 }

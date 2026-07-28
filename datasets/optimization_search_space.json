@@ -3,21 +3,21 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Kerala Express",
+            "target": "Chennai Mail",
             "feasible": true,
             "variable_symbol": "x_1"
         },
         "2": {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Shatabdi Express",
+            "target": "Kerala Express",
             "feasible": true,
             "variable_symbol": "x_2"
         },
         "3": {
             "action_id": 3,
             "action": "REROUTE",
-            "target": "Grand Trunk Express",
+            "target": "Shatabdi Express",
             "feasible": true,
             "variable_symbol": "x_3"
         },
@@ -45,21 +45,21 @@
         "7": {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Chennai Mail Return",
             "feasible": true,
             "variable_symbol": "x_7"
         },
         "8": {
             "action_id": 8,
             "action": "REROUTE",
-            "target": "Chennai Mail Return",
+            "target": "Double Decker Express",
             "feasible": true,
             "variable_symbol": "x_8"
         },
         "9": {
             "action_id": 9,
             "action": "REROUTE",
-            "target": "Double Decker Express",
+            "target": "Arakkonam Coal Freight",
             "feasible": true,
             "variable_symbol": "x_9"
         },
@@ -385,12 +385,12 @@
             },
             "track_5": {
                 "capacity": 4,
-                "current_trains": 1,
+                "current_trains": 0,
                 "blocked": false
             },
             "track_6": {
                 "capacity": 3,
-                "current_trains": 0,
+                "current_trains": 1,
                 "blocked": false
             },
             "track_7": {
@@ -1393,7 +1393,7 @@
         },
         "9": {
             "delay_reduction_mins": 14.0,
-            "passenger_saved_count": 950,
+            "passenger_saved_count": 380,
             "robustness_rating": 66
         },
         "10": {
@@ -1587,7 +1587,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Kerala Express",
+                "train_id": "Chennai Mail",
                 "station_id": 0
             },
             "2": {
@@ -1603,7 +1603,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Shatabdi Express",
+                "train_id": "Kerala Express",
                 "station_id": 0
             },
             "3": {
@@ -1619,7 +1619,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Grand Trunk Express",
+                "train_id": "Shatabdi Express",
                 "station_id": 0
             },
             "4": {
@@ -1683,7 +1683,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Chennai Mail",
+                "train_id": "Chennai Mail Return",
                 "station_id": 0
             },
             "8": {
@@ -1699,7 +1699,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Chennai Mail Return",
+                "train_id": "Double Decker Express",
                 "station_id": 0
             },
             "9": {
@@ -1715,7 +1715,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Double Decker Express",
+                "train_id": "Arakkonam Coal Freight",
                 "station_id": 0
             },
             "10": {
@@ -2282,182 +2282,182 @@
         "edges": [
             {
                 "source": "1",
+                "target": "15",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "1",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
                 "target": "17",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "30",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "33",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "34",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "35",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "37",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "38",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "39",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "40",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "41",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "42",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "43",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "44",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "19",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "30",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "32",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "33",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "36",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "37",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "38",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "39",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "40",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "41",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "42",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "43",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "44",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "20",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "3",
-                "target": "30",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "31",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "32",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "33",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "34",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -2732,87 +2732,92 @@
             },
             {
                 "source": "7",
-                "target": "15",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "7",
-                "target": "31",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "32",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "33",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "34",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "36",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "37",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "38",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "39",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "40",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "41",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "42",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "43",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "44",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "8",
                 "target": "16",
                 "relationship": "CONFLICTS_WITH"
             },
             {
+                "source": "7",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "21",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
                 "source": "8",
                 "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -2833,11 +2838,6 @@
             {
                 "source": "8",
                 "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "8",
-                "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -2882,7 +2882,7 @@
             },
             {
                 "source": "9",
-                "target": "21",
+                "target": "23",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -2917,12 +2917,12 @@
             },
             {
                 "source": "9",
-                "target": "37",
+                "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
                 "source": "9",
-                "target": "38",
+                "target": "37",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3332,7 +3332,7 @@
             },
             {
                 "source": "15",
-                "target": "7",
+                "target": "1",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3342,7 +3342,7 @@
             },
             {
                 "source": "16",
-                "target": "8",
+                "target": "7",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3352,7 +3352,7 @@
             },
             {
                 "source": "17",
-                "target": "1",
+                "target": "2",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3372,7 +3372,7 @@
             },
             {
                 "source": "19",
-                "target": "2",
+                "target": "3",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3382,17 +3382,12 @@
             },
             {
                 "source": "20",
-                "target": "3",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "20",
                 "target": "35",
                 "relationship": "CONFLICTS_WITH"
             },
             {
                 "source": "21",
-                "target": "9",
+                "target": "8",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3408,6 +3403,11 @@
             {
                 "source": "22",
                 "target": "37",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "23",
+                "target": "9",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -3477,11 +3477,6 @@
             },
             {
                 "source": "30",
-                "target": "1",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "30",
                 "target": "2",
                 "relationship": "COMPATIBLE"
             },
@@ -3503,6 +3498,11 @@
             {
                 "source": "30",
                 "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "7",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3577,7 +3577,7 @@
             },
             {
                 "source": "31",
-                "target": "7",
+                "target": "8",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3617,7 +3617,7 @@
             },
             {
                 "source": "32",
-                "target": "2",
+                "target": "1",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3762,7 +3762,7 @@
             },
             {
                 "source": "34",
-                "target": "3",
+                "target": "2",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3833,6 +3833,11 @@
             {
                 "source": "35",
                 "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "3",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -3932,7 +3937,7 @@
             },
             {
                 "source": "36",
-                "target": "8",
+                "target": "9",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -4073,11 +4078,6 @@
             {
                 "source": "38",
                 "target": "8",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "38",
-                "target": "9",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -4537,7 +4537,7 @@
             {
                 "action_id": 1,
                 "action": "REROUTE",
-                "target": "Kerala Express",
+                "target": "Chennai Mail",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -4548,7 +4548,7 @@
             {
                 "action_id": 2,
                 "action": "REROUTE",
-                "target": "Shatabdi Express",
+                "target": "Kerala Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -4559,7 +4559,7 @@
             {
                 "action_id": 3,
                 "action": "REROUTE",
-                "target": "Grand Trunk Express",
+                "target": "Shatabdi Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -4592,17 +4592,6 @@
             {
                 "action_id": 7,
                 "action": "REROUTE",
-                "target": "Chennai Mail",
-                "delay_cost": -14.0,
-                "risk": 10.0,
-                "energy": 7.0,
-                "passenger_saved_percent": 0.95,
-                "operational_cost": 3.5,
-                "robustness": 0.66
-            },
-            {
-                "action_id": 8,
-                "action": "REROUTE",
                 "target": "Chennai Mail Return",
                 "delay_cost": -14.0,
                 "risk": 10.0,
@@ -4612,7 +4601,7 @@
                 "robustness": 0.66
             },
             {
-                "action_id": 9,
+                "action_id": 8,
                 "action": "REROUTE",
                 "target": "Double Decker Express",
                 "delay_cost": -14.0,
@@ -4833,7 +4822,7 @@
             }
         ],
         "total_candidates": 44,
-        "non_dominated_count": 27
+        "non_dominated_count": 26
     },
     "decision_embeddings": {
         "1": {
@@ -4947,7 +4936,7 @@
                 14.0,
                 7.0,
                 10.0,
-                0.95,
+                0.38,
                 0.8,
                 0.91,
                 0.66
@@ -5679,7 +5668,7 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Kerala Express",
+            "target": "Chennai Mail",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -5689,7 +5678,7 @@
         "2": {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Shatabdi Express",
+            "target": "Kerala Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -5699,7 +5688,7 @@
         "3": {
             "action_id": 3,
             "action": "REROUTE",
-            "target": "Grand Trunk Express",
+            "target": "Shatabdi Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -5739,7 +5728,7 @@
         "7": {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Chennai Mail Return",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -5749,7 +5738,7 @@
         "8": {
             "action_id": 8,
             "action": "REROUTE",
-            "target": "Chennai Mail Return",
+            "target": "Double Decker Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -5759,11 +5748,11 @@
         "9": {
             "action_id": 9,
             "action": "REROUTE",
-            "target": "Double Decker Express",
+            "target": "Arakkonam Coal Freight",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-            "passengers_saved": 950,
+            "passengers_saved": 380,
             "confidence": "91%"
         },
         "10": {

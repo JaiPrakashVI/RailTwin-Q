@@ -1,42 +1,69 @@
 {
     "future_state": {
-        "tick": 120,
-        "time": "10:00",
+        "tick": 92,
+        "time": "09:32",
         "cascade_severity_index": 100.0,
         "severity_level": "Critical",
         "cascade_forecasts": {
             "15": {
                 "affected_trains": [
+                    12625,
                     12608,
                     12007,
-                    16053,
+                    12607,
+                    58203,
                     12624,
                     16058,
                     58207,
                     22625,
-                    16057,
-                    12616
+                    16057
                 ],
                 "affected_stations": [],
                 "affected_tracks": [
-                    "3",
                     "1",
+                    "3",
                     "7",
-                    "5"
+                    "6"
                 ],
                 "max_depth": 2,
-                "average_delay_increase": 239.1,
+                "average_delay_increase": 184.3,
                 "detailed_entities": {
+                    "track_1": {
+                        "type": "track",
+                        "id": "1",
+                        "name": "track_1",
+                        "predicted_value": 110.6,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            84.1,
+                            137.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12625": {
+                        "type": "train",
+                        "id": "12625",
+                        "name": "Kerala Express",
+                        "predicted_value": 84.8,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            58.3,
+                            111.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
                     "track_3": {
                         "type": "track",
                         "id": "3",
                         "name": "track_3",
-                        "predicted_value": 98.1,
+                        "predicted_value": 50.7,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            71.6,
-                            124.6
+                            24.2,
+                            77.2
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -44,25 +71,12 @@
                         "type": "train",
                         "id": "12608",
                         "name": "Lalbagh Return",
-                        "predicted_value": 98.6,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            72.1,
-                            125.1
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "track_1": {
-                        "type": "track",
-                        "id": "1",
-                        "name": "track_1",
-                        "predicted_value": 147.3,
+                        "predicted_value": 35.2,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            120.8,
-                            173.8
+                            8.7,
+                            61.7
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -70,12 +84,12 @@
                         "type": "train",
                         "id": "12007",
                         "name": "Shatabdi Express",
-                        "predicted_value": 121.8,
-                        "propagation_depth": 1,
+                        "predicted_value": 114.0,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            95.3,
-                            148.3
+                            87.5,
+                            140.5
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -83,38 +97,51 @@
                         "type": "track",
                         "id": "7",
                         "name": "track_7",
-                        "predicted_value": 143.6,
+                        "predicted_value": 117.3,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            117.1,
-                            170.1
+                            90.8,
+                            143.8
                         ],
                         "uncertainty_score": 0.9
                     },
-                    "train_16053": {
-                        "type": "train",
-                        "id": "16053",
-                        "name": "Tirupati Express",
-                        "predicted_value": 163.4,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            136.9,
-                            189.9
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "track_5": {
+                    "track_6": {
                         "type": "track",
-                        "id": "5",
-                        "name": "track_5",
-                        "predicted_value": 56.9,
+                        "id": "6",
+                        "name": "track_6",
+                        "predicted_value": 63.6,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            30.4,
-                            83.4
+                            37.1,
+                            90.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12607": {
+                        "type": "train",
+                        "id": "12607",
+                        "name": "Lalbagh Express",
+                        "predicted_value": 117.9,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            91.4,
+                            144.4
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_58203": {
+                        "type": "train",
+                        "id": "58203",
+                        "name": "Katpadi Goods Freight",
+                        "predicted_value": 52.4,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            25.9,
+                            78.9
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -122,12 +149,12 @@
                         "type": "train",
                         "id": "12624",
                         "name": "Chennai Mail Return",
-                        "predicted_value": 96.0,
-                        "propagation_depth": 1,
+                        "predicted_value": 72.4,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            69.5,
-                            122.5
+                            45.9,
+                            98.9
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -135,12 +162,12 @@
                         "type": "train",
                         "id": "16058",
                         "name": "Sapthagiri Return",
-                        "predicted_value": 107.1,
+                        "predicted_value": 93.8,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            80.6,
-                            133.6
+                            67.3,
+                            120.3
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -148,12 +175,12 @@
                         "type": "train",
                         "id": "58207",
                         "name": "Jolarpettai Heavy Freight",
-                        "predicted_value": 157.1,
-                        "propagation_depth": 1,
+                        "predicted_value": 156.0,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            130.6,
-                            183.6
+                            129.5,
+                            182.5
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -161,12 +188,12 @@
                         "type": "train",
                         "id": "22625",
                         "name": "Double Decker Express",
-                        "predicted_value": 71.2,
+                        "predicted_value": 39.1,
                         "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            44.7,
-                            97.7
+                            12.6,
+                            65.6
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -174,25 +201,12 @@
                         "type": "train",
                         "id": "16057",
                         "name": "Sapthagiri Express",
-                        "predicted_value": 157.5,
+                        "predicted_value": 132.5,
                         "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            131.0,
-                            184.0
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12616": {
-                        "type": "train",
-                        "id": "12616",
-                        "name": "Grand Trunk Express",
-                        "predicted_value": 216.5,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            190.0,
-                            243.0
+                            106.0,
+                            159.0
                         ],
                         "uncertainty_score": 0.9
                     }
@@ -200,40 +214,65 @@
             },
             "30": {
                 "affected_trains": [
+                    12625,
                     12608,
                     12007,
                     16053,
-                    12607,
+                    58203,
                     12624,
                     16058,
+                    58207,
                     22625,
-                    16057,
-                    12616,
-                    12623
+                    16057
                 ],
                 "affected_stations": [
-                    8,
-                    10
+                    6
                 ],
                 "affected_tracks": [
-                    "3",
                     "1",
+                    "3",
                     "7",
-                    "5"
+                    "6"
                 ],
                 "max_depth": 3,
-                "average_delay_increase": 212.8,
+                "average_delay_increase": 215.9,
                 "detailed_entities": {
+                    "track_1": {
+                        "type": "track",
+                        "id": "1",
+                        "name": "track_1",
+                        "predicted_value": 176.0,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            149.5,
+                            202.5
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12625": {
+                        "type": "train",
+                        "id": "12625",
+                        "name": "Kerala Express",
+                        "predicted_value": 84.8,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            58.3,
+                            111.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
                     "track_3": {
                         "type": "track",
                         "id": "3",
                         "name": "track_3",
-                        "predicted_value": 98.1,
-                        "propagation_depth": 1,
+                        "predicted_value": 68.7,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            71.6,
-                            124.6
+                            42.2,
+                            95.2
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -241,25 +280,12 @@
                         "type": "train",
                         "id": "12608",
                         "name": "Lalbagh Return",
-                        "predicted_value": 98.6,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            72.1,
-                            125.1
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "track_1": {
-                        "type": "track",
-                        "id": "1",
-                        "name": "track_1",
-                        "predicted_value": 182.8,
+                        "predicted_value": 65.9,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            156.3,
-                            209.3
+                            39.4,
+                            92.4
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -267,12 +293,12 @@
                         "type": "train",
                         "id": "12007",
                         "name": "Shatabdi Express",
-                        "predicted_value": 121.8,
-                        "propagation_depth": 1,
+                        "predicted_value": 114.0,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            95.3,
-                            148.3
+                            87.5,
+                            140.5
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -280,12 +306,12 @@
                         "type": "track",
                         "id": "7",
                         "name": "track_7",
-                        "predicted_value": 185.0,
+                        "predicted_value": 153.8,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            158.5,
-                            211.5
+                            127.3,
+                            180.3
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -293,38 +319,38 @@
                         "type": "train",
                         "id": "16053",
                         "name": "Tirupati Express",
-                        "predicted_value": 163.4,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            136.9,
-                            189.9
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12607": {
-                        "type": "train",
-                        "id": "12607",
-                        "name": "Lalbagh Express",
-                        "predicted_value": 191.3,
+                        "predicted_value": 142.6,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            164.8,
-                            217.8
+                            116.1,
+                            169.1
                         ],
                         "uncertainty_score": 0.9
                     },
-                    "track_5": {
+                    "track_6": {
                         "type": "track",
-                        "id": "5",
-                        "name": "track_5",
-                        "predicted_value": 56.9,
+                        "id": "6",
+                        "name": "track_6",
+                        "predicted_value": 63.6,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            30.4,
-                            83.4
+                            37.1,
+                            90.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_58203": {
+                        "type": "train",
+                        "id": "58203",
+                        "name": "Katpadi Goods Freight",
+                        "predicted_value": 52.4,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            25.9,
+                            78.9
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -332,12 +358,12 @@
                         "type": "train",
                         "id": "12624",
                         "name": "Chennai Mail Return",
-                        "predicted_value": 96.0,
-                        "propagation_depth": 1,
+                        "predicted_value": 72.4,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            69.5,
-                            122.5
+                            45.9,
+                            98.9
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -345,12 +371,25 @@
                         "type": "train",
                         "id": "16058",
                         "name": "Sapthagiri Return",
-                        "predicted_value": 107.1,
+                        "predicted_value": 93.8,
                         "propagation_depth": 1,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            80.6,
-                            133.6
+                            67.3,
+                            120.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_58207": {
+                        "type": "train",
+                        "id": "58207",
+                        "name": "Jolarpettai Heavy Freight",
+                        "predicted_value": 132.6,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            106.1,
+                            159.1
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -358,12 +397,12 @@
                         "type": "train",
                         "id": "22625",
                         "name": "Double Decker Express",
-                        "predicted_value": 98.7,
-                        "propagation_depth": 3,
+                        "predicted_value": 39.1,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            72.2,
-                            125.2
+                            12.6,
+                            65.6
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -371,64 +410,25 @@
                         "type": "train",
                         "id": "16057",
                         "name": "Sapthagiri Express",
-                        "predicted_value": 157.5,
+                        "predicted_value": 132.5,
                         "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            131.0,
-                            184.0
+                            106.0,
+                            159.0
                         ],
                         "uncertainty_score": 0.9
                     },
-                    "train_12616": {
-                        "type": "train",
-                        "id": "12616",
-                        "name": "Grand Trunk Express",
-                        "predicted_value": 192.2,
-                        "propagation_depth": 1,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            165.7,
-                            218.7
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "station_8": {
+                    "station_6": {
                         "type": "station",
-                        "id": "8",
-                        "name": "Katpadi Junction",
-                        "predicted_value": 87.5,
+                        "id": "6",
+                        "name": "Tiruttani",
+                        "predicted_value": 52.1,
                         "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            61.0,
-                            114.0
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "station_10": {
-                        "type": "station",
-                        "id": "10",
-                        "name": "Jolarpettai Junction",
-                        "predicted_value": 48.0,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            21.5,
-                            74.5
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12623": {
-                        "type": "train",
-                        "id": "12623",
-                        "name": "Chennai Mail",
-                        "predicted_value": 70.7,
-                        "propagation_depth": 3,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            44.2,
-                            97.2
+                            25.6,
+                            78.6
                         ],
                         "uncertainty_score": 0.9
                     }
@@ -436,41 +436,68 @@
             },
             "60": {
                 "affected_trains": [
+                    12625,
                     12608,
                     12007,
                     16053,
-                    12607,
+                    58203,
                     12624,
                     16058,
+                    58207,
                     22625,
-                    16057,
-                    12616,
-                    12623
+                    16057
                 ],
                 "affected_stations": [
+                    4,
                     8,
                     7,
-                    10
+                    6
                 ],
                 "affected_tracks": [
-                    "3",
                     "1",
+                    "3",
                     "7",
-                    "5"
+                    "6"
                 ],
                 "max_depth": 3,
-                "average_delay_increase": 190.4,
+                "average_delay_increase": 150.5,
                 "detailed_entities": {
+                    "track_1": {
+                        "type": "track",
+                        "id": "1",
+                        "name": "track_1",
+                        "predicted_value": 176.0,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            149.5,
+                            202.5
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12625": {
+                        "type": "train",
+                        "id": "12625",
+                        "name": "Kerala Express",
+                        "predicted_value": 84.8,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            58.3,
+                            111.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
                     "track_3": {
                         "type": "track",
                         "id": "3",
                         "name": "track_3",
-                        "predicted_value": 98.1,
-                        "propagation_depth": 1,
+                        "predicted_value": 68.7,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            71.6,
-                            124.6
+                            42.2,
+                            95.2
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -478,25 +505,12 @@
                         "type": "train",
                         "id": "12608",
                         "name": "Lalbagh Return",
-                        "predicted_value": 98.6,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            72.1,
-                            125.1
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "track_1": {
-                        "type": "track",
-                        "id": "1",
-                        "name": "track_1",
-                        "predicted_value": 182.8,
+                        "predicted_value": 65.9,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            156.3,
-                            209.3
+                            39.4,
+                            92.4
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -504,12 +518,12 @@
                         "type": "train",
                         "id": "12007",
                         "name": "Shatabdi Express",
-                        "predicted_value": 121.8,
-                        "propagation_depth": 1,
+                        "predicted_value": 114.0,
+                        "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            95.3,
-                            148.3
+                            87.5,
+                            140.5
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -517,6 +531,123 @@
                         "type": "track",
                         "id": "7",
                         "name": "track_7",
+                        "predicted_value": 153.8,
+                        "propagation_depth": 3,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            127.3,
+                            180.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_16053": {
+                        "type": "train",
+                        "id": "16053",
+                        "name": "Tirupati Express",
+                        "predicted_value": 142.6,
+                        "propagation_depth": 3,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            116.1,
+                            169.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "track_6": {
+                        "type": "track",
+                        "id": "6",
+                        "name": "track_6",
+                        "predicted_value": 63.6,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            37.1,
+                            90.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_58203": {
+                        "type": "train",
+                        "id": "58203",
+                        "name": "Katpadi Goods Freight",
+                        "predicted_value": 52.4,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            25.9,
+                            78.9
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12624": {
+                        "type": "train",
+                        "id": "12624",
+                        "name": "Chennai Mail Return",
+                        "predicted_value": 72.4,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            45.9,
+                            98.9
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_16058": {
+                        "type": "train",
+                        "id": "16058",
+                        "name": "Sapthagiri Return",
+                        "predicted_value": 93.8,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            67.3,
+                            120.3
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_58207": {
+                        "type": "train",
+                        "id": "58207",
+                        "name": "Jolarpettai Heavy Freight",
+                        "predicted_value": 132.6,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            106.1,
+                            159.1
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_22625": {
+                        "type": "train",
+                        "id": "22625",
+                        "name": "Double Decker Express",
+                        "predicted_value": 39.1,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            12.6,
+                            65.6
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_16057": {
+                        "type": "train",
+                        "id": "16057",
+                        "name": "Sapthagiri Express",
+                        "predicted_value": 132.5,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            106.0,
+                            159.0
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "station_4": {
+                        "type": "station",
+                        "id": "4",
+                        "name": "Arakkonam Junction",
                         "predicted_value": 185.0,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
@@ -526,120 +657,16 @@
                         ],
                         "uncertainty_score": 0.9
                     },
-                    "train_16053": {
-                        "type": "train",
-                        "id": "16053",
-                        "name": "Tirupati Express",
-                        "predicted_value": 163.4,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            136.9,
-                            189.9
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12607": {
-                        "type": "train",
-                        "id": "12607",
-                        "name": "Lalbagh Express",
-                        "predicted_value": 191.3,
-                        "propagation_depth": 3,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            164.8,
-                            217.8
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "track_5": {
-                        "type": "track",
-                        "id": "5",
-                        "name": "track_5",
-                        "predicted_value": 56.9,
-                        "propagation_depth": 1,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            30.4,
-                            83.4
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12624": {
-                        "type": "train",
-                        "id": "12624",
-                        "name": "Chennai Mail Return",
-                        "predicted_value": 96.0,
-                        "propagation_depth": 1,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            69.5,
-                            122.5
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_16058": {
-                        "type": "train",
-                        "id": "16058",
-                        "name": "Sapthagiri Return",
-                        "predicted_value": 107.1,
-                        "propagation_depth": 1,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            80.6,
-                            133.6
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_22625": {
-                        "type": "train",
-                        "id": "22625",
-                        "name": "Double Decker Express",
-                        "predicted_value": 98.7,
-                        "propagation_depth": 3,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            72.2,
-                            125.2
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_16057": {
-                        "type": "train",
-                        "id": "16057",
-                        "name": "Sapthagiri Express",
-                        "predicted_value": 157.5,
-                        "propagation_depth": 2,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            131.0,
-                            184.0
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12616": {
-                        "type": "train",
-                        "id": "12616",
-                        "name": "Grand Trunk Express",
-                        "predicted_value": 192.2,
-                        "propagation_depth": 1,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            165.7,
-                            218.7
-                        ],
-                        "uncertainty_score": 0.9
-                    },
                     "station_8": {
                         "type": "station",
                         "id": "8",
                         "name": "Katpadi Junction",
-                        "predicted_value": 87.5,
-                        "propagation_depth": 2,
+                        "predicted_value": 58.0,
+                        "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            61.0,
-                            114.0
+                            31.5,
+                            84.5
                         ],
                         "uncertainty_score": 0.9
                     },
@@ -647,38 +674,25 @@
                         "type": "station",
                         "id": "7",
                         "name": "Tirupati",
-                        "predicted_value": 157.2,
+                        "predicted_value": 126.7,
                         "propagation_depth": 3,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            130.7,
-                            183.7
+                            100.2,
+                            153.2
                         ],
                         "uncertainty_score": 0.9
                     },
-                    "station_10": {
+                    "station_6": {
                         "type": "station",
-                        "id": "10",
-                        "name": "Jolarpettai Junction",
-                        "predicted_value": 48.0,
+                        "id": "6",
+                        "name": "Tiruttani",
+                        "predicted_value": 52.1,
                         "propagation_depth": 2,
                         "confidence_score": 10.0,
                         "confidence_interval": [
-                            21.5,
-                            74.5
-                        ],
-                        "uncertainty_score": 0.9
-                    },
-                    "train_12623": {
-                        "type": "train",
-                        "id": "12623",
-                        "name": "Chennai Mail",
-                        "predicted_value": 70.7,
-                        "propagation_depth": 3,
-                        "confidence_score": 10.0,
-                        "confidence_interval": [
-                            44.2,
-                            97.2
+                            25.6,
+                            78.6
                         ],
                         "uncertainty_score": 0.9
                     }
@@ -695,35 +709,35 @@
                 "type": "train",
                 "train_no": 12623,
                 "name": "Chennai Mail",
-                "current_delay": 65.75,
-                "pred_15": 74.14,
-                "pred_30": 81.64,
-                "pred_60": 87.5,
-                "confidence": 0.95,
+                "current_delay": 53.3,
+                "pred_15": 58.27,
+                "pred_30": 64.89,
+                "pred_60": 78.31,
+                "confidence": 0.85,
                 "status": "MOVING",
                 "route_id": 1,
-                "route_index": 1,
+                "route_index": 0,
                 "priority": 1,
                 "speed": 42.5,
-                "remaining_distance": 58.09,
-                "remaining_stations": 2,
+                "remaining_distance": 14.17,
+                "remaining_stations": 3,
                 "id": "train_12623"
             },
             {
                 "type": "train",
                 "train_no": 12624,
                 "name": "Chennai Mail Return",
-                "current_delay": 38.8,
-                "pred_15": 46.79,
-                "pred_30": 53.96,
-                "pred_60": 64.32,
-                "confidence": 0.91,
+                "current_delay": 25.1,
+                "pred_15": 31.62,
+                "pred_30": 37.59,
+                "pred_60": 47.85,
+                "confidence": 0.78,
                 "status": "MOVING",
                 "route_id": 2,
                 "route_index": 1,
                 "priority": 1,
-                "speed": 42.5,
-                "remaining_distance": 27.28,
+                "speed": 46.8,
+                "remaining_distance": 47.54,
                 "remaining_stations": 2,
                 "id": "train_12624"
             },
@@ -731,17 +745,17 @@
                 "type": "train",
                 "train_no": 12625,
                 "name": "Kerala Express",
-                "current_delay": 76.58,
-                "pred_15": 81.99,
-                "pred_30": 87.29,
-                "pred_60": 98.43,
-                "confidence": 0.86,
+                "current_delay": 61.92,
+                "pred_15": 67.36,
+                "pred_30": 74.89,
+                "pred_60": 80.44,
+                "confidence": 0.88,
                 "status": "MOVING",
                 "route_id": 1,
                 "route_index": 0,
                 "priority": 1,
                 "speed": 45.0,
-                "remaining_distance": 4.01,
+                "remaining_distance": 24.01,
                 "remaining_stations": 3,
                 "id": "train_12625"
             },
@@ -749,17 +763,17 @@
                 "type": "train",
                 "train_no": 16057,
                 "name": "Sapthagiri Express",
-                "current_delay": 96.21,
-                "pred_15": 107.3,
-                "pred_30": 114.71,
-                "pred_60": 115.15,
-                "confidence": 0.69,
+                "current_delay": 78.66,
+                "pred_15": 83.73,
+                "pred_30": 94.9,
+                "pred_60": 96.53,
+                "confidence": 0.8,
                 "status": "MOVING",
                 "route_id": 4,
                 "route_index": 2,
                 "priority": 1,
-                "speed": 6.7,
-                "remaining_distance": 44.55,
+                "speed": 52.5,
+                "remaining_distance": 57.6,
                 "remaining_stations": 1,
                 "id": "train_16057"
             },
@@ -767,17 +781,17 @@
                 "type": "train",
                 "train_no": 12007,
                 "name": "Shatabdi Express",
-                "current_delay": 88.52,
-                "pred_15": 95.93,
-                "pred_30": 103.99,
-                "pred_60": 108.67,
-                "confidence": 0.96,
+                "current_delay": 71.87,
+                "pred_15": 78.06,
+                "pred_30": 83.06,
+                "pred_60": 93.72,
+                "confidence": 0.86,
                 "status": "MOVING",
                 "route_id": 1,
                 "route_index": 0,
                 "priority": 1,
                 "speed": 52.5,
-                "remaining_distance": 13.97,
+                "remaining_distance": 33.83,
                 "remaining_stations": 3,
                 "id": "train_12007"
             },
@@ -785,35 +799,35 @@
                 "type": "train",
                 "train_no": 12616,
                 "name": "Grand Trunk Express",
-                "current_delay": 61.09,
-                "pred_15": 70.64,
-                "pred_30": 81.19,
-                "pred_60": 86.25,
-                "confidence": 0.77,
+                "current_delay": 48.05,
+                "pred_15": 52.79,
+                "pred_30": 62.97,
+                "pred_60": 76.71,
+                "confidence": 0.8,
                 "status": "MOVING",
                 "route_id": 5,
-                "route_index": 2,
+                "route_index": 1,
                 "priority": 1,
-                "speed": 7.9,
-                "remaining_distance": 65.05,
-                "remaining_stations": 1,
+                "speed": 95,
+                "remaining_distance": 14.0,
+                "remaining_stations": 2,
                 "id": "train_12616"
             },
             {
                 "type": "train",
                 "train_no": 22625,
                 "name": "Double Decker Express",
-                "current_delay": 32.58,
-                "pred_15": 39.78,
-                "pred_30": 47.15,
-                "pred_60": 58.43,
-                "confidence": 0.95,
+                "current_delay": 15.18,
+                "pred_15": 25.24,
+                "pred_30": 33.39,
+                "pred_60": 55.17,
+                "confidence": 0.7,
                 "status": "MOVING",
                 "route_id": 3,
                 "route_index": 3,
                 "priority": 1,
-                "speed": 40.0,
-                "remaining_distance": 46.63,
+                "speed": 18.0,
+                "remaining_distance": 60.7,
                 "remaining_stations": 2,
                 "id": "train_22625"
             },
@@ -821,17 +835,17 @@
                 "type": "train",
                 "train_no": 16053,
                 "name": "Tirupati Express",
-                "current_delay": 88.11,
-                "pred_15": 96.46,
-                "pred_30": 104.43,
-                "pred_60": 106.69,
-                "confidence": 0.78,
+                "current_delay": 74.11,
+                "pred_15": 80.85,
+                "pred_30": 87.79,
+                "pred_60": 95.91,
+                "confidence": 0.83,
                 "status": "MOVING",
                 "route_id": 4,
                 "route_index": 0,
                 "priority": 1,
                 "speed": 37.5,
-                "remaining_distance": 28.93,
+                "remaining_distance": 46.43,
                 "remaining_stations": 3,
                 "id": "train_16053"
             },
@@ -840,10 +854,10 @@
                 "train_no": 40001,
                 "name": "Tambaram Local",
                 "current_delay": 14.89,
-                "pred_15": 21.83,
-                "pred_30": 28.23,
-                "pred_60": 37.8,
-                "confidence": 0.5,
+                "pred_15": 20.91,
+                "pred_30": 26.19,
+                "pred_60": 37.11,
+                "confidence": 0.63,
                 "status": "ARRIVED",
                 "route_id": 6,
                 "route_index": 2,
@@ -858,10 +872,10 @@
                 "train_no": 40003,
                 "name": "Chengalpattu Commuter",
                 "current_delay": 16.6,
-                "pred_15": 22.95,
-                "pred_30": 29.03,
-                "pred_60": 38.59,
-                "confidence": 0.44,
+                "pred_15": 22.15,
+                "pred_30": 26.98,
+                "pred_60": 37.53,
+                "confidence": 0.55,
                 "status": "ARRIVED",
                 "route_id": 6,
                 "route_index": 2,
@@ -875,35 +889,35 @@
                 "type": "train",
                 "train_no": 58201,
                 "name": "Arakkonam Coal Freight",
-                "current_delay": 44.6,
-                "pred_15": 48.91,
-                "pred_30": 51.19,
-                "pred_60": 59.24,
-                "confidence": 0.94,
+                "current_delay": 35.1,
+                "pred_15": 39.8,
+                "pred_30": 42.74,
+                "pred_60": 57.69,
+                "confidence": 0.93,
                 "status": "MOVING",
                 "route_id": 1,
-                "route_index": 2,
+                "route_index": 1,
                 "priority": 0,
-                "speed": 45.0,
-                "remaining_distance": 79.5,
-                "remaining_stations": 1,
+                "speed": 24.8,
+                "remaining_distance": 7.07,
+                "remaining_stations": 2,
                 "id": "train_58201"
             },
             {
                 "type": "train",
                 "train_no": 58203,
                 "name": "Katpadi Goods Freight",
-                "current_delay": 60.36,
-                "pred_15": 67.8,
-                "pred_30": 72.28,
-                "pred_60": 76.77,
-                "confidence": 0.95,
+                "current_delay": 45.98,
+                "pred_15": 50.98,
+                "pred_30": 56.57,
+                "pred_60": 68.06,
+                "confidence": 0.84,
                 "status": "MOVING",
                 "route_id": 2,
                 "route_index": 1,
                 "priority": 0,
-                "speed": 25.0,
-                "remaining_distance": 4.71,
+                "speed": 9.5,
+                "remaining_distance": 16.05,
                 "remaining_stations": 2,
                 "id": "train_58203"
             },
@@ -911,17 +925,17 @@
                 "type": "train",
                 "train_no": 58205,
                 "name": "Tirupati Container Freight",
-                "current_delay": 67.35,
-                "pred_15": 71.95,
-                "pred_30": 76.44,
-                "pred_60": 79.84,
-                "confidence": 0.72,
+                "current_delay": 58.95,
+                "pred_15": 63.64,
+                "pred_30": 71.13,
+                "pred_60": 79.51,
+                "confidence": 0.65,
                 "status": "MOVING",
                 "route_id": 4,
                 "route_index": 2,
                 "priority": 0,
                 "speed": 28.0,
-                "remaining_distance": 24.9,
+                "remaining_distance": 37.97,
                 "remaining_stations": 1,
                 "id": "train_58205"
             },
@@ -930,10 +944,10 @@
                 "train_no": 90001,
                 "name": "Track Inspection Car",
                 "current_delay": 2.4,
-                "pred_15": 6.85,
-                "pred_30": 10.95,
-                "pred_60": 18.52,
-                "confidence": 0.48,
+                "pred_15": 5.9,
+                "pred_30": 9.62,
+                "pred_60": 17.6,
+                "confidence": 0.66,
                 "status": "ARRIVED",
                 "route_id": 7,
                 "route_index": 3,
@@ -947,17 +961,17 @@
                 "type": "train",
                 "train_no": 12607,
                 "name": "Lalbagh Express",
-                "current_delay": 98.76,
-                "pred_15": 106.19,
-                "pred_30": 112.36,
-                "pred_60": 107.26,
-                "confidence": 0.74,
+                "current_delay": 83.36,
+                "pred_15": 91.45,
+                "pred_30": 97.95,
+                "pred_60": 104.11,
+                "confidence": 0.84,
                 "status": "MOVING",
                 "route_id": 1,
                 "route_index": 0,
                 "priority": 1,
-                "speed": 42.5,
-                "remaining_distance": 38.65,
+                "speed": 13.1,
+                "remaining_distance": 56.53,
                 "remaining_stations": 3,
                 "id": "train_12607"
             },
@@ -965,17 +979,17 @@
                 "type": "train",
                 "train_no": 12608,
                 "name": "Lalbagh Return",
-                "current_delay": 39.74,
-                "pred_15": 47.03,
-                "pred_30": 53.82,
-                "pred_60": 64.69,
-                "confidence": 0.9,
+                "current_delay": 26.04,
+                "pred_15": 33.24,
+                "pred_30": 38.26,
+                "pred_60": 49.63,
+                "confidence": 0.81,
                 "status": "MOVING",
                 "route_id": 2,
                 "route_index": 1,
                 "priority": 1,
-                "speed": 42.5,
-                "remaining_distance": 36.63,
+                "speed": 46.8,
+                "remaining_distance": 56.89,
                 "remaining_stations": 2,
                 "id": "train_12608"
             },
@@ -983,17 +997,17 @@
                 "type": "train",
                 "train_no": 16058,
                 "name": "Sapthagiri Return",
-                "current_delay": 93.5,
-                "pred_15": 100.94,
-                "pred_30": 107.72,
-                "pred_60": 114.25,
-                "confidence": 0.77,
+                "current_delay": 75.74,
+                "pred_15": 82.57,
+                "pred_30": 88.75,
+                "pred_60": 99.42,
+                "confidence": 0.88,
                 "status": "MOVING",
                 "route_id": 5,
                 "route_index": 0,
                 "priority": 1,
                 "speed": 13.7,
-                "remaining_distance": 34.77,
+                "remaining_distance": 47.63,
                 "remaining_stations": 3,
                 "id": "train_16058"
             },
@@ -1001,17 +1015,17 @@
                 "type": "train",
                 "train_no": 58207,
                 "name": "Jolarpettai Heavy Freight",
-                "current_delay": 120.82,
-                "pred_15": 114.59,
-                "pred_30": 115.75,
-                "pred_60": 104.65,
-                "confidence": 0.66,
+                "current_delay": 106.14,
+                "pred_15": 112.74,
+                "pred_30": 112.94,
+                "pred_60": 106.34,
+                "confidence": 0.78,
                 "status": "MOVING",
                 "route_id": 1,
                 "route_index": 0,
                 "priority": 0,
-                "speed": 22.5,
-                "remaining_distance": 54.54,
+                "speed": 4.6,
+                "remaining_distance": 64.53,
                 "remaining_stations": 3,
                 "id": "train_58207"
             },
@@ -1080,11 +1094,11 @@
                 "station_id": 6,
                 "name": "Tiruttani",
                 "platforms_total": 4,
-                "platforms_occupied": 0,
+                "platforms_occupied": 1,
                 "trains_waiting": 0,
-                "current_congestion": 0.0,
-                "pred_congestion_30": 0.0,
-                "average_delay": 0.0,
+                "current_congestion": 25.0,
+                "pred_congestion_30": 25.0,
+                "average_delay": 48.05,
                 "id": "station_6"
             },
             {
@@ -1141,7 +1155,7 @@
                 "capacity": 5,
                 "trains_on_track": 6,
                 "current_occupancy": 120.0,
-                "pred_occupancy_30": 49.5,
+                "pred_occupancy_30": 49.85,
                 "blocked": false,
                 "id": "track_1"
             },
@@ -1151,7 +1165,7 @@
                 "capacity": 4,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 45.89,
+                "pred_occupancy_30": 51.06,
                 "blocked": false,
                 "id": "track_2"
             },
@@ -1161,7 +1175,7 @@
                 "capacity": 4,
                 "trains_on_track": 5,
                 "current_occupancy": 125.0,
-                "pred_occupancy_30": 100.0,
+                "pred_occupancy_30": 88.24,
                 "blocked": false,
                 "id": "track_3"
             },
@@ -1171,7 +1185,7 @@
                 "capacity": 3,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 22.45,
+                "pred_occupancy_30": 27.88,
                 "blocked": false,
                 "id": "track_4"
             },
@@ -1179,9 +1193,9 @@
                 "type": "track",
                 "track_id": 5,
                 "capacity": 4,
-                "trains_on_track": 1,
-                "current_occupancy": 25.0,
-                "pred_occupancy_30": 49.03,
+                "trains_on_track": 0,
+                "current_occupancy": 0.0,
+                "pred_occupancy_30": 8.29,
                 "blocked": false,
                 "id": "track_5"
             },
@@ -1191,7 +1205,7 @@
                 "capacity": 3,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 3.31,
+                "pred_occupancy_30": 21.0,
                 "blocked": false,
                 "id": "track_6"
             },
@@ -1211,7 +1225,7 @@
                 "capacity": 3,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 20.03,
+                "pred_occupancy_30": 15.69,
                 "blocked": false,
                 "id": "track_8"
             },
@@ -1221,7 +1235,7 @@
                 "capacity": 2,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 54.37,
+                "pred_occupancy_30": 6.81,
                 "blocked": false,
                 "id": "track_9"
             },
@@ -1231,7 +1245,7 @@
                 "capacity": 4,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 21.77,
+                "pred_occupancy_30": 18.38,
                 "blocked": false,
                 "id": "track_10"
             }
@@ -1239,16 +1253,25 @@
         "links": [
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 52.6,
+                "expected_delay_transfer": 42.6,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
                 "source": "train_12623",
-                "target": "track_3"
+                "target": "track_1"
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 31.0,
+                "expected_delay_transfer": 48.0,
+                "transfer_time": 5,
+                "reason": "Signal Block Safety Spacing",
+                "confidence": 92.0,
+                "source": "train_12623",
+                "target": "train_12625"
+            },
+            {
+                "propagation_probability": 0.93,
+                "expected_delay_transfer": 20.1,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1256,8 +1279,8 @@
                 "target": "track_3"
             },
             {
-                "propagation_probability": 0.91,
-                "expected_delay_transfer": 34.9,
+                "propagation_probability": 0.78,
+                "expected_delay_transfer": 22.6,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1266,7 +1289,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 61.3,
+                "expected_delay_transfer": 49.5,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1275,7 +1298,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 68.9,
+                "expected_delay_transfer": 55.7,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1284,7 +1307,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 77.0,
+                "expected_delay_transfer": 62.9,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1293,7 +1316,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 70.8,
+                "expected_delay_transfer": 57.5,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1302,7 +1325,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 79.7,
+                "expected_delay_transfer": 64.7,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1310,17 +1333,17 @@
                 "target": "train_16053"
             },
             {
-                "propagation_probability": 0.99,
-                "expected_delay_transfer": 48.9,
+                "propagation_probability": 0.78,
+                "expected_delay_transfer": 38.4,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
                 "source": "train_12616",
-                "target": "track_1"
+                "target": "track_6"
             },
             {
-                "propagation_probability": 0.99,
-                "expected_delay_transfer": 26.1,
+                "propagation_probability": 0.83,
+                "expected_delay_transfer": 12.1,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1328,17 +1351,8 @@
                 "target": "track_3"
             },
             {
-                "propagation_probability": 0.85,
-                "expected_delay_transfer": 29.3,
-                "transfer_time": 5,
-                "reason": "Signal Block Safety Spacing",
-                "confidence": 92.0,
-                "source": "train_22625",
-                "target": "train_12623"
-            },
-            {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 70.5,
+                "expected_delay_transfer": 59.3,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1347,7 +1361,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 79.3,
+                "expected_delay_transfer": 66.7,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1355,17 +1369,26 @@
                 "target": "train_12607"
             },
             {
-                "propagation_probability": 0.72,
-                "expected_delay_transfer": 35.7,
+                "propagation_probability": 0.93,
+                "expected_delay_transfer": 28.1,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
                 "source": "train_58201",
-                "target": "track_5"
+                "target": "track_3"
+            },
+            {
+                "propagation_probability": 0.88,
+                "expected_delay_transfer": 31.6,
+                "transfer_time": 5,
+                "reason": "Signal Block Safety Spacing",
+                "confidence": 92.0,
+                "source": "train_58201",
+                "target": "train_58203"
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 48.3,
+                "expected_delay_transfer": 36.8,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1373,8 +1396,8 @@
                 "target": "track_3"
             },
             {
-                "propagation_probability": 0.99,
-                "expected_delay_transfer": 54.3,
+                "propagation_probability": 0.98,
+                "expected_delay_transfer": 41.4,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1383,7 +1406,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 53.9,
+                "expected_delay_transfer": 47.2,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1392,7 +1415,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 60.6,
+                "expected_delay_transfer": 53.1,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1401,7 +1424,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 79.0,
+                "expected_delay_transfer": 66.7,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1410,7 +1433,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 88.9,
+                "expected_delay_transfer": 75.0,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1418,8 +1441,8 @@
                 "target": "train_58207"
             },
             {
-                "propagation_probability": 0.99,
-                "expected_delay_transfer": 31.8,
+                "propagation_probability": 0.94,
+                "expected_delay_transfer": 20.8,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1427,8 +1450,8 @@
                 "target": "track_3"
             },
             {
-                "propagation_probability": 0.92,
-                "expected_delay_transfer": 35.8,
+                "propagation_probability": 0.79,
+                "expected_delay_transfer": 23.4,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1437,7 +1460,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 74.8,
+                "expected_delay_transfer": 60.6,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1446,7 +1469,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 84.2,
+                "expected_delay_transfer": 68.2,
                 "transfer_time": 5,
                 "reason": "Signal Block Safety Spacing",
                 "confidence": 92.0,
@@ -1455,7 +1478,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 96.7,
+                "expected_delay_transfer": 84.9,
                 "transfer_time": 10,
                 "reason": "Track Occupancy",
                 "confidence": 90.0,
@@ -1464,16 +1487,7 @@
             },
             {
                 "propagation_probability": 0.99,
-                "expected_delay_transfer": 108.7,
-                "transfer_time": 5,
-                "reason": "Signal Block Safety Spacing",
-                "confidence": 92.0,
-                "source": "train_58207",
-                "target": "train_12616"
-            },
-            {
-                "propagation_probability": 0.99,
-                "expected_delay_transfer": 72.5,
+                "expected_delay_transfer": 63.7,
                 "transfer_time": 15,
                 "reason": "Station Destination Queue",
                 "confidence": 85.0,
@@ -1481,8 +1495,8 @@
                 "target": "station_4"
             },
             {
-                "propagation_probability": 0.8,
-                "expected_delay_transfer": 23.8,
+                "propagation_probability": 0.73,
+                "expected_delay_transfer": 15.6,
                 "transfer_time": 15,
                 "reason": "Station Destination Queue",
                 "confidence": 85.0,
@@ -1490,17 +1504,17 @@
                 "target": "station_8"
             },
             {
-                "propagation_probability": 0.42,
-                "expected_delay_transfer": 26.8,
+                "propagation_probability": 0.34,
+                "expected_delay_transfer": 28.8,
                 "transfer_time": 15,
                 "reason": "Station Destination Queue",
                 "confidence": 85.0,
-                "source": "track_5",
-                "target": "station_10"
+                "source": "track_6",
+                "target": "station_6"
             },
             {
-                "propagation_probability": 0.97,
-                "expected_delay_transfer": 56.1,
+                "propagation_probability": 0.88,
+                "expected_delay_transfer": 45.4,
                 "transfer_time": 15,
                 "reason": "Station Destination Queue",
                 "confidence": 85.0,
@@ -1512,94 +1526,94 @@
     "critical_nodes": {
         "critical_trains": [
             {
-                "id": 12625,
-                "name": "Kerala Express",
-                "criticality_score": 100.0,
-                "delay": 76.58
-            },
-            {
                 "id": 16057,
                 "name": "Sapthagiri Express",
                 "criticality_score": 100.0,
-                "delay": 96.21
+                "delay": 78.66
             },
             {
                 "id": 12007,
                 "name": "Shatabdi Express",
                 "criticality_score": 100.0,
-                "delay": 88.52
+                "delay": 71.87
             },
             {
                 "id": 16053,
                 "name": "Tirupati Express",
                 "criticality_score": 100.0,
-                "delay": 88.11
+                "delay": 74.11
             },
             {
                 "id": 12607,
                 "name": "Lalbagh Express",
                 "criticality_score": 100.0,
-                "delay": 98.76
+                "delay": 83.36
             },
             {
                 "id": 16058,
                 "name": "Sapthagiri Return",
                 "criticality_score": 100.0,
-                "delay": 93.5
+                "delay": 75.74
             },
             {
                 "id": 58207,
                 "name": "Jolarpettai Heavy Freight",
                 "criticality_score": 100.0,
-                "delay": 120.82
+                "delay": 106.14
+            },
+            {
+                "id": 12625,
+                "name": "Kerala Express",
+                "criticality_score": 96.5,
+                "delay": 61.92
             },
             {
                 "id": 12623,
                 "name": "Chennai Mail",
-                "criticality_score": 97.1,
-                "delay": 65.75
-            },
-            {
-                "id": 12616,
-                "name": "Grand Trunk Express",
-                "criticality_score": 88.5,
-                "delay": 61.09
+                "criticality_score": 85.1,
+                "delay": 53.3
             },
             {
                 "id": 58205,
                 "name": "Tirupati Container Freight",
-                "criticality_score": 86.0,
-                "delay": 67.35
+                "criticality_score": 75.9,
+                "delay": 58.95
+            },
+            {
+                "id": 12616,
+                "name": "Grand Trunk Express",
+                "criticality_score": 74.7,
+                "delay": 48.05
             },
             {
                 "id": 58203,
                 "name": "Katpadi Goods Freight",
-                "criticality_score": 80.6,
-                "delay": 60.36
+                "criticality_score": 64.4,
+                "delay": 45.98
             },
             {
                 "id": 12608,
                 "name": "Lalbagh Return",
-                "criticality_score": 66.9,
-                "delay": 39.74
-            },
-            {
-                "id": 12624,
-                "name": "Chennai Mail Return",
-                "criticality_score": 65.8,
-                "delay": 38.8
-            },
-            {
-                "id": 22625,
-                "name": "Double Decker Express",
-                "criticality_score": 58.3,
-                "delay": 32.58
+                "criticality_score": 50.5,
+                "delay": 26.04
             },
             {
                 "id": 58201,
                 "name": "Arakkonam Coal Freight",
-                "criticality_score": 57.6,
-                "delay": 44.6
+                "criticality_score": 50.3,
+                "delay": 35.1
+            },
+            {
+                "id": 12624,
+                "name": "Chennai Mail Return",
+                "criticality_score": 49.4,
+                "delay": 25.1
+            },
+            {
+                "id": 22625,
+                "name": "Double Decker Express",
+                "criticality_score": 36.4,
+                "delay": 15.18
             },
             {
                 "id": 40003,
@@ -1628,6 +1642,12 @@
                 "congestion": 33.33
             },
             {
+                "id": 6,
+                "name": "Tiruttani",
+                "criticality_score": 13.6,
+                "congestion": 25.0
+            },
+            {
                 "id": 3,
                 "name": "Chengalpattu",
                 "criticality_score": 12.5,
@@ -1652,12 +1672,6 @@
                 "congestion": 0.0
             },
             {
-                "id": 10,
-                "name": "Jolarpettai Junction",
-                "criticality_score": 1.1,
-                "congestion": 0.0
-            },
-            {
                 "id": 1,
                 "name": "Chennai Central",
                 "criticality_score": 0.0,
@@ -1676,8 +1690,8 @@
                 "congestion": 0.0
             },
             {
-                "id": 6,
-                "name": "Tiruttani",
+                "id": 10,
+                "name": "Jolarpettai Junction",
                 "criticality_score": 0.0,
                 "congestion": 0.0
             }
@@ -1702,9 +1716,9 @@
                 "status": "NORMAL"
             },
             {
-                "id": 5,
-                "criticality_score": 32.2,
-                "occupancy": 25.0,
+                "id": 6,
+                "criticality_score": 22.2,
+                "occupancy": 0.0,
                 "status": "NORMAL"
             },
             {
@@ -1720,7 +1734,7 @@
                 "status": "NORMAL"
             },
             {
-                "id": 6,
+                "id": 5,
                 "criticality_score": 20.0,
                 "occupancy": 0.0,
                 "status": "NORMAL"
@@ -1748,6 +1762,11 @@
     "risk_scores": {
         "train_risks": [
             {
+                "id": 12625,
+                "name": "Kerala Express",
+                "risk_score": 39.2
+            },
+            {
                 "id": 12007,
                 "name": "Shatabdi Express",
                 "risk_score": 39.2
@@ -1773,11 +1792,6 @@
                 "risk_score": 38.8
             },
             {
-                "id": 12625,
-                "name": "Kerala Express",
-                "risk_score": 38.8
-            },
-            {
                 "id": 16057,
                 "name": "Sapthagiri Express",
                 "risk_score": 38.8
@@ -1785,17 +1799,7 @@
             {
                 "id": 12616,
                 "name": "Grand Trunk Express",
-                "risk_score": 38.8
-            },
-            {
-                "id": 58207,
-                "name": "Jolarpettai Heavy Freight",
-                "risk_score": 35.2
-            },
-            {
-                "id": 58203,
-                "name": "Katpadi Goods Freight",
-                "risk_score": 34.8
+                "risk_score": 37.2
             },
             {
                 "id": 58205,
@@ -1803,24 +1807,34 @@
                 "risk_score": 34.8
             },
             {
-                "id": 12608,
-                "name": "Lalbagh Return",
-                "risk_score": 33.1
+                "id": 58207,
+                "name": "Jolarpettai Heavy Freight",
+                "risk_score": 34.8
             },
             {
-                "id": 12624,
-                "name": "Chennai Mail Return",
-                "risk_score": 32.5
+                "id": 58203,
+                "name": "Katpadi Goods Freight",
+                "risk_score": 32.8
             },
             {
                 "id": 58201,
                 "name": "Arakkonam Coal Freight",
-                "risk_score": 31.2
+                "risk_score": 25.9
+            },
+            {
+                "id": 12608,
+                "name": "Lalbagh Return",
+                "risk_score": 24.8
+            },
+            {
+                "id": 12624,
+                "name": "Chennai Mail Return",
+                "risk_score": 24.3
             },
             {
                 "id": 22625,
                 "name": "Double Decker Express",
-                "risk_score": 28.8
+                "risk_score": 17.9
             },
             {
                 "id": 40003,
@@ -1845,6 +1859,11 @@
                 "risk_score": 10.0
             },
             {
+                "id": 6,
+                "name": "Tiruttani",
+                "risk_score": 7.9
+            },
+            {
                 "id": 3,
                 "name": "Chengalpattu",
                 "risk_score": 7.5
@@ -1865,11 +1884,6 @@
                 "risk_score": 0.4
             },
             {
-                "id": 10,
-                "name": "Jolarpettai Junction",
-                "risk_score": 0.4
-            },
-            {
                 "id": 1,
                 "name": "Chennai Central",
                 "risk_score": 0.0
@@ -1885,8 +1899,8 @@
                 "risk_score": 0.0
             },
             {
-                "id": 6,
-                "name": "Tiruttani",
+                "id": 10,
+                "name": "Jolarpettai Junction",
                 "risk_score": 0.0
             }
         ],
@@ -1904,8 +1918,8 @@
                 "risk_score": 35.6
             },
             {
-                "id": 5,
-                "risk_score": 12.3
+                "id": 6,
+                "risk_score": 4.8
             },
             {
                 "id": 2,
@@ -1916,7 +1930,7 @@
                 "risk_score": 4.0
             },
             {
-                "id": 6,
+                "id": 5,
                 "risk_score": 4.0
             },
             {
@@ -1940,6 +1954,42 @@
     "candidate_actions": [
         {
             "action_id": 1,
+            "action": "REROUTE",
+            "action_type": "REROUTE",
+            "train_id": "Chennai Mail",
+            "target": "Chennai Mail",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Chennai Mail"
+        },
+        {
+            "action_id": 2,
             "action": "REROUTE",
             "action_type": "REROUTE",
             "train_id": "Kerala Express",
@@ -1975,7 +2025,7 @@
             "train_name": "Kerala Express"
         },
         {
-            "action_id": 2,
+            "action_id": 3,
             "action": "REROUTE",
             "action_type": "REROUTE",
             "train_id": "Shatabdi Express",
@@ -2009,40 +2059,6 @@
             "passenger_impact": "Medium",
             "track_id": 1,
             "train_name": "Shatabdi Express"
-        },
-        {
-            "action_id": 3,
-            "action": "REROUTE",
-            "action_type": "REROUTE",
-            "train_id": "Grand Trunk Express",
-            "target": "Grand Trunk Express",
-            "source_station": 4,
-            "target_station": 1,
-            "parameters": {
-                "new_route_stations": [
-                    1,
-                    4,
-                    8,
-                    10
-                ],
-                "original_route_stations": [
-                    7,
-                    6,
-                    4,
-                    1
-                ]
-            },
-            "expected_effect": {
-                "delay_reduction": 14.2,
-                "congestion_reduction": 0.0
-            },
-            "constraints": {},
-            "expected_delay_reduction": 14.2,
-            "expected_congestion_reduction": 0.0,
-            "confidence": 0.91,
-            "passenger_impact": "Medium",
-            "track_id": 1,
-            "train_name": "Grand Trunk Express"
         },
         {
             "action_id": 4,
@@ -2154,41 +2170,6 @@
             "action_id": 7,
             "action": "REROUTE",
             "action_type": "REROUTE",
-            "train_id": "Chennai Mail",
-            "target": "Chennai Mail",
-            "source_station": 4,
-            "target_station": 10,
-            "parameters": {
-                "new_route_stations": [
-                    1,
-                    4,
-                    5,
-                    2,
-                    3
-                ],
-                "original_route_stations": [
-                    1,
-                    4,
-                    8,
-                    10
-                ]
-            },
-            "expected_effect": {
-                "delay_reduction": 14.2,
-                "congestion_reduction": 0.0
-            },
-            "constraints": {},
-            "expected_delay_reduction": 14.2,
-            "expected_congestion_reduction": 0.0,
-            "confidence": 0.91,
-            "passenger_impact": "Medium",
-            "track_id": 3,
-            "train_name": "Chennai Mail"
-        },
-        {
-            "action_id": 8,
-            "action": "REROUTE",
-            "action_type": "REROUTE",
             "train_id": "Chennai Mail Return",
             "target": "Chennai Mail Return",
             "source_station": 8,
@@ -2220,7 +2201,7 @@
             "train_name": "Chennai Mail Return"
         },
         {
-            "action_id": 9,
+            "action_id": 8,
             "action": "REROUTE",
             "action_type": "REROUTE",
             "train_id": "Double Decker Express",
@@ -2254,6 +2235,41 @@
             "passenger_impact": "Medium",
             "track_id": 3,
             "train_name": "Double Decker Express"
+        },
+        {
+            "action_id": 9,
+            "action": "REROUTE",
+            "action_type": "REROUTE",
+            "train_id": "Arakkonam Coal Freight",
+            "target": "Arakkonam Coal Freight",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    5,
+                    2,
+                    3
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
+            "track_id": 3,
+            "train_name": "Arakkonam Coal Freight"
         },
         {
             "action_id": 10,
@@ -2431,7 +2447,7 @@
             "action_type": "HOLD",
             "train_id": "Chennai Mail",
             "target": "Chennai Mail",
-            "source_station": 4,
+            "source_station": 1,
             "target_station": 10,
             "parameters": {
                 "duration_mins": 5
@@ -2546,7 +2562,7 @@
             "action_type": "HOLD",
             "train_id": "Grand Trunk Express",
             "target": "Grand Trunk Express",
-            "source_station": 4,
+            "source_station": 6,
             "target_station": 1,
             "parameters": {
                 "duration_mins": 5
@@ -2661,7 +2677,7 @@
             "action_type": "HOLD",
             "train_id": "Arakkonam Coal Freight",
             "target": "Arakkonam Coal Freight",
-            "source_station": 8,
+            "source_station": 4,
             "target_station": 10,
             "parameters": {
                 "duration_mins": 5
@@ -2822,7 +2838,7 @@
             "action_type": "SPEED_ADJUST",
             "train_id": "Chennai Mail",
             "target": "Chennai Mail",
-            "source_station": 4,
+            "source_station": 1,
             "target_station": 10,
             "parameters": {
                 "speed_multiplier": 1.1
@@ -2937,7 +2953,7 @@
             "action_type": "SPEED_ADJUST",
             "train_id": "Grand Trunk Express",
             "target": "Grand Trunk Express",
-            "source_station": 4,
+            "source_station": 6,
             "target_station": 1,
             "parameters": {
                 "speed_multiplier": 1.1
@@ -2951,7 +2967,7 @@
             "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
             "passenger_impact": "None",
-            "new_speed_kmp": 90,
+            "new_speed_kmp": 75,
             "train_name": "Grand Trunk Express"
         },
         {
@@ -3006,7 +3022,7 @@
             "action_type": "SPEED_ADJUST",
             "train_id": "Arakkonam Coal Freight",
             "target": "Arakkonam Coal Freight",
-            "source_station": 8,
+            "source_station": 4,
             "target_station": 10,
             "parameters": {
                 "speed_multiplier": 1.1
@@ -3166,6 +3182,49 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Chennai Mail progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Chennai Mail",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
             "target": "Kerala Express",
             "reasoning_chain": [
                 "Downstream track segment congested or blocked",
@@ -3206,8 +3265,8 @@
                 "expected_recovery_reduction": 11
             }
         },
-        "2": {
-            "action_id": 2,
+        "3": {
+            "action_id": 3,
             "action": "REROUTE",
             "target": "Shatabdi Express",
             "reasoning_chain": [
@@ -3241,49 +3300,6 @@
                 ]
             },
             "explanation_text": "Downstream track segment congested or blocked -> Train Shatabdi Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Shatabdi Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-            "confidence": 0.91,
-            "expected_improvement_mins": 14.2,
-            "expected_effects": {
-                "delay_reduction_minutes": 14.2,
-                "station_congestion_reduction": 21.299999999999997,
-                "expected_recovery_reduction": 11
-            }
-        },
-        "3": {
-            "action_id": 3,
-            "action": "REROUTE",
-            "target": "Grand Trunk Express",
-            "reasoning_chain": [
-                "Downstream track segment congested or blocked",
-                "Train Grand Trunk Express progress delayed on primary track route",
-                "Propagation delay spreads to following trains via safety blocks",
-                "Bypass route via alternate track selected for Train Grand Trunk Express",
-                "Primary track segment occupancy drops by 30%",
-                "Total network delay propagation drops by 14.2 minutes"
-            ],
-            "causal_graph": {
-                "nodes": [
-                    "Track Congestion",
-                    "Safety Block Spacing",
-                    "Bypass Route Trigger",
-                    "Delay Mitigation"
-                ],
-                "edges": [
-                    {
-                        "source": "Track Congestion",
-                        "target": "Safety Block Spacing"
-                    },
-                    {
-                        "source": "Safety Block Spacing",
-                        "target": "Bypass Route Trigger"
-                    },
-                    {
-                        "source": "Bypass Route Trigger",
-                        "target": "Delay Mitigation"
-                    }
-                ]
-            },
-            "explanation_text": "Downstream track segment congested or blocked -> Train Grand Trunk Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Grand Trunk Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
             "confidence": 0.91,
             "expected_improvement_mins": 14.2,
             "expected_effects": {
@@ -3424,49 +3440,6 @@
         "7": {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
-            "reasoning_chain": [
-                "Downstream track segment congested or blocked",
-                "Train Chennai Mail progress delayed on primary track route",
-                "Propagation delay spreads to following trains via safety blocks",
-                "Bypass route via alternate track selected for Train Chennai Mail",
-                "Primary track segment occupancy drops by 30%",
-                "Total network delay propagation drops by 14.2 minutes"
-            ],
-            "causal_graph": {
-                "nodes": [
-                    "Track Congestion",
-                    "Safety Block Spacing",
-                    "Bypass Route Trigger",
-                    "Delay Mitigation"
-                ],
-                "edges": [
-                    {
-                        "source": "Track Congestion",
-                        "target": "Safety Block Spacing"
-                    },
-                    {
-                        "source": "Safety Block Spacing",
-                        "target": "Bypass Route Trigger"
-                    },
-                    {
-                        "source": "Bypass Route Trigger",
-                        "target": "Delay Mitigation"
-                    }
-                ]
-            },
-            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-            "confidence": 0.91,
-            "expected_improvement_mins": 14.2,
-            "expected_effects": {
-                "delay_reduction_minutes": 14.2,
-                "station_congestion_reduction": 21.299999999999997,
-                "expected_recovery_reduction": 11
-            }
-        },
-        "8": {
-            "action_id": 8,
-            "action": "REROUTE",
             "target": "Chennai Mail Return",
             "reasoning_chain": [
                 "Downstream track segment congested or blocked",
@@ -3507,8 +3480,8 @@
                 "expected_recovery_reduction": 11
             }
         },
-        "9": {
-            "action_id": 9,
+        "8": {
+            "action_id": 8,
             "action": "REROUTE",
             "target": "Double Decker Express",
             "reasoning_chain": [
@@ -3542,6 +3515,49 @@
                 ]
             },
             "explanation_text": "Downstream track segment congested or blocked -> Train Double Decker Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Double Decker Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "9": {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Arakkonam Coal Freight",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Arakkonam Coal Freight progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Arakkonam Coal Freight",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Arakkonam Coal Freight progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Arakkonam Coal Freight -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
             "confidence": 0.91,
             "expected_improvement_mins": 14.2,
             "expected_effects": {
@@ -4771,7 +4787,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Kerala Express",
+                "train_id": "Chennai Mail",
                 "station_id": 0
             },
             "2": {
@@ -4787,7 +4803,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Shatabdi Express",
+                "train_id": "Kerala Express",
                 "station_id": 0
             },
             "3": {
@@ -4803,7 +4819,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Grand Trunk Express",
+                "train_id": "Shatabdi Express",
                 "station_id": 0
             },
             "4": {
@@ -4867,7 +4883,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Chennai Mail",
+                "train_id": "Chennai Mail Return",
                 "station_id": 0
             },
             "8": {
@@ -4883,7 +4899,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Chennai Mail Return",
+                "train_id": "Double Decker Express",
                 "station_id": 0
             },
             "9": {
@@ -4899,7 +4915,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": "Double Decker Express",
+                "train_id": "Arakkonam Coal Freight",
                 "station_id": 0
             },
             "10": {
@@ -5466,182 +5482,182 @@
         "edges": [
             {
                 "source": "1",
+                "target": "15",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "1",
+                "target": "31",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "1",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
                 "target": "17",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "30",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "33",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "34",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "35",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "37",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "38",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "39",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "40",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "41",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "42",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "43",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "1",
+                "source": "2",
                 "target": "44",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "19",
                 "relationship": "CONFLICTS_WITH"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "30",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "32",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "33",
                 "relationship": "COMPATIBLE"
             },
             {
-                "source": "2",
+                "source": "3",
                 "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "36",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "37",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "38",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "39",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "40",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "41",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "42",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "43",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "2",
-                "target": "44",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "20",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "3",
-                "target": "30",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "31",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "32",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "33",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "3",
-                "target": "34",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -5916,87 +5932,92 @@
             },
             {
                 "source": "7",
-                "target": "15",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "7",
-                "target": "31",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "32",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "33",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "34",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "36",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "37",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "38",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "39",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "40",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "41",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "42",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "43",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "7",
-                "target": "44",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "8",
                 "target": "16",
                 "relationship": "CONFLICTS_WITH"
             },
             {
+                "source": "7",
+                "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "32",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "33",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "34",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "35",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "36",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "37",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "38",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "39",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "40",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "41",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "42",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "43",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "44",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "21",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
                 "source": "8",
                 "target": "30",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "8",
+                "target": "31",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6017,11 +6038,6 @@
             {
                 "source": "8",
                 "target": "35",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "8",
-                "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6066,7 +6082,7 @@
             },
             {
                 "source": "9",
-                "target": "21",
+                "target": "23",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6101,12 +6117,12 @@
             },
             {
                 "source": "9",
-                "target": "37",
+                "target": "36",
                 "relationship": "COMPATIBLE"
             },
             {
                 "source": "9",
-                "target": "38",
+                "target": "37",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6516,7 +6532,7 @@
             },
             {
                 "source": "15",
-                "target": "7",
+                "target": "1",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6526,7 +6542,7 @@
             },
             {
                 "source": "16",
-                "target": "8",
+                "target": "7",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6536,7 +6552,7 @@
             },
             {
                 "source": "17",
-                "target": "1",
+                "target": "2",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6556,7 +6572,7 @@
             },
             {
                 "source": "19",
-                "target": "2",
+                "target": "3",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6566,17 +6582,12 @@
             },
             {
                 "source": "20",
-                "target": "3",
-                "relationship": "CONFLICTS_WITH"
-            },
-            {
-                "source": "20",
                 "target": "35",
                 "relationship": "CONFLICTS_WITH"
             },
             {
                 "source": "21",
-                "target": "9",
+                "target": "8",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6592,6 +6603,11 @@
             {
                 "source": "22",
                 "target": "37",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "23",
+                "target": "9",
                 "relationship": "CONFLICTS_WITH"
             },
             {
@@ -6661,11 +6677,6 @@
             },
             {
                 "source": "30",
-                "target": "1",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "30",
                 "target": "2",
                 "relationship": "COMPATIBLE"
             },
@@ -6687,6 +6698,11 @@
             {
                 "source": "30",
                 "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "30",
+                "target": "7",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6761,7 +6777,7 @@
             },
             {
                 "source": "31",
-                "target": "7",
+                "target": "8",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6801,7 +6817,7 @@
             },
             {
                 "source": "32",
-                "target": "2",
+                "target": "1",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -6946,7 +6962,7 @@
             },
             {
                 "source": "34",
-                "target": "3",
+                "target": "2",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -7017,6 +7033,11 @@
             {
                 "source": "35",
                 "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "35",
+                "target": "3",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -7116,7 +7137,7 @@
             },
             {
                 "source": "36",
-                "target": "8",
+                "target": "9",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -7257,11 +7278,6 @@
             {
                 "source": "38",
                 "target": "8",
-                "relationship": "COMPATIBLE"
-            },
-            {
-                "source": "38",
-                "target": "9",
                 "relationship": "COMPATIBLE"
             },
             {
@@ -7745,8 +7761,8 @@
             },
             "station_6": {
                 "max_platforms": 4,
-                "current_platforms_occupied": 0,
-                "available_slots": 4
+                "current_platforms_occupied": 1,
+                "available_slots": 3
             },
             "station_7": {
                 "max_platforms": 6,
@@ -7792,7 +7808,7 @@
             },
             "track_5": {
                 "capacity": 4,
-                "current_trains": 1,
+                "current_trains": 0,
                 "blocked": false
             },
             "track_6": {
@@ -9037,6 +9053,49 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Chennai Mail progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Chennai Mail",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
             "target": "Kerala Express",
             "reasoning_chain": [
                 "Downstream track segment congested or blocked",
@@ -9077,8 +9136,8 @@
                 "expected_recovery_reduction": 11
             }
         },
-        "2": {
-            "action_id": 2,
+        "3": {
+            "action_id": 3,
             "action": "REROUTE",
             "target": "Shatabdi Express",
             "reasoning_chain": [
@@ -9112,49 +9171,6 @@
                 ]
             },
             "explanation_text": "Downstream track segment congested or blocked -> Train Shatabdi Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Shatabdi Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-            "confidence": 0.91,
-            "expected_improvement_mins": 14.2,
-            "expected_effects": {
-                "delay_reduction_minutes": 14.2,
-                "station_congestion_reduction": 21.299999999999997,
-                "expected_recovery_reduction": 11
-            }
-        },
-        "3": {
-            "action_id": 3,
-            "action": "REROUTE",
-            "target": "Grand Trunk Express",
-            "reasoning_chain": [
-                "Downstream track segment congested or blocked",
-                "Train Grand Trunk Express progress delayed on primary track route",
-                "Propagation delay spreads to following trains via safety blocks",
-                "Bypass route via alternate track selected for Train Grand Trunk Express",
-                "Primary track segment occupancy drops by 30%",
-                "Total network delay propagation drops by 14.2 minutes"
-            ],
-            "causal_graph": {
-                "nodes": [
-                    "Track Congestion",
-                    "Safety Block Spacing",
-                    "Bypass Route Trigger",
-                    "Delay Mitigation"
-                ],
-                "edges": [
-                    {
-                        "source": "Track Congestion",
-                        "target": "Safety Block Spacing"
-                    },
-                    {
-                        "source": "Safety Block Spacing",
-                        "target": "Bypass Route Trigger"
-                    },
-                    {
-                        "source": "Bypass Route Trigger",
-                        "target": "Delay Mitigation"
-                    }
-                ]
-            },
-            "explanation_text": "Downstream track segment congested or blocked -> Train Grand Trunk Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Grand Trunk Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
             "confidence": 0.91,
             "expected_improvement_mins": 14.2,
             "expected_effects": {
@@ -9295,49 +9311,6 @@
         "7": {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
-            "reasoning_chain": [
-                "Downstream track segment congested or blocked",
-                "Train Chennai Mail progress delayed on primary track route",
-                "Propagation delay spreads to following trains via safety blocks",
-                "Bypass route via alternate track selected for Train Chennai Mail",
-                "Primary track segment occupancy drops by 30%",
-                "Total network delay propagation drops by 14.2 minutes"
-            ],
-            "causal_graph": {
-                "nodes": [
-                    "Track Congestion",
-                    "Safety Block Spacing",
-                    "Bypass Route Trigger",
-                    "Delay Mitigation"
-                ],
-                "edges": [
-                    {
-                        "source": "Track Congestion",
-                        "target": "Safety Block Spacing"
-                    },
-                    {
-                        "source": "Safety Block Spacing",
-                        "target": "Bypass Route Trigger"
-                    },
-                    {
-                        "source": "Bypass Route Trigger",
-                        "target": "Delay Mitigation"
-                    }
-                ]
-            },
-            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
-            "confidence": 0.91,
-            "expected_improvement_mins": 14.2,
-            "expected_effects": {
-                "delay_reduction_minutes": 14.2,
-                "station_congestion_reduction": 21.299999999999997,
-                "expected_recovery_reduction": 11
-            }
-        },
-        "8": {
-            "action_id": 8,
-            "action": "REROUTE",
             "target": "Chennai Mail Return",
             "reasoning_chain": [
                 "Downstream track segment congested or blocked",
@@ -9378,8 +9351,8 @@
                 "expected_recovery_reduction": 11
             }
         },
-        "9": {
-            "action_id": 9,
+        "8": {
+            "action_id": 8,
             "action": "REROUTE",
             "target": "Double Decker Express",
             "reasoning_chain": [
@@ -9413,6 +9386,49 @@
                 ]
             },
             "explanation_text": "Downstream track segment congested or blocked -> Train Double Decker Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Double Decker Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "9": {
+            "action_id": 9,
+            "action": "REROUTE",
+            "target": "Arakkonam Coal Freight",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Arakkonam Coal Freight progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Arakkonam Coal Freight",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Arakkonam Coal Freight progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Arakkonam Coal Freight -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
             "confidence": 0.91,
             "expected_improvement_mins": 14.2,
             "expected_effects": {
@@ -10753,8 +10769,8 @@
         "9": {
             "action_id": 9,
             "action": "REROUTE",
-            "passengers_delayed": 50,
-            "passengers_saved": 950,
+            "passengers_delayed": 20,
+            "passengers_saved": 380,
             "missed_connections_avoided": 12,
             "station_crowd_reduction_percent": 45.0,
             "platform_crowd_reduction_percent": 15.0,
@@ -11690,7 +11706,7 @@
             {
                 "action_id": 1,
                 "action": "REROUTE",
-                "target": "Kerala Express",
+                "target": "Chennai Mail",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -11701,7 +11717,7 @@
             {
                 "action_id": 2,
                 "action": "REROUTE",
-                "target": "Shatabdi Express",
+                "target": "Kerala Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -11712,7 +11728,7 @@
             {
                 "action_id": 3,
                 "action": "REROUTE",
-                "target": "Grand Trunk Express",
+                "target": "Shatabdi Express",
                 "delay_cost": -14.0,
                 "risk": 10.0,
                 "energy": 7.0,
@@ -11745,17 +11761,6 @@
             {
                 "action_id": 7,
                 "action": "REROUTE",
-                "target": "Chennai Mail",
-                "delay_cost": -14.0,
-                "risk": 10.0,
-                "energy": 7.0,
-                "passenger_saved_percent": 0.95,
-                "operational_cost": 3.5,
-                "robustness": 0.66
-            },
-            {
-                "action_id": 8,
-                "action": "REROUTE",
                 "target": "Chennai Mail Return",
                 "delay_cost": -14.0,
                 "risk": 10.0,
@@ -11765,7 +11770,7 @@
                 "robustness": 0.66
             },
             {
-                "action_id": 9,
+                "action_id": 8,
                 "action": "REROUTE",
                 "target": "Double Decker Express",
                 "delay_cost": -14.0,
@@ -11986,7 +11991,7 @@
             }
         ],
         "total_candidates": 44,
-        "non_dominated_count": 27
+        "non_dominated_count": 26
     },
     "decision_vectors": {
         "1": {
@@ -12100,7 +12105,7 @@
                 14.0,
                 7.0,
                 10.0,
-                0.95,
+                0.38,
                 0.8,
                 0.91,
                 0.66
@@ -12566,7 +12571,7 @@
         "1": {
             "action_id": 1,
             "action": "REROUTE",
-            "target": "Kerala Express",
+            "target": "Chennai Mail",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12576,7 +12581,7 @@
         "2": {
             "action_id": 2,
             "action": "REROUTE",
-            "target": "Shatabdi Express",
+            "target": "Kerala Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12586,7 +12591,7 @@
         "3": {
             "action_id": 3,
             "action": "REROUTE",
-            "target": "Grand Trunk Express",
+            "target": "Shatabdi Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12626,7 +12631,7 @@
         "7": {
             "action_id": 7,
             "action": "REROUTE",
-            "target": "Chennai Mail",
+            "target": "Chennai Mail Return",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12636,7 +12641,7 @@
         "8": {
             "action_id": 8,
             "action": "REROUTE",
-            "target": "Chennai Mail Return",
+            "target": "Double Decker Express",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -12646,11 +12651,11 @@
         "9": {
             "action_id": 9,
             "action": "REROUTE",
-            "target": "Double Decker Express",
+            "target": "Arakkonam Coal Freight",
             "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
             "expected_delay_saved": "14.0 mins",
             "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-            "passengers_saved": 950,
+            "passengers_saved": 380,
             "confidence": "91%"
         },
         "10": {
@@ -13009,21 +13014,21 @@
             "1": {
                 "action_id": 1,
                 "action": "REROUTE",
-                "target": "Kerala Express",
+                "target": "Chennai Mail",
                 "feasible": true,
                 "variable_symbol": "x_1"
             },
             "2": {
                 "action_id": 2,
                 "action": "REROUTE",
-                "target": "Shatabdi Express",
+                "target": "Kerala Express",
                 "feasible": true,
                 "variable_symbol": "x_2"
             },
             "3": {
                 "action_id": 3,
                 "action": "REROUTE",
-                "target": "Grand Trunk Express",
+                "target": "Shatabdi Express",
                 "feasible": true,
                 "variable_symbol": "x_3"
             },
@@ -13051,21 +13056,21 @@
             "7": {
                 "action_id": 7,
                 "action": "REROUTE",
-                "target": "Chennai Mail",
+                "target": "Chennai Mail Return",
                 "feasible": true,
                 "variable_symbol": "x_7"
             },
             "8": {
                 "action_id": 8,
                 "action": "REROUTE",
-                "target": "Chennai Mail Return",
+                "target": "Double Decker Express",
                 "feasible": true,
                 "variable_symbol": "x_8"
             },
             "9": {
                 "action_id": 9,
                 "action": "REROUTE",
-                "target": "Double Decker Express",
+                "target": "Arakkonam Coal Freight",
                 "feasible": true,
                 "variable_symbol": "x_9"
             },
@@ -13344,8 +13349,8 @@
                 },
                 "station_6": {
                     "max_platforms": 4,
-                    "current_platforms_occupied": 0,
-                    "available_slots": 4
+                    "current_platforms_occupied": 1,
+                    "available_slots": 3
                 },
                 "station_7": {
                     "max_platforms": 6,
@@ -13391,7 +13396,7 @@
                 },
                 "track_5": {
                     "capacity": 4,
-                    "current_trains": 1,
+                    "current_trains": 0,
                     "blocked": false
                 },
                 "track_6": {
@@ -14399,7 +14404,7 @@
             },
             "9": {
                 "delay_reduction_mins": 14.0,
-                "passenger_saved_count": 950,
+                "passenger_saved_count": 380,
                 "robustness_rating": 66
             },
             "10": {
@@ -14593,7 +14598,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Kerala Express",
+                    "train_id": "Chennai Mail",
                     "station_id": 0
                 },
                 "2": {
@@ -14609,7 +14614,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Shatabdi Express",
+                    "train_id": "Kerala Express",
                     "station_id": 0
                 },
                 "3": {
@@ -14625,7 +14630,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Grand Trunk Express",
+                    "train_id": "Shatabdi Express",
                     "station_id": 0
                 },
                 "4": {
@@ -14689,7 +14694,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Chennai Mail",
+                    "train_id": "Chennai Mail Return",
                     "station_id": 0
                 },
                 "8": {
@@ -14705,7 +14710,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Chennai Mail Return",
+                    "train_id": "Double Decker Express",
                     "station_id": 0
                 },
                 "9": {
@@ -14721,7 +14726,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": "Double Decker Express",
+                    "train_id": "Arakkonam Coal Freight",
                     "station_id": 0
                 },
                 "10": {
@@ -15288,182 +15293,182 @@
             "edges": [
                 {
                     "source": "1",
+                    "target": "15",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "1",
+                    "target": "31",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "32",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "33",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "34",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "35",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "36",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "37",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "38",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "39",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "40",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "41",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "42",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "43",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "1",
+                    "target": "44",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "2",
                     "target": "17",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "30",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "31",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "33",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "34",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "35",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "36",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "37",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "38",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "39",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "40",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "41",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "42",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "43",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "1",
+                    "source": "2",
                     "target": "44",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "19",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "30",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "31",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "32",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "33",
                     "relationship": "COMPATIBLE"
                 },
                 {
-                    "source": "2",
+                    "source": "3",
                     "target": "35",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "36",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "37",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "38",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "39",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "40",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "41",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "42",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "43",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "2",
-                    "target": "44",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "3",
-                    "target": "20",
-                    "relationship": "CONFLICTS_WITH"
-                },
-                {
-                    "source": "3",
-                    "target": "30",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "3",
-                    "target": "31",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "3",
-                    "target": "32",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "3",
-                    "target": "33",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "3",
-                    "target": "34",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -15738,87 +15743,92 @@
                 },
                 {
                     "source": "7",
-                    "target": "15",
-                    "relationship": "CONFLICTS_WITH"
-                },
-                {
-                    "source": "7",
-                    "target": "31",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "32",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "33",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "34",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "35",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "36",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "37",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "38",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "39",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "40",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "41",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "42",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "43",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "7",
-                    "target": "44",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "8",
                     "target": "16",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
+                    "source": "7",
+                    "target": "30",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "32",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "33",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "34",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "35",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "36",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "37",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "38",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "39",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "40",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "41",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "42",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "43",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "44",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "8",
+                    "target": "21",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
                     "source": "8",
                     "target": "30",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "8",
+                    "target": "31",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -15839,11 +15849,6 @@
                 {
                     "source": "8",
                     "target": "35",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "8",
-                    "target": "36",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -15888,7 +15893,7 @@
                 },
                 {
                     "source": "9",
-                    "target": "21",
+                    "target": "23",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -15923,12 +15928,12 @@
                 },
                 {
                     "source": "9",
-                    "target": "37",
+                    "target": "36",
                     "relationship": "COMPATIBLE"
                 },
                 {
                     "source": "9",
-                    "target": "38",
+                    "target": "37",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16338,7 +16343,7 @@
                 },
                 {
                     "source": "15",
-                    "target": "7",
+                    "target": "1",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16348,7 +16353,7 @@
                 },
                 {
                     "source": "16",
-                    "target": "8",
+                    "target": "7",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16358,7 +16363,7 @@
                 },
                 {
                     "source": "17",
-                    "target": "1",
+                    "target": "2",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16378,7 +16383,7 @@
                 },
                 {
                     "source": "19",
-                    "target": "2",
+                    "target": "3",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16388,17 +16393,12 @@
                 },
                 {
                     "source": "20",
-                    "target": "3",
-                    "relationship": "CONFLICTS_WITH"
-                },
-                {
-                    "source": "20",
                     "target": "35",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
                     "source": "21",
-                    "target": "9",
+                    "target": "8",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16414,6 +16414,11 @@
                 {
                     "source": "22",
                     "target": "37",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "23",
+                    "target": "9",
                     "relationship": "CONFLICTS_WITH"
                 },
                 {
@@ -16483,11 +16488,6 @@
                 },
                 {
                     "source": "30",
-                    "target": "1",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "30",
                     "target": "2",
                     "relationship": "COMPATIBLE"
                 },
@@ -16509,6 +16509,11 @@
                 {
                     "source": "30",
                     "target": "6",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "30",
+                    "target": "7",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16583,7 +16588,7 @@
                 },
                 {
                     "source": "31",
-                    "target": "7",
+                    "target": "8",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16623,7 +16628,7 @@
                 },
                 {
                     "source": "32",
-                    "target": "2",
+                    "target": "1",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16768,7 +16773,7 @@
                 },
                 {
                     "source": "34",
-                    "target": "3",
+                    "target": "2",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16839,6 +16844,11 @@
                 {
                     "source": "35",
                     "target": "2",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "35",
+                    "target": "3",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -16938,7 +16948,7 @@
                 },
                 {
                     "source": "36",
-                    "target": "8",
+                    "target": "9",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -17079,11 +17089,6 @@
                 {
                     "source": "38",
                     "target": "8",
-                    "relationship": "COMPATIBLE"
-                },
-                {
-                    "source": "38",
-                    "target": "9",
                     "relationship": "COMPATIBLE"
                 },
                 {
@@ -17543,7 +17548,7 @@
                 {
                     "action_id": 1,
                     "action": "REROUTE",
-                    "target": "Kerala Express",
+                    "target": "Chennai Mail",
                     "delay_cost": -14.0,
                     "risk": 10.0,
                     "energy": 7.0,
@@ -17554,7 +17559,7 @@
                 {
                     "action_id": 2,
                     "action": "REROUTE",
-                    "target": "Shatabdi Express",
+                    "target": "Kerala Express",
                     "delay_cost": -14.0,
                     "risk": 10.0,
                     "energy": 7.0,
@@ -17565,7 +17570,7 @@
                 {
                     "action_id": 3,
                     "action": "REROUTE",
-                    "target": "Grand Trunk Express",
+                    "target": "Shatabdi Express",
                     "delay_cost": -14.0,
                     "risk": 10.0,
                     "energy": 7.0,
@@ -17598,17 +17603,6 @@
                 {
                     "action_id": 7,
                     "action": "REROUTE",
-                    "target": "Chennai Mail",
-                    "delay_cost": -14.0,
-                    "risk": 10.0,
-                    "energy": 7.0,
-                    "passenger_saved_percent": 0.95,
-                    "operational_cost": 3.5,
-                    "robustness": 0.66
-                },
-                {
-                    "action_id": 8,
-                    "action": "REROUTE",
                     "target": "Chennai Mail Return",
                     "delay_cost": -14.0,
                     "risk": 10.0,
@@ -17618,7 +17612,7 @@
                     "robustness": 0.66
                 },
                 {
-                    "action_id": 9,
+                    "action_id": 8,
                     "action": "REROUTE",
                     "target": "Double Decker Express",
                     "delay_cost": -14.0,
@@ -17839,7 +17833,7 @@
                 }
             ],
             "total_candidates": 44,
-            "non_dominated_count": 27
+            "non_dominated_count": 26
         },
         "decision_embeddings": {
             "1": {
@@ -17953,7 +17947,7 @@
                     14.0,
                     7.0,
                     10.0,
-                    0.95,
+                    0.38,
                     0.8,
                     0.91,
                     0.66
@@ -18685,7 +18679,7 @@
             "1": {
                 "action_id": 1,
                 "action": "REROUTE",
-                "target": "Kerala Express",
+                "target": "Chennai Mail",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -18695,7 +18689,7 @@
             "2": {
                 "action_id": 2,
                 "action": "REROUTE",
-                "target": "Shatabdi Express",
+                "target": "Kerala Express",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -18705,7 +18699,7 @@
             "3": {
                 "action_id": 3,
                 "action": "REROUTE",
-                "target": "Grand Trunk Express",
+                "target": "Shatabdi Express",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -18745,7 +18739,7 @@
             "7": {
                 "action_id": 7,
                 "action": "REROUTE",
-                "target": "Chennai Mail",
+                "target": "Chennai Mail Return",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -18755,7 +18749,7 @@
             "8": {
                 "action_id": 8,
                 "action": "REROUTE",
-                "target": "Chennai Mail Return",
+                "target": "Double Decker Express",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
@@ -18765,11 +18759,11 @@
             "9": {
                 "action_id": 9,
                 "action": "REROUTE",
-                "target": "Double Decker Express",
+                "target": "Arakkonam Coal Freight",
                 "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
                 "expected_delay_saved": "14.0 mins",
                 "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-                "passengers_saved": 950,
+                "passengers_saved": 380,
                 "confidence": "91%"
             },
             "10": {
@@ -19126,7 +19120,7 @@
     },
     "expected_recovery": {
         "expected_recovery_time_mins": 18,
-        "stabilization_time": 138,
+        "stabilization_time": 110,
         "confidence": 90.5
     },
     "confidence": 90.5
