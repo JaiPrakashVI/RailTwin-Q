@@ -96,8 +96,19 @@ class DecisionReasoningEngine:
                 }
             }
 
+        import time
         os.makedirs(data_dir, exist_ok=True)
-        with open(os.path.join(data_dir, "decision_reasoning.json"), "w", encoding="utf-8") as f:
-            json.dump(reasoning_data, f, indent=4)
+        filepath = os.path.join(data_dir, "decision_reasoning.json")
+        for attempt in range(5):
+            try:
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(reasoning_data, f, indent=4)
+                break
+            except OSError as e:
+                print(f"[DEBUG] OSError writing {filepath} (Attempt {attempt+1}): {e} | data_dir={repr(data_dir)}")
+                if attempt == 4:
+                    raise e
+                time.sleep(0.2)
 
         return reasoning_data
+

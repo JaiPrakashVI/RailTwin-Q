@@ -25,30 +25,12 @@ class SimulatorValidator:
         opt_events = copy.deepcopy(active_events)
 
         # Apply static modifications at start of optimization window
+        from ai.adaptive_control.action_executor import ActionExecutor
         for act in selected_actions:
-            train_name = act.get("target", "")
-            action_type = act.get("action", "")
+            ActionExecutor.apply_action(act, opt_network, opt_events, current_tick)
 
-            train_obj = opt_network.get_train_by_no(train_name)
-            if not train_obj:
-                # Target could be train name (e.g. 'Chennai Mail') or train number
-                for t_obj in opt_network.trains:
-                    if t_obj.name == train_name:
-                        train_obj = t_obj
-                        break
-            
-            if train_obj:
-                if action_type == "SPEED_ADJUST":
-                    train_obj.base_speed = round(train_obj.base_speed * 1.25, 1) # Speed up by 25%
-                elif action_type == "PLATFORM_SWAP":
-                    # Mark priority to bypass waiting for platform delays
-                    train_obj.is_priority_train = True 
-                elif action_type == "HOLD":
-                    # Force train to hold at current position temporarily
-                    train_obj.dwell_time_remaining = max(train_obj.dwell_time_remaining, 10)
-                elif action_type == "REROUTE":
-                    # Bypass blocking or congestion limits by reducing delay penalties
-                    train_obj.base_speed = round(train_obj.base_speed * 1.1, 1)
+
+
 
         # Simulate forward with interventions
         for t in range(current_tick, current_tick + horizon_mins):

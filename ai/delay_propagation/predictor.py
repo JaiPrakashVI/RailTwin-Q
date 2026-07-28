@@ -147,7 +147,16 @@ class DelayPropagationPredictor:
             "confidence": global_conf
         }
 
-        with open(self.future_json, "w", encoding="utf-8") as f:
-            json.dump(future_state, f, indent=4)
+        import time
+        for attempt in range(5):
+            try:
+                with open(self.future_json, "w", encoding="utf-8") as f:
+                    json.dump(future_state, f, indent=4)
+                break
+            except OSError as e:
+                if attempt == 4:
+                    raise e
+                time.sleep(0.2)
+
 
         return future_state

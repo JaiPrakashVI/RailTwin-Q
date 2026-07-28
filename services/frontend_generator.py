@@ -1,7 +1,20 @@
 import os
 import json
+import time
 
 class FrontendGenerator:
+    @staticmethod
+    def _safe_write(filepath: str, content: str) -> None:
+        for attempt in range(5):
+            try:
+                with open(filepath, "w", encoding="utf-8") as f:
+                    f.write(content)
+                break
+            except OSError as e:
+                if attempt == 4:
+                    raise e
+                time.sleep(0.2)
+
     @staticmethod
     def get_timeline_records() -> list:
         timeline = []
@@ -145,10 +158,46 @@ class FrontendGenerator:
         last_cycle = control_orchestrator.controller_run_history[-1] if control_orchestrator.controller_run_history else {}
         next_eligible = max(tick, (control_orchestrator.controller.last_opt_tick or 0) + control_orchestrator.controller.re_opt_cooldown)
         recovery_status = "STABILIZING" if control_orchestrator.controller.state == "RECOVERING" else ("RECOVERED" if control_orchestrator.controller.state == "MONITORING" and control_orchestrator.controller.last_opt_tick is not None else "NORMAL")
-
-        baseline_delay = round(52.0 + tick * 0.2, 1)
-        optimized_delay = round(snapshot_delay := sum(t.delay for t in network.trains) / max(1, len(network.trains)), 1)
-        delay_reduction = round(max(0.0, baseline_delay - optimized_delay), 1)
+        # Load optimization result metrics
+        opt_res = {}
+        opt_path = "datasets/optimization_result.json"
+        if os.path.exists(opt_path):
+            try:
+                with open(opt_path, "r", encoding="utf-8") as f:
+                    opt_res = json.load(f)
+            except Exception:
+                pass
+        
+        cf_results = opt_res.get("counterfactual_results", {})
+        baseline_delay_total = cf_results.get("baseline_delay", 878.8)
+        optimized_delay_total = cf_results.get("optimized_delay", 878.8)
+        delay_reduction_pct = cf_results.get("delay_reduction_percent", 0.0)
+        
+        num_trains = max(1, len(network.trains))
+        baseline_delay = round(baseline_delay_total / num_trains, 1)
+        optimized_delay = round(optimized_delay_total / num_trains, 1)
+        
+        baseline_congestion = round(cf_results.get("baseline_congestion", 9.58), 1)
+        optimized_congestion = round(cf_results.get("optimized_congestion", 9.58), 1)
+        congestion_reduction_pct = round(cf_results.get("congestion_reduction_percent", 0.0), 1)
+        
+        # Load benchmark results
+        bench_res = {}
+        bench_path = "datasets/layer5_final_benchmark.json"
+        if os.path.exists(bench_path):
+            try:
+                with open(bench_path, "r", encoding="utf-8") as f:
+                    bench_res = json.load(f)
+            except Exception:
+                pass
+                
+        noisy_qaoa_sa = bench_res.get("noise_deconstruction", {}).get("noisy_qaoa_sa", {})
+        qaoa_runtime = noisy_qaoa_sa.get("runtime_q", 1.2781)
+        classical_runtime = noisy_qaoa_sa.get("runtime_c", 0.1065)
+        
+        qubits_count = opt_res.get("quantum_metrics", {}).get("qubits", 10)
+        best_energy = opt_res.get("best_energy", -2.136)
+        exact_energy = opt_res.get("exact_energy", -2.136)
 
         qubit_mappings = []
         if control_orchestrator.previous_candidates is not None:
@@ -178,7 +227,7 @@ class FrontendGenerator:
             "cycle_number": control_orchestrator.controller.cycle_count,
             "last_opt_tick": control_orchestrator.controller.last_opt_tick or 0,
             "next_eligible_tick": next_eligible,
-            "qubits": last_cycle.get("qubits", len(qubit_mappings) if qubit_mappings else 0),
+            "qubits": qubits_count,
             "warm_start": last_cycle.get("warm_start", False),
             "delta_utility": round(last_cycle.get("delta_utility", 0.0), 4),
             "trigger_reason": last_cycle.get("trigger_reason", "None"),
@@ -195,7 +244,17 @@ class FrontendGenerator:
             "impact": {
                 "baseline_delay": baseline_delay,
                 "optimized_delay": optimized_delay,
-                "delay_reduction": delay_reduction
+                "delay_reduction": round(max(0.0, baseline_delay - optimized_delay), 1),
+                "delay_reduction_pct": round(delay_reduction_pct, 1),
+                "baseline_congestion": baseline_congestion,
+                "optimized_congestion": optimized_congestion,
+                "congestion_reduction_pct": congestion_reduction_pct,
+                "num_interventions": len(control_orchestrator.intv_manager.get_active_list()),
+                "qubo_energy": round(best_energy, 4),
+                "qaoa_raw_energy": round(exact_energy, 4),
+                "refined_energy": round(best_energy, 4),
+                "qaoa_runtime": round(qaoa_runtime, 4),
+                "classical_runtime": round(classical_runtime, 4)
             }
         }
         return live_state
@@ -212,8 +271,8 @@ class FrontendGenerator:
 
         state_json = json.dumps(state)
 
-        with open("datasets/live_state.json", "w", encoding="utf-8") as f:
-            f.write(state_json)
+        cls._safe_write("datasets/live_state.json", state_json)
+
 
         timeline_list = cls.get_timeline_records()
         timeline_json = json.dumps(timeline_list)
@@ -448,51 +507,66 @@ class FrontendGenerator:
 
         <!-- DASHBOARD BODY -->
         <main class="dashboard-content">
-            <!-- 5 KPI METRIC CARDS -->
-            <div class="kpi-grid">
-                <div class="kpi-card">
+            <!-- 6 DYNAMIC KPI METRIC CARDS -->
+            <div class="kpi-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px;">
+                <!-- Card 1: Delay Performance -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <div class="kpi-label">Trains in Operation</div>
-                        <div class="kpi-val" id="kpi-trains">18</div>
-                        <div class="kpi-trend trend-up">↑ 18 active trains</div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Delay Performance</div>
+                        <div class="kpi-val" id="kpi-delay-opt" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">Optimized: {state['impact']['optimized_delay']:.1f} min</div>
+                        <div class="kpi-trend" id="kpi-delay-base" style="font-size: 0.7rem; margin-top: 5px; color: var(--accent-yellow);">Baseline: {state['impact']['baseline_delay']:.1f} min | Saving: {state['impact']['delay_reduction_pct']:.1f}%</div>
                     </div>
-                    <div class="kpi-icon-wrapper">🚆</div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">⏱️</div>
                 </div>
 
-                <div class="kpi-card">
+                <!-- Card 2: Congestion Performance -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <div class="kpi-label">Total Delay (All Trains)</div>
-                        <div class="kpi-val" id="kpi-delay">28.2 min</div>
-                        <div class="kpi-trend trend-down">↓ 33.6% after QAOA</div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Congestion Performance</div>
+                        <div class="kpi-val" id="kpi-cong-opt" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">Optimized: {state['impact']['optimized_congestion']:.1f}%</div>
+                        <div class="kpi-trend" id="kpi-cong-base" style="font-size: 0.7rem; margin-top: 5px; color: var(--accent-yellow);">Baseline: {state['impact']['baseline_congestion']:.1f}% | Saving: {state['impact']['congestion_reduction_pct']:.1f}%</div>
                     </div>
-                    <div class="kpi-icon-wrapper">⏱️</div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">🩺</div>
                 </div>
 
-                <div class="kpi-card">
+                <!-- Card 3: Interventions & Schedule -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <div class="kpi-label">Passengers Impacted</div>
-                        <div class="kpi-val">18,320</div>
-                        <div class="kpi-trend trend-up">↑ 2,450 protected</div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Active Interventions</div>
+                        <div class="kpi-val" id="kpi-interventions" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">{state['impact']['num_interventions']} Active</div>
+                        <div class="kpi-trend" style="font-size: 0.7rem; margin-top: 5px; color: var(--text-muted);">Reoptimizations: {state['reoptimization_count']} | Active Trains: {len(state['trains'])}</div>
                     </div>
-                    <div class="kpi-icon-wrapper">👥</div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">🚆</div>
                 </div>
 
-                <div class="kpi-card">
+                <!-- Card 4: QUBO Formulations -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <div class="kpi-label">Cascade Severity Index</div>
-                        <div class="kpi-val">68 <span style="font-size:0.8rem; color:var(--accent-red);">/100</span></div>
-                        <div class="kpi-trend trend-up">High (Signal Disruption)</div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">QUBO Formulation</div>
+                        <div class="kpi-val" id="kpi-qubo-energy" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">Energy: {state['impact']['qubo_energy']:.4f}</div>
+                        <div class="kpi-trend" style="font-size: 0.7rem; margin-top: 5px; color: var(--text-muted);">Scaling variables: {state['qubits']} Qubits</div>
                     </div>
-                    <div class="kpi-icon-wrapper">🩺</div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">⚛️</div>
                 </div>
 
-                <div class="kpi-card">
+                <!-- Card 5: QAOA Solvers & Energies -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <div class="kpi-label">Expected Recovery</div>
-                        <div class="kpi-val">12 min</div>
-                        <div class="kpi-trend trend-down">↓ 8 min vs baseline</div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">QAOA Solver Energy</div>
+                        <div class="kpi-val" id="kpi-qaoa-raw" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">Raw: {state['impact']['qaoa_raw_energy']:.4f}</div>
+                        <div class="kpi-trend" id="kpi-qaoa-refined" style="font-size: 0.7rem; margin-top: 5px; color: var(--accent-green);">Refined: {state['impact']['refined_energy']:.4f}</div>
                     </div>
-                    <div class="kpi-icon-wrapper">🔄</div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">⚡</div>
+                </div>
+
+                <!-- Card 6: Solver Exec Runtimes -->
+                <div class="kpi-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="kpi-label" style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase;">Solver Exec Runtimes</div>
+                        <div class="kpi-val" id="kpi-qaoa-time" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--text-primary);">QAOA: {state['impact']['qaoa_runtime'] * 1000.0:.1f} ms</div>
+                        <div class="kpi-trend" id="kpi-classical-time" style="font-size: 0.7rem; margin-top: 5px; color: var(--text-muted);">Classical (SA): {state['impact']['classical_runtime'] * 1000.0:.1f} ms</div>
+                    </div>
+                    <div class="kpi-icon-wrapper" style="font-size: 1.8rem;">🔄</div>
                 </div>
             </div>
 
@@ -718,8 +792,16 @@ class FrontendGenerator:
         
         function updateDashboard(state) {{
             if (!state) return;
-            document.getElementById("kpi-trains").innerText = state.trains ? state.trains.length : 18;
-            document.getElementById("kpi-delay").innerText = (state.network_delay || 28.2).toFixed(1) + " min";
+            document.getElementById("kpi-delay-opt").innerText = "Optimized: " + (state.impact ? state.impact.optimized_delay.toFixed(1) : (state.network_delay || 0.0).toFixed(1)) + " min";
+            document.getElementById("kpi-delay-base").innerText = "Baseline: " + (state.impact ? state.impact.baseline_delay.toFixed(1) : 0.0) + " min | Saving: " + (state.impact ? state.impact.delay_reduction_pct.toFixed(1) : 0.0) + "%";
+            document.getElementById("kpi-cong-opt").innerText = "Optimized: " + (state.impact ? state.impact.optimized_congestion.toFixed(1) : (state.congestion || 0.0).toFixed(1)) + "%";
+            document.getElementById("kpi-cong-base").innerText = "Baseline: " + (state.impact ? state.impact.baseline_congestion.toFixed(1) : 0.0) + "% | Saving: " + (state.impact ? state.impact.congestion_reduction_pct.toFixed(1) : 0.0) + "%";
+            document.getElementById("kpi-interventions").innerText = (state.impact ? state.impact.num_interventions : 0) + " Active";
+            document.getElementById("kpi-qubo-energy").innerText = "Energy: " + (state.impact ? state.impact.qubo_energy.toFixed(4) : 0.0);
+            document.getElementById("kpi-qaoa-raw").innerText = "Raw: " + (state.impact ? state.impact.qaoa_raw_energy.toFixed(4) : 0.0);
+            document.getElementById("kpi-qaoa-refined").innerText = "Refined: " + (state.impact ? state.impact.refined_energy.toFixed(4) : 0.0);
+            document.getElementById("kpi-qaoa-time").innerText = "QAOA: " + (state.impact ? (state.impact.qaoa_runtime * 1000).toFixed(1) : 0.0) + " ms";
+            document.getElementById("kpi-classical-time").innerText = "Classical (SA): " + (state.impact ? (state.impact.classical_runtime * 1000).toFixed(1) : 0.0) + " ms";
             document.getElementById("sim-clock").innerText = state.sim_time_str || "09:42 AM";
         }}
 
@@ -728,8 +810,7 @@ class FrontendGenerator:
 </body>
 </html>"""
 
-        with open("frontend/operations.html", "w", encoding="utf-8") as f:
-            f.write(ops_html)
+        cls._safe_write("frontend/operations.html", ops_html)
 
         # Read and update optimization.html with dynamic EMBEDDED_STATE
         try:
@@ -738,8 +819,7 @@ class FrontendGenerator:
                     opt_content = f.read()
                 import re
                 opt_content_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", opt_content)
-                with open("frontend/optimization.html", "w", encoding="utf-8") as f:
-                    f.write(opt_content_new)
+                cls._safe_write("frontend/optimization.html", opt_content_new)
         except Exception as ex:
             print(f"Error updating optimization.html state: {ex}")
 
@@ -750,10 +830,20 @@ class FrontendGenerator:
                     net_content = f.read()
                 import re
                 net_content_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", net_content)
-                with open("frontend/network.html", "w", encoding="utf-8") as f:
-                    f.write(net_content_new)
+                cls._safe_write("frontend/network.html", net_content_new)
         except Exception as ex:
             print(f"Error updating network.html state: {ex}")
+
+        # Read and update judge_demo.html with dynamic EMBEDDED_STATE
+        try:
+            if os.path.exists("frontend/judge_demo.html"):
+                with open("frontend/judge_demo.html", "r", encoding="utf-8") as f:
+                    judge_content = f.read()
+                import re
+                judge_content_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", judge_content)
+                cls._safe_write("frontend/judge_demo.html", judge_content_new)
+        except Exception as ex:
+            print(f"Error updating judge_demo.html state: {ex}")
 
         return state
 

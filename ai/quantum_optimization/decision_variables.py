@@ -45,13 +45,16 @@ class DecisionVariables:
             details = item["details"]
             symbol = f"x_{idx + 1}"
             
-            reduced_variables[str(action_id)] = {
+            # Copy all details to retain the full Action Contract fields in search space JSON
+            action_info = dict(details)
+            action_info.update({
                 "action_id": action_id,
-                "action": details["action"],
-                "target": details["target"],
                 "variable_symbol": symbol,
                 "index": idx
-            }
+            })
+            
+            reduced_variables[str(action_id)] = action_info
             variable_map[action_id] = idx
 
         return reduced_variables, variable_map
+

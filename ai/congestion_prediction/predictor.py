@@ -198,28 +198,44 @@ class PredictionService:
         # Node status lookup
         station_objs = {s.station_id: s for s in network.stations}
         for s_id in df_st_curr["station_id"].values:
-            down_id = s_id + 1
-            if down_id in station_objs:
-                down_s = station_objs[down_id]
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_congestion"] = down_s.station_congestion_score
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_platform_utilization"] = down_s.station_utilization_percent
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_queue_length"] = down_s.trains_waiting
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_average_delay"] = down_s.average_station_delay
-            else:
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_congestion"] = 0.0
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_platform_utilization"] = 0.0
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_queue_length"] = 0.0
-                df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_average_delay"] = 0.0
+            downstream_ids = []
+            for r_id, r_stations in network.routes.items():
+                if s_id in r_stations:
+                    idx = r_stations.index(s_id)
+                    if idx + 1 < len(r_stations):
+                        d_id = r_stations[idx + 1]
+                        if d_id not in downstream_ids:
+                            downstream_ids.append(d_id)
+            
+            down_congs, down_utils, down_waits, down_delays = [], [], [], []
+            for d_id in downstream_ids:
+                if d_id in station_objs:
+                    down_s = station_objs[d_id]
+                    down_congs.append(down_s.station_congestion_score)
+                    down_utils.append(down_s.station_utilization_percent)
+                    down_waits.append(down_s.trains_waiting)
+                    down_delays.append(down_s.average_station_delay)
+                    
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_congestion"] = np.mean(down_congs) if down_congs else 0.0
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_platform_utilization"] = np.mean(down_utils) if down_utils else 0.0
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_queue_length"] = np.mean(down_waits) if down_waits else 0.0
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "downstream_average_delay"] = np.mean(down_delays) if down_delays else 0.0
 
         # 4. Multi-hop aggregates
-        hops_map = {
-            1: {1: [2], 2: [1, 3], 3: [2, 4], 4: [3]},
-            2: {1: [3], 2: [4], 3: [1], 4: [2]},
-            3: {1: [4], 2: [], 3: [], 4: [1]}
-        }
+        import networkx as nx
+        G = nx.Graph()
+        for s in network.stations:
+            G.add_node(s.station_id)
+        for t in network.tracks:
+            G.add_edge(t.source_station_id, t.destination_station_id)
+
         for s_id in df_st_curr["station_id"].values:
+            try:
+                path_lengths = nx.single_source_shortest_path_length(G, s_id)
+            except Exception:
+                path_lengths = {}
             for h in [1, 2, 3]:
-                nodes = hops_map.get(h, {}).get(s_id, [])
+                nodes = [node for node, dist in path_lengths.items() if dist == h]
                 nbr_congs, nbr_delays, nbr_utils, nbr_waits = [], [], [], []
                 for n in nodes:
                     if n in station_objs:
@@ -240,15 +256,15 @@ class PredictionService:
         df_st_curr["flow_balance_ratio"] = df_st_curr["incoming_trains"] / np.maximum(1.0, df_st_curr["outgoing_trains"])
 
         # 6. Route pressure
-        route_pressure_map = {
-            1: {"incoming_routes": 0, "outgoing_routes": 3, "route_complexity": 3.0},
-            2: {"incoming_routes": 3, "outgoing_routes": 3, "route_complexity": 2.0},
-            3: {"incoming_routes": 3, "outgoing_routes": 3, "route_complexity": 2.0},
-            4: {"incoming_routes": 3, "outgoing_routes": 0, "route_complexity": 1.0}
-        }
-        df_st_curr["incoming_routes"] = df_st_curr["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("incoming_routes", 0))
-        df_st_curr["outgoing_routes"] = df_st_curr["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("outgoing_routes", 0))
-        df_st_curr["route_complexity"] = df_st_curr["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("route_complexity", 1.0))
+        routes_list = list(network.routes.values())
+        for s_id in df_st_curr["station_id"].values:
+            inc_routes = sum(1 for r in routes_list if s_id in r and r.index(s_id) > 0)
+            out_routes = sum(1 for r in routes_list if s_id in r and r.index(s_id) < len(r) - 1)
+            comp = float(G.degree(s_id)) if s_id in G else 1.0
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "incoming_routes"] = inc_routes
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "outgoing_routes"] = out_routes
+            df_st_curr.loc[df_st_curr["station_id"] == s_id, "route_complexity"] = comp
+
 
         # -------------------------------------------------------------
         # sliding histories management

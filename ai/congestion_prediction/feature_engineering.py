@@ -107,30 +107,83 @@ class FeatureEngineer:
         df_st[fill_cols] = df_st[fill_cols].fillna(0.0)
 
         # -------------------------------------------------------------
-        # Feature 3: Downstream Backpressure
         # -------------------------------------------------------------
-        # In our linear railway network: 1 -> 2 -> 3 -> 4
-        # Downstream for s is s+1. If s is 4, there is no downstream node.
+        # Feature 3: Downstream Backpressure & Graph Topology Construction
+        # -------------------------------------------------------------
+        import networkx as nx
+        import json
+        import os
+
+        G = nx.Graph()
+        routes_list = []
+
+        # Load tracks to build network graph G
+        tracks_path = "data/tracks.json"
+        if os.path.exists(tracks_path):
+            try:
+                with open(tracks_path, "r", encoding="utf-8") as f:
+                    tracks_data = json.load(f)
+                    for item in tracks_data:
+                        G.add_edge(item["source_station_id"], item["destination_station_id"])
+            except Exception:
+                pass
+                
+        # Load routes to build routes_list
+        routes_path = "data/routes.json"
+        if os.path.exists(routes_path):
+            try:
+                with open(routes_path, "r", encoding="utf-8") as f:
+                    routes_data = json.load(f)
+                    for item in routes_data:
+                        routes_list.append(item["stations"])
+            except Exception:
+                pass
+
+        if G.number_of_nodes() == 0:
+            # Fallback to linear topology 1-2-3-4
+            for u, v in [(1, 2), (2, 3), (3, 4)]:
+                G.add_edge(u, v)
+        if not routes_list:
+            routes_list = [[1, 2, 3, 4]]
+
         # We index the dataframe for fast downstream lookup
         st_lookup = df_st.set_index(["scenario_id", "tick", "station_id"])[
             ["station_congestion_score", "station_utilization_percent", "waiting_trains", "average_station_delay"]
         ].to_dict("index")
 
+        def get_downstream_station_ids(s_id):
+            downstream_ids = []
+            for r in routes_list:
+                if s_id in r:
+                    idx = r.index(s_id)
+                    if idx + 1 < len(r):
+                        d_id = r[idx + 1]
+                        if d_id not in downstream_ids:
+                            downstream_ids.append(d_id)
+            return downstream_ids
+
         def get_downstream_metrics(row):
             sc = row["scenario_id"]
             tick = row["tick"]
             s_id = row["station_id"]
-            down_id = s_id + 1
-            key = (sc, tick, down_id)
-            if key in st_lookup:
-                metrics = st_lookup[key]
-                return (
-                    metrics["station_congestion_score"],
-                    metrics["station_utilization_percent"],
-                    metrics["waiting_trains"],
-                    metrics["average_station_delay"]
-                )
-            return (0.0, 0.0, 0.0, 0.0)
+            
+            down_ids = get_downstream_station_ids(s_id)
+            congs, utils, waits, delays = [], [], [], []
+            for d_id in down_ids:
+                key = (sc, tick, d_id)
+                if key in st_lookup:
+                    metrics = st_lookup[key]
+                    congs.append(metrics["station_congestion_score"])
+                    utils.append(metrics["station_utilization_percent"])
+                    waits.append(metrics["waiting_trains"])
+                    delays.append(metrics["average_station_delay"])
+            
+            return (
+                np.mean(congs) if congs else 0.0,
+                np.mean(utils) if utils else 0.0,
+                np.mean(waits) if waits else 0.0,
+                np.mean(delays) if delays else 0.0
+            )
 
         downstream_vals = df_st.apply(get_downstream_metrics, axis=1)
         df_st["downstream_congestion"] = [v[0] for v in downstream_vals]
@@ -141,14 +194,6 @@ class FeatureEngineer:
         # -------------------------------------------------------------
         # Feature 4: Multi-Hop Spatial Neighbor Aggregation
         # -------------------------------------------------------------
-        # Chennai (1), Arakkonam (2), Katpadi (3), Jolarpettai (4)
-        hops_map = {
-            1: {1: [2], 2: [3], 3: [4]},
-            2: {1: [1, 3], 2: [4], 3: []},
-            3: {1: [2, 4], 2: [1], 3: []},
-            4: {1: [3], 2: [2], 3: [1]}
-        }
-
         # Lookup metrics by scenario, tick, station_id
         station_metrics_lookup = df_st.set_index(["scenario_id", "tick", "station_id"])[
             ["station_congestion_score", "average_station_delay", "station_utilization_percent", "waiting_trains"]
@@ -158,7 +203,12 @@ class FeatureEngineer:
             sc = row["scenario_id"]
             tick = row["tick"]
             s_id = row["station_id"]
-            nodes = hops_map.get(s_id, {}).get(hop, [])
+            
+            try:
+                path_lengths = nx.single_source_shortest_path_length(G, s_id)
+            except Exception:
+                path_lengths = {}
+            nodes = [node for node, dist in path_lengths.items() if dist == hop]
             
             congs, delays, utils, waits = [], [], [], []
             for n in nodes:
@@ -203,18 +253,18 @@ class FeatureEngineer:
         # -------------------------------------------------------------
         # Feature 8: Route Pressure Features
         # -------------------------------------------------------------
-        # Chennai central is source for all routes. Jolarpettai is destination.
-        # Chennai: 3 outgoing, 0 incoming, complexity 3.
-        route_pressure_map = {
-            1: {"incoming_routes": 0, "outgoing_routes": 3, "route_complexity": 3.0},
-            2: {"incoming_routes": 3, "outgoing_routes": 3, "route_complexity": 2.0},
-            3: {"incoming_routes": 3, "outgoing_routes": 3, "route_complexity": 2.0},
-            4: {"incoming_routes": 3, "outgoing_routes": 0, "route_complexity": 1.0}
-        }
-        
-        df_st["incoming_routes"] = df_st["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("incoming_routes", 0))
-        df_st["outgoing_routes"] = df_st["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("outgoing_routes", 0))
-        df_st["route_complexity"] = df_st["station_id"].map(lambda x: route_pressure_map.get(x, {}).get("route_complexity", 1.0))
+        incoming_routes_map = {}
+        outgoing_routes_map = {}
+        route_complexity_map = {}
+        for node in G.nodes():
+            incoming_routes_map[node] = sum(1 for r in routes_list if node in r and r.index(node) > 0)
+            outgoing_routes_map[node] = sum(1 for r in routes_list if node in r and r.index(node) < len(r) - 1)
+            route_complexity_map[node] = float(G.degree(node))
+            
+        df_st["incoming_routes"] = df_st["station_id"].map(lambda x: incoming_routes_map.get(x, 0))
+        df_st["outgoing_routes"] = df_st["station_id"].map(lambda x: outgoing_routes_map.get(x, 0))
+        df_st["route_complexity"] = df_st["station_id"].map(lambda x: route_complexity_map.get(x, 1.0))
+
 
         return df_st
 

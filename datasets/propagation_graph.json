@@ -453,7 +453,7 @@
             "capacity": 5,
             "trains_on_track": 6,
             "current_occupancy": 120.0,
-            "pred_occupancy_30": 48.87,
+            "pred_occupancy_30": 49.5,
             "blocked": false,
             "id": "track_1"
         },
@@ -463,7 +463,7 @@
             "capacity": 4,
             "trains_on_track": 0,
             "current_occupancy": 0.0,
-            "pred_occupancy_30": 46.46,
+            "pred_occupancy_30": 45.89,
             "blocked": false,
             "id": "track_2"
         },
@@ -483,7 +483,7 @@
             "capacity": 3,
             "trains_on_track": 0,
             "current_occupancy": 0.0,
-            "pred_occupancy_30": 39.93,
+            "pred_occupancy_30": 22.45,
             "blocked": false,
             "id": "track_4"
         },
@@ -493,7 +493,7 @@
             "capacity": 4,
             "trains_on_track": 1,
             "current_occupancy": 25.0,
-            "pred_occupancy_30": 38.74,
+            "pred_occupancy_30": 49.03,
             "blocked": false,
             "id": "track_5"
         },
@@ -543,7 +543,7 @@
             "capacity": 4,
             "trains_on_track": 0,
             "current_occupancy": 0.0,
-            "pred_occupancy_30": 39.92,
+            "pred_occupancy_30": 21.77,
             "blocked": false,
             "id": "track_10"
         }

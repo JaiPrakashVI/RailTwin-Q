@@ -1,5 +1,50 @@
 class ActionExecutor:
     @staticmethod
+    def apply_action(act, network, active_events, tick) -> bool:
+        """
+        Executes a single action contract on the given network, translating
+        it to physical track mutations (rerouting, holds, platform swaps, speed changes).
+        Supports both Action objects and plain dictionaries.
+        """
+        if hasattr(act, "execute"):
+            return act.execute(network, active_events, tick)
+            
+        action_type = act.get("action", "")
+        train_name = act.get("target", "")
+        
+        train_obj = network.get_train_by_no(train_name)
+        if not train_obj:
+            for t_obj in network.trains:
+                if t_obj.name == train_name:
+                    train_obj = t_obj
+                    break
+        if not train_obj:
+            return False
+            
+        if action_type == "SPEED_ADJUST":
+            train_obj.base_speed = min(train_obj.base_speed * 1.02, train_obj.max_speed)
+            return True
+        elif action_type == "PLATFORM_SWAP":
+            train_obj.is_priority_train = True
+            return True
+        elif action_type == "HOLD":
+            train_obj.dwell_time_remaining = max(train_obj.dwell_time_remaining, 1)
+            return True
+        elif action_type == "REROUTE":
+            new_route_stations = act.get("parameters", {}).get("new_route_stations", [])
+            if new_route_stations:
+                new_route_id = f"fallback_reroute_{train_obj.train_no}_{tick}"
+                network.add_route(new_route_id, new_route_stations)
+                train_obj.route_id = new_route_id
+                if train_obj.current_station_id in new_route_stations:
+                    train_obj.route_index = new_route_stations.index(train_obj.current_station_id)
+                else:
+                    train_obj.route_index = 0
+                    train_obj.current_station_id = new_route_stations[0]
+                return True
+        return False
+
+    @staticmethod
     def execute_plan(selected_actions: list, network, active_events, tick) -> list:
         """
         Verifies the lifecycle validity of optimal plan actions and executes them.
@@ -53,18 +98,8 @@ class ActionExecutor:
                     act["reason"] = f"No available platforms at station {station.name}"
                     continue
                     
-            # 4. Check if action has already been applied and remains active
-            # Execution: Apply physical changes to the Digital Twin
-            success = False
-            if action_type == "SPEED_ADJUST":
-                train_obj.base_speed = min(train_obj.base_speed * 1.02, train_obj.max_speed)
-                success = True
-            elif action_type == "PLATFORM_SWAP":
-                train_obj.is_priority_train = True
-                success = True
-            elif action_type == "HOLD":
-                train_obj.dwell_time_remaining = max(train_obj.dwell_time_remaining, 1)
-                success = True
+            # 4. Apply physical changes to the Digital Twin
+            success = ActionExecutor.apply_action(act, network, active_events, tick)
                 
             if success:
                 act["status"] = "ACTIVE"
@@ -75,3 +110,5 @@ class ActionExecutor:
                 act["reason"] = "Physical execution failed"
                 
         return executed_list
+
+

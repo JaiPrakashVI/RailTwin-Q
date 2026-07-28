@@ -93,7 +93,16 @@ class OperationalCostEngine:
             cost_vectors.append(cost)
 
         os.makedirs(data_dir, exist_ok=True)
-        with open(os.path.join(data_dir, "cost_vector.json"), "w", encoding="utf-8") as f:
-            json.dump(cost_vectors, f, indent=4)
+        filepath = os.path.join(data_dir, "cost_vector.json")
+        for attempt in range(5):
+            try:
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(cost_vectors, f, indent=4)
+                break
+            except OSError as e:
+                if attempt == 4:
+                    raise e
+                import time
+                time.sleep(0.2)
 
         return cost_vectors

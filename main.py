@@ -965,8 +965,17 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
 </html>
 """
 
-    with open(dashboard_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    import time
+    for attempt in range(5):
+        try:
+            with open(dashboard_path, "w", encoding="utf-8") as f:
+                f.write(html_content)
+            break
+        except OSError as e:
+            if attempt == 4:
+                raise e
+            time.sleep(0.2)
+
 
 def main():
     print("=" * 80)
@@ -1121,16 +1130,31 @@ def main():
                 "top_factors": factors,
                 "model_version": p["model_version"]
             }
-            with open(decision_log_path, "a", encoding="utf-8") as f:
-                f.write(json.dumps(decision_entry) + "\n")
+            for attempt in range(5):
+                try:
+                    with open(decision_log_path, "a", encoding="utf-8") as f:
+                        f.write(json.dumps(decision_entry) + "\n")
+                    break
+                except OSError as e:
+                    if attempt == 4:
+                        raise e
+                    time.sleep(0.2)
 
         # Log Hierarchical Congestion Decisions (FutureNetworkState dict output contract)
         # Store future predictions in buffers to align with historical actuals later
         for horizon in [15, 30, 60]:
             f_state = preds_congestion.get(horizon, {})
             # Write structured FutureNetworkState directly to decisions log
-            with open(congestion_decision_path, "a", encoding="utf-8") as f:
-                f.write(json.dumps(f_state) + "\n")
+            for attempt in range(5):
+                try:
+                    with open(congestion_decision_path, "a", encoding="utf-8") as f:
+                        f.write(json.dumps(f_state) + "\n")
+                    break
+                except OSError as e:
+                    if attempt == 4:
+                        raise e
+                    time.sleep(0.2)
+
 
             # Buffer stations
             for s_id, p_det in f_state.get("predicted_stations", {}).items():

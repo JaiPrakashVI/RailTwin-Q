@@ -19,7 +19,7 @@ class DecisionValidator:
             
         elif act_type == "REROUTE":
             t_id = action.get("train_id")
-            train = next((t for t in network.trains if t.train_no == t_id), None)
+            train = next((t for t in network.trains if t.train_no == t_id or t.name == t_id or str(t.train_no) == str(t_id)), None)
             if not train:
                 return False
             # Rerouting is only feasible if there are multiple route alternatives
@@ -28,7 +28,7 @@ class DecisionValidator:
             
         elif act_type == "HOLD":
             t_id = action.get("train_id")
-            train = next((t for t in network.trains if t.train_no == t_id), None)
+            train = next((t for t in network.trains if t.train_no == t_id or t.name == t_id or str(t.train_no) == str(t_id)), None)
             if not train:
                 return False
             # Cannot hold a train that is already arrived or not active
@@ -38,7 +38,7 @@ class DecisionValidator:
             
         elif act_type == "SPEED_ADJUST":
             t_id = action.get("train_id")
-            train = next((t for t in network.trains if t.train_no == t_id), None)
+            train = next((t for t in network.trains if t.train_no == t_id or t.name == t_id or str(t.train_no) == str(t_id)), None)
             if not train:
                 return False
             if train.status != "MOVING":
@@ -46,3 +46,4 @@ class DecisionValidator:
             return True
 
         return True
+

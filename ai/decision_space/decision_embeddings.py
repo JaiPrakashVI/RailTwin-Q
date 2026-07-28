@@ -37,7 +37,16 @@ class DecisionEmbeddingGenerator:
             }
 
         os.makedirs(data_dir, exist_ok=True)
-        with open(os.path.join(data_dir, "decision_vectors.json"), "w", encoding="utf-8") as f:
-            json.dump(embeddings, f, indent=4)
+        filepath = os.path.join(data_dir, "decision_vectors.json")
+        for attempt in range(5):
+            try:
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(embeddings, f, indent=4)
+                break
+            except OSError as e:
+                if attempt == 4:
+                    raise e
+                import time
+                time.sleep(0.2)
 
         return embeddings

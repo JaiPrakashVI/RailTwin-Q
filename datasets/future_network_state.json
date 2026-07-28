@@ -1141,7 +1141,7 @@
                 "capacity": 5,
                 "trains_on_track": 6,
                 "current_occupancy": 120.0,
-                "pred_occupancy_30": 48.87,
+                "pred_occupancy_30": 49.5,
                 "blocked": false,
                 "id": "track_1"
             },
@@ -1151,7 +1151,7 @@
                 "capacity": 4,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 46.46,
+                "pred_occupancy_30": 45.89,
                 "blocked": false,
                 "id": "track_2"
             },
@@ -1171,7 +1171,7 @@
                 "capacity": 3,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 39.93,
+                "pred_occupancy_30": 22.45,
                 "blocked": false,
                 "id": "track_4"
             },
@@ -1181,7 +1181,7 @@
                 "capacity": 4,
                 "trains_on_track": 1,
                 "current_occupancy": 25.0,
-                "pred_occupancy_30": 38.74,
+                "pred_occupancy_30": 49.03,
                 "blocked": false,
                 "id": "track_5"
             },
@@ -1231,7 +1231,7 @@
                 "capacity": 4,
                 "trains_on_track": 0,
                 "current_occupancy": 0.0,
-                "pred_occupancy_30": 39.92,
+                "pred_occupancy_30": 21.77,
                 "blocked": false,
                 "id": "track_10"
             }
@@ -1939,418 +1939,1227 @@
     },
     "candidate_actions": [
         {
+            "action_id": 1,
             "action": "REROUTE",
-            "train_id": 12625,
-            "train_name": "Kerala Express",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Kerala Express",
+            "target": "Kerala Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Kerala Express"
         },
         {
+            "action_id": 2,
             "action": "REROUTE",
-            "train_id": 12007,
-            "train_name": "Shatabdi Express",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Shatabdi Express",
+            "target": "Shatabdi Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Shatabdi Express"
         },
         {
+            "action_id": 3,
             "action": "REROUTE",
-            "train_id": 12616,
-            "train_name": "Grand Trunk Express",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Grand Trunk Express",
+            "target": "Grand Trunk Express",
+            "source_station": 4,
+            "target_station": 1,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    7,
+                    6,
+                    4,
+                    1
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Grand Trunk Express"
         },
         {
+            "action_id": 4,
             "action": "REROUTE",
-            "train_id": 16053,
-            "train_name": "Tirupati Express",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Tirupati Express",
+            "target": "Tirupati Express",
+            "source_station": 1,
+            "target_station": 7,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    6,
+                    7
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Tirupati Express"
         },
         {
+            "action_id": 5,
             "action": "REROUTE",
-            "train_id": 12607,
-            "train_name": "Lalbagh Express",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Lalbagh Express",
+            "target": "Lalbagh Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Lalbagh Express"
         },
         {
+            "action_id": 6,
             "action": "REROUTE",
-            "train_id": 58207,
-            "train_name": "Jolarpettai Heavy Freight",
-            "track_id": 1,
+            "action_type": "REROUTE",
+            "train_id": "Jolarpettai Heavy Freight",
+            "target": "Jolarpettai Heavy Freight",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 1,
+            "train_name": "Jolarpettai Heavy Freight"
         },
         {
+            "action_id": 7,
             "action": "REROUTE",
-            "train_id": 12623,
-            "train_name": "Chennai Mail",
+            "action_type": "REROUTE",
+            "train_id": "Chennai Mail",
+            "target": "Chennai Mail",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    5,
+                    2,
+                    3
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 3,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Chennai Mail"
         },
         {
+            "action_id": 8,
             "action": "REROUTE",
-            "train_id": 12624,
-            "train_name": "Chennai Mail Return",
+            "action_type": "REROUTE",
+            "train_id": "Chennai Mail Return",
+            "target": "Chennai Mail Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    10,
+                    8,
+                    4,
+                    1
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 3,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Chennai Mail Return"
         },
         {
+            "action_id": 9,
             "action": "REROUTE",
-            "train_id": 22625,
-            "train_name": "Double Decker Express",
+            "action_type": "REROUTE",
+            "train_id": "Double Decker Express",
+            "target": "Double Decker Express",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    2,
+                    5,
+                    4,
+                    8,
+                    10
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 3,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Double Decker Express"
         },
         {
+            "action_id": 10,
             "action": "REROUTE",
-            "train_id": 58203,
-            "train_name": "Katpadi Goods Freight",
+            "action_type": "REROUTE",
+            "train_id": "Katpadi Goods Freight",
+            "target": "Katpadi Goods Freight",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    10,
+                    8,
+                    4,
+                    1
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 3,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Katpadi Goods Freight"
         },
         {
+            "action_id": 11,
             "action": "REROUTE",
-            "train_id": 12608,
-            "train_name": "Lalbagh Return",
+            "action_type": "REROUTE",
+            "train_id": "Lalbagh Return",
+            "target": "Lalbagh Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    10,
+                    8,
+                    4,
+                    1
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 3,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Lalbagh Return"
         },
         {
+            "action_id": 12,
             "action": "REROUTE",
-            "train_id": 16057,
-            "train_name": "Sapthagiri Express",
+            "action_type": "REROUTE",
+            "train_id": "Sapthagiri Express",
+            "target": "Sapthagiri Express",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    6,
+                    7
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
+            "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
+            "confidence": 0.91,
+            "passenger_impact": "Medium",
             "track_id": 7,
-            "expected_delay_reduction": 14.2,
-            "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "train_name": "Sapthagiri Express"
         },
         {
+            "action_id": 13,
             "action": "REROUTE",
-            "train_id": 58205,
-            "train_name": "Tirupati Container Freight",
-            "track_id": 7,
+            "action_type": "REROUTE",
+            "train_id": "Tirupati Container Freight",
+            "target": "Tirupati Container Freight",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    1,
+                    4,
+                    6,
+                    7
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 7,
+            "train_name": "Tirupati Container Freight"
         },
         {
+            "action_id": 14,
             "action": "REROUTE",
-            "train_id": 16058,
-            "train_name": "Sapthagiri Return",
-            "track_id": 7,
+            "action_type": "REROUTE",
+            "train_id": "Sapthagiri Return",
+            "target": "Sapthagiri Return",
+            "source_station": 7,
+            "target_station": 1,
+            "parameters": {
+                "new_route_stations": [
+                    1,
+                    4,
+                    8,
+                    10
+                ],
+                "original_route_stations": [
+                    7,
+                    6,
+                    4,
+                    1
+                ]
+            },
+            "expected_effect": {
+                "delay_reduction": 14.2,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 14.2,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.91,
-            "passenger_impact": "Medium"
+            "passenger_impact": "Medium",
+            "track_id": 7,
+            "train_name": "Sapthagiri Return"
         },
         {
+            "action_id": 15,
             "action": "HOLD",
-            "train_id": 12623,
-            "train_name": "Chennai Mail",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Chennai Mail",
+            "target": "Chennai Mail",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Chennai Mail"
         },
         {
+            "action_id": 16,
             "action": "HOLD",
-            "train_id": 12624,
-            "train_name": "Chennai Mail Return",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Chennai Mail Return",
+            "target": "Chennai Mail Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Chennai Mail Return"
         },
         {
+            "action_id": 17,
             "action": "HOLD",
-            "train_id": 12625,
-            "train_name": "Kerala Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Kerala Express",
+            "target": "Kerala Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Kerala Express"
         },
         {
+            "action_id": 18,
             "action": "HOLD",
-            "train_id": 16057,
-            "train_name": "Sapthagiri Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Sapthagiri Express",
+            "target": "Sapthagiri Express",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Sapthagiri Express"
         },
         {
+            "action_id": 19,
             "action": "HOLD",
-            "train_id": 12007,
-            "train_name": "Shatabdi Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Shatabdi Express",
+            "target": "Shatabdi Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Shatabdi Express"
         },
         {
+            "action_id": 20,
             "action": "HOLD",
-            "train_id": 12616,
-            "train_name": "Grand Trunk Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Grand Trunk Express",
+            "target": "Grand Trunk Express",
+            "source_station": 4,
+            "target_station": 1,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Grand Trunk Express"
         },
         {
+            "action_id": 21,
             "action": "HOLD",
-            "train_id": 22625,
-            "train_name": "Double Decker Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Double Decker Express",
+            "target": "Double Decker Express",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Double Decker Express"
         },
         {
+            "action_id": 22,
             "action": "HOLD",
-            "train_id": 16053,
-            "train_name": "Tirupati Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Tirupati Express",
+            "target": "Tirupati Express",
+            "source_station": 1,
+            "target_station": 7,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Tirupati Express"
         },
         {
+            "action_id": 23,
             "action": "HOLD",
-            "train_id": 40001,
-            "train_name": "Tambaram Local",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Tambaram Local",
+            "target": "Tambaram Local",
+            "source_station": 3,
+            "target_station": 3,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Tambaram Local"
         },
         {
+            "action_id": 24,
             "action": "HOLD",
-            "train_id": 40003,
-            "train_name": "Chengalpattu Commuter",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Chengalpattu Commuter",
+            "target": "Chengalpattu Commuter",
+            "source_station": 3,
+            "target_station": 3,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Chengalpattu Commuter"
         },
         {
+            "action_id": 25,
             "action": "HOLD",
-            "train_id": 58201,
-            "train_name": "Arakkonam Coal Freight",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Arakkonam Coal Freight",
+            "target": "Arakkonam Coal Freight",
+            "source_station": 8,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Arakkonam Coal Freight"
         },
         {
+            "action_id": 26,
             "action": "HOLD",
-            "train_id": 58203,
-            "train_name": "Katpadi Goods Freight",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Katpadi Goods Freight",
+            "target": "Katpadi Goods Freight",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Katpadi Goods Freight"
         },
         {
+            "action_id": 27,
             "action": "HOLD",
-            "train_id": 58205,
-            "train_name": "Tirupati Container Freight",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Tirupati Container Freight",
+            "target": "Tirupati Container Freight",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Tirupati Container Freight"
         },
         {
+            "action_id": 28,
             "action": "HOLD",
-            "train_id": 12607,
-            "train_name": "Lalbagh Express",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Lalbagh Express",
+            "target": "Lalbagh Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Lalbagh Express"
         },
         {
+            "action_id": 29,
             "action": "HOLD",
-            "train_id": 12608,
-            "train_name": "Lalbagh Return",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Lalbagh Return",
+            "target": "Lalbagh Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Lalbagh Return"
         },
         {
+            "action_id": 30,
             "action": "HOLD",
-            "train_id": 16058,
-            "train_name": "Sapthagiri Return",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Sapthagiri Return",
+            "target": "Sapthagiri Return",
+            "source_station": 7,
+            "target_station": 1,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Sapthagiri Return"
         },
         {
+            "action_id": 31,
             "action": "HOLD",
-            "train_id": 58207,
-            "train_name": "Jolarpettai Heavy Freight",
-            "duration_mins": 5,
+            "action_type": "HOLD",
+            "train_id": "Jolarpettai Heavy Freight",
+            "target": "Jolarpettai Heavy Freight",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "duration_mins": 5
+            },
+            "expected_effect": {
+                "delay_reduction": 6.0,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 6.0,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.85,
-            "passenger_impact": "Low"
+            "passenger_impact": "Low",
+            "duration_mins": 5,
+            "train_name": "Jolarpettai Heavy Freight"
         },
         {
+            "action_id": 32,
             "action": "SPEED_ADJUST",
-            "train_id": 12623,
-            "train_name": "Chennai Mail",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Chennai Mail",
+            "target": "Chennai Mail",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Chennai Mail"
         },
         {
+            "action_id": 33,
             "action": "SPEED_ADJUST",
-            "train_id": 12624,
-            "train_name": "Chennai Mail Return",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Chennai Mail Return",
+            "target": "Chennai Mail Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Chennai Mail Return"
         },
         {
+            "action_id": 34,
             "action": "SPEED_ADJUST",
-            "train_id": 12625,
-            "train_name": "Kerala Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Kerala Express",
+            "target": "Kerala Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Kerala Express"
         },
         {
+            "action_id": 35,
             "action": "SPEED_ADJUST",
-            "train_id": 16057,
-            "train_name": "Sapthagiri Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Sapthagiri Express",
+            "target": "Sapthagiri Express",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Sapthagiri Express"
         },
         {
+            "action_id": 36,
             "action": "SPEED_ADJUST",
-            "train_id": 12007,
-            "train_name": "Shatabdi Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Shatabdi Express",
+            "target": "Shatabdi Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Shatabdi Express"
         },
         {
+            "action_id": 37,
             "action": "SPEED_ADJUST",
-            "train_id": 12616,
-            "train_name": "Grand Trunk Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Grand Trunk Express",
+            "target": "Grand Trunk Express",
+            "source_station": 4,
+            "target_station": 1,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Grand Trunk Express"
         },
         {
+            "action_id": 38,
             "action": "SPEED_ADJUST",
-            "train_id": 22625,
-            "train_name": "Double Decker Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Double Decker Express",
+            "target": "Double Decker Express",
+            "source_station": 4,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Double Decker Express"
         },
         {
+            "action_id": 39,
             "action": "SPEED_ADJUST",
-            "train_id": 16053,
-            "train_name": "Tirupati Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Tirupati Express",
+            "target": "Tirupati Express",
+            "source_station": 1,
+            "target_station": 7,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Tirupati Express"
         },
         {
+            "action_id": 40,
             "action": "SPEED_ADJUST",
-            "train_id": 58201,
-            "train_name": "Arakkonam Coal Freight",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Arakkonam Coal Freight",
+            "target": "Arakkonam Coal Freight",
+            "source_station": 8,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Arakkonam Coal Freight"
         },
         {
+            "action_id": 41,
             "action": "SPEED_ADJUST",
-            "train_id": 58203,
-            "train_name": "Katpadi Goods Freight",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Katpadi Goods Freight",
+            "target": "Katpadi Goods Freight",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Katpadi Goods Freight"
         },
         {
+            "action_id": 42,
             "action": "SPEED_ADJUST",
-            "train_id": 58205,
-            "train_name": "Tirupati Container Freight",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Tirupati Container Freight",
+            "target": "Tirupati Container Freight",
+            "source_station": 6,
+            "target_station": 7,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Tirupati Container Freight"
         },
         {
+            "action_id": 43,
             "action": "SPEED_ADJUST",
-            "train_id": 12607,
-            "train_name": "Lalbagh Express",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Lalbagh Express",
+            "target": "Lalbagh Express",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Lalbagh Express"
         },
         {
+            "action_id": 44,
             "action": "SPEED_ADJUST",
-            "train_id": 12608,
-            "train_name": "Lalbagh Return",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Lalbagh Return",
+            "target": "Lalbagh Return",
+            "source_station": 8,
+            "target_station": 1,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Lalbagh Return"
         },
         {
+            "action_id": 45,
             "action": "SPEED_ADJUST",
-            "train_id": 16058,
-            "train_name": "Sapthagiri Return",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Sapthagiri Return",
+            "target": "Sapthagiri Return",
+            "source_station": 7,
+            "target_station": 1,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Sapthagiri Return"
         },
         {
+            "action_id": 46,
             "action": "SPEED_ADJUST",
-            "train_id": 58207,
-            "train_name": "Jolarpettai Heavy Freight",
-            "new_speed_kmp": 90,
+            "action_type": "SPEED_ADJUST",
+            "train_id": "Jolarpettai Heavy Freight",
+            "target": "Jolarpettai Heavy Freight",
+            "source_station": 1,
+            "target_station": 10,
+            "parameters": {
+                "speed_multiplier": 1.1
+            },
+            "expected_effect": {
+                "delay_reduction": 4.5,
+                "congestion_reduction": 0.0
+            },
+            "constraints": {},
             "expected_delay_reduction": 4.5,
+            "expected_congestion_reduction": 0.0,
             "confidence": 0.93,
-            "passenger_impact": "None"
+            "passenger_impact": "None",
+            "new_speed_kmp": 90,
+            "train_name": "Jolarpettai Heavy Freight"
         }
     ],
     "decision_impact_graph": {
@@ -3962,7 +4771,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12625,
+                "train_id": "Kerala Express",
                 "station_id": 0
             },
             "2": {
@@ -3978,7 +4787,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12007,
+                "train_id": "Shatabdi Express",
                 "station_id": 0
             },
             "3": {
@@ -3994,7 +4803,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12616,
+                "train_id": "Grand Trunk Express",
                 "station_id": 0
             },
             "4": {
@@ -4010,7 +4819,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16053,
+                "train_id": "Tirupati Express",
                 "station_id": 0
             },
             "5": {
@@ -4026,7 +4835,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12607,
+                "train_id": "Lalbagh Express",
                 "station_id": 0
             },
             "6": {
@@ -4042,7 +4851,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58207,
+                "train_id": "Jolarpettai Heavy Freight",
                 "station_id": 0
             },
             "7": {
@@ -4058,7 +4867,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12623,
+                "train_id": "Chennai Mail",
                 "station_id": 0
             },
             "8": {
@@ -4074,7 +4883,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12624,
+                "train_id": "Chennai Mail Return",
                 "station_id": 0
             },
             "9": {
@@ -4090,7 +4899,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 22625,
+                "train_id": "Double Decker Express",
                 "station_id": 0
             },
             "10": {
@@ -4106,7 +4915,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58203,
+                "train_id": "Katpadi Goods Freight",
                 "station_id": 0
             },
             "11": {
@@ -4122,7 +4931,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12608,
+                "train_id": "Lalbagh Return",
                 "station_id": 0
             },
             "12": {
@@ -4138,7 +4947,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16057,
+                "train_id": "Sapthagiri Express",
                 "station_id": 0
             },
             "13": {
@@ -4154,7 +4963,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58205,
+                "train_id": "Tirupati Container Freight",
                 "station_id": 0
             },
             "14": {
@@ -4170,7 +4979,7 @@
                     "SPEED_ADJUST",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16058,
+                "train_id": "Sapthagiri Return",
                 "station_id": 0
             },
             "15": {
@@ -4186,7 +4995,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12623,
+                "train_id": "Chennai Mail",
                 "station_id": 0
             },
             "16": {
@@ -4202,7 +5011,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12624,
+                "train_id": "Chennai Mail Return",
                 "station_id": 0
             },
             "17": {
@@ -4218,7 +5027,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12625,
+                "train_id": "Kerala Express",
                 "station_id": 0
             },
             "18": {
@@ -4234,7 +5043,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16057,
+                "train_id": "Sapthagiri Express",
                 "station_id": 0
             },
             "19": {
@@ -4250,7 +5059,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12007,
+                "train_id": "Shatabdi Express",
                 "station_id": 0
             },
             "20": {
@@ -4266,7 +5075,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12616,
+                "train_id": "Grand Trunk Express",
                 "station_id": 0
             },
             "21": {
@@ -4282,7 +5091,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 22625,
+                "train_id": "Double Decker Express",
                 "station_id": 0
             },
             "22": {
@@ -4298,7 +5107,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16053,
+                "train_id": "Tirupati Express",
                 "station_id": 0
             },
             "23": {
@@ -4314,7 +5123,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58201,
+                "train_id": "Arakkonam Coal Freight",
                 "station_id": 0
             },
             "24": {
@@ -4330,7 +5139,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58203,
+                "train_id": "Katpadi Goods Freight",
                 "station_id": 0
             },
             "25": {
@@ -4346,7 +5155,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58205,
+                "train_id": "Tirupati Container Freight",
                 "station_id": 0
             },
             "26": {
@@ -4362,7 +5171,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12607,
+                "train_id": "Lalbagh Express",
                 "station_id": 0
             },
             "27": {
@@ -4378,7 +5187,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12608,
+                "train_id": "Lalbagh Return",
                 "station_id": 0
             },
             "28": {
@@ -4394,7 +5203,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16058,
+                "train_id": "Sapthagiri Return",
                 "station_id": 0
             },
             "29": {
@@ -4410,7 +5219,7 @@
                 "compatible_with": [
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58207,
+                "train_id": "Jolarpettai Heavy Freight",
                 "station_id": 0
             },
             "30": {
@@ -4426,7 +5235,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12623,
+                "train_id": "Chennai Mail",
                 "station_id": 0
             },
             "31": {
@@ -4442,7 +5251,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12624,
+                "train_id": "Chennai Mail Return",
                 "station_id": 0
             },
             "32": {
@@ -4458,7 +5267,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12625,
+                "train_id": "Kerala Express",
                 "station_id": 0
             },
             "33": {
@@ -4474,7 +5283,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16057,
+                "train_id": "Sapthagiri Express",
                 "station_id": 0
             },
             "34": {
@@ -4490,7 +5299,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12007,
+                "train_id": "Shatabdi Express",
                 "station_id": 0
             },
             "35": {
@@ -4506,7 +5315,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12616,
+                "train_id": "Grand Trunk Express",
                 "station_id": 0
             },
             "36": {
@@ -4522,7 +5331,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 22625,
+                "train_id": "Double Decker Express",
                 "station_id": 0
             },
             "37": {
@@ -4538,7 +5347,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16053,
+                "train_id": "Tirupati Express",
                 "station_id": 0
             },
             "38": {
@@ -4554,7 +5363,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58201,
+                "train_id": "Arakkonam Coal Freight",
                 "station_id": 0
             },
             "39": {
@@ -4570,7 +5379,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58203,
+                "train_id": "Katpadi Goods Freight",
                 "station_id": 0
             },
             "40": {
@@ -4586,7 +5395,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58205,
+                "train_id": "Tirupati Container Freight",
                 "station_id": 0
             },
             "41": {
@@ -4602,7 +5411,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12607,
+                "train_id": "Lalbagh Express",
                 "station_id": 0
             },
             "42": {
@@ -4618,7 +5427,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 12608,
+                "train_id": "Lalbagh Return",
                 "station_id": 0
             },
             "43": {
@@ -4634,7 +5443,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 16058,
+                "train_id": "Sapthagiri Return",
                 "station_id": 0
             },
             "44": {
@@ -4650,7 +5459,7 @@
                     "REROUTE",
                     "PLATFORM_SWAP"
                 ],
-                "train_id": 58207,
+                "train_id": "Jolarpettai Heavy Freight",
                 "station_id": 0
             }
         },
@@ -13784,7 +14593,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12625,
+                    "train_id": "Kerala Express",
                     "station_id": 0
                 },
                 "2": {
@@ -13800,7 +14609,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12007,
+                    "train_id": "Shatabdi Express",
                     "station_id": 0
                 },
                 "3": {
@@ -13816,7 +14625,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12616,
+                    "train_id": "Grand Trunk Express",
                     "station_id": 0
                 },
                 "4": {
@@ -13832,7 +14641,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16053,
+                    "train_id": "Tirupati Express",
                     "station_id": 0
                 },
                 "5": {
@@ -13848,7 +14657,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12607,
+                    "train_id": "Lalbagh Express",
                     "station_id": 0
                 },
                 "6": {
@@ -13864,7 +14673,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58207,
+                    "train_id": "Jolarpettai Heavy Freight",
                     "station_id": 0
                 },
                 "7": {
@@ -13880,7 +14689,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12623,
+                    "train_id": "Chennai Mail",
                     "station_id": 0
                 },
                 "8": {
@@ -13896,7 +14705,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12624,
+                    "train_id": "Chennai Mail Return",
                     "station_id": 0
                 },
                 "9": {
@@ -13912,7 +14721,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 22625,
+                    "train_id": "Double Decker Express",
                     "station_id": 0
                 },
                 "10": {
@@ -13928,7 +14737,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58203,
+                    "train_id": "Katpadi Goods Freight",
                     "station_id": 0
                 },
                 "11": {
@@ -13944,7 +14753,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12608,
+                    "train_id": "Lalbagh Return",
                     "station_id": 0
                 },
                 "12": {
@@ -13960,7 +14769,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16057,
+                    "train_id": "Sapthagiri Express",
                     "station_id": 0
                 },
                 "13": {
@@ -13976,7 +14785,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58205,
+                    "train_id": "Tirupati Container Freight",
                     "station_id": 0
                 },
                 "14": {
@@ -13992,7 +14801,7 @@
                         "SPEED_ADJUST",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16058,
+                    "train_id": "Sapthagiri Return",
                     "station_id": 0
                 },
                 "15": {
@@ -14008,7 +14817,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12623,
+                    "train_id": "Chennai Mail",
                     "station_id": 0
                 },
                 "16": {
@@ -14024,7 +14833,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12624,
+                    "train_id": "Chennai Mail Return",
                     "station_id": 0
                 },
                 "17": {
@@ -14040,7 +14849,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12625,
+                    "train_id": "Kerala Express",
                     "station_id": 0
                 },
                 "18": {
@@ -14056,7 +14865,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16057,
+                    "train_id": "Sapthagiri Express",
                     "station_id": 0
                 },
                 "19": {
@@ -14072,7 +14881,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12007,
+                    "train_id": "Shatabdi Express",
                     "station_id": 0
                 },
                 "20": {
@@ -14088,7 +14897,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12616,
+                    "train_id": "Grand Trunk Express",
                     "station_id": 0
                 },
                 "21": {
@@ -14104,7 +14913,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 22625,
+                    "train_id": "Double Decker Express",
                     "station_id": 0
                 },
                 "22": {
@@ -14120,7 +14929,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16053,
+                    "train_id": "Tirupati Express",
                     "station_id": 0
                 },
                 "23": {
@@ -14136,7 +14945,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58201,
+                    "train_id": "Arakkonam Coal Freight",
                     "station_id": 0
                 },
                 "24": {
@@ -14152,7 +14961,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58203,
+                    "train_id": "Katpadi Goods Freight",
                     "station_id": 0
                 },
                 "25": {
@@ -14168,7 +14977,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58205,
+                    "train_id": "Tirupati Container Freight",
                     "station_id": 0
                 },
                 "26": {
@@ -14184,7 +14993,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12607,
+                    "train_id": "Lalbagh Express",
                     "station_id": 0
                 },
                 "27": {
@@ -14200,7 +15009,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12608,
+                    "train_id": "Lalbagh Return",
                     "station_id": 0
                 },
                 "28": {
@@ -14216,7 +15025,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16058,
+                    "train_id": "Sapthagiri Return",
                     "station_id": 0
                 },
                 "29": {
@@ -14232,7 +15041,7 @@
                     "compatible_with": [
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58207,
+                    "train_id": "Jolarpettai Heavy Freight",
                     "station_id": 0
                 },
                 "30": {
@@ -14248,7 +15057,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12623,
+                    "train_id": "Chennai Mail",
                     "station_id": 0
                 },
                 "31": {
@@ -14264,7 +15073,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12624,
+                    "train_id": "Chennai Mail Return",
                     "station_id": 0
                 },
                 "32": {
@@ -14280,7 +15089,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12625,
+                    "train_id": "Kerala Express",
                     "station_id": 0
                 },
                 "33": {
@@ -14296,7 +15105,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16057,
+                    "train_id": "Sapthagiri Express",
                     "station_id": 0
                 },
                 "34": {
@@ -14312,7 +15121,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12007,
+                    "train_id": "Shatabdi Express",
                     "station_id": 0
                 },
                 "35": {
@@ -14328,7 +15137,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12616,
+                    "train_id": "Grand Trunk Express",
                     "station_id": 0
                 },
                 "36": {
@@ -14344,7 +15153,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 22625,
+                    "train_id": "Double Decker Express",
                     "station_id": 0
                 },
                 "37": {
@@ -14360,7 +15169,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16053,
+                    "train_id": "Tirupati Express",
                     "station_id": 0
                 },
                 "38": {
@@ -14376,7 +15185,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58201,
+                    "train_id": "Arakkonam Coal Freight",
                     "station_id": 0
                 },
                 "39": {
@@ -14392,7 +15201,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58203,
+                    "train_id": "Katpadi Goods Freight",
                     "station_id": 0
                 },
                 "40": {
@@ -14408,7 +15217,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58205,
+                    "train_id": "Tirupati Container Freight",
                     "station_id": 0
                 },
                 "41": {
@@ -14424,7 +15233,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12607,
+                    "train_id": "Lalbagh Express",
                     "station_id": 0
                 },
                 "42": {
@@ -14440,7 +15249,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 12608,
+                    "train_id": "Lalbagh Return",
                     "station_id": 0
                 },
                 "43": {
@@ -14456,7 +15265,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 16058,
+                    "train_id": "Sapthagiri Return",
                     "station_id": 0
                 },
                 "44": {
@@ -14472,7 +15281,7 @@
                         "REROUTE",
                         "PLATFORM_SWAP"
                     ],
-                    "train_id": 58207,
+                    "train_id": "Jolarpettai Heavy Freight",
                     "station_id": 0
                 }
             },

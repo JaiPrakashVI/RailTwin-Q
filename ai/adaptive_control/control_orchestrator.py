@@ -142,8 +142,13 @@ class ControlOrchestrator:
                 
                 if accept or self.previous_solution is None:
                     if any(new_solution):
-                        # Execute new actions
-                        executed = ActionExecutor.execute_plan(res["selected_actions"], network, active_events, tick)
+                        # Receding horizon control: Filter and select first control action(s) within control interval (5 mins)
+                        immediate_actions, deferred_actions = RecedingHorizonManager.filter_actions_for_current_horizon(
+                            res["selected_actions"], tick
+                        )
+                        
+                        # Execute only the immediate action
+                        executed = ActionExecutor.execute_plan(immediate_actions, network, active_events, tick)
                         
                         # Update intervention manager
                         for act in executed:
@@ -168,7 +173,11 @@ class ControlOrchestrator:
                             "solver_name": res.get("selected_solver", "HYBRID_QAOA")
                         })
                         
-                        self.controller.transition_to("INTERVENING", tick, f"New schedule applied successfully: {len(executed)} actions active", trigger="APPLY_NEW_PLAN")
+                        self.controller.transition_to(
+                            "INTERVENING", tick, 
+                            f"Receding horizon control: Executed immediate action for {executed[0]['target'] if executed else 'None'} and deferred {len(deferred_actions)} others for replanning", 
+                            trigger="APPLY_NEW_PLAN"
+                        )
                     else:
                         self.controller.cycle_count += 1
                         self.controller.last_opt_tick = tick

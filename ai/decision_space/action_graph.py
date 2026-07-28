@@ -49,13 +49,14 @@ class ActionDependencyGraphBuilder:
                 if u_id == v_id:
                     continue
                 # If they target the same train and conflict
-                if u_attrs["train_id"] == v_attrs["train_id"] and u_attrs["train_id"] > 0:
+                if u_attrs["train_id"] == v_attrs["train_id"] and u_attrs["train_id"] not in [0, None, "Global", "None", ""]:
                     if v_attrs["action"] in u_attrs["conflicts_with"]:
                         edges.append({
                             "source": u_id,
                             "target": v_id,
                             "relationship": "CONFLICTS_WITH"
                         })
+
                 # If they are compatible
                 elif v_attrs["action"] in u_attrs["compatible_with"]:
                     edges.append({
