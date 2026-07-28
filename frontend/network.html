@@ -1,458 +1,507 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>RailTwin-Q Live Network Viewer</title>
-            <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-            <style>
-                
+<html lang="en">
+
+<head>
+    <style>
         :root {
-            --bg-color: #080c14;
-            --panel-bg: rgba(13, 20, 35, 0.85);
-            --card-bg: rgba(22, 33, 54, 0.6);
-            --border-color: rgba(99, 102, 241, 0.2);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-purple: #8b5cf6;
-            --accent-indigo: #6366f1;
+            --sidebar-bg: #0b0f19;
+            --main-bg: #f1f5f9;
+            --card-bg: #ffffff;
+            --border-color: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #3b82f6;
+            --accent-cyan: #0891b2;
             --accent-green: #10b981;
-            --accent-red: #ef4444;
             --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
         }
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .app-header {
+
+        body {
+            background-color: var(--main-bg);
+            color: var(--text-primary);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+            height: 100vh;
+            overflow: hidden;
         }
-        .logo-area {
+
+        .sidebar {
+            width: 240px;
+            background: var(--sidebar-bg);
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 14px;
+            flex-shrink: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .brand-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-sub {
+            font-size: 0.62rem;
+            color: #38bdf8;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .nav-item {
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        .logo-icon { font-size: 1.8rem; }
-        .logo-text {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #a78bfa, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .logo-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-left: 8px;
-            border-left: 1px solid rgba(255,255,255,0.2);
-            padding-left: 8px;
-        }
-        .app-nav { display: flex; gap: 15px; }
-        .nav-item {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-        .nav-item:hover, .nav-item.active {
-            color: var(--text-main);
-            background: rgba(99, 102, 241, 0.15);
-            box-shadow: inset 0 0 8px rgba(99, 102, 241, 0.2);
-        }
-        .warning-banner {
-            background: rgba(245, 158, 11, 0.15);
-            border: 1px solid var(--accent-yellow);
-            color: #fbbf24;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin-bottom: 20px;
-            display: none;
-            text-align: center;
-        }
-        .layout-grid {
-            display: grid;
-            grid-template-columns: 280px 1fr 340px;
-            gap: 20px;
-        }
-        .panel {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            backdrop-filter: blur(8px);
-        }
-        .panel h2 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            color: var(--accent-indigo);
-            font-weight: 700;
-        }
-        .summary-bar {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .metric-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            padding: 9px 12px;
             border-radius: 8px;
-            padding: 12px 18px;
-            text-align: center;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.83rem;
+            font-weight: 500;
+            transition: all 0.2s;
         }
-        .metric-card label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: white;
+        }
+
+        .nav-item.active {
+            background: var(--accent-blue);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .sidebar-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .status-header {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .metric-card .val {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-top: 5px;
-        }
-        .network-container { position: relative; margin-bottom: 20px; }
-        .network-svg {
-            width: 100%;
-            height: auto;
-            background: rgba(13, 20, 35, 0.4);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-        .track-line { stroke-width: 3; fill: none; stroke-linecap: round; }
-        .track-up { stroke: rgba(99, 102, 241, 0.4); }
-        .track-down { stroke: rgba(99, 102, 241, 0.4); }
-        .track-congested { stroke: var(--accent-yellow) !important; stroke-width: 5; }
-        .track-blocked { stroke: var(--accent-red) !important; stroke-width: 5; }
-        
-        .station-bg {
-            fill: #0d1423;
-            stroke: rgba(99, 102, 241, 0.6);
-            stroke-width: 2;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .station-bg:hover { stroke: var(--accent-purple); fill: #162136; }
-        .station-core { fill: var(--accent-green); cursor: pointer; }
-        .station-congested .station-core { fill: var(--accent-yellow); }
-        .station-full .station-core { fill: var(--accent-red); }
-        
-        .station-label { font-size: 11px; fill: var(--text-main); font-weight: bold; text-anchor: middle; }
-        .station-sub { font-size: 8px; fill: var(--text-muted); text-anchor: middle; }
-        
-        .sig-light { fill: var(--accent-green); stroke: rgba(0,0,0,0.5); stroke-width: 1.2; cursor: pointer; }
-        .sig-red { fill: var(--accent-red); }
-        .sig-yellow { fill: var(--accent-yellow); }
-        .sig-label { font-size: 8px; fill: var(--text-muted); font-weight: bold; }
-        
-        .train-bubble { fill: var(--bg-color); stroke: var(--accent-purple); stroke-width: 2; cursor: pointer; }
-        .train-text { font-size: 9px; fill: var(--text-main); text-anchor: middle; cursor: pointer; }
-        .selected-glow {
-            fill: none;
-            stroke: var(--accent-purple);
-            stroke-width: 3;
-            animation: pulse 1.5s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% { r: 12px; opacity: 0.6; }
-            50% { r: 20px; opacity: 0.2; }
-            100% { r: 12px; opacity: 0.6; }
-        }
-        .train-list {
+
+        .status-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            max-height: 480px;
-            overflow-y: auto;
-            padding-right: 5px;
+            gap: 5px;
+            font-size: 0.73rem;
+            color: #94a3b8;
         }
-        .train-sidebar-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 10px 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .train-sidebar-card:hover, .train-sidebar-card.selected {
-            border-color: var(--accent-purple);
-            background: rgba(139, 92, 246, 0.1);
-        }
-        .train-sidebar-card h3 {
-            margin: 0 0 6px 0;
-            font-size: 0.85rem;
-            color: var(--text-main);
-            display: flex;
-            justify-content: space-between;
-        }
-        .train-sidebar-card p {
-            margin: 3px 0;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-        .delay-tag {
-            background: rgba(239, 68, 68, 0.15);
-            color: var(--accent-red);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        .delay-normal {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-green);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        .pipeline-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .pipeline-step {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 8px 12px;
+
+        .status-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.3s;
         }
-        .pipeline-step:hover, .pipeline-step.active {
-            border-color: var(--accent-indigo);
-            background: rgba(99, 102, 241, 0.1);
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            display: inline-block;
         }
-        .step-name { font-weight: 600; }
-        .step-status { font-style: italic; color: var(--text-muted); }
-        .step-status.completed { color: var(--accent-green); font-weight: bold; }
-        .bottom-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+
+        .sim-time-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 9px 12px;
         }
-        .solver-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-        .solver-table th {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--accent-indigo);
-        }
-        .solver-table td {
-            padding: 8px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .solver-table tr.highlight {
-            background: rgba(99, 102, 241, 0.08);
-            font-weight: bold;
-        }
-        .player-btn {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-indigo));
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
+
+        .sim-time-val {
+            font-size: 1.05rem;
             font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s;
+            color: white;
         }
-        .player-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+
+        .badge-live {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            float: right;
         }
-        .player-btn:active { transform: translateY(1px); }
-        .trace-card {
-            background: rgba(13, 20, 35, 0.95);
-            border: 1px solid var(--accent-purple);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+
+        .main-wrapper {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
         }
-        .trace-grid {
+
+        .topbar {
+            height: 58px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topbar-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .weather-badge {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.73rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .mode-badge {
+            background: linear-gradient(135deg, rgba(139, 92, 246, .12), rgba(99, 102, 241, .12));
+            border: 1px solid rgba(139, 92, 246, .3);
+            color: var(--accent-purple);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.73rem;
+            font-weight: 700;
+        }
+
+        .dashboard-content {
+            padding: 18px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .kpi-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            font-size: 0.75rem;
-            margin-top: 15px;
+            gap: 13px;
         }
-        .trace-node {
+
+        .kpi-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            position: relative;
+            border-radius: 11px;
+            padding: 14px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
         }
-        .trace-node label {
-            font-weight: bold;
+
+        .kpi-card:hover {
+            border-color: #94a3b8;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .kpi-label {
             font-size: 0.7rem;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 4px;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
-        .trace-node .val-main {
+
+        .kpi-val {
+            font-size: 1.38rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 3px;
+            letter-spacing: -0.5px;
+        }
+
+        .kpi-sub {
+            font-size: 0.67rem;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            color: var(--accent-red);
+        }
+
+        .trend-down {
+            color: var(--accent-green);
+        }
+
+        .trend-neutral {
+            color: var(--text-muted);
+        }
+
+        .kpi-icon-wrap {
+            width: 40px;
+            height: 40px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .middle-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 16px;
+        }
+
+        .map-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            flex: 1;
+            /* Fills remaining vertical space */
+            width: 100%;
+        }
+
+        .card-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 11px;
+        }
+
+        .card-header-bar h3 {
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .trace-node .val-sub {
+
+        .map-legend {
+            display: flex;
+            align-items: center;
+            gap: 14px;
             font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+            color: var(--text-secondary);
         }
-        .bar-container {
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .network-svg {
             width: 100%;
-            background: rgba(255,255,255,0.05);
-            height: 14px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 4px;
-        }
-        .bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, #6366f1, #a78bfa);
-            border-radius: 4px;
+            flex: 1;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
-        
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                
-        <header class="app-header">
-            <div class="logo-area">
-                <span class="logo-icon">🚊</span>
-                <span class="logo-text">RailTwin-Q</span>
-                <span class="logo-subtitle">Operations Control Center</span>
-            </div>
-            <nav class="app-nav">
-                <a href="operations.html" id="nav-operations" class="nav-item">Operations Center</a>
-                <a href="network.html" id="nav-network" class="nav-item">Live Network</a>
-                <a href="optimization.html" id="nav-optimization" class="nav-item">Quantum Console</a>
-                <a href="../reports/layer6_end_to_end_validation.html" target="_blank" class="nav-item">Reports & Research</a>
-            </nav>
-        </header>
-        
-                
-                <div class="warning-banner" id="cors-warning">
-                    ⚠️ Running via file:// protocol. Direct live updates disabled.
-                </div>
 
-                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
-                    <div>
-                        <div class="panel network-container" style="padding: 10px;">
-                            <h2>Live Network Topology View</h2>
-                            <svg viewBox="0 0 1100 450" class="network-svg">
-                                <rect width="100%" height="100%" fill="#0a0f1d" />
-                                <line x1="100" y1="145" x2="400" y2="145" class="track-line track-up" id="track-line-1-up" />
-                                <line x1="100" y1="155" x2="400" y2="155" class="track-line track-down" id="track-line-1-down" />
-                                <line x1="400" y1="145" x2="700" y2="295" class="track-line track-up" id="track-line-2-up" />
-                                <line x1="400" y1="155" x2="700" y2="305" class="track-line track-down" id="track-line-2-down" />
-                                <line x1="700" y1="295" x2="950" y2="295" class="track-line track-up" id="track-line-3-up" />
-                                <line x1="700" y1="305" x2="950" y2="305" class="track-line track-down" id="track-line-3-down" />
+        .track-line {
+            stroke-width: 3.5;
+            fill: none;
+            stroke-linecap: round;
+            transition: all 0.3s;
+        }
 
-                                <g class="station-node" transform="translate(100, 150)" onclick="selectStation(1)">
-                                    <circle r="22" class="station-bg" id="station-bg-1" />
-                                    <circle r="12" class="station-core" id="station-core-1" />
-                                    <text y="-32" class="station-label">Chennai Central</text>
-                                    <text y="38" class="station-sub" id="station-sub-1">Platforms: 2/12</text>
-                                </g>
-                                <g class="station-node" transform="translate(400, 150)" onclick="selectStation(2)">
-                                    <circle r="22" class="station-bg" id="station-bg-2" />
-                                    <circle r="12" class="station-core" id="station-core-2" />
-                                    <text y="-32" class="station-label">Arakkonam</text>
-                                    <text y="38" class="station-sub" id="station-sub-2">Platforms: 1/8</text>
-                                </g>
-                                <g class="station-node" transform="translate(700, 300)" onclick="selectStation(3)">
-                                    <circle r="22" class="station-bg" id="station-bg-3" />
-                                    <circle r="12" class="station-core" id="station-core-3" />
-                                    <text y="-32" class="station-label">Katpadi</text>
-                                    <text y="38" class="station-sub" id="station-sub-3">Platforms: 0/5</text>
-                                </g>
-                                <g class="station-node" transform="translate(950, 300)" onclick="selectStation(4)">
-                                    <circle r="22" class="station-bg" id="station-bg-4" />
-                                    <circle r="12" class="station-core" id="station-core-4" />
-                                    <text y="-32" class="station-label">Jolarpettai</text>
-                                    <text y="38" class="station-sub" id="station-sub-4">Platforms: 0/5</text>
-                                </g>
+        .track-normal {
+            stroke: #cbd5e1;
+        }
 
-                                <g id="trains-layer"></g>
-                            </svg>
-                        </div>
-                    </div>
+        .track-congested {
+            stroke: var(--accent-yellow) !important;
+            stroke-width: 5;
+        }
 
-                    <div class="panel" id="station-details-panel">
-                        <h2>Infrastructure Information</h2>
-                        <div id="station-details-content" style="font-size:0.8rem; line-height:1.6;">
-                            <p style="color:var(--text-muted);">Click on any station to view platform utilization and active disruptions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        .track-blocked {
+            stroke: var(--accent-red) !important;
+            stroke-width: 5;
+        }
 
-            <script>
-                const EMBEDDED_STATE = {"tick": 92, "sim_time_str": "09:32", "state": "MONITORING", "active_disruptions": 0, "network_delay": 48.8, "congestion": 833.3, "active_interventions": [], "cycle_number": 1, "last_opt_tick": 15, "next_eligible_tick": 92, "qubits": 10, "warm_start": false, "delta_utility": 1.053, "trigger_reason": "MEDIUM: Event-triggered re-optimization: Heavy Rain", "current_plan_utility": 1.053, "new_plan_utility": 1.053, "solver_name": "HYBRID_QAOA", "reoptimization_count": 1, "recovery_status": "RECOVERED", "trains": [{"train_no": 12623, "name": "Chennai Mail", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 42.5, "progress": 79.45652173913057, "current_track_id": 1, "current_station_id": 1, "delay": 53.3, "predicted_delay_15": 58.3, "predicted_delay_30": 64.9, "predicted_delay_60": 78.3, "confidence": 0.85, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (79.5%)"}, {"train_no": 12624, "name": "Chennai Mail Return", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 46.8, "progress": 22.068306010928957, "current_track_id": 3, "current_station_id": 8, "delay": 25.1, "predicted_delay_15": 31.6, "predicted_delay_30": 37.6, "predicted_delay_60": 47.9, "confidence": 0.78, "top_factors": ["Network Delay", "Track Travel Time", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (22.1%)"}, {"train_no": 12625, "name": "Kerala Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 45.0, "progress": 65.20289855072465, "current_track_id": 1, "current_station_id": 1, "delay": 61.92, "predicted_delay_15": 67.4, "predicted_delay_30": 74.9, "predicted_delay_60": 80.4, "confidence": 0.88, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (65.2%)"}, {"train_no": 16057, "name": "Sapthagiri Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 52.5, "progress": 15.294117647058824, "current_track_id": 7, "current_station_id": 6, "delay": 78.66, "predicted_delay_15": 83.7, "predicted_delay_30": 94.9, "predicted_delay_60": 96.5, "confidence": 0.8, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Tiruttani -> Tirupati (15.3%)"}, {"train_no": 12007, "name": "Shatabdi Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 52.5, "progress": 50.973429951690804, "current_track_id": 1, "current_station_id": 1, "delay": 71.87, "predicted_delay_15": 78.1, "predicted_delay_30": 83.1, "predicted_delay_60": 93.7, "confidence": 0.86, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (51.0%)"}, {"train_no": 12616, "name": "Grand Trunk Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 95, "progress": 0.0, "current_track_id": 6, "current_station_id": 6, "delay": 48.05, "predicted_delay_15": 52.8, "predicted_delay_30": 63.0, "predicted_delay_60": 76.7, "confidence": 0.8, "top_factors": ["Network Delay", "Current Delay", "Track Travel Time"], "loc_desc": "At Tiruttani"}, {"train_no": 22625, "name": "Double Decker Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 18.0, "progress": 0.4918032786885245, "current_track_id": 3, "current_station_id": 4, "delay": 15.18, "predicted_delay_15": 25.2, "predicted_delay_30": 33.4, "predicted_delay_60": 55.2, "confidence": 0.7, "top_factors": ["Network Delay", "Incoming Trains", "Recent Delay Delta"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (0.5%)"}, {"train_no": 16053, "name": "Tirupati Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 37.5, "progress": 32.71739130434779, "current_track_id": 1, "current_station_id": 1, "delay": 74.11, "predicted_delay_15": 80.8, "predicted_delay_30": 87.8, "predicted_delay_60": 95.9, "confidence": 0.83, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (32.7%)"}, {"train_no": 40001, "name": "Tambaram Local", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 14.89, "predicted_delay_15": 20.9, "predicted_delay_30": 26.2, "predicted_delay_60": 37.1, "confidence": 0.63, "top_factors": ["Network Delay", "Track Travel Time", "Average Train Speed"], "loc_desc": "At Chengalpattu"}, {"train_no": 40003, "name": "Chengalpattu Commuter", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 16.6, "predicted_delay_15": 22.1, "predicted_delay_30": 27.0, "predicted_delay_60": 37.5, "confidence": 0.55, "top_factors": ["Network Delay", "Track Travel Time", "Average Train Speed"], "loc_desc": "At Chengalpattu"}, {"train_no": 58201, "name": "Arakkonam Coal Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 24.8, "progress": 88.40710382513669, "current_track_id": 3, "current_station_id": 4, "delay": 35.1, "predicted_delay_15": 39.8, "predicted_delay_30": 42.7, "predicted_delay_60": 57.7, "confidence": 0.93, "top_factors": ["Network Delay", "Incoming Trains", "Track Travel Time"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (88.4%)"}, {"train_no": 58203, "name": "Katpadi Goods Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 9.5, "progress": 73.68306010928966, "current_track_id": 3, "current_station_id": 8, "delay": 45.98, "predicted_delay_15": 51.0, "predicted_delay_30": 56.6, "predicted_delay_60": 68.1, "confidence": 0.84, "top_factors": ["Network Delay", "Current Delay", "Recent Delay Delta"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (73.7%)"}, {"train_no": 58205, "name": "Tirupati Container Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 28.0, "progress": 44.16666666666669, "current_track_id": 7, "current_station_id": 6, "delay": 58.95, "predicted_delay_15": 63.6, "predicted_delay_30": 71.1, "predicted_delay_60": 79.5, "confidence": 0.65, "top_factors": ["Current Delay", "Network Delay", "Track Travel Time"], "loc_desc": "Moving Tiruttani -> Tirupati (44.2%)"}, {"train_no": 90001, "name": "Track Inspection Car", "train_type": "MAINTENANCE", "priority": 3, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 9, "delay": 2.4, "predicted_delay_15": 5.9, "predicted_delay_30": 9.6, "predicted_delay_60": 17.6, "confidence": 0.66, "top_factors": ["Network Delay", "Current Delay", "Track Travel Time"], "loc_desc": "At Vellore Cantonment"}, {"train_no": 12607, "name": "Lalbagh Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 13.1, "progress": 18.07971014492753, "current_track_id": 1, "current_station_id": 1, "delay": 83.36, "predicted_delay_15": 91.5, "predicted_delay_30": 98.0, "predicted_delay_60": 104.1, "confidence": 0.84, "top_factors": ["Current Delay", "Network Delay", "Recent Delay Delta"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (18.1%)"}, {"train_no": 12608, "name": "Lalbagh Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 46.8, "progress": 6.740437158469946, "current_track_id": 3, "current_station_id": 8, "delay": 26.04, "predicted_delay_15": 33.2, "predicted_delay_30": 38.3, "predicted_delay_60": 49.6, "confidence": 0.81, "top_factors": ["Network Delay", "Track Travel Time", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (6.7%)"}, {"train_no": 16058, "name": "Sapthagiri Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 13.7, "progress": 29.955882352941185, "current_track_id": 7, "current_station_id": 7, "delay": 75.74, "predicted_delay_15": 82.6, "predicted_delay_30": 88.8, "predicted_delay_60": 99.4, "confidence": 0.88, "top_factors": ["Current Delay", "Network Delay", "Recent Delay Delta"], "loc_desc": "Moving Tiruttani -> Tirupati (30.0%)"}, {"train_no": 58207, "name": "Jolarpettai Heavy Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 4.6, "progress": 6.475845410628022, "current_track_id": 1, "current_station_id": 1, "delay": 106.14, "predicted_delay_15": 112.7, "predicted_delay_30": 112.9, "predicted_delay_60": 106.3, "confidence": 0.78, "top_factors": ["Current Delay", "Network Delay", "Recent Delay Delta"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (6.5%)"}], "stations": [{"id": 1, "name": "Chennai Central", "code": "MAS", "x": 220, "y": 220, "platforms_occupied": 0, "platforms": 12, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 6, "congestion": 0.0, "status": "Empty"}, {"id": 2, "name": "Tambaram", "code": "TBM", "x": 220, "y": 340, "platforms_occupied": 0, "platforms": 6, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 3, "name": "Chengalpattu", "code": "CGL", "x": 450, "y": 340, "platforms_occupied": 2, "platforms": 8, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 2500.0, "status": "Busy"}, {"id": 4, "name": "Arakkonam Junction", "code": "AJJ", "x": 450, "y": 220, "platforms_occupied": 0, "platforms": 8, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 9, "outgoing_trains": 2, "congestion": 0.0, "status": "Empty"}, {"id": 5, "name": "Kanchipuram", "code": "CJ", "x": 220, "y": 430, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 6, "name": "Tiruttani", "code": "TRT", "x": 450, "y": 130, "platforms_occupied": 1, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 1, "outgoing_trains": 2, "congestion": 2500.0, "status": "Busy"}, {"id": 7, "name": "Tirupati", "code": "TPTY", "x": 450, "y": 50, "platforms_occupied": 0, "platforms": 6, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 2, "outgoing_trains": 1, "congestion": 0.0, "status": "Empty"}, {"id": 8, "name": "Katpadi Junction", "code": "KPD", "x": 680, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 2, "outgoing_trains": 3, "congestion": 0.0, "status": "Empty"}, {"id": 9, "name": "Vellore Cantonment", "code": "VLR", "x": 680, "y": 340, "platforms_occupied": 1, "platforms": 3, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Busy"}, {"id": 10, "name": "Jolarpettai Junction", "code": "JTJ", "x": 900, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}], "tracks": [{"id": 1, "name": "Chennai Central - Arakkonam Trunk", "source_station_id": 1, "destination_station_id": 4, "current_trains": 6, "capacity": 5, "distance": 69, "occupancy_percent": 120.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 2, "name": "Chennai Central - Tambaram Main Line", "source_station_id": 1, "destination_station_id": 2, "current_trains": 0, "capacity": 4, "distance": 25, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 3, "name": "Arakkonam - Katpadi Main Line", "source_station_id": 4, "destination_station_id": 8, "current_trains": 5, "capacity": 4, "distance": 61, "occupancy_percent": 125.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 4, "name": "Tambaram - Kanchipuram Branch", "source_station_id": 2, "destination_station_id": 5, "current_trains": 0, "capacity": 3, "distance": 35, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 5, "name": "Katpadi - Jolarpettai Trunk Line", "source_station_id": 8, "destination_station_id": 10, "current_trains": 0, "capacity": 4, "distance": 84, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 6, "name": "Arakkonam - Tiruttani Link", "source_station_id": 4, "destination_station_id": 6, "current_trains": 0, "capacity": 3, "distance": 14, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 7, "name": "Tiruttani - Tirupati Line", "source_station_id": 6, "destination_station_id": 7, "current_trains": 3, "capacity": 3, "distance": 68, "occupancy_percent": 100.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 8, "name": "Kanchipuram - Arakkonam Bypass", "source_station_id": 5, "destination_station_id": 4, "current_trains": 0, "capacity": 3, "distance": 28, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 9, "name": "Katpadi - Vellore Cantonment Spur", "source_station_id": 8, "destination_station_id": 9, "current_trains": 0, "capacity": 2, "distance": 10, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 10, "name": "Tambaram - Chengalpattu South Line", "source_station_id": 2, "destination_station_id": 3, "current_trains": 0, "capacity": 4, "distance": 31, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}], "events": [], "qubit_mappings": [{"qubit": "q0", "symbol": "x_1", "action": "REROUTE", "target": "Chennai Mail", "description": "REROUTE Train Chennai Mail"}, {"qubit": "q1", "symbol": "x_2", "action": "REROUTE", "target": "Kerala Express", "description": "REROUTE Train Kerala Express"}, {"qubit": "q2", "symbol": "x_3", "action": "REROUTE", "target": "Shatabdi Express", "description": "REROUTE Train Shatabdi Express"}, {"qubit": "q3", "symbol": "x_4", "action": "REROUTE", "target": "Tirupati Express", "description": "REROUTE Train Tirupati Express"}, {"qubit": "q4", "symbol": "x_5", "action": "REROUTE", "target": "Lalbagh Express", "description": "REROUTE Train Lalbagh Express"}, {"qubit": "q5", "symbol": "x_6", "action": "REROUTE", "target": "Double Decker Express", "description": "REROUTE Train Double Decker Express"}, {"qubit": "q6", "symbol": "x_7", "action": "REROUTE", "target": "Chennai Mail Return", "description": "REROUTE Train Chennai Mail Return"}, {"qubit": "q7", "symbol": "x_8", "action": "REROUTE", "target": "Sapthagiri Express", "description": "REROUTE Train Sapthagiri Express"}, {"qubit": "q8", "symbol": "x_9", "action": "REROUTE", "target": "Grand Trunk Express", "description": "REROUTE Train Grand Trunk Express"}, {"qubit": "q9", "symbol": "x_10", "action": "HOLD", "target": "Kerala Express", "description": "HOLD Train Kerala Express"}], "impact": {"baseline_delay": 48.8, "optimized_delay": 48.8, "delay_reduction": 0.0, "delay_reduction_pct": 0.0, "baseline_congestion": 9.6, "optimized_congestion": 9.6, "congestion_reduction_pct": 0.0, "num_interventions": 0, "qubo_energy": -2.136, "qaoa_raw_energy": -2.136, "refined_energy": -2.136, "qaoa_runtime": 1.2781, "classical_runtime": 0.1065}};
-                document.getElementById("nav-network").classList.add("active");
+        .station-bg {
+            fill: #ffffff;
+            stroke: #94a3b8;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
 
-                const STATIONS = {
-                    1: { x: 100, y: 150, desc: "Primary central terminus in South India." },
-                    2: { x: 400, y: 150, desc: "Key railway junction connecting Katpadi & Renigunta." },
-                    3: { x: 700, y: 300, desc: "High density junction servicing Chennai Mail & Express." },
-                    4: { x: 950, y: 300, desc: "Junction connecting Chennai-Bangalore lines." }
-                };
+        .station-bg:hover {
+            stroke: var(--accent-blue-light);
+            fill: #f1f5f9;
+        }
 
-                function selectStation(id) {
-                    const s = currentState.stations.find(x => x.id === id);
-                    if (!s) return;
-                    const panel = document.getElementById("station-details-content");
-                    const color = s.congestion >= 80 ? "var(--accent-red)" : (s.congestion >= 50 ? "var(--accent-yellow)" : "var(--accent-green)");
-                    panel.innerHTML = `
-                        <h3>${s.name}</h3>
-                        <p style="color:var(--text-muted); font-style:italic;">${STATIONS[id].desc}</p>
-                        <p><strong>Platform Utilization:</strong> ${s.platforms_occupied} / ${s.platforms}</p>
-                        <p><strong>Congestion Index:</strong> <span style="color:${color}; font-weight:bold;">${s.congestion}%</span></p>
-                        <p><strong>Status:</strong> ${s.status}</p>
-                    `;
-                }
+        .station-core {
+            fill: var(--accent-green);
+            cursor: pointer;
+        }
 
-                function updateUI(state) {
-                    currentState = state;
-                }
+        .station-label {
+            font-size: 10px;
+            fill: var(--text-primary);
+            font-weight: 600;
+            text-anchor: middle;
+            pointer-events: none;
+        }
 
-                let currentState = EMBEDDED_STATE;
-                updateUI(currentState);
-            </script>
-        </body>
-        </html>
-        
+        .incident-badge {
+            position: absolute;
+            bottom: 26px;
+            left: 26px;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid var(--accent-red);
+            padding: 7px 13px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.76rem;
+            color: var(--accent-red);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map-card">
+        <div class="card-header-bar">
+            <h3>🗺️ Live Digital Twin — Railway Network Topology</h3>
+            <div class="map-legend"><span><span class="legend-dot"
+                        style="background:#cbd5e1;"></span>Normal</span><span><span class="legend-dot"
+                        style="background:var(--accent-yellow);"></span>Congested</span><span><span class="legend-dot"
+                        style="background:var(--accent-red);"></span>Blocked</span></div>
+        </div>
+        <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg">
+            <line id="map-track-1" x1="220" y1="220" x2="450" y2="220" class="track-line track-normal" />
+            <line id="map-track-3" x1="450" y1="220" x2="680" y2="220" class="track-line track-normal" />
+            <line id="map-track-5" x1="680" y1="220" x2="900" y2="220" class="track-line track-normal" />
+            <line id="map-track-6" x1="450" y1="220" x2="450" y2="130" class="track-line track-normal" />
+            <line id="map-track-7" x1="450" y1="130" x2="450" y2="50" class="track-line track-normal" />
+            <line id="map-track-2" x1="220" y1="220" x2="220" y2="340" class="track-line track-normal" />
+            <line id="map-track-10" x1="220" y1="340" x2="450" y2="340" class="track-line track-normal" />
+            <line id="map-track-4" x1="220" y1="340" x2="220" y2="420" class="track-line track-normal" />
+            <line id="map-track-8" x1="220" y1="420" x2="450" y2="220" class="track-line track-normal" />
+            <line id="map-track-9" x1="680" y1="220" x2="680" y2="340" class="track-line track-normal" />
+            <g transform="translate(220,220)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="-20" class="station-label">MAS</text>
+            </g>
+            <g transform="translate(220,340)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="25" class="station-label">TBM</text>
+            </g>
+            <g transform="translate(450,340)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="25" class="station-label">CGL</text>
+            </g>
+            <g transform="translate(220,420)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="25" class="station-label">CJ</text>
+            </g>
+            <g transform="translate(450,220)">
+                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
+                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
+                    style="fill:#6366f1;">AJJ</text>
+            </g>
+            <g transform="translate(450,130)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="-20" class="station-label">TRT</text>
+            </g>
+            <g transform="translate(450,50)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="-18" class="station-label">TPTY</text>
+            </g>
+            <g transform="translate(680,220)">
+                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
+                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
+                    style="fill:#6366f1;">KPD</text>
+            </g>
+            <g transform="translate(680,340)">
+                <circle r="14" class="station-bg" />
+                <circle r="7" class="station-core" /><text y="25" class="station-label">VLR</text>
+            </g>
+            <g transform="translate(900,220)">
+                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
+                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
+                    style="fill:#6366f1;">JTJ</text>
+            </g>
+            <circle id="map-incident-pulse" cx="450" cy="220" r="22" fill="none" stroke="var(--accent-red)"
+                stroke-width="2" visibility="hidden">
+                <animate attributeName="r" values="16;34;16" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="stroke-opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+        <div class="incident-badge" id="map-incident-badge" style="display:none;"><span>🚨</span><strong>Active
+                Incident:</strong>&nbsp;<span id="incident-text">Disruption</span></div>
+    </div>
+</body>
