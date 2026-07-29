@@ -67,7 +67,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 0.001,
+            "runtime_seconds": 0.0005,
             "actions": [
                 {
                     "action_id": 3,
@@ -298,7 +298,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 0.0944,
+            "runtime_seconds": 0.0918,
             "actions": [
                 {
                     "action_id": 3,
@@ -382,7 +382,7 @@
             "qubo_energy": 0.0,
             "ising_energy": -1.6475,
             "constant_offset": 1.6475,
-            "runtime_seconds": 1.7104,
+            "runtime_seconds": 1.6468,
             "actions": [],
             "validation": {
                 "valid": true,
@@ -412,7 +412,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.7104,
+            "runtime_seconds": 1.6468,
             "actions": [
                 {
                     "action_id": 3,
@@ -489,7 +489,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.8156,
+            "runtime_seconds": 1.7502,
             "actions": [
                 {
                     "action_id": 3,
@@ -567,7 +567,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.7124,
+            "runtime_seconds": 1.6478,
             "actions": [
                 {
                     "action_id": 3,
@@ -630,8 +630,8 @@
             "approximation_ratio": 1.0,
             "raw_qaoa_energy": 0.0,
             "improvement": 0.5445,
-            "quantum_runtime_seconds": 1.7104,
-            "classical_postprocessing_runtime_seconds": 0.002,
+            "quantum_runtime_seconds": 1.6468,
+            "classical_postprocessing_runtime_seconds": 0.001,
             "ablation_stages": [
                 {
                     "stage": "1. Raw Qiskit QAOA",
