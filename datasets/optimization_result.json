@@ -67,7 +67,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 0.0005,
+            "runtime_seconds": 0.001,
             "actions": [
                 {
                     "action_id": 3,
@@ -298,7 +298,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 0.0918,
+            "runtime_seconds": 0.0836,
             "actions": [
                 {
                     "action_id": 3,
@@ -382,7 +382,7 @@
             "qubo_energy": 0.0,
             "ising_energy": -1.6475,
             "constant_offset": 1.6475,
-            "runtime_seconds": 1.6468,
+            "runtime_seconds": 1.9543,
             "actions": [],
             "validation": {
                 "valid": true,
@@ -412,7 +412,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.6468,
+            "runtime_seconds": 1.9553,
             "actions": [
                 {
                     "action_id": 3,
@@ -489,7 +489,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.7502,
+            "runtime_seconds": 2.0426,
             "actions": [
                 {
                     "action_id": 3,
@@ -567,7 +567,7 @@
                 0
             ],
             "energy": -0.5445,
-            "runtime_seconds": 1.6478,
+            "runtime_seconds": 1.9553,
             "actions": [
                 {
                     "action_id": 3,
@@ -630,7 +630,7 @@
             "approximation_ratio": 1.0,
             "raw_qaoa_energy": 0.0,
             "improvement": 0.5445,
-            "quantum_runtime_seconds": 1.6468,
+            "quantum_runtime_seconds": 1.9543,
             "classical_postprocessing_runtime_seconds": 0.001,
             "ablation_stages": [
                 {

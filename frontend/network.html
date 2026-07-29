@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RailTwin-Q | Live Network View</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --sidebar-bg: #0b0f19;
@@ -240,31 +241,190 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            height: calc(100vh - 58px);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 13px;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 11px;
+            padding: 14px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .kpi-card:hover {
+            border-color: #94a3b8;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .kpi-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .kpi-val {
+            font-size: 1.38rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 3px;
+            letter-spacing: -0.5px;
+        }
+
+        .kpi-sub {
+            font-size: 0.67rem;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            color: var(--accent-red);
+        }
+
+        .trend-down {
+            color: var(--accent-green);
+        }
+
+        .trend-neutral {
+            color: var(--text-muted);
+        }
+
+        .kpi-icon-wrap {
+            width: 40px;
+            height: 40px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .trace-pipeline {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 11px;
+        }
+
+        .trace-step {
+            padding: 13px;
+            border-radius: 9px;
+            text-align: center;
+            border: 1px solid;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .trace-step-num {
+            font-size: 0.62rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trace-step-val {
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .trace-step-sub {
+            font-size: 0.66rem;
+            color: var(--text-secondary);
+        }
+
+        .trace-disruption {
+            background: rgba(239, 68, 68, 0.06);
+            border-color: rgba(239, 68, 68, .25);
+        }
+
+        .trace-disruption .trace-step-num {
+            color: var(--accent-red);
+        }
+
+        .trace-ai {
+            background: rgba(245, 158, 11, 0.06);
+            border-color: rgba(245, 158, 11, .25);
+        }
+
+        .trace-ai .trace-step-num {
+            color: var(--accent-yellow);
+        }
+
+        .trace-qubo {
+            background: rgba(99, 102, 241, 0.06);
+            border-color: rgba(99, 102, 241, .25);
+        }
+
+        .trace-qubo .trace-step-num {
+            color: #6366f1;
+        }
+
+        .trace-qaoa {
+            background: rgba(139, 92, 246, 0.06);
+            border-color: rgba(139, 92, 246, .25);
+        }
+
+        .trace-qaoa .trace-step-num {
+            color: var(--accent-purple);
+        }
+
+        .trace-refine {
+            background: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, .25);
+        }
+
+        .trace-refine .trace-step-num {
+            color: var(--accent-green);
+        }
+
+        .trace-impact {
+            background: rgba(16, 185, 129, 0.10);
+            border-color: rgba(16, 185, 129, .40);
+        }
+
+        .trace-impact .trace-step-num {
+            color: var(--accent-green);
+        }
+
+        .middle-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 16px;
         }
 
         .map-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 20px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             position: relative;
             box-shadow: var(--shadow-md);
-            flex-grow: 1;
-            height: 100%;
         }
 
         .card-header-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 11px;
         }
 
         .card-header-bar h3 {
-            font-size: 1.0rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--text-primary);
             display: flex;
@@ -276,13 +436,13 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-secondary);
         }
 
         .legend-dot {
-            width: 9px;
-            height: 9px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             display: inline-block;
             margin-right: 4px;
@@ -291,14 +451,13 @@
         .network-svg {
             width: 100%;
             height: 100%;
-            min-height: 480px;
             background: #f8fafc;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
         .track-line {
-            stroke-width: 3.8;
+            stroke-width: 3.5;
             fill: none;
             stroke-linecap: round;
             transition: all 0.3s;
@@ -310,12 +469,12 @@
 
         .track-congested {
             stroke: var(--accent-yellow) !important;
-            stroke-width: 5.5;
+            stroke-width: 5;
         }
 
         .track-blocked {
             stroke: var(--accent-red) !important;
-            stroke-width: 5.5;
+            stroke-width: 5;
         }
 
         .station-bg {
@@ -334,7 +493,6 @@
         .station-core {
             fill: var(--accent-green);
             cursor: pointer;
-            transition: fill 0.3s;
         }
 
         .station-label {
@@ -347,18 +505,239 @@
 
         .incident-badge {
             position: absolute;
-            bottom: 32px;
-            left: 32px;
+            bottom: 26px;
+            left: 26px;
             background: rgba(239, 68, 68, 0.08);
             border: 1px solid var(--accent-red);
-            padding: 8px 16px;
+            padding: 7px 13px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.8rem;
+            font-size: 0.76rem;
             color: var(--accent-red);
+        }
+
+        .ai-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-md);
+        }
+
+        .ai-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 11px;
+            margin-bottom: 11px;
+        }
+
+        .ai-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.8rem;
+        }
+
+        .field-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .field-label {
+            color: var(--text-secondary);
+        }
+
+        .field-val {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .badge-red-soft {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .badge-green-soft {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .gauge-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 9px 13px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .btn-quantum {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+            transition: all 0.2s;
+            margin-top: auto;
+        }
+
+        .btn-quantum:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .sub-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
             box-shadow: var(--shadow-sm);
+        }
+
+        .sub-card h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .scenario-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-bottom: 9px;
+            font-size: 0.73rem;
+        }
+
+        .scenario-bar-bg {
+            width: 100%;
+            background: #f1f5f9;
+            height: 7px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .scenario-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .solver-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 9px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            margin-bottom: 5px;
+        }
+
+        .solver-best {
+            background: rgba(99, 102, 241, 0.07);
+            border: 1px solid rgba(99, 102, 241, .2);
+            font-weight: 600;
+        }
+
+        .q-field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            margin-bottom: 7px;
+        }
+
+        .q-label {
+            color: var(--text-secondary);
+        }
+
+        .q-val {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .timeline-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 13px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-node {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+        }
+
+        .step-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            flex-shrink: 0;
+        }
+
+        .arrow-step {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -367,20 +746,19 @@
     <aside class="sidebar">
         <div>
             <div class="brand">
-                <div class="brand-icon">🚆</div>
+                <div class="brand-icon"><i data-lucide="train"></i></div>
                 <div>
                     <div class="brand-title">RailTwin-Q</div>
                     <div class="brand-sub">AI + Quantum Railway</div>
                 </div>
             </div>
             <nav class="nav-menu">
-                <a href="operations.html" class="nav-item">📊 Overview</a>
-                <a href="optimization.html" class="nav-item">⚛️ Quantum Optimizer</a>
-                <a href="network.html" class="nav-item active">🗺️ Network View</a>
-                <a href="../reports/quantum_to_railway_traceability.html" target="_blank" class="nav-item">⚡
-                    Traceability</a>
-                <a href="../reports/quantum_benchmark_report.html" target="_blank" class="nav-item">🏆 Benchmarks</a>
-                <a href="../reports/quantum_advantage_scorecard.html" target="_blank" class="nav-item">📈 Advantage</a>
+                <a href="operations.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Overview</a>
+                <a href="quantum-optimizer.html" class="nav-item"><i data-lucide="atom"></i> Quantum Optimizer</a>
+                <a href="network.html" class="nav-item active"><i data-lucide="network"></i> Network View</a>
+                <a href="traceability.html" class="nav-item"><i data-lucide="zap"></i> Traceability</a>
+                <a href="benchmarks.html" class="nav-item"><i data-lucide="trophy"></i> Benchmarks</a>
+                <a href="advantage.html" class="nav-item"><i data-lucide="trending-up"></i> Advantage</a>
             </nav>
         </div>
         <div class="sidebar-bottom">
@@ -400,16 +778,17 @@
     </aside>
     <div class="main-wrapper">
         <header class="topbar">
-            <div class="topbar-title"><span>☰</span> Railway Live Topology view</div>
+            <div class="topbar-title"><i data-lucide="menu"></i> Railway Live Topology view</div>
             <div class="topbar-actions">
-                <div class="mode-badge" id="mode-badge">⚛️ Loading...</div>
-                <div class="weather-badge"><span>🌧️</span><span id="weather-badge-text">Loading...</span></div>
+                <div class="mode-badge" id="mode-badge"><i data-lucide="atom"></i> Quantum Optimization Mode</div>
+                <div class="weather-badge"><i data-lucide="cloud-rain" id="weather-badge-icon"></i><span
+                        id="weather-badge-text">Loading...</span></div>
             </div>
         </header>
         <main class="dashboard-content">
             <div class="map-card">
                 <div class="card-header-bar">
-                    <h3>🗺️ Live Digital Twin — Topology Map</h3>
+                    <h3><i data-lucide="network"></i> Live Digital Twin — Topology Map</h3>
                     <div class="map-legend"><span><span class="legend-dot"
                                 style="background:#cbd5e1;"></span>Normal</span><span><span class="legend-dot"
                                 style="background:var(--accent-yellow);"></span>Congested</span><span><span
@@ -481,7 +860,7 @@
         </main>
     </div>
     <script>
-        const EMBEDDED_STATE = {"tick": 120, "sim_time_str": "10:00", "state": "MONITORING", "active_disruptions": 0, "weather": "Clear", "network_delay": 41.6, "congestion": 666.6, "active_interventions": [], "cycle_number": 1, "last_opt_tick": 15, "next_eligible_tick": 120, "qubits": 10, "warm_start": false, "delta_utility": 0.1805, "trigger_reason": "MEDIUM: Event-triggered re-optimization: Heavy Rain", "current_plan_utility": 0.1805, "new_plan_utility": 0.1805, "solver_name": "HYBRID_QAOA", "reoptimization_count": 1, "recovery_status": "RECOVERED", "trains": [{"train_no": 12623, "name": "Chennai Mail", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 42.5, "progress": 4.762295081967213, "current_track_id": 3, "current_station_id": 4, "delay": 65.75, "predicted_delay_15": 73.0, "predicted_delay_30": 80.4, "predicted_delay_60": 87.4, "confidence": 0.88, "top_factors": ["Current Delay", "Network Delay", "Incoming Trains"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (4.8%)"}, {"train_no": 12624, "name": "Chennai Mail Return", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 42.5, "progress": 55.28688524590161, "current_track_id": 3, "current_station_id": 8, "delay": 38.8, "predicted_delay_15": 45.6, "predicted_delay_30": 52.9, "predicted_delay_60": 64.2, "confidence": 0.89, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (55.3%)"}, {"train_no": 12625, "name": "Kerala Express", "train_type": "EXPRESS", "priority": 2, "status": "DELAYED", "speed": 0.0, "progress": 6.330917874396135, "current_track_id": 1, "current_station_id": 1, "delay": 12.03, "predicted_delay_15": 21.3, "predicted_delay_30": 28.2, "predicted_delay_60": 49.8, "confidence": 0.72, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (6.3%)"}, {"train_no": 16057, "name": "Sapthagiri Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 6.7, "progress": 34.485294117647044, "current_track_id": 7, "current_station_id": 6, "delay": 96.21, "predicted_delay_15": 106.6, "predicted_delay_30": 114.1, "predicted_delay_60": 116.0, "confidence": 0.78, "top_factors": ["Current Delay", "Track Travel Time", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (34.5%)"}, {"train_no": 12007, "name": "Shatabdi Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 52.5, "progress": 95.50724637681151, "current_track_id": 1, "current_station_id": 1, "delay": 82.42, "predicted_delay_15": 88.5, "predicted_delay_30": 95.4, "predicted_delay_60": 106.2, "confidence": 0.65, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (95.5%)"}, {"train_no": 12616, "name": "Grand Trunk Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 47.5, "progress": 13.384057971014492, "current_track_id": 1, "current_station_id": 4, "delay": 57.73, "predicted_delay_15": 64.2, "predicted_delay_30": 69.8, "predicted_delay_60": 81.7, "confidence": 0.82, "top_factors": ["Current Delay", "Network Delay", "Incoming Trains"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (13.4%)"}, {"train_no": 22625, "name": "Double Decker Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 40.0, "progress": 23.560109289617483, "current_track_id": 3, "current_station_id": 4, "delay": 32.58, "predicted_delay_15": 38.6, "predicted_delay_30": 45.7, "predicted_delay_60": 58.2, "confidence": 0.86, "top_factors": ["Network Delay", "Incoming Trains", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (23.6%)"}, {"train_no": 16053, "name": "Tirupati Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 37.5, "progress": 70.62318840579705, "current_track_id": 1, "current_station_id": 1, "delay": 81.01, "predicted_delay_15": 87.3, "predicted_delay_30": 96.3, "predicted_delay_60": 105.4, "confidence": 0.9, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (70.6%)"}, {"train_no": 40001, "name": "Tambaram Local", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 14.89, "predicted_delay_15": 21.4, "predicted_delay_30": 26.7, "predicted_delay_60": 37.1, "confidence": 0.61, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "At Chengalpattu"}, {"train_no": 40003, "name": "Chengalpattu Commuter", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 16.6, "predicted_delay_15": 22.5, "predicted_delay_30": 27.5, "predicted_delay_60": 37.8, "confidence": 0.55, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "At Chengalpattu"}, {"train_no": 58201, "name": "Arakkonam Coal Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 45.0, "progress": 5.357142857142856, "current_track_id": 5, "current_station_id": 8, "delay": 44.6, "predicted_delay_15": 47.8, "predicted_delay_30": 50.2, "predicted_delay_60": 58.0, "confidence": 0.84, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Katpadi Junction -> Jolarpettai Junction (5.4%)"}, {"train_no": 58203, "name": "Katpadi Goods Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 25.0, "progress": 92.28415300546443, "current_track_id": 3, "current_station_id": 8, "delay": 60.36, "predicted_delay_15": 66.6, "predicted_delay_30": 71.2, "predicted_delay_60": 77.1, "confidence": 0.94, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (92.3%)"}, {"train_no": 58205, "name": "Tirupati Container Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 28.0, "progress": 63.38235294117653, "current_track_id": 7, "current_station_id": 6, "delay": 67.35, "predicted_delay_15": 71.6, "predicted_delay_30": 75.6, "predicted_delay_60": 80.0, "confidence": 0.79, "top_factors": ["Track Travel Time", "Current Delay", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (63.4%)"}, {"train_no": 90001, "name": "Track Inspection Car", "train_type": "MAINTENANCE", "priority": 3, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 9, "delay": 2.4, "predicted_delay_15": 6.3, "predicted_delay_30": 9.9, "predicted_delay_60": 18.1, "confidence": 0.69, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "At Vellore Cantonment"}, {"train_no": 12607, "name": "Lalbagh Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 42.5, "progress": 56.14009661835755, "current_track_id": 1, "current_station_id": 1, "delay": 92.87, "predicted_delay_15": 100.2, "predicted_delay_30": 105.8, "predicted_delay_60": 108.9, "confidence": 0.8, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (56.1%)"}, {"train_no": 12608, "name": "Lalbagh Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 42.5, "progress": 39.9590163934426, "current_track_id": 3, "current_station_id": 8, "delay": 39.74, "predicted_delay_15": 45.9, "predicted_delay_30": 52.8, "predicted_delay_60": 64.6, "confidence": 0.86, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (40.0%)"}, {"train_no": 16058, "name": "Sapthagiri Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 13.7, "progress": 48.86764705882356, "current_track_id": 7, "current_station_id": 7, "delay": 93.5, "predicted_delay_15": 100.1, "predicted_delay_30": 107.3, "predicted_delay_60": 115.4, "confidence": 0.79, "top_factors": ["Current Delay", "Track Travel Time", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (48.9%)"}, {"train_no": 58207, "name": "Jolarpettai Heavy Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 22.5, "progress": 28.128019323671516, "current_track_id": 1, "current_station_id": 1, "delay": 114.2, "predicted_delay_15": 113.9, "predicted_delay_30": 115.6, "predicted_delay_60": 106.8, "confidence": 0.82, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (28.1%)"}], "stations": [{"id": 1, "name": "Chennai Central", "code": "MAS", "x": 220, "y": 220, "platforms_occupied": 1, "platforms": 12, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 1, "outgoing_trains": 4, "congestion": 833.0, "status": "Busy"}, {"id": 2, "name": "Tambaram", "code": "TBM", "x": 220, "y": 340, "platforms_occupied": 0, "platforms": 6, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 3, "name": "Chengalpattu", "code": "CGL", "x": 450, "y": 340, "platforms_occupied": 2, "platforms": 8, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 2500.0, "status": "Busy"}, {"id": 4, "name": "Arakkonam Junction", "code": "AJJ", "x": 450, "y": 220, "platforms_occupied": 0, "platforms": 8, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 7, "outgoing_trains": 3, "congestion": 0.0, "status": "Empty"}, {"id": 5, "name": "Kanchipuram", "code": "CJ", "x": 220, "y": 430, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 6, "name": "Tiruttani", "code": "TRT", "x": 450, "y": 130, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 1, "outgoing_trains": 2, "congestion": 0.0, "status": "Empty"}, {"id": 7, "name": "Tirupati", "code": "TPTY", "x": 450, "y": 50, "platforms_occupied": 0, "platforms": 6, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 2, "outgoing_trains": 1, "congestion": 0.0, "status": "Empty"}, {"id": 8, "name": "Katpadi Junction", "code": "KPD", "x": 680, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 2, "outgoing_trains": 4, "congestion": 0.0, "status": "Empty"}, {"id": 9, "name": "Vellore Cantonment", "code": "VLR", "x": 680, "y": 340, "platforms_occupied": 1, "platforms": 3, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Busy"}, {"id": 10, "name": "Jolarpettai Junction", "code": "JTJ", "x": 900, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 1, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}], "tracks": [{"id": 1, "name": "Chennai Central - Arakkonam Trunk", "source_station_id": 1, "destination_station_id": 4, "current_trains": 5, "capacity": 5, "distance": 69, "occupancy_percent": 100.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 2, "name": "Chennai Central - Tambaram Main Line", "source_station_id": 1, "destination_station_id": 2, "current_trains": 0, "capacity": 4, "distance": 25, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 3, "name": "Arakkonam - Katpadi Main Line", "source_station_id": 4, "destination_station_id": 8, "current_trains": 5, "capacity": 4, "distance": 61, "occupancy_percent": 125.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 4, "name": "Tambaram - Kanchipuram Branch", "source_station_id": 2, "destination_station_id": 5, "current_trains": 0, "capacity": 3, "distance": 35, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 5, "name": "Katpadi - Jolarpettai Trunk Line", "source_station_id": 8, "destination_station_id": 10, "current_trains": 1, "capacity": 4, "distance": 84, "occupancy_percent": 25.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 6, "name": "Arakkonam - Tiruttani Link", "source_station_id": 4, "destination_station_id": 6, "current_trains": 0, "capacity": 3, "distance": 14, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 7, "name": "Tiruttani - Tirupati Line", "source_station_id": 6, "destination_station_id": 7, "current_trains": 3, "capacity": 3, "distance": 68, "occupancy_percent": 100.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED"}, {"id": 8, "name": "Kanchipuram - Arakkonam Bypass", "source_station_id": 5, "destination_station_id": 4, "current_trains": 0, "capacity": 3, "distance": 28, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 9, "name": "Katpadi - Vellore Cantonment Spur", "source_station_id": 8, "destination_station_id": 9, "current_trains": 0, "capacity": 2, "distance": 10, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 10, "name": "Tambaram - Chengalpattu South Line", "source_station_id": 2, "destination_station_id": 3, "current_trains": 0, "capacity": 4, "distance": 31, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}], "events": [], "qubit_mappings": [{"qubit": "q0", "symbol": "x_1", "action": "HOLD", "target": "Kerala Express", "description": "HOLD Train Kerala Express"}, {"qubit": "q1", "symbol": "x_2", "action": "HOLD", "target": "Shatabdi Express", "description": "HOLD Train Shatabdi Express"}, {"qubit": "q2", "symbol": "x_3", "action": "HOLD", "target": "Tirupati Express", "description": "HOLD Train Tirupati Express"}, {"qubit": "q3", "symbol": "x_4", "action": "HOLD", "target": "Lalbagh Express", "description": "HOLD Train Lalbagh Express"}, {"qubit": "q4", "symbol": "x_5", "action": "SPEED_ADJUST", "target": "Chennai Mail", "description": "SPEED_ADJUST Train Chennai Mail"}, {"qubit": "q5", "symbol": "x_6", "action": "SPEED_ADJUST", "target": "Chennai Mail Return", "description": "SPEED_ADJUST Train Chennai Mail Return"}, {"qubit": "q6", "symbol": "x_7", "action": "SPEED_ADJUST", "target": "Kerala Express", "description": "SPEED_ADJUST Train Kerala Express"}, {"qubit": "q7", "symbol": "x_8", "action": "SPEED_ADJUST", "target": "Sapthagiri Express", "description": "SPEED_ADJUST Train Sapthagiri Express"}, {"qubit": "q8", "symbol": "x_9", "action": "SPEED_ADJUST", "target": "Shatabdi Express", "description": "SPEED_ADJUST Train Shatabdi Express"}, {"qubit": "q9", "symbol": "x_10", "action": "SPEED_ADJUST", "target": "Grand Trunk Express", "description": "SPEED_ADJUST Train Grand Trunk Express"}], "quantum_result": {"execution": {"requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "fallback_reason": "None", "framework": "Qiskit", "backend": "AerSimulator", "hardware_executed": false}, "problem": {"num_variables": 10, "num_qubits": 10, "qubo_to_ising_equivalence": {"status": "PASSED", "num_variables": 10, "num_tested_bitstrings": 1024, "max_absolute_error": 8.881784197001252e-16, "mean_absolute_error": 1.7434648559924715e-16, "tolerance": 1e-08, "constant_offset": 1.3475000000000001}}, "circuit": {"qubits": 10, "qaoa_depth": 2, "circuit_depth": 23, "total_gates": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "shots": 1024}, "qaoa": {"optimizer": "COBYLA", "optimal_gamma": [], "optimal_beta": [], "expected_energy": 0.0, "best_bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475}, "benchmark": {"exact": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0005, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "greedy": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "local_search": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "simulated_annealing": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0918, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "qaoa": {"status": "SUCCESS", "requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "backend": "AerSimulator", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475, "runtime_seconds": 1.6468, "actions": [], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 100.0, "approximation_ratio": -0.0, "circuit_depth": 23, "gate_count": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "qubits": 10}, "qaoa_local_search": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.6468, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "qaoa_simulated_annealing": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.7502, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "hybrid_qaoa": {"status": "EXECUTED", "backend": "AerSimulator", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.6478, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0, "raw_qaoa_energy": 0.0, "improvement": 0.5445, "quantum_runtime_seconds": 1.6468, "classical_postprocessing_runtime_seconds": 0.001, "ablation_stages": [{"stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit"}, {"stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings"}, {"stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep"}, {"stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep"}, {"stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement"}]}}, "ablation": [{"stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit"}, {"stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings"}, {"stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep"}, {"stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep"}, {"stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement"}], "railway": {"selected_actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "feasible": true, "predicted_delay_reduction": 0.0, "actual_delay_reduction": 0.0, "digital_twin_validated": true}, "scientific_conclusion": {"quantum_advantage_demonstrated": false, "verdict": "No Demonstrated Quantum Advantage at Tested Scale"}, "optimization_tick": 60, "selected_solver": "HYBRID_QAOA", "selected_actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "selected_bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "reduced_variables": {"1": {"action_id": 1, "action": "HOLD", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_1", "index": 0}, "2": {"action_id": 2, "action": "HOLD", "target": "Chennai Mail Return", "feasible": true, "variable_symbol": "x_2", "index": 1}, "3": {"action_id": 3, "action": "HOLD", "target": "Kerala Express", "feasible": true, "variable_symbol": "x_3", "index": 2}, "4": {"action_id": 4, "action": "HOLD", "target": "Sapthagiri Express", "feasible": true, "variable_symbol": "x_4", "index": 3}, "5": {"action_id": 5, "action": "HOLD", "target": "Shatabdi Express", "feasible": true, "variable_symbol": "x_5", "index": 4}, "6": {"action_id": 6, "action": "HOLD", "target": "Grand Trunk Express", "feasible": true, "variable_symbol": "x_6", "index": 5}, "7": {"action_id": 7, "action": "HOLD", "target": "Double Decker Express", "feasible": true, "variable_symbol": "x_7", "index": 6}, "8": {"action_id": 8, "action": "HOLD", "target": "Tirupati Express", "feasible": true, "variable_symbol": "x_8", "index": 7}, "13": {"action_id": 13, "action": "HOLD", "target": "Lalbagh Express", "feasible": true, "variable_symbol": "x_9", "index": 8}, "17": {"action_id": 17, "action": "SPEED_ADJUST", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_10", "index": 9}}, "best_energy": -0.5445, "exact_energy": -0.5445, "warm_start_used": true, "initial_state_vector": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "constraint_validation": {"valid": true, "violations": 0, "details": []}, "counterfactual_results": {"baseline_delay": 805.94, "optimized_delay": 749.38, "delay_reduction_percent": 7.02, "baseline_congestion": 10.42, "optimized_congestion": 12.08, "congestion_reduction_percent": -16.0}, "quantum_metrics": {"status": "SUCCESS", "backend": "AerSimulator", "qubits": 10, "circuit_depth": 23, "qaoa_reps": 2, "shots": 1024}, "winners": {"objective_winner": "EXACT", "runtime_winner": "GREEDY", "delay_reduction_winner": "EXACT", "passenger_impact_winner": "QAOA", "energy_winner": "EXACT"}, "explanations": [{"type": "SUMMARY", "text": "Optimizer HYBRID_QAOA selected 3 cooperative action(s) yielding 7.02% delay reduction and -16.0% platform/track congestion reduction."}, {"type": "ACTION_EXPLANATION", "action_id": 3, "text": "Action 1: Hold Train Kerala Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "ACTION_EXPLANATION", "action_id": 8, "text": "Action 2: Hold Train Tirupati Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "ACTION_EXPLANATION", "action_id": 13, "text": "Action 3: Hold Train Lalbagh Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "FEASIBILITY", "text": "Constraint Validator check: PASS. All track/platform capacity constraints are satisfied."}]}, "impact": {"baseline_delay": 44.8, "optimized_delay": 41.6, "delay_reduction": 3.2, "delay_reduction_pct": 7.0, "baseline_congestion": 10.4, "optimized_congestion": 12.1, "congestion_reduction_pct": -16.0, "num_interventions": 0, "qubo_energy": -0.5445, "qaoa_raw_energy": -0.5445, "refined_energy": -0.5445, "qaoa_runtime": 1.6478, "classical_runtime": 0.0918}};
+        const EMBEDDED_STATE = { "tick": 120, "sim_time_str": "10:00", "state": "MONITORING", "active_disruptions": 0, "weather": "Clear", "network_delay": 41.6, "congestion": 666.6, "active_interventions": [], "cycle_number": 1, "last_opt_tick": 15, "next_eligible_tick": 120, "qubits": 10, "warm_start": false, "delta_utility": 0.1805, "trigger_reason": "MEDIUM: Event-triggered re-optimization: Heavy Rain", "current_plan_utility": 0.1805, "new_plan_utility": 0.1805, "solver_name": "HYBRID_QAOA", "reoptimization_count": 1, "recovery_status": "RECOVERED", "trains": [{ "train_no": 12623, "name": "Chennai Mail", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 42.5, "progress": 4.762295081967213, "current_track_id": 3, "current_station_id": 4, "delay": 65.75, "predicted_delay_15": 73.0, "predicted_delay_30": 80.4, "predicted_delay_60": 87.4, "confidence": 0.88, "top_factors": ["Current Delay", "Network Delay", "Incoming Trains"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (4.8%)" }, { "train_no": 12624, "name": "Chennai Mail Return", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 42.5, "progress": 55.28688524590161, "current_track_id": 3, "current_station_id": 8, "delay": 38.8, "predicted_delay_15": 45.6, "predicted_delay_30": 52.9, "predicted_delay_60": 64.2, "confidence": 0.89, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (55.3%)" }, { "train_no": 12625, "name": "Kerala Express", "train_type": "EXPRESS", "priority": 2, "status": "DELAYED", "speed": 0.0, "progress": 6.330917874396135, "current_track_id": 1, "current_station_id": 1, "delay": 12.03, "predicted_delay_15": 21.3, "predicted_delay_30": 28.2, "predicted_delay_60": 49.8, "confidence": 0.72, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (6.3%)" }, { "train_no": 16057, "name": "Sapthagiri Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 6.7, "progress": 34.485294117647044, "current_track_id": 7, "current_station_id": 6, "delay": 96.21, "predicted_delay_15": 106.6, "predicted_delay_30": 114.1, "predicted_delay_60": 116.0, "confidence": 0.78, "top_factors": ["Current Delay", "Track Travel Time", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (34.5%)" }, { "train_no": 12007, "name": "Shatabdi Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 52.5, "progress": 95.50724637681151, "current_track_id": 1, "current_station_id": 1, "delay": 82.42, "predicted_delay_15": 88.5, "predicted_delay_30": 95.4, "predicted_delay_60": 106.2, "confidence": 0.65, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (95.5%)" }, { "train_no": 12616, "name": "Grand Trunk Express", "train_type": "SUPERFAST", "priority": 1, "status": "MOVING", "speed": 47.5, "progress": 13.384057971014492, "current_track_id": 1, "current_station_id": 4, "delay": 57.73, "predicted_delay_15": 64.2, "predicted_delay_30": 69.8, "predicted_delay_60": 81.7, "confidence": 0.82, "top_factors": ["Current Delay", "Network Delay", "Incoming Trains"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (13.4%)" }, { "train_no": 22625, "name": "Double Decker Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 40.0, "progress": 23.560109289617483, "current_track_id": 3, "current_station_id": 4, "delay": 32.58, "predicted_delay_15": 38.6, "predicted_delay_30": 45.7, "predicted_delay_60": 58.2, "confidence": 0.86, "top_factors": ["Network Delay", "Incoming Trains", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (23.6%)" }, { "train_no": 16053, "name": "Tirupati Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 37.5, "progress": 70.62318840579705, "current_track_id": 1, "current_station_id": 1, "delay": 81.01, "predicted_delay_15": 87.3, "predicted_delay_30": 96.3, "predicted_delay_60": 105.4, "confidence": 0.9, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (70.6%)" }, { "train_no": 40001, "name": "Tambaram Local", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 14.89, "predicted_delay_15": 21.4, "predicted_delay_30": 26.7, "predicted_delay_60": 37.1, "confidence": 0.61, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "At Chengalpattu" }, { "train_no": 40003, "name": "Chengalpattu Commuter", "train_type": "PASSENGER", "priority": 4, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 3, "delay": 16.6, "predicted_delay_15": 22.5, "predicted_delay_30": 27.5, "predicted_delay_60": 37.8, "confidence": 0.55, "top_factors": ["Network Delay", "Average Train Speed", "Speed"], "loc_desc": "At Chengalpattu" }, { "train_no": 58201, "name": "Arakkonam Coal Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 45.0, "progress": 5.357142857142856, "current_track_id": 5, "current_station_id": 8, "delay": 44.6, "predicted_delay_15": 47.8, "predicted_delay_30": 50.2, "predicted_delay_60": 58.0, "confidence": 0.84, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Katpadi Junction -> Jolarpettai Junction (5.4%)" }, { "train_no": 58203, "name": "Katpadi Goods Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 25.0, "progress": 92.28415300546443, "current_track_id": 3, "current_station_id": 8, "delay": 60.36, "predicted_delay_15": 66.6, "predicted_delay_30": 71.2, "predicted_delay_60": 77.1, "confidence": 0.94, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (92.3%)" }, { "train_no": 58205, "name": "Tirupati Container Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 28.0, "progress": 63.38235294117653, "current_track_id": 7, "current_station_id": 6, "delay": 67.35, "predicted_delay_15": 71.6, "predicted_delay_30": 75.6, "predicted_delay_60": 80.0, "confidence": 0.79, "top_factors": ["Track Travel Time", "Current Delay", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (63.4%)" }, { "train_no": 90001, "name": "Track Inspection Car", "train_type": "MAINTENANCE", "priority": 3, "status": "ARRIVED", "speed": 0.0, "progress": 0.0, "current_track_id": null, "current_station_id": 9, "delay": 2.4, "predicted_delay_15": 6.3, "predicted_delay_30": 9.9, "predicted_delay_60": 18.1, "confidence": 0.69, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "At Vellore Cantonment" }, { "train_no": 12607, "name": "Lalbagh Express", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 42.5, "progress": 56.14009661835755, "current_track_id": 1, "current_station_id": 1, "delay": 92.87, "predicted_delay_15": 100.2, "predicted_delay_30": 105.8, "predicted_delay_60": 108.9, "confidence": 0.8, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (56.1%)" }, { "train_no": 12608, "name": "Lalbagh Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 42.5, "progress": 39.9590163934426, "current_track_id": 3, "current_station_id": 8, "delay": 39.74, "predicted_delay_15": 45.9, "predicted_delay_30": 52.8, "predicted_delay_60": 64.6, "confidence": 0.86, "top_factors": ["Network Delay", "Current Delay", "Average Train Speed"], "loc_desc": "Moving Arakkonam Junction -> Katpadi Junction (40.0%)" }, { "train_no": 16058, "name": "Sapthagiri Return", "train_type": "EXPRESS", "priority": 2, "status": "MOVING", "speed": 13.7, "progress": 48.86764705882356, "current_track_id": 7, "current_station_id": 7, "delay": 93.5, "predicted_delay_15": 100.1, "predicted_delay_30": 107.3, "predicted_delay_60": 115.4, "confidence": 0.79, "top_factors": ["Current Delay", "Track Travel Time", "Network Delay"], "loc_desc": "Moving Tiruttani -> Tirupati (48.9%)" }, { "train_no": 58207, "name": "Jolarpettai Heavy Freight", "train_type": "FREIGHT", "priority": 5, "status": "MOVING", "speed": 22.5, "progress": 28.128019323671516, "current_track_id": 1, "current_station_id": 1, "delay": 114.2, "predicted_delay_15": 113.9, "predicted_delay_30": 115.6, "predicted_delay_60": 106.8, "confidence": 0.82, "top_factors": ["Current Delay", "Network Delay", "Average Train Speed"], "loc_desc": "Moving Chennai Central -> Arakkonam Junction (28.1%)" }], "stations": [{ "id": 1, "name": "Chennai Central", "code": "MAS", "x": 220, "y": 220, "platforms_occupied": 1, "platforms": 12, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 1, "outgoing_trains": 4, "congestion": 833.0, "status": "Busy" }, { "id": 2, "name": "Tambaram", "code": "TBM", "x": 220, "y": 340, "platforms_occupied": 0, "platforms": 6, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty" }, { "id": 3, "name": "Chengalpattu", "code": "CGL", "x": 450, "y": 340, "platforms_occupied": 2, "platforms": 8, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 2500.0, "status": "Busy" }, { "id": 4, "name": "Arakkonam Junction", "code": "AJJ", "x": 450, "y": 220, "platforms_occupied": 0, "platforms": 8, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 7, "outgoing_trains": 3, "congestion": 0.0, "status": "Empty" }, { "id": 5, "name": "Kanchipuram", "code": "CJ", "x": 220, "y": 430, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty" }, { "id": 6, "name": "Tiruttani", "code": "TRT", "x": 450, "y": 130, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 1, "outgoing_trains": 2, "congestion": 0.0, "status": "Empty" }, { "id": 7, "name": "Tirupati", "code": "TPTY", "x": 450, "y": 50, "platforms_occupied": 0, "platforms": 6, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 2, "outgoing_trains": 1, "congestion": 0.0, "status": "Empty" }, { "id": 8, "name": "Katpadi Junction", "code": "KPD", "x": 680, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 2, "outgoing_trains": 4, "congestion": 0.0, "status": "Empty" }, { "id": 9, "name": "Vellore Cantonment", "code": "VLR", "x": 680, "y": 340, "platforms_occupied": 1, "platforms": 3, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Busy" }, { "id": 10, "name": "Jolarpettai Junction", "code": "JTJ", "x": 900, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 1, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty" }], "tracks": [{ "id": 1, "name": "Chennai Central - Arakkonam Trunk", "source_station_id": 1, "destination_station_id": 4, "current_trains": 5, "capacity": 5, "distance": 69, "occupancy_percent": 100.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED" }, { "id": 2, "name": "Chennai Central - Tambaram Main Line", "source_station_id": 1, "destination_station_id": 2, "current_trains": 0, "capacity": 4, "distance": 25, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL" }, { "id": 3, "name": "Arakkonam - Katpadi Main Line", "source_station_id": 4, "destination_station_id": 8, "current_trains": 5, "capacity": 4, "distance": 61, "occupancy_percent": 125.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED" }, { "id": 4, "name": "Tambaram - Kanchipuram Branch", "source_station_id": 2, "destination_station_id": 5, "current_trains": 0, "capacity": 3, "distance": 35, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL" }, { "id": 5, "name": "Katpadi - Jolarpettai Trunk Line", "source_station_id": 8, "destination_station_id": 10, "current_trains": 1, "capacity": 4, "distance": 84, "occupancy_percent": 25.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL" }, { "id": 6, "name": "Arakkonam - Tiruttani Link", "source_station_id": 4, "destination_station_id": 6, "current_trains": 0, "capacity": 3, "distance": 14, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL" }, { "id": 7, "name": "Tiruttani - Tirupati Line", "source_station_id": 6, "destination_station_id": 7, "current_trains": 3, "capacity": 3, "distance": 68, "occupancy_percent": 100.0, "track_type": "DOUBLE_TRACK", "status": "CONGESTED" }, { "id": 8, "name": "Kanchipuram - Arakkonam Bypass", "source_station_id": 5, "destination_station_id": 4, "current_trains": 0, "capacity": 3, "distance": 28, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL" }, { "id": 9, "name": "Katpadi - Vellore Cantonment Spur", "source_station_id": 8, "destination_station_id": 9, "current_trains": 0, "capacity": 2, "distance": 10, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL" }, { "id": 10, "name": "Tambaram - Chengalpattu South Line", "source_station_id": 2, "destination_station_id": 3, "current_trains": 0, "capacity": 4, "distance": 31, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL" }], "events": [], "qubit_mappings": [{ "qubit": "q0", "symbol": "x_1", "action": "HOLD", "target": "Kerala Express", "description": "HOLD Train Kerala Express" }, { "qubit": "q1", "symbol": "x_2", "action": "HOLD", "target": "Shatabdi Express", "description": "HOLD Train Shatabdi Express" }, { "qubit": "q2", "symbol": "x_3", "action": "HOLD", "target": "Tirupati Express", "description": "HOLD Train Tirupati Express" }, { "qubit": "q3", "symbol": "x_4", "action": "HOLD", "target": "Lalbagh Express", "description": "HOLD Train Lalbagh Express" }, { "qubit": "q4", "symbol": "x_5", "action": "SPEED_ADJUST", "target": "Chennai Mail", "description": "SPEED_ADJUST Train Chennai Mail" }, { "qubit": "q5", "symbol": "x_6", "action": "SPEED_ADJUST", "target": "Chennai Mail Return", "description": "SPEED_ADJUST Train Chennai Mail Return" }, { "qubit": "q6", "symbol": "x_7", "action": "SPEED_ADJUST", "target": "Kerala Express", "description": "SPEED_ADJUST Train Kerala Express" }, { "qubit": "q7", "symbol": "x_8", "action": "SPEED_ADJUST", "target": "Sapthagiri Express", "description": "SPEED_ADJUST Train Sapthagiri Express" }, { "qubit": "q8", "symbol": "x_9", "action": "SPEED_ADJUST", "target": "Shatabdi Express", "description": "SPEED_ADJUST Train Shatabdi Express" }, { "qubit": "q9", "symbol": "x_10", "action": "SPEED_ADJUST", "target": "Grand Trunk Express", "description": "SPEED_ADJUST Train Grand Trunk Express" }], "quantum_result": { "execution": { "requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "fallback_reason": "None", "framework": "Qiskit", "backend": "AerSimulator", "hardware_executed": false }, "problem": { "num_variables": 10, "num_qubits": 10, "qubo_to_ising_equivalence": { "status": "PASSED", "num_variables": 10, "num_tested_bitstrings": 1024, "max_absolute_error": 8.881784197001252e-16, "mean_absolute_error": 1.7434648559924715e-16, "tolerance": 1e-08, "constant_offset": 1.3475000000000001 } }, "circuit": { "qubits": 10, "qaoa_depth": 2, "circuit_depth": 23, "total_gates": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "shots": 1024 }, "qaoa": { "optimizer": "COBYLA", "optimal_gamma": [], "optimal_beta": [], "expected_energy": 0.0, "best_bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475 }, "benchmark": { "exact": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0005, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "greedy": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "local_search": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "simulated_annealing": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0918, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "qaoa": { "status": "SUCCESS", "requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "backend": "AerSimulator", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475, "runtime_seconds": 1.6468, "actions": [], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 100.0, "approximation_ratio": -0.0, "circuit_depth": 23, "gate_count": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "qubits": 10 }, "qaoa_local_search": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.6468, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "qaoa_simulated_annealing": { "status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.7502, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0 }, "hybrid_qaoa": { "status": "EXECUTED", "backend": "AerSimulator", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.6478, "actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "validation": { "valid": true, "violations": 0, "details": [] }, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0, "raw_qaoa_energy": 0.0, "improvement": 0.5445, "quantum_runtime_seconds": 1.6468, "classical_postprocessing_runtime_seconds": 0.001, "ablation_stages": [{ "stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit" }, { "stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings" }, { "stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep" }, { "stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep" }, { "stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement" }] } }, "ablation": [{ "stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit" }, { "stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings" }, { "stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep" }, { "stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep" }, { "stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement" }], "railway": { "selected_actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "feasible": true, "predicted_delay_reduction": 0.0, "actual_delay_reduction": 0.0, "digital_twin_validated": true }, "scientific_conclusion": { "quantum_advantage_demonstrated": false, "verdict": "No Demonstrated Quantum Advantage at Tested Scale" }, "optimization_tick": 60, "selected_solver": "HYBRID_QAOA", "selected_actions": [{ "action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }, { "action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true }], "selected_bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "reduced_variables": { "1": { "action_id": 1, "action": "HOLD", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_1", "index": 0 }, "2": { "action_id": 2, "action": "HOLD", "target": "Chennai Mail Return", "feasible": true, "variable_symbol": "x_2", "index": 1 }, "3": { "action_id": 3, "action": "HOLD", "target": "Kerala Express", "feasible": true, "variable_symbol": "x_3", "index": 2 }, "4": { "action_id": 4, "action": "HOLD", "target": "Sapthagiri Express", "feasible": true, "variable_symbol": "x_4", "index": 3 }, "5": { "action_id": 5, "action": "HOLD", "target": "Shatabdi Express", "feasible": true, "variable_symbol": "x_5", "index": 4 }, "6": { "action_id": 6, "action": "HOLD", "target": "Grand Trunk Express", "feasible": true, "variable_symbol": "x_6", "index": 5 }, "7": { "action_id": 7, "action": "HOLD", "target": "Double Decker Express", "feasible": true, "variable_symbol": "x_7", "index": 6 }, "8": { "action_id": 8, "action": "HOLD", "target": "Tirupati Express", "feasible": true, "variable_symbol": "x_8", "index": 7 }, "13": { "action_id": 13, "action": "HOLD", "target": "Lalbagh Express", "feasible": true, "variable_symbol": "x_9", "index": 8 }, "17": { "action_id": 17, "action": "SPEED_ADJUST", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_10", "index": 9 } }, "best_energy": -0.5445, "exact_energy": -0.5445, "warm_start_used": true, "initial_state_vector": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "constraint_validation": { "valid": true, "violations": 0, "details": [] }, "counterfactual_results": { "baseline_delay": 805.94, "optimized_delay": 749.38, "delay_reduction_percent": 7.02, "baseline_congestion": 10.42, "optimized_congestion": 12.08, "congestion_reduction_percent": -16.0 }, "quantum_metrics": { "status": "SUCCESS", "backend": "AerSimulator", "qubits": 10, "circuit_depth": 23, "qaoa_reps": 2, "shots": 1024 }, "winners": { "objective_winner": "EXACT", "runtime_winner": "GREEDY", "delay_reduction_winner": "EXACT", "passenger_impact_winner": "QAOA", "energy_winner": "EXACT" }, "explanations": [{ "type": "SUMMARY", "text": "Optimizer HYBRID_QAOA selected 3 cooperative action(s) yielding 7.02% delay reduction and -16.0% platform/track congestion reduction." }, { "type": "ACTION_EXPLANATION", "action_id": 3, "text": "Action 1: Hold Train Kerala Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains." }, { "type": "ACTION_EXPLANATION", "action_id": 8, "text": "Action 2: Hold Train Tirupati Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains." }, { "type": "ACTION_EXPLANATION", "action_id": 13, "text": "Action 3: Hold Train Lalbagh Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains." }, { "type": "FEASIBILITY", "text": "Constraint Validator check: PASS. All track/platform capacity constraints are satisfied." }] }, "impact": { "baseline_delay": 44.8, "optimized_delay": 41.6, "delay_reduction": 3.2, "delay_reduction_pct": 7.0, "baseline_congestion": 10.4, "optimized_congestion": 12.1, "congestion_reduction_pct": -16.0, "num_interventions": 0, "qubo_energy": -0.5445, "qaoa_raw_energy": -0.5445, "refined_energy": -0.5445, "qaoa_runtime": 1.6478, "classical_runtime": 0.0918 } };
         function updateUI(state) {
             if (!state) return;
             document.getElementById("sim-clock").innerText = state.sim_time_str || "--:--";

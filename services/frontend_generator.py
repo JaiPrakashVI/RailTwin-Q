@@ -307,7 +307,7 @@ class FrontendGenerator:
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RailTwin-Q | Railway Network Operations Center</title>
     <meta name="description" content="RailTwin-Q — AI + Quantum Railway Digital Twin Operations Center">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">\n    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {{
             --sidebar-bg: #0b0f19;
@@ -329,7 +329,7 @@ class FrontendGenerator:
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }}
         body {{ background-color: var(--main-bg); color: var(--text-primary); display: flex; height: 100vh; overflow: hidden; }}
-        .sidebar {{ width: 240px; background: var(--sidebar-bg); border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 14px; flex-shrink: 0; }}
+        .sidebar {{ width: 240px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 14px; flex-shrink: 0; }}
         .brand {{ display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }}
         .brand-icon {{ width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }}
         .brand-title {{ font-size: 1.05rem; font-weight: 700; color: white; letter-spacing: -0.3px; }}
@@ -423,22 +423,35 @@ class FrontendGenerator:
         .step-node {{ display: flex; align-items: center; gap: 9px; font-size: 0.72rem; color: var(--text-secondary); }}
         .step-icon {{ width: 26px; height: 26px; border-radius: 50%; background: #f8fafc; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; flex-shrink: 0; }}
         .arrow-step {{ color: var(--text-muted); font-size: 0.9rem; }}
-    </style>
+        .nav-item i, .nav-item svg { width: 16px; height: 16px; stroke-width: 2px; flex-shrink: 0; }
+        .topbar-title i, .topbar-title svg { width: 18px; height: 18px; cursor: pointer; }
+        .weather-badge i, .weather-badge svg { width: 14px; height: 14px; color: var(--accent-blue-light); }
+        .mode-badge i, .mode-badge svg { width: 14px; height: 14px; }
+        .kpi-icon-wrap i, .kpi-icon-wrap svg { width: 20px; height: 20px; }
+        .card-header-bar h3 i, .card-header-bar h3 svg { width: 16px; height: 16px; color: var(--accent-blue-light); }
+        .ai-title i, .ai-title svg { width: 16px; height: 16px; color: var(--accent-blue-light); }
+        .btn-quantum i, .btn-quantum svg { width: 16px; height: 16px; }
+        .sub-card h4 i, .sub-card h4 svg { width: 14px; height: 14px; color: var(--accent-purple); }
+        .tab-btn { transition: all 0.2s; }
+        .tab-btn:hover { color: var(--text-primary) !important; }
+        th { color: var(--text-muted) !important; font-weight: 600; border-bottom: 1px solid var(--border-color); }
+        td { border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+        tr.highlight { background: rgba(99, 102, 241, 0.1) !important; }\n    </style>
 </head>
 <body>
     <aside class="sidebar">
         <div>
             <div class="brand">
-                <div class="brand-icon">🚆</div>
+                <div class="brand-icon"><i data-lucide="train"></i></div>
                 <div><div class="brand-title">RailTwin-Q</div><div class="brand-sub">AI + Quantum Railway</div></div>
             </div>
             <nav class="nav-menu">
-                <a href="operations.html" class="nav-item active">📊 Overview</a>
-                <a href="optimization.html" class="nav-item">⚛️ Quantum Optimizer</a>
-                <a href="network.html" class="nav-item">🗺️ Network View</a>
-                <a href="../reports/quantum_to_railway_traceability.html" target="_blank" class="nav-item">⚡ Traceability</a>
-                <a href="../reports/quantum_benchmark_report.html" target="_blank" class="nav-item">🏆 Benchmarks</a>
-                <a href="../reports/quantum_advantage_scorecard.html" target="_blank" class="nav-item">📈 Advantage</a>
+                <a href="operations.html" class="nav-item active"><i data-lucide="layout-dashboard"></i> Overview</a>
+                <a href="quantum-optimizer.html" class="nav-item"><i data-lucide="atom"></i> Quantum Optimizer</a>
+                <a href="operations.html#network-view" class="nav-item"><i data-lucide="network"></i> Network View</a>
+                <a href="traceability.html" class="nav-item"><i data-lucide="zap"></i> Traceability</a>
+                <a href="benchmarks.html" class="nav-item"><i data-lucide="trophy"></i> Benchmarks</a>
+                <a href="advantage.html" class="nav-item"><i data-lucide="trending-up"></i> Advantage</a>
             </nav>
         </div>
         <div class="sidebar-bottom">
@@ -458,29 +471,29 @@ class FrontendGenerator:
     </aside>
     <div class="main-wrapper">
         <header class="topbar">
-            <div class="topbar-title"><span>☰</span> Railway Network Operations Center</div>
+            <div class="topbar-title"><i data-lucide="menu"></i> Railway Network Operations Center</div>
             <div class="topbar-actions">
-                <div class="mode-badge" id="mode-badge" style="background:rgba(139,92,246,0.15);color:var(--accent-purple);font-weight:600;border:1px solid rgba(139,92,246,0.3);">⚛️ Quantum Optimization Mode</div>
-                <div class="weather-badge"><span>🌧️</span><span id="weather-badge-text">Loading...</span></div>
+                <div class="mode-badge" id="mode-badge"><i data-lucide="atom"></i> Quantum Optimization Mode</div>
+                <div class="weather-badge"><i data-lucide="cloud-rain" id="weather-badge-icon"></i><span id="weather-badge-text">Loading...</span></div>
             </div>
         </header>
         <div style="background:rgba(99,102,241,0.04);border-bottom:1px solid var(--border-color);padding:8px 24px;font-size:0.74rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
             <div><span>Methodology: </span><b style="color:var(--text-primary);">QAOA-based probabilistic search + classical refinement</b></div>
-            <div style="color:var(--accent-yellow);font-weight:500;">⚠️ Quantum advantage not yet demonstrated at current simulation scale.</div>
+            <div style="color:var(--accent-yellow);font-weight:500;display:flex;align-items:center;gap:6px;"><i data-lucide="alert-triangle" style="width:14px;height:14px;"></i> Quantum advantage not yet demonstrated at current simulation scale.</div>
         </div>
         <main class="dashboard-content">
             <!-- 6 KPI CARDS -->
             <div class="kpi-grid">
-                <div class="kpi-card"><div><div class="kpi-label">Trains in Operation</div><div class="kpi-val" id="kpi-trains-val">—</div><div class="kpi-sub trend-neutral" id="kpi-trains-sub">active</div></div><div class="kpi-icon-wrap" style="color:var(--accent-blue);">🚆</div></div>
-                <div class="kpi-card"><div><div class="kpi-label">Baseline Delay / Train</div><div class="kpi-val" id="kpi-baseline-val">—</div><div class="kpi-sub trend-up" id="kpi-baseline-sub">before optimization</div></div><div class="kpi-icon-wrap" style="color:var(--accent-red);">⏳</div></div>
-                <div class="kpi-card"><div><div class="kpi-label">Optimized Delay / Train</div><div class="kpi-val" id="kpi-opt-val">—</div><div class="kpi-sub trend-down" id="kpi-opt-sub">after QAOA</div></div><div class="kpi-icon-wrap" style="color:var(--accent-green);">⏱️</div></div>
-                <div class="kpi-card"><div><div class="kpi-label">Delay Reduction</div><div class="kpi-val" id="kpi-reduction-val">—</div><div class="kpi-sub trend-down" id="kpi-reduction-sub">vs baseline</div></div><div class="kpi-icon-wrap" style="color:var(--accent-green);">📉</div></div>
-                <div class="kpi-card"><div><div class="kpi-label">QUBO Energy</div><div class="kpi-val" id="kpi-qubo-val">—</div><div class="kpi-sub trend-neutral" id="kpi-qubo-sub">refined energy</div></div><div class="kpi-icon-wrap" style="color:var(--accent-purple);">⚛️</div></div>
-                <div class="kpi-card"><div><div class="kpi-label">Active Interventions</div><div class="kpi-val" id="kpi-intv-val">—</div><div class="kpi-sub trend-neutral" id="kpi-intv-sub">control actions</div></div><div class="kpi-icon-wrap" style="color:var(--accent-yellow);">🎯</div></div>
+                <div class="kpi-card"><div><div class="kpi-label">Trains in Operation</div><div class="kpi-val" id="kpi-trains-val">—</div><div class="kpi-sub trend-neutral" id="kpi-trains-sub">active</div></div><div class="kpi-icon-wrap" style="color:var(--accent-blue);"><i data-lucide="train"></i></div></div>
+                <div class="kpi-card"><div><div class="kpi-label">Baseline Delay / Train</div><div class="kpi-val" id="kpi-baseline-val">—</div><div class="kpi-sub trend-up" id="kpi-baseline-sub">before optimization</div></div><div class="kpi-icon-wrap" style="color:var(--accent-red);"><i data-lucide="hourglass"></i></div></div>
+                <div class="kpi-card"><div><div class="kpi-label">Optimized Delay / Train</div><div class="kpi-val" id="kpi-opt-val">—</div><div class="kpi-sub trend-down" id="kpi-opt-sub">after QAOA</div></div><div class="kpi-icon-wrap" style="color:var(--accent-green);"><i data-lucide="stopwatch"></i></div></div>
+                <div class="kpi-card"><div><div class="kpi-label">Delay Reduction</div><div class="kpi-val" id="kpi-reduction-val">—</div><div class="kpi-sub trend-down" id="kpi-reduction-sub">vs baseline</div></div><div class="kpi-icon-wrap" style="color:var(--accent-green);"><i data-lucide="trending-down"></i></div></div>
+                <div class="kpi-card"><div><div class="kpi-label">QUBO Energy</div><div class="kpi-val" id="kpi-qubo-val">—</div><div class="kpi-sub trend-neutral" id="kpi-qubo-sub">refined energy</div></div><div class="kpi-icon-wrap" style="color:var(--accent-purple);"><i data-lucide="atom"></i></div></div>
+                <div class="kpi-card"><div><div class="kpi-label">Active Interventions</div><div class="kpi-val" id="kpi-intv-val">—</div><div class="kpi-sub trend-neutral" id="kpi-intv-sub">control actions</div></div><div class="kpi-icon-wrap" style="color:var(--accent-yellow);"><i data-lucide="target"></i></div></div>
             </div>
             <!-- TRACEABILITY PIPELINE -->
             <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-sm);">
-                <div style="font-size:0.82rem;font-weight:700;color:var(--text-primary);margin-bottom:11px;">⚡ End-to-End Quantum → Railway Decision Traceability</div>
+                <div style="font-size:0.82rem;font-weight:700;color:var(--text-primary);margin-bottom:11px;display:flex;align-items:center;gap:6px;"><i data-lucide="zap" style="color:var(--accent-yellow);width:16px;height:16px;"></i> End-to-End Quantum → Railway Decision Traceability</div>
                 <div class="trace-pipeline">
                     <div class="trace-step trace-disruption"><div class="trace-step-num">1. Disruption</div><div class="trace-step-val" id="trace-disruption-val">—</div><div class="trace-step-sub" id="trace-disruption-sub">—</div></div>
                     <div class="trace-step trace-ai"><div class="trace-step-num">2. AI Prediction</div><div class="trace-step-val" id="trace-ai-val">—</div><div class="trace-step-sub" id="trace-ai-sub">XGBoost Predictor</div></div>
@@ -494,7 +507,7 @@ class FrontendGenerator:
             <div class="middle-grid">
                 <div class="map-card">
                     <div class="card-header-bar">
-                        <h3>🗺️ Live Digital Twin — Railway Network Topology</h3>
+                        <h3><i data-lucide="network"></i> Live Digital Twin — Railway Network Topology</h3>
                         <div class="map-legend"><span><span class="legend-dot" style="background:#cbd5e1;"></span>Normal</span><span><span class="legend-dot" style="background:var(--accent-yellow);"></span>Congested</span><span><span class="legend-dot" style="background:var(--accent-red);"></span>Blocked</span></div>
                     </div>
                     <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg">
@@ -523,14 +536,14 @@ class FrontendGenerator:
                             <animate attributeName="stroke-opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
                         </circle>
                     </svg>
-                    <div class="incident-badge" id="map-incident-badge" style="display:none;"><span>🚨</span><strong>Active Incident:</strong>&nbsp;<span id="incident-text">Disruption</span></div>
+                    <div class="incident-badge" id="map-incident-badge" style="display:none;"><i data-lucide="alert-octagon" style="width:14px;height:14px;color:var(--accent-red);"></i><strong>Active Incident:</strong>&nbsp;<span id="incident-text">Disruption</span></div>
                 </div>
                 <div class="ai-card">
-                    <div class="ai-header"><div class="ai-title">🤖 AI Decision Engine</div><a href="#" style="color:var(--accent-blue-light);font-size:0.72rem;text-decoration:none;">View Details ›</a></div>
+                    <div class="ai-header"><div class="ai-title"><i data-lucide="bot"></i> AI Decision Engine</div><a href="#" style="color:var(--accent-blue-light);font-size:0.72rem;text-decoration:none;">View Details ›</a></div>
                     <!-- ACTIVE DISRUPTION ALERT BANNER -->
                     <div id="active-disruption-alert-card" style="display:none;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.25);padding:10px;border-radius:8px;margin-bottom:12px;">
                         <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <strong style="color:var(--accent-red);font-size:0.75rem;">⚠️ ACTIVE DISRUPTION</strong>
+                            <strong style="color:var(--accent-red);font-size:0.75rem;display:flex;align-items:center;gap:4px;"><i data-lucide="alert-triangle" style="width:14px;height:14px;"></i> ACTIVE DISRUPTION</strong>
                             <span class="badge-red-soft" id="disruption-tick-val" style="font-size:0.6rem;padding:1px 4px;">Tick 0</span>
                         </div>
                         <div style="font-size:0.72rem;margin-top:6px;line-height:1.35;">
@@ -558,20 +571,20 @@ class FrontendGenerator:
             <div class="bottom-grid">
                 <!-- 1. COUNTERFACTUAL SCENARIOS -->
                 <div class="sub-card">
-                    <h4>Counterfactual Scenarios <a href="#" style="color:var(--text-muted);font-size:0.68rem;">View All</a></h4>
+                    <h4>Counterfactual Scenarios <i data-lucide="activity" style="color:var(--accent-purple);margin-left:4px;"></i></h4>
                     <div class="scenario-item"><div style="display:flex;justify-content:space-between;margin-bottom:2px;"><span>No Action (Baseline)</span><span style="color:var(--accent-red);font-weight:bold;" id="bar-baseline-val">—</span></div><div class="scenario-bar-bg"><div id="bar-baseline-width" class="scenario-bar-fill" style="width:100%;background:var(--accent-red);"></div></div></div>
                     <div class="scenario-item"><div style="display:flex;justify-content:space-between;margin-bottom:2px;"><span>Quantum Optimized (Best)</span><span style="color:var(--accent-green);font-weight:bold;" id="bar-quantum-val">—</span></div><div class="scenario-bar-bg"><div id="bar-quantum-width" class="scenario-bar-fill" style="width:25%;background:var(--accent-green);"></div></div></div>
                 </div>
                 <!-- 2. PASSENGER IMPACT -->
                 <div class="sub-card">
-                    <h4>Passenger Impact <a href="#" style="color:var(--text-muted);font-size:0.68rem;">View All</a></h4>
+                    <h4>Passenger Impact <i data-lucide="users" style="color:var(--accent-purple);margin-left:4px;"></i></h4>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:0.73rem;text-align:center;margin-bottom:7px;">
                         <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,.15);padding:7px;border-radius:6px;"><div style="color:var(--accent-red);font-size:1.1rem;font-weight:700;" id="pass-delayed-val">—</div><div style="color:var(--text-secondary);font-size:0.62rem;font-weight:600;">Delayed</div></div>
                         <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,.15);padding:7px;border-radius:6px;"><div style="color:var(--accent-green);font-size:1.1rem;font-weight:700;" id="pass-saved-val">—</div><div style="color:var(--text-secondary);font-size:0.62rem;font-weight:600;">Saved</div></div>
                     </div>
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:0.73rem;text-align:center;">
-                        <div style="background:#f8fafc;border:1px solid var(--border-color);padding:7px;border-radius:6px;"><div style="font-size:1.0rem;font-weight:700;" id="pass-conn-val">—</div><div style="color:var(--text-muted);font-size:0.62rem;">Connections</div></div>
-                        <div style="background:#f8fafc;border:1px solid var(--border-color);padding:7px;border-radius:6px;"><div style="font-size:1.0rem;font-weight:700;" id="pass-stations-val">—</div><div style="color:var(--text-muted);font-size:0.62rem;">Stations Hit</div></div>
+                        <div style="background:rgba(6,9,19,0.3);border:1px solid var(--border-color);padding:7px;border-radius:6px;"><div style="font-size:1.0rem;font-weight:700;" id="pass-conn-val">—</div><div style="color:var(--text-muted);font-size:0.62rem;">Connections</div></div>
+                        <div style="background:rgba(6,9,19,0.3);border:1px solid var(--border-color);padding:7px;border-radius:6px;"><div style="font-size:1.0rem;font-weight:700;" id="pass-stations-val">—</div><div style="color:var(--text-muted);font-size:0.62rem;">Stations Hit</div></div>
                     </div>
                     <div style="border-top:1px solid var(--border-color);margin-top:10px;padding-top:8px;">
                         <div class="q-field"><span class="q-label">Congestion Baseline</span><span class="q-val" id="cong-baseline-val">—</span></div>
@@ -584,10 +597,10 @@ class FrontendGenerator:
                 <div class="sub-card" style="grid-column: span 3; min-height: 250px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:8px; margin-bottom:12px;">
                         <div style="display:flex; gap:12px;">
-                            <button class="tab-btn" onclick="switchTab(event, 'tab-plan')" style="background:none; border:none; color:var(--text-main); font-weight:700; font-size:0.8rem; padding:4px 8px; cursor:pointer; border-bottom:2px solid var(--accent-indigo); outline:none;">📋 Dispatch Plan</button>
-                            <button class="tab-btn" onclick="switchTab(event, 'tab-forecast')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;">🔮 AI Forecast</button>
-                            <button class="tab-btn" onclick="switchTab(event, 'tab-quantum')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;">⚛️ Quantum Console</button>
-                            <button class="tab-btn" onclick="switchTab(event, 'tab-benchmark')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;">🏆 Solver Benchmark</button>
+                            <button class="tab-btn" onclick="switchTab(event, 'tab-plan')" style="background:none; border:none; color:var(--text-main); font-weight:700; font-size:0.8rem; padding:4px 8px; cursor:pointer; border-bottom:2px solid var(--accent-indigo); outline:none;"><i data-lucide="clipboard-list" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> Dispatch Plan</button>
+                            <button class="tab-btn" onclick="switchTab(event, 'tab-forecast')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;"><i data-lucide="eye" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> AI Forecast</button>
+                            <button class="tab-btn" onclick="switchTab(event, 'tab-quantum')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;"><i data-lucide="atom" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> Quantum Console</button>
+                            <button class="tab-btn" onclick="switchTab(event, 'tab-benchmark')" style="background:none; border:none; color:var(--text-muted); font-weight:600; font-size:0.8rem; padding:4px 8px; cursor:pointer; outline:none;"><i data-lucide="trophy" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> Solver Benchmark</button>
                         </div>
                     </div>
                     
@@ -682,7 +695,7 @@ class FrontendGenerator:
                                 </table>
                             </div>
                             <div style="background:rgba(245,158,11,0.02); border:1px solid rgba(245,158,11,0.15); padding:8px; border-radius:6px; color:#fbbf24; line-height:1.3; font-size:0.66rem;">
-                                <strong>⚠️ Solver Verification Verdict</strong><br>
+                                <strong><i data-lucide="alert-triangle" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> Solver Verification Verdict</strong><br>
                                 Classical methods currently outperform Aer QAOA simulation on CPU. Hybrid refinement successfully post-processes quantum candidates to find global minima.
                             </div>
                         </div>
@@ -1088,8 +1101,7 @@ class FrontendGenerator:
         <span id="qaoa-runtime-val"></span>
         <span id="classical-runtime-val"></span>
     </div>
-</body>
-</html>"""
+    <script>lucide.createIcons();</script>\n</body>\n</html>"""
 
         cls._safe_write("frontend/operations.html", ops_html)
 
@@ -1114,6 +1126,50 @@ class FrontendGenerator:
                 cls._safe_write("frontend/network.html", net_content_new)
         except Exception as ex:
             print(f"Error updating network.html state: {ex}")
+
+        # Update quantum-optimizer.html with dynamic EMBEDDED_STATE
+        try:
+            if os.path.exists("frontend/quantum-optimizer.html"):
+                with open("frontend/quantum-optimizer.html", "r", encoding="utf-8") as f:
+                    content_htm = f.read()
+                import re
+                content_htm_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", content_htm)
+                cls._safe_write("frontend/quantum-optimizer.html", content_htm_new)
+        except Exception as ex:
+            print(f"Error updating quantum-optimizer.html: {ex}")
+
+        # Update traceability.html with dynamic EMBEDDED_STATE
+        try:
+            if os.path.exists("frontend/traceability.html"):
+                with open("frontend/traceability.html", "r", encoding="utf-8") as f:
+                    content_htm = f.read()
+                import re
+                content_htm_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", content_htm)
+                cls._safe_write("frontend/traceability.html", content_htm_new)
+        except Exception as ex:
+            print(f"Error updating traceability.html: {ex}")
+
+        # Update benchmarks.html with dynamic EMBEDDED_STATE
+        try:
+            if os.path.exists("frontend/benchmarks.html"):
+                with open("frontend/benchmarks.html", "r", encoding="utf-8") as f:
+                    content_htm = f.read()
+                import re
+                content_htm_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", content_htm)
+                cls._safe_write("frontend/benchmarks.html", content_htm_new)
+        except Exception as ex:
+            print(f"Error updating benchmarks.html: {ex}")
+
+        # Update advantage.html with dynamic EMBEDDED_STATE
+        try:
+            if os.path.exists("frontend/advantage.html"):
+                with open("frontend/advantage.html", "r", encoding="utf-8") as f:
+                    content_htm = f.read()
+                import re
+                content_htm_new = re.sub(r"const EMBEDDED_STATE\s*=\s*\{.*?\};", f"const EMBEDDED_STATE = {state_json};", content_htm)
+                cls._safe_write("frontend/advantage.html", content_htm_new)
+        except Exception as ex:
+            print(f"Error updating advantage.html: {ex}")
 
         # judge_demo.html redirects to the unified operations.html (all content is there now)
         judge_redirect = "<!DOCTYPE html>\n<html lang='en'><head><meta charset='utf-8'><meta http-equiv='refresh' content='0; url=operations.html'><title>RailTwin-Q | Judge Console</title></head><body><p>Redirecting to <a href='operations.html'>Operations Center (Judge Demo)</a>...</p></body></html>"
