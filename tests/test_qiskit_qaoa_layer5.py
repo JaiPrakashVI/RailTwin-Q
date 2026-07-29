@@ -156,3 +156,31 @@ def test_digital_twin_counterfactual_integration():
     assert "baseline_delay" in cf
     assert "optimized_delay" in cf
     assert "delay_reduction_percent" in cf
+
+if __name__ == "__main__":
+    print("====================================================")
+    print("       RUNNING AUTOMATED LAYER 5 ACCEPTANCE TESTS    ")
+    print("====================================================")
+    
+    test_qubo_to_ising_conversion()
+    print("[Assert 1] QUBO to Ising conversion passed")
+    test_exhaustive_qubo_ising_energy_equivalence()
+    print("[Assert 2] Exhaustive QUBO/Ising equivalence passed")
+    test_qubit_count_matches_qubo_variables()
+    print("[Assert 3] Qubit count verification passed")
+    test_bitstring_length_matches_qubit_count()
+    print("[Assert 4] Bitstring length verification passed")
+    test_qaoa_solver_comparison_on_identical_qubo()
+    print("[Assert 5] Solver comparison passed")
+    test_ablation_pipeline_and_separation()
+    print("[Assert 6] Ablation pipeline and separation passed")
+    test_ibm_quantum_mode_honesty()
+    print("[Assert 7] IBM Quantum Mode honesty passed")
+    test_numpy_fallback_mode()
+    print("[Assert 8] NumPy fallback mode passed")
+    test_digital_twin_counterfactual_integration()
+    print("[Assert 9] Digital twin counterfactual integration passed")
+    
+    print("\n====================================================")
+    print("       ALL LAYER 5 ACCEPTANCE TESTS COMPLETED SUCCESSFULLY! ")
+    print("====================================================")

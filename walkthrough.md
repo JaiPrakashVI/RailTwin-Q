@@ -192,29 +192,25 @@ The validation run executed a full 120-minute simulation tick loop and successfu
 
 ---
 
-## 7. RailTwin-Q Operations Control Center (All Phases Completed)
+## 7. RailTwin-Q Operations Control Center (Premium Light-Themed SPA)
 
-We have successfully implemented and validated all six visual and interactive phases for the judge-facing Operations Control Center command console.
-
-### Summary of Completed Phases:
-1. **Phase 1: Live Railway Network (SVG Layout)**
-   * Built an interactive schematic SVG map mapping stations and tracks.
-   * Double tracks (Up and Down lines) change colors (Blue/Yellow/Red) based on active blocks occupancy.
-   * Six dynamic signals (`SIG-01` to `SIG-06`) transition to caution (Yellow) or stop (Red) when disruptions block tracks.
-2. **Phase 2: Layer 2–6 Pipeline Visualization**
-   * Designed a clickable flowchart on the right-hand panel showing the active simulation layers (Layer 1 to Layer 6).
-   * Clicking on any layer updates the **Pipeline Diagnostics panel** in real-time, showing parameters like XGBoost Prediction MAE, LSTM congestion status, QUBO variables count, and receding-horizon triggers.
-3. **Phase 3: Quantum Optimization Console**
-   * Implemented the [optimization.html](file:///c:/Users/idhay/Desktop/RailTwin-Q/frontend/optimization.html) page displaying exact classical solver energies (brute-force) against simulated annealing and Hybrid QAOA.
-   * Emits a scientifically honest verdict explaining the current lack of hardware quantum advantage at smaller dimensions ($N \le 100$).
-4. **Phase 4: Receding-Horizon Control Event Timeline**
-   * Parsed the simulation log files (`trigger_engine_log.jsonl`, `decision_gate_log.jsonl`, `qubo_comparison_log.jsonl`) to construct a unified chronological list of controller events.
-   * Shows events dynamically matching the current play tick!
-5. **Phase 5: Before / After Counterfactual Impact Analysis**
-   * Displays the cumulative delay savings (baseline vs. optimized schedule delays) at each tick of the simulation.
-6. **Phase 6: 60-Second Disruption Replay Mode**
-   * Implemented a browser-side Playback Player bar: features **Play/Pause**, **Reset**, **Speed Multipliers (1x, 2x, 5x)**, and a **Timeline Range Scrub Slider**.
-   * The complete 121-tick simulation state array is serialized directly into the HTML code at compile-time. This bypasses browser CORS blockages, allowing the entire 120-minute simulation replay to execute with fluid SVG animations natively via the `file://` protocol. If run on a local HTTP server, the page falls back to live AJAX polling of `live_state.json`.
+We have successfully overhauled the Operations Control Center command dashboard (`operations.html`) into a premium, light-themed Single Page App (SPA) featuring:
+1. **White Card Theme & High-Contrast Layout**:
+   - Clean slate background (`#f8fafc`), white card blocks (`#ffffff`), and slate gray borders (`#cbd5e1`).
+   - Dark contrasted navigation sidebar (`#1e293b`) for structured professional aesthetics.
+2. **7 Primary Navigation Tabs**:
+   - `1. Operations Command Center`: Mockup-consistent landing overview panel (simulation status header, dynamic statistics bar, 4-column summary blocks, live SVG topology).
+   - `2. Digital Twin / Network View`: Large interactive topology SVG map showing platform occupancy indicators, where all station nodes and train markers are fully clickable. Opens detail cards in a side panel.
+   - `3. AI Prediction Center`: Train forecast horizons dropdown displaying delay forecasts as blocks (e.g. `███████ 15.7 min`) and a horizontal timeline diagram (Current -> +15m -> +30m -> +60m), combined with hierarchical station/track/network flowcharts.
+   - `4. Disruption & Decision Center`: Monospace disruption details (anomalous event type, location, trains affected, propagation, risk levels). Shows candidate cards (REROUTE, PLATFORM_SWAP, HOLD, SPEED_ADJUST) with benefits, risks, and radio dots.
+   - `5. Quantum Optimization Center`: Interactive vertical **Quantum Pipeline Flowchart** (each stage is clickable and updates an explanation panel in real-time). Displays the QUBO cost matrix, variables/qubits counts, and replaces schematic drawings with the actual transpiled circuit layout (`actual_qaoa_circuit.png`). Shows the real-time measurement distribution table (Bitstrings vs Probabilities), best bitstring selection, and the critical **Decoded Action** railway checklist (e.g. `✓ Reroute T12623`, `✗ Cancel T12635`).
+   - `6. Closed-Loop Control`: Horizontal **Receding-Horizon Control Pipeline** and a vertical **State Machine Flowchart**, both animating and highlighting nodes in real-time matching the controller state variables (`MONITORING`, `OPTIMIZING`, `INTERVENING`, etc.).
+   - `7. Experiment / Benchmark Lab`: Dynamic **Solver Comparison** displaying execution time (ms) and solution quality (%) using responsive bar charts populated by real-time NumPy and AerSimulator runtimes.
+3. **Tab & Scroll Caching (State Persistence)**:
+   - Implemented `localStorage` browser caching to persist active tab selections. Dragging playback sliders or updating the page does not reset the viewport, preventing the layout from reverting to the landing page.
+   - Added automatic scroll position caching on `.main-wrapper` to keep the scroll position aligned on reloads.
+4. **File Lock Safety (Atomic Writes)**:
+   - Replaced direct file write operations with atomic temporary file renaming and a direct write fallback. This prevents lock conflicts on Windows and guarantees that local live servers never see truncated pages or go black.
 
 ---
 
