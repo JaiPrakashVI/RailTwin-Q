@@ -199,7 +199,7 @@ class ControlReportGenerator:
     <!-- Section 1 -->
     <div class="section">
         <h2>Section 1: System Architecture</h2>
-        <p>RailTwin-Q implements an MPC-inspired receding-horizon adaptive control and closed-loop optimization hierarchy demonstrated in a simulated Digital Twin environment. The state of the Digital Twin simulator feeds directly into the AI prediction, decision intelligence, and QUBO translation layers. Optimal plans are derived via warm-started solvers and validated by a Decision Quality Gate before feedback loops actuate adjustments within the Digital Twin.</p>
+        <p>RailTwin-Q implements an Adaptive Closed-Loop Control architecture with event-triggered optimization and feedback control demonstrated in a simulated Digital Twin environment. The state of the Digital Twin simulator feeds directly into the AI prediction, decision intelligence, and QUBO translation layers. Optimal plans are derived via warm-started solvers and validated by a Decision Quality Gate before feedback loops actuate adjustments within the Digital Twin.</p>
     </div>
     
     <!-- Section 2 -->

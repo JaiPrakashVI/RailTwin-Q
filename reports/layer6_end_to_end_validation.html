@@ -25,7 +25,7 @@
     <!-- Section 1 -->
     <div class="section">
         <h2>Section 1: System Architecture</h2>
-        <p>RailTwin-Q implements an MPC-inspired receding-horizon adaptive control and closed-loop optimization hierarchy demonstrated in a simulated Digital Twin environment. The state of the Digital Twin simulator feeds directly into the AI prediction, decision intelligence, and QUBO translation layers. Optimal plans are derived via warm-started solvers and validated by a Decision Quality Gate before feedback loops actuate adjustments within the Digital Twin.</p>
+        <p>RailTwin-Q implements an Adaptive Closed-Loop Control architecture with event-triggered optimization and feedback control demonstrated in a simulated Digital Twin environment. The state of the Digital Twin simulator feeds directly into the AI prediction, decision intelligence, and QUBO translation layers. Optimal plans are derived via warm-started solvers and validated by a Decision Quality Gate before feedback loops actuate adjustments within the Digital Twin.</p>
     </div>
     
     <!-- Section 2 -->
@@ -65,22 +65,22 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">APPLY_NEW_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Receding horizon control: Executed immediate action for None and deferred 8 others for replanning</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Receding horizon control: Executed immediate action for Kerala Express and deferred 6 others for replanning</td>
             </tr>
             
             <tr>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">30</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">REOPTIMIZING</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Time-based periodic optimization (15 minutes interval)</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">INTERVENTION_FAILURE</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Actual delay reduction was 62% below predicted reduction for Action 1</td>
             </tr>
             
             <tr>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">30</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">REOPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">OPTIMIZING</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">SCHEDULED_MONITOR</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">INTERVENTION_FAILURE</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Trigger confirmed, building dynamic decision space</td>
             </tr>
             
@@ -89,7 +89,7 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.4500 <= epsilon)</td>
             </tr>
             
             <tr>
@@ -113,7 +113,7 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.6000 <= epsilon)</td>
             </tr>
             
             <tr>
@@ -137,7 +137,7 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.6000 <= epsilon)</td>
             </tr>
             
             <tr>
@@ -161,7 +161,7 @@
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#8b5cf6;">OPTIMIZING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600; color:#10b981;">INTERVENING</td>
                 <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#3b82f6;">KEEP_CURRENT_PLAN</td>
-                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.1500 <= epsilon)</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Reject new plan (Delta utility -0.6000 <= epsilon)</td>
             </tr>
             
             <tr>
@@ -225,6 +225,146 @@
             </thead>
             <tbody>
                 
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">16</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">17</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">18</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">19</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">20</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">21</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">22</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">23</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">24</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">25</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">26</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">27</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">28</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">29</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); font-weight:600;">HOLD</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05);">Kerala Express</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.00 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; color:#ef4444;">0.50 min</td>
+                <td style="padding:10px; border-bottom:1px solid rgba(255,255,255,0.05); text-align:center; font-weight:600;">0.0%</td>
+            </tr>
+            
             </tbody>
         </table>
     </div>
@@ -263,7 +403,7 @@
             </div>
             <div class="metric-card">
                 <div>Disruptions Detected</div>
-                <div class="metric-val">6</div>
+                <div class="metric-val">8</div>
             </div>
             <div class="metric-card">
                 <div>Re-Optimization Cycles</div>
@@ -271,11 +411,11 @@
             </div>
             <div class="metric-card">
                 <div>Interventions Proposed</div>
-                <div class="metric-val">0</div>
+                <div class="metric-val">14</div>
             </div>
             <div class="metric-card">
                 <div>Interventions Applied</div>
-                <div class="metric-val">0</div>
+                <div class="metric-val">14</div>
             </div>
             <div class="metric-card">
                 <div>Warm Start Usage Rate</div>
@@ -283,7 +423,7 @@
             </div>
             <div class="metric-card">
                 <div>Avg Prediction Error</div>
-                <div class="metric-val">0.00 mins</div>
+                <div class="metric-val">0.50 mins</div>
             </div>
             <div class="metric-card">
                 <div>Avg Error Percentage</div>

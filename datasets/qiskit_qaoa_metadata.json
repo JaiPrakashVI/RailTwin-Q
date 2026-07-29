@@ -2,8 +2,8 @@
     "qubits": 10,
     "qaoa_depth": 2,
     "circuit_depth": 23,
-    "total_gates": 172,
-    "one_qubit_gates": 164,
-    "two_qubit_gates": 8,
+    "total_gates": 166,
+    "one_qubit_gates": 162,
+    "two_qubit_gates": 4,
     "shots": 1024
 }

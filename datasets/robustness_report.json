@@ -1,185 +1,185 @@
 {
     "1": {
         "action_id": 1,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "2": {
         "action_id": 2,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "3": {
         "action_id": 3,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "4": {
         "action_id": 4,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "5": {
         "action_id": 5,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "6": {
         "action_id": 6,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "7": {
         "action_id": 7,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "8": {
         "action_id": 8,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "9": {
         "action_id": 9,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "10": {
         "action_id": 10,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "11": {
         "action_id": 11,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "12": {
         "action_id": 12,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "13": {
         "action_id": 13,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "14": {
         "action_id": 14,
-        "action": "REROUTE",
+        "action": "HOLD",
         "compatibility": {
             "Heavy Rain": true,
-            "Signal Failure": false,
-            "Track Blockage": false,
+            "Signal Failure": true,
+            "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": true,
+            "Festival Rush": false,
             "Power Failure": true
         },
-        "robustness_score": 66
+        "robustness_score": 83
     },
     "15": {
         "action_id": 15,
@@ -196,370 +196,175 @@
     },
     "16": {
         "action_id": 16,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "17": {
         "action_id": 17,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "18": {
         "action_id": 18,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "19": {
         "action_id": 19,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "20": {
         "action_id": 20,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "21": {
         "action_id": 21,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "22": {
         "action_id": 22,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "23": {
         "action_id": 23,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "24": {
         "action_id": 24,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "25": {
         "action_id": 25,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "26": {
         "action_id": 26,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "27": {
         "action_id": 27,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "28": {
         "action_id": 28,
-        "action": "HOLD",
+        "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,
             "Signal Failure": true,
             "Track Blockage": true,
             "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
+            "Festival Rush": true,
+            "Power Failure": false
         },
         "robustness_score": 83
     },
     "29": {
         "action_id": 29,
-        "action": "HOLD",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": false,
-            "Power Failure": true
-        },
-        "robustness_score": 83
-    },
-    "30": {
-        "action_id": 30,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "31": {
-        "action_id": 31,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "32": {
-        "action_id": 32,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "33": {
-        "action_id": 33,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "34": {
-        "action_id": 34,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "35": {
-        "action_id": 35,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "36": {
-        "action_id": 36,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "37": {
-        "action_id": 37,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "38": {
-        "action_id": 38,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "39": {
-        "action_id": 39,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "40": {
-        "action_id": 40,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "41": {
-        "action_id": 41,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "42": {
-        "action_id": 42,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "43": {
-        "action_id": 43,
-        "action": "SPEED_ADJUST",
-        "compatibility": {
-            "Heavy Rain": true,
-            "Signal Failure": true,
-            "Track Blockage": true,
-            "Maintenance": true,
-            "Festival Rush": true,
-            "Power Failure": false
-        },
-        "robustness_score": 83
-    },
-    "44": {
-        "action_id": 44,
         "action": "SPEED_ADJUST",
         "compatibility": {
             "Heavy Rain": true,

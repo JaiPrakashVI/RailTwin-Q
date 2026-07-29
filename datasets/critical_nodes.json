@@ -4,91 +4,91 @@
             "id": 16057,
             "name": "Sapthagiri Express",
             "criticality_score": 100.0,
-            "delay": 78.66
+            "delay": 96.21
         },
         {
             "id": 12007,
             "name": "Shatabdi Express",
             "criticality_score": 100.0,
-            "delay": 71.87
+            "delay": 82.42
         },
         {
             "id": 16053,
             "name": "Tirupati Express",
             "criticality_score": 100.0,
-            "delay": 74.11
+            "delay": 81.01
         },
         {
             "id": 12607,
             "name": "Lalbagh Express",
             "criticality_score": 100.0,
-            "delay": 83.36
+            "delay": 92.87
         },
         {
             "id": 16058,
             "name": "Sapthagiri Return",
             "criticality_score": 100.0,
-            "delay": 75.74
+            "delay": 93.5
         },
         {
             "id": 58207,
             "name": "Jolarpettai Heavy Freight",
             "criticality_score": 100.0,
-            "delay": 106.14
-        },
-        {
-            "id": 12625,
-            "name": "Kerala Express",
-            "criticality_score": 96.5,
-            "delay": 61.92
+            "delay": 114.2
         },
         {
             "id": 12623,
             "name": "Chennai Mail",
-            "criticality_score": 85.1,
-            "delay": 53.3
+            "criticality_score": 97.1,
+            "delay": 65.75
         },
         {
             "id": 58205,
             "name": "Tirupati Container Freight",
-            "criticality_score": 75.9,
-            "delay": 58.95
+            "criticality_score": 86.0,
+            "delay": 67.35
         },
         {
             "id": 12616,
             "name": "Grand Trunk Express",
-            "criticality_score": 74.7,
-            "delay": 48.05
+            "criticality_score": 84.4,
+            "delay": 57.73
         },
         {
             "id": 58203,
             "name": "Katpadi Goods Freight",
-            "criticality_score": 64.4,
-            "delay": 45.98
+            "criticality_score": 80.6,
+            "delay": 60.36
         },
         {
             "id": 12608,
             "name": "Lalbagh Return",
-            "criticality_score": 50.5,
-            "delay": 26.04
-        },
-        {
-            "id": 58201,
-            "name": "Arakkonam Coal Freight",
-            "criticality_score": 50.3,
-            "delay": 35.1
+            "criticality_score": 66.9,
+            "delay": 39.74
         },
         {
             "id": 12624,
             "name": "Chennai Mail Return",
-            "criticality_score": 49.4,
-            "delay": 25.1
+            "criticality_score": 65.8,
+            "delay": 38.8
         },
         {
             "id": 22625,
             "name": "Double Decker Express",
-            "criticality_score": 36.4,
-            "delay": 15.18
+            "criticality_score": 58.3,
+            "delay": 32.58
+        },
+        {
+            "id": 58201,
+            "name": "Arakkonam Coal Freight",
+            "criticality_score": 57.6,
+            "delay": 44.6
+        },
+        {
+            "id": 12625,
+            "name": "Kerala Express",
+            "criticality_score": 33.4,
+            "delay": 12.03
         },
         {
             "id": 40003,
@@ -117,16 +117,16 @@
             "congestion": 33.33
         },
         {
-            "id": 6,
-            "name": "Tiruttani",
-            "criticality_score": 13.6,
-            "congestion": 25.0
-        },
-        {
             "id": 3,
             "name": "Chengalpattu",
             "criticality_score": 12.5,
             "congestion": 25.0
+        },
+        {
+            "id": 1,
+            "name": "Chennai Central",
+            "criticality_score": 4.2,
+            "congestion": 8.33
         },
         {
             "id": 4,
@@ -147,9 +147,9 @@
             "congestion": 0.0
         },
         {
-            "id": 1,
-            "name": "Chennai Central",
-            "criticality_score": 0.0,
+            "id": 10,
+            "name": "Jolarpettai Junction",
+            "criticality_score": 1.1,
             "congestion": 0.0
         },
         {
@@ -165,8 +165,8 @@
             "congestion": 0.0
         },
         {
-            "id": 10,
-            "name": "Jolarpettai Junction",
+            "id": 6,
+            "name": "Tiruttani",
             "criticality_score": 0.0,
             "congestion": 0.0
         }
@@ -180,8 +180,8 @@
         },
         {
             "id": 1,
-            "criticality_score": 75.6,
-            "occupancy": 120.0,
+            "criticality_score": 66.5,
+            "occupancy": 100.0,
             "status": "NORMAL"
         },
         {
@@ -191,9 +191,9 @@
             "status": "NORMAL"
         },
         {
-            "id": 6,
-            "criticality_score": 22.2,
-            "occupancy": 0.0,
+            "id": 5,
+            "criticality_score": 32.2,
+            "occupancy": 25.0,
             "status": "NORMAL"
         },
         {
@@ -209,7 +209,7 @@
             "status": "NORMAL"
         },
         {
-            "id": 5,
+            "id": 6,
             "criticality_score": 20.0,
             "occupancy": 0.0,
             "status": "NORMAL"

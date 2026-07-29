@@ -1,166 +1,26 @@
 {
     "1": {
         "action_id": 1,
-        "action": "REROUTE",
+        "action": "HOLD",
         "target": "Chennai Mail",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
+        "reason": "Safety block buffer capacity drops below safety limits.",
+        "expected_delay_saved": "6.0 mins",
+        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+        "passengers_saved": 400,
+        "confidence": "85%"
     },
     "2": {
         "action_id": 2,
-        "action": "REROUTE",
-        "target": "Kerala Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
+        "action": "HOLD",
+        "target": "Chennai Mail Return",
+        "reason": "Safety block buffer capacity drops below safety limits.",
+        "expected_delay_saved": "6.0 mins",
+        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+        "passengers_saved": 400,
+        "confidence": "85%"
     },
     "3": {
         "action_id": 3,
-        "action": "REROUTE",
-        "target": "Shatabdi Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "4": {
-        "action_id": 4,
-        "action": "REROUTE",
-        "target": "Tirupati Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "5": {
-        "action_id": 5,
-        "action": "REROUTE",
-        "target": "Lalbagh Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "6": {
-        "action_id": 6,
-        "action": "REROUTE",
-        "target": "Jolarpettai Heavy Freight",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 380,
-        "confidence": "91%"
-    },
-    "7": {
-        "action_id": 7,
-        "action": "REROUTE",
-        "target": "Chennai Mail Return",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "8": {
-        "action_id": 8,
-        "action": "REROUTE",
-        "target": "Double Decker Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "9": {
-        "action_id": 9,
-        "action": "REROUTE",
-        "target": "Arakkonam Coal Freight",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 380,
-        "confidence": "91%"
-    },
-    "10": {
-        "action_id": 10,
-        "action": "REROUTE",
-        "target": "Katpadi Goods Freight",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 380,
-        "confidence": "91%"
-    },
-    "11": {
-        "action_id": 11,
-        "action": "REROUTE",
-        "target": "Lalbagh Return",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 380,
-        "confidence": "91%"
-    },
-    "12": {
-        "action_id": 12,
-        "action": "REROUTE",
-        "target": "Sapthagiri Express",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 950,
-        "confidence": "91%"
-    },
-    "13": {
-        "action_id": 13,
-        "action": "REROUTE",
-        "target": "Tirupati Container Freight",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 380,
-        "confidence": "91%"
-    },
-    "14": {
-        "action_id": 14,
-        "action": "REROUTE",
-        "target": "Sapthagiri Return",
-        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
-        "expected_delay_saved": "14.0 mins",
-        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
-        "passengers_saved": 665,
-        "confidence": "91%"
-    },
-    "15": {
-        "action_id": 15,
-        "action": "HOLD",
-        "target": "Chennai Mail",
-        "reason": "Safety block buffer capacity drops below safety limits.",
-        "expected_delay_saved": "6.0 mins",
-        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
-        "passengers_saved": 400,
-        "confidence": "85%"
-    },
-    "16": {
-        "action_id": 16,
-        "action": "HOLD",
-        "target": "Chennai Mail Return",
-        "reason": "Safety block buffer capacity drops below safety limits.",
-        "expected_delay_saved": "6.0 mins",
-        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
-        "passengers_saved": 400,
-        "confidence": "85%"
-    },
-    "17": {
-        "action_id": 17,
         "action": "HOLD",
         "target": "Kerala Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -169,8 +29,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "18": {
-        "action_id": 18,
+    "4": {
+        "action_id": 4,
         "action": "HOLD",
         "target": "Sapthagiri Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -179,8 +39,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "19": {
-        "action_id": 19,
+    "5": {
+        "action_id": 5,
         "action": "HOLD",
         "target": "Shatabdi Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -189,8 +49,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "20": {
-        "action_id": 20,
+    "6": {
+        "action_id": 6,
         "action": "HOLD",
         "target": "Grand Trunk Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -199,8 +59,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "21": {
-        "action_id": 21,
+    "7": {
+        "action_id": 7,
         "action": "HOLD",
         "target": "Double Decker Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -209,8 +69,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "22": {
-        "action_id": 22,
+    "8": {
+        "action_id": 8,
         "action": "HOLD",
         "target": "Tirupati Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -219,8 +79,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "23": {
-        "action_id": 23,
+    "9": {
+        "action_id": 9,
         "action": "HOLD",
         "target": "Arakkonam Coal Freight",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -229,8 +89,8 @@
         "passengers_saved": 160,
         "confidence": "85%"
     },
-    "24": {
-        "action_id": 24,
+    "10": {
+        "action_id": 10,
         "action": "HOLD",
         "target": "Katpadi Goods Freight",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -239,8 +99,8 @@
         "passengers_saved": 160,
         "confidence": "85%"
     },
-    "25": {
-        "action_id": 25,
+    "11": {
+        "action_id": 11,
         "action": "HOLD",
         "target": "Tirupati Container Freight",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -249,8 +109,8 @@
         "passengers_saved": 160,
         "confidence": "85%"
     },
-    "26": {
-        "action_id": 26,
+    "12": {
+        "action_id": 12,
         "action": "HOLD",
         "target": "Lalbagh Express",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -259,8 +119,8 @@
         "passengers_saved": 400,
         "confidence": "85%"
     },
-    "27": {
-        "action_id": 27,
+    "13": {
+        "action_id": 13,
         "action": "HOLD",
         "target": "Lalbagh Return",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -269,8 +129,8 @@
         "passengers_saved": 160,
         "confidence": "85%"
     },
-    "28": {
-        "action_id": 28,
+    "14": {
+        "action_id": 14,
         "action": "HOLD",
         "target": "Sapthagiri Return",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -279,8 +139,8 @@
         "passengers_saved": 280,
         "confidence": "85%"
     },
-    "29": {
-        "action_id": 29,
+    "15": {
+        "action_id": 15,
         "action": "HOLD",
         "target": "Jolarpettai Heavy Freight",
         "reason": "Safety block buffer capacity drops below safety limits.",
@@ -289,8 +149,8 @@
         "passengers_saved": 160,
         "confidence": "85%"
     },
-    "30": {
-        "action_id": 30,
+    "16": {
+        "action_id": 16,
         "action": "SPEED_ADJUST",
         "target": "Chennai Mail",
         "reason": "Safety spacing adjustments scheduled.",
@@ -299,8 +159,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "31": {
-        "action_id": 31,
+    "17": {
+        "action_id": 17,
         "action": "SPEED_ADJUST",
         "target": "Chennai Mail Return",
         "reason": "Safety spacing adjustments scheduled.",
@@ -309,18 +169,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "32": {
-        "action_id": 32,
-        "action": "SPEED_ADJUST",
-        "target": "Kerala Express",
-        "reason": "Safety spacing adjustments scheduled.",
-        "expected_delay_saved": "4.0 mins",
-        "trade_off": "None.",
-        "passengers_saved": 1000,
-        "confidence": "93%"
-    },
-    "33": {
-        "action_id": 33,
+    "18": {
+        "action_id": 18,
         "action": "SPEED_ADJUST",
         "target": "Sapthagiri Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -329,8 +179,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "34": {
-        "action_id": 34,
+    "19": {
+        "action_id": 19,
         "action": "SPEED_ADJUST",
         "target": "Shatabdi Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -339,8 +189,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "35": {
-        "action_id": 35,
+    "20": {
+        "action_id": 20,
         "action": "SPEED_ADJUST",
         "target": "Grand Trunk Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -349,8 +199,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "36": {
-        "action_id": 36,
+    "21": {
+        "action_id": 21,
         "action": "SPEED_ADJUST",
         "target": "Double Decker Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -359,8 +209,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "37": {
-        "action_id": 37,
+    "22": {
+        "action_id": 22,
         "action": "SPEED_ADJUST",
         "target": "Tirupati Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -369,8 +219,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "38": {
-        "action_id": 38,
+    "23": {
+        "action_id": 23,
         "action": "SPEED_ADJUST",
         "target": "Arakkonam Coal Freight",
         "reason": "Safety spacing adjustments scheduled.",
@@ -379,8 +229,8 @@
         "passengers_saved": 400,
         "confidence": "93%"
     },
-    "39": {
-        "action_id": 39,
+    "24": {
+        "action_id": 24,
         "action": "SPEED_ADJUST",
         "target": "Katpadi Goods Freight",
         "reason": "Safety spacing adjustments scheduled.",
@@ -389,8 +239,8 @@
         "passengers_saved": 400,
         "confidence": "93%"
     },
-    "40": {
-        "action_id": 40,
+    "25": {
+        "action_id": 25,
         "action": "SPEED_ADJUST",
         "target": "Tirupati Container Freight",
         "reason": "Safety spacing adjustments scheduled.",
@@ -399,8 +249,8 @@
         "passengers_saved": 400,
         "confidence": "93%"
     },
-    "41": {
-        "action_id": 41,
+    "26": {
+        "action_id": 26,
         "action": "SPEED_ADJUST",
         "target": "Lalbagh Express",
         "reason": "Safety spacing adjustments scheduled.",
@@ -409,8 +259,8 @@
         "passengers_saved": 1000,
         "confidence": "93%"
     },
-    "42": {
-        "action_id": 42,
+    "27": {
+        "action_id": 27,
         "action": "SPEED_ADJUST",
         "target": "Lalbagh Return",
         "reason": "Safety spacing adjustments scheduled.",
@@ -419,8 +269,8 @@
         "passengers_saved": 400,
         "confidence": "93%"
     },
-    "43": {
-        "action_id": 43,
+    "28": {
+        "action_id": 28,
         "action": "SPEED_ADJUST",
         "target": "Sapthagiri Return",
         "reason": "Safety spacing adjustments scheduled.",
@@ -429,8 +279,8 @@
         "passengers_saved": 700,
         "confidence": "93%"
     },
-    "44": {
-        "action_id": 44,
+    "29": {
+        "action_id": 29,
         "action": "SPEED_ADJUST",
         "target": "Jolarpettai Heavy Freight",
         "reason": "Safety spacing adjustments scheduled.",

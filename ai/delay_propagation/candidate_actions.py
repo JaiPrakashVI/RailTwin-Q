@@ -35,61 +35,8 @@ class CandidateActionGenerator:
                 actions.append(act)
                 action_counter += 1
 
-        # 2. Rerouting (triggered by track saturation/blockages)
-        for tr in network.tracks:
-            if tr.occupancy_percent >= 50.0 or tr.blocked:
-                # Find trains heading to or moving on this track (look for moving trains, or trains at stations whose next track is this track)
-                moving_trains = [t for t in network.trains if t.current_track_id == tr.track_id and t.status == "MOVING"]
-                
-                # Also include trains at the source station of the track that want to traverse it
-                source_station_trains = [
-                    t for t in network.trains 
-                    if t.current_station_id == tr.source_station_id 
-                    and t.status in ["WAITING", "ARRIVED", "DELAYED"]
-                ]
-                
-                candidate_trains = moving_trains + source_station_trains
-                
-                for mt in candidate_trains:
-                    # Determine new route stations list based on train identifier and location
-                    train_id = mt.name
-                    source_station = mt.current_station_id
-                    
-                    route_stations = network.routes.get(mt.route_id, [])
-                    target_station = route_stations[-1] if route_stations else source_station
-                    
-                    # Connected alternative route calculation
-                    if mt.route_id in [1, 12623, 12625, 12007, 12607]: # Route 1 trains
-                        if source_station == 1:
-                            new_route_stations = [1, 2, 5, 4, 8, 10]
-                        elif source_station == 4:
-                            new_route_stations = [1, 4, 5, 2, 3]
-                        else:
-                            new_route_stations = [1, 4, 8, 10]
-                    elif mt.route_id in [3, 22625]: # Route 3 trains
-                        new_route_stations = [1, 4, 8, 10]
-                    else:
-                        new_route_stations = [1, 4, 8, 10]
-                    
-                    act = create_action(
-                        action_id=action_counter,
-                        action_type="REROUTE",
-                        train_id=train_id,
-                        source_station=source_station,
-                        target_station=target_station,
-                        parameters={
-                            "new_route_stations": new_route_stations,
-                            "original_route_stations": route_stations
-                        },
-                        expected_effect={"delay_reduction": 14.2, "congestion_reduction": 0.0},
-                        constraints={},
-                        confidence=0.91,
-                        passenger_impact="Medium",
-                        track_id=tr.track_id,
-                        train_name=mt.name
-                    )
-                    actions.append(act)
-                    action_counter += 1
+        # 2. Rerouting (Temporarily disabled to align with executable action constraints)
+        # REROUTE candidate action generation is removed to ensure only genuinely executable actions (HOLD, SPEED_ADJUST, PLATFORM_SWAP) are analyzed by the solvers.
 
         # 3. Hold Upstream (triggered by leading delays)
         delayed_trains = [t for t in network.trains if t.delay > 10.0]

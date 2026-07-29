@@ -17,19 +17,19 @@
     },
     "Scenario C (Speed Adjustment)": {
         "recovery_time_mins": 10,
-        "delay_reduction_minutes": 67.5,
-        "congestion_reduction_percent": 81.0,
+        "delay_reduction_minutes": 63.0,
+        "congestion_reduction_percent": 75.6,
         "affected_trains_reduced": 1,
         "affected_stations_reduced": 0,
-        "csi_improvement": 67.5
+        "csi_improvement": 63.0
     },
     "Scenario D (Reroute)": {
-        "recovery_time_mins": 10,
-        "delay_reduction_minutes": 198.8,
-        "congestion_reduction_percent": 497.0,
-        "affected_trains_reduced": 2,
-        "affected_stations_reduced": 1,
-        "csi_improvement": 397.6
+        "recovery_time_mins": 18,
+        "delay_reduction_minutes": 0,
+        "congestion_reduction_percent": 0.0,
+        "affected_trains_reduced": 0,
+        "affected_stations_reduced": 0,
+        "csi_improvement": 0.0
     },
     "Scenario E (Hold Train)": {
         "recovery_time_mins": 10,

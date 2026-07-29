@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RailTwin-Q | Live Network View</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --sidebar-bg: #0b0f19;
@@ -18,490 +21,254 @@
             --accent-yellow: #f59e0b;
             --accent-red: #ef4444;
             --accent-purple: #8b5cf6;
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 2px 0 rgba(0,0,0,0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -1px rgba(0,0,0,0.03);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--main-bg);
-            color: var(--text-primary);
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            width: 240px;
-            background: var(--sidebar-bg);
-            border-right: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px 14px;
-            flex-shrink: 0;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .brand-icon {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .brand-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: -0.3px;
-        }
-
-        .brand-sub {
-            font-size: 0.62rem;
-            color: #38bdf8;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 12px;
-            border-radius: 8px;
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.83rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .nav-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            color: white;
-        }
-
-        .nav-item.active {
-            background: var(--accent-blue);
-            color: white;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .sidebar-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .status-header {
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .status-list {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            font-size: 0.73rem;
-            color: #94a3b8;
-        }
-
-        .status-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent-green);
-            display: inline-block;
-        }
-
-        .sim-time-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 9px 12px;
-        }
-
-        .sim-time-val {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .badge-live {
-            background: rgba(16, 185, 129, 0.2);
-            color: var(--accent-green);
-            font-size: 0.62rem;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            float: right;
-        }
-
-        .main-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .topbar {
-            height: 58px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 22px;
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .topbar-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .topbar-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .weather-badge {
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.73rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-        }
-
-        .mode-badge {
-            background: linear-gradient(135deg, rgba(139, 92, 246, .12), rgba(99, 102, 241, .12));
-            border: 1px solid rgba(139, 92, 246, .3);
-            color: var(--accent-purple);
-            padding: 5px 14px;
-            border-radius: 20px;
-            font-size: 0.73rem;
-            font-weight: 700;
-        }
-
-        .dashboard-content {
-            padding: 18px 22px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 13px;
-        }
-
-        .kpi-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 11px;
-            padding: 14px 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .kpi-card:hover {
-            border-color: #94a3b8;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .kpi-label {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .kpi-val {
-            font-size: 1.38rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-top: 3px;
-            letter-spacing: -0.5px;
-        }
-
-        .kpi-sub {
-            font-size: 0.67rem;
-            margin-top: 3px;
-            font-weight: 600;
-        }
-
-        .trend-up {
-            color: var(--accent-red);
-        }
-
-        .trend-down {
-            color: var(--accent-green);
-        }
-
-        .trend-neutral {
-            color: var(--text-muted);
-        }
-
-        .kpi-icon-wrap {
-            width: 40px;
-            height: 40px;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            background: #f8fafc;
-            border: 1px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .middle-grid {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 16px;
-        }
-
-        .map-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: var(--shadow-md);
-            flex: 1;
-            /* Fills remaining vertical space */
-            width: 100%;
-        }
-
-        .card-header-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 11px;
-        }
-
-        .card-header-bar h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .map-legend {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-        }
-
-        .legend-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 4px;
-        }
-
-        .network-svg {
-            width: 100%;
-            height: 100%;
-            flex: 1;
-            background: #f8fafc;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .track-line {
-            stroke-width: 3.5;
-            fill: none;
-            stroke-linecap: round;
-            transition: all 0.3s;
-        }
-
-        .track-normal {
-            stroke: #cbd5e1;
-        }
-
-        .track-congested {
-            stroke: var(--accent-yellow) !important;
-            stroke-width: 5;
-        }
-
-        .track-blocked {
-            stroke: var(--accent-red) !important;
-            stroke-width: 5;
-        }
-
-        .station-bg {
-            fill: #ffffff;
-            stroke: #94a3b8;
-            stroke-width: 2;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .station-bg:hover {
-            stroke: var(--accent-blue-light);
-            fill: #f1f5f9;
-        }
-
-        .station-core {
-            fill: var(--accent-green);
-            cursor: pointer;
-        }
-
-        .station-label {
-            font-size: 10px;
-            fill: var(--text-primary);
-            font-weight: 600;
-            text-anchor: middle;
-            pointer-events: none;
-        }
-
-        .incident-badge {
-            position: absolute;
-            bottom: 26px;
-            left: 26px;
-            background: rgba(239, 68, 68, 0.08);
-            border: 1px solid var(--accent-red);
-            padding: 7px 13px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.76rem;
-            color: var(--accent-red);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--main-bg); color: var(--text-primary); display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 240px; background: var(--sidebar-bg); border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 14px; flex-shrink: 0; }
+        .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .brand-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .brand-title { font-size: 1.05rem; font-weight: 700; color: white; letter-spacing: -0.3px; }
+        .brand-sub { font-size: 0.62rem; color: #38bdf8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+        .nav-menu { display: flex; flex-direction: column; gap: 3px; }
+        .nav-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; color: #94a3b8; text-decoration: none; font-size: 0.83rem; font-weight: 500; transition: all 0.2s; }
+        .nav-item:hover { background: rgba(255,255,255,0.04); color: white; }
+        .nav-item.active { background: var(--accent-blue); color: white; font-weight: 600; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+        .sidebar-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+        .status-header { font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+        .status-list { display: flex; flex-direction: column; gap: 5px; font-size: 0.73rem; color: #94a3b8; }
+        .status-row { display: flex; justify-content: space-between; align-items: center; }
+        .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green); display: inline-block; }
+        .sim-time-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 9px 12px; }
+        .sim-time-val { font-size: 1.05rem; font-weight: 700; color: white; }
+        .badge-live { background: rgba(16,185,129,0.2); color: var(--accent-green); font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; float: right; }
+        .main-wrapper { flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; }
+        .topbar { height: 58px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }
+        .topbar-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+        .topbar-actions { display: flex; align-items: center; gap: 12px; }
+        .weather-badge { background: #f8fafc; border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-size: 0.73rem; display: flex; align-items: center; gap: 8px; color: var(--text-secondary); }
+        .mode-badge { background: linear-gradient(135deg,rgba(139,92,246,.12),rgba(99,102,241,.12)); border: 1px solid rgba(139,92,246,.3); color: var(--accent-purple); padding: 5px 14px; border-radius: 20px; font-size: 0.73rem; font-weight: 700; }
+        .dashboard-content { padding: 18px 22px; display: flex; flex-direction: column; gap: 16px; height: calc(100vh - 58px); }
+        .map-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-md); flex-grow: 1; height: 100%; }
+        .card-header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .card-header-bar h3 { font-size: 1.0rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .map-legend { display: flex; align-items: center; gap: 14px; font-size: 0.75rem; color: var(--text-secondary); }
+        .legend-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+        .network-svg { width: 100%; height: 100%; min-height: 480px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color); }
+        .track-line { stroke-width: 3.8; fill: none; stroke-linecap: round; transition: all 0.3s; }
+        .track-normal { stroke: #cbd5e1; }
+        .track-congested { stroke: var(--accent-yellow) !important; stroke-width: 5.5; }
+        .track-blocked { stroke: var(--accent-red) !important; stroke-width: 5.5; }
+        .station-bg { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; cursor: pointer; transition: all 0.2s; }
+        .station-bg:hover { stroke: var(--accent-blue-light); fill: #f1f5f9; }
+        .station-core { fill: var(--accent-green); cursor: pointer; transition: fill 0.3s; }
+        .station-label { font-size: 10px; fill: var(--text-primary); font-weight: 600; text-anchor: middle; pointer-events: none; }
+        .incident-badge { position: absolute; bottom: 32px; left: 32px; background: rgba(239,68,68,0.08); border: 1px solid var(--accent-red); padding: 8px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--accent-red); box-shadow: var(--shadow-sm); }
     </style>
 </head>
-
 <body>
-    <div class="map-card">
-        <div class="card-header-bar">
-            <h3>🗺️ Live Digital Twin — Railway Network Topology</h3>
-            <div class="map-legend"><span><span class="legend-dot"
-                        style="background:#cbd5e1;"></span>Normal</span><span><span class="legend-dot"
-                        style="background:var(--accent-yellow);"></span>Congested</span><span><span class="legend-dot"
-                        style="background:var(--accent-red);"></span>Blocked</span></div>
+    <aside class="sidebar">
+        <div>
+            <div class="brand">
+                <div class="brand-icon">🚆</div>
+                <div><div class="brand-title">RailTwin-Q</div><div class="brand-sub">AI + Quantum Railway</div></div>
+            </div>
+            <nav class="nav-menu">
+                <a href="operations.html" class="nav-item">📊 Overview</a>
+                <a href="optimization.html" class="nav-item">⚛️ Quantum Optimizer</a>
+                <a href="network.html" class="nav-item active">🗺️ Network View</a>
+                <a href="../reports/quantum_to_railway_traceability.html" target="_blank" class="nav-item">⚡ Traceability</a>
+                <a href="../reports/quantum_benchmark_report.html" target="_blank" class="nav-item">🏆 Benchmarks</a>
+                <a href="../reports/quantum_advantage_scorecard.html" target="_blank" class="nav-item">📈 Advantage</a>
+            </nav>
         </div>
-        <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg">
-            <line id="map-track-1" x1="220" y1="220" x2="450" y2="220" class="track-line track-normal" />
-            <line id="map-track-3" x1="450" y1="220" x2="680" y2="220" class="track-line track-normal" />
-            <line id="map-track-5" x1="680" y1="220" x2="900" y2="220" class="track-line track-normal" />
-            <line id="map-track-6" x1="450" y1="220" x2="450" y2="130" class="track-line track-normal" />
-            <line id="map-track-7" x1="450" y1="130" x2="450" y2="50" class="track-line track-normal" />
-            <line id="map-track-2" x1="220" y1="220" x2="220" y2="340" class="track-line track-normal" />
-            <line id="map-track-10" x1="220" y1="340" x2="450" y2="340" class="track-line track-normal" />
-            <line id="map-track-4" x1="220" y1="340" x2="220" y2="420" class="track-line track-normal" />
-            <line id="map-track-8" x1="220" y1="420" x2="450" y2="220" class="track-line track-normal" />
-            <line id="map-track-9" x1="680" y1="220" x2="680" y2="340" class="track-line track-normal" />
-            <g transform="translate(220,220)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="-20" class="station-label">MAS</text>
-            </g>
-            <g transform="translate(220,340)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="25" class="station-label">TBM</text>
-            </g>
-            <g transform="translate(450,340)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="25" class="station-label">CGL</text>
-            </g>
-            <g transform="translate(220,420)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="25" class="station-label">CJ</text>
-            </g>
-            <g transform="translate(450,220)">
-                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
-                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
-                    style="fill:#6366f1;">AJJ</text>
-            </g>
-            <g transform="translate(450,130)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="-20" class="station-label">TRT</text>
-            </g>
-            <g transform="translate(450,50)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="-18" class="station-label">TPTY</text>
-            </g>
-            <g transform="translate(680,220)">
-                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
-                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
-                    style="fill:#6366f1;">KPD</text>
-            </g>
-            <g transform="translate(680,340)">
-                <circle r="14" class="station-bg" />
-                <circle r="7" class="station-core" /><text y="25" class="station-label">VLR</text>
-            </g>
-            <g transform="translate(900,220)">
-                <circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;" />
-                <circle r="8" class="station-core" style="fill:#6366f1;" /><text y="-23" class="station-label"
-                    style="fill:#6366f1;">JTJ</text>
-            </g>
-            <circle id="map-incident-pulse" cx="450" cy="220" r="22" fill="none" stroke="var(--accent-red)"
-                stroke-width="2" visibility="hidden">
-                <animate attributeName="r" values="16;34;16" dur="2s" repeatCount="indefinite" />
-                <animate attributeName="stroke-opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
-            </circle>
-        </svg>
-        <div class="incident-badge" id="map-incident-badge" style="display:none;"><span>🚨</span><strong>Active
-                Incident:</strong>&nbsp;<span id="incident-text">Disruption</span></div>
+        <div class="sidebar-bottom">
+            <div class="status-header">System Status</div>
+            <div class="status-list">
+                <div class="status-row"><span>All Systems Operational</span><span class="dot"></span></div>
+                <div class="status-row"><span>Data Ingestion</span><span class="dot"></span></div>
+                <div class="status-row"><span>AI Models</span><span class="dot"></span></div>
+                <div class="status-row"><span>Quantum Engine</span><span class="dot"></span></div>
+                <div class="status-row"><span>Digital Twin Sync</span><span class="dot"></span></div>
+            </div>
+            <div class="sim-time-box">
+                <div style="font-size:0.62rem;color:#94a3b8;">Simulation Time <span class="badge-live">LIVE</span></div>
+                <div class="sim-time-val" id="sim-clock">--:--</div>
+            </div>
+        </div>
+    </aside>
+    <div class="main-wrapper">
+        <header class="topbar">
+            <div class="topbar-title"><span>☰</span> Railway Live Topology view</div>
+            <div class="topbar-actions">
+                <div class="mode-badge" id="mode-badge">⚛️ Loading...</div>
+                <div class="weather-badge"><span>🌧️</span><span id="weather-badge-text">Loading...</span></div>
+            </div>
+        </header>
+        <main class="dashboard-content">
+            <div class="map-card">
+                <div class="card-header-bar">
+                    <h3>🗺️ Live Digital Twin — Topology Map</h3>
+                    <div class="map-legend"><span><span class="legend-dot" style="background:#cbd5e1;"></span>Normal</span><span><span class="legend-dot" style="background:var(--accent-yellow);"></span>Congested</span><span><span class="legend-dot" style="background:var(--accent-red);"></span>Blocked</span></div>
+                </div>
+                <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg">
+                    <line id="map-track-1"  x1="220" y1="220" x2="450" y2="220" class="track-line track-normal"/>
+                    <line id="map-track-3"  x1="450" y1="220" x2="680" y2="220" class="track-line track-normal"/>
+                    <line id="map-track-5"  x1="680" y1="220" x2="900" y2="220" class="track-line track-normal"/>
+                    <line id="map-track-6"  x1="450" y1="220" x2="450" y2="130" class="track-line track-normal"/>
+                    <line id="map-track-7"  x1="450" y1="130" x2="450" y2="50"  class="track-line track-normal"/>
+                    <line id="map-track-2"  x1="220" y1="220" x2="220" y2="340" class="track-line track-normal"/>
+                    <line id="map-track-10" x1="220" y1="340" x2="450" y2="340" class="track-line track-normal"/>
+                    <line id="map-track-4"  x1="220" y1="340" x2="220" y2="420" class="track-line track-normal"/>
+                    <line id="map-track-8"  x1="220" y1="420" x2="450" y2="220" class="track-line track-normal"/>
+                    <line id="map-track-9"  x1="680" y1="220" x2="680" y2="340" class="track-line track-normal"/>
+                    <g transform="translate(220,220)" id="map-station-1"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">MAS</text></g>
+                    <g transform="translate(220,340)" id="map-station-2"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">TBM</text></g>
+                    <g transform="translate(450,340)" id="map-station-3"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CGL</text></g>
+                    <g transform="translate(220,420)" id="map-station-5"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CJ</text></g>
+                    <g transform="translate(450,220)" id="map-station-4"><circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#6366f1;"/><text y="-23" class="station-label" style="fill:#6366f1;">AJJ</text></g>
+                    <g transform="translate(450,130)" id="map-station-6"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">TRT</text></g>
+                    <g transform="translate(450,50)" id="map-station-7"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-18" class="station-label">TPTY</text></g>
+                    <g transform="translate(680,220)" id="map-station-8"><circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#6366f1;"/><text y="-23" class="station-label" style="fill:#6366f1;">KPD</text></g>
+                    <g transform="translate(680,340)" id="map-station-9"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">VLR</text></g>
+                    <g transform="translate(900,220)" id="map-station-10"><circle r="16" class="station-bg" style="stroke:#6366f1;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#6366f1;"/><text y="-23" class="station-label" style="fill:#6366f1;">JTJ</text></g>
+                    <circle id="map-incident-pulse" cx="450" cy="220" r="22" fill="none" stroke="var(--accent-red)" stroke-width="2" visibility="hidden">
+                        <animate attributeName="r" values="16;34;16" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="stroke-opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>
+                <div class="incident-badge" id="map-incident-badge" style="display:none;"><span>🚨</span><strong>Active Incident:</strong>&nbsp;<span id="incident-text">Disruption</span></div>
+            </div>
+        </main>
     </div>
+    <script>
+        const EMBEDDED_STATE = {"tick": 0, "sim_time_str": "08:00", "state": "MONITORING", "active_disruptions": 0, "weather": "Clear", "network_delay": 41.6, "congestion": 2333.3, "active_interventions": [], "cycle_number": 0, "last_opt_tick": 0, "next_eligible_tick": 5, "qubits": 10, "warm_start": false, "delta_utility": 0.0, "trigger_reason": "None", "current_plan_utility": -0.0, "new_plan_utility": -0.0, "solver_name": "HYBRID_QAOA", "reoptimization_count": 0, "recovery_status": "NORMAL", "trains": [{"train_no": 12623, "name": "Chennai Mail", "train_type": "SUPERFAST", "priority": 1, "status": "WAITING", "speed": 85, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 12624, "name": "Chennai Mail Return", "train_type": "SUPERFAST", "priority": 1, "status": "WAITING", "speed": 85, "progress": 0.0, "current_track_id": null, "current_station_id": 10, "delay": 5, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Jolarpettai Junction"}, {"train_no": 12625, "name": "Kerala Express", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 90, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 16057, "name": "Sapthagiri Express", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 75, "progress": 0.0, "current_track_id": null, "current_station_id": 4, "delay": 10, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Arakkonam Junction"}, {"train_no": 12007, "name": "Shatabdi Express", "train_type": "SUPERFAST", "priority": 1, "status": "WAITING", "speed": 105, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 12616, "name": "Grand Trunk Express", "train_type": "SUPERFAST", "priority": 1, "status": "WAITING", "speed": 95, "progress": 0.0, "current_track_id": null, "current_station_id": 7, "delay": 2, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Tirupati"}, {"train_no": 22625, "name": "Double Decker Express", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 80, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 16053, "name": "Tirupati Express", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 75, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 40001, "name": "Tambaram Local", "train_type": "PASSENGER", "priority": 4, "status": "WAITING", "speed": 60, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 40003, "name": "Chengalpattu Commuter", "train_type": "PASSENGER", "priority": 4, "status": "WAITING", "speed": 55, "progress": 0.0, "current_track_id": null, "current_station_id": 2, "delay": 3, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Tambaram"}, {"train_no": 58201, "name": "Arakkonam Coal Freight", "train_type": "FREIGHT", "priority": 5, "status": "WAITING", "speed": 45, "progress": 0.0, "current_track_id": null, "current_station_id": 4, "delay": 15, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Arakkonam Junction"}, {"train_no": 58203, "name": "Katpadi Goods Freight", "train_type": "FREIGHT", "priority": 5, "status": "WAITING", "speed": 50, "progress": 0.0, "current_track_id": null, "current_station_id": 8, "delay": 8, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Katpadi Junction"}, {"train_no": 58205, "name": "Tirupati Container Freight", "train_type": "FREIGHT", "priority": 5, "status": "WAITING", "speed": 40, "progress": 0.0, "current_track_id": null, "current_station_id": 6, "delay": 12, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Tiruttani"}, {"train_no": 90001, "name": "Track Inspection Car", "train_type": "MAINTENANCE", "priority": 3, "status": "WAITING", "speed": 35, "progress": 0.0, "current_track_id": null, "current_station_id": 8, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Katpadi Junction"}, {"train_no": 12607, "name": "Lalbagh Express", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 85, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}, {"train_no": 12608, "name": "Lalbagh Return", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 85, "progress": 0.0, "current_track_id": null, "current_station_id": 10, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Jolarpettai Junction"}, {"train_no": 16058, "name": "Sapthagiri Return", "train_type": "EXPRESS", "priority": 2, "status": "WAITING", "speed": 75, "progress": 0.0, "current_track_id": null, "current_station_id": 7, "delay": 0, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Tirupati"}, {"train_no": 58207, "name": "Jolarpettai Heavy Freight", "train_type": "FREIGHT", "priority": 5, "status": "WAITING", "speed": 45, "progress": 0.0, "current_track_id": null, "current_station_id": 1, "delay": 20, "predicted_delay_15": 0.0, "predicted_delay_30": 0.0, "predicted_delay_60": 0.0, "confidence": 0.85, "top_factors": ["None"], "loc_desc": "At Chennai Central"}], "stations": [{"id": 1, "name": "Chennai Central", "code": "MAS", "x": 220, "y": 220, "platforms_occupied": 0, "platforms": 12, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 6667.0, "status": "Empty"}, {"id": 2, "name": "Tambaram", "code": "TBM", "x": 220, "y": 340, "platforms_occupied": 0, "platforms": 6, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 1667.0, "status": "Empty"}, {"id": 3, "name": "Chengalpattu", "code": "CGL", "x": 450, "y": 340, "platforms_occupied": 0, "platforms": 8, "station_type": "JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 4, "name": "Arakkonam Junction", "code": "AJJ", "x": 450, "y": 220, "platforms_occupied": 0, "platforms": 8, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 2500.0, "status": "Empty"}, {"id": 5, "name": "Kanchipuram", "code": "CJ", "x": 220, "y": 430, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 6, "name": "Tiruttani", "code": "TRT", "x": 450, "y": 130, "platforms_occupied": 0, "platforms": 4, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 2500.0, "status": "Empty"}, {"id": 7, "name": "Tirupati", "code": "TPTY", "x": 450, "y": 50, "platforms_occupied": 0, "platforms": 6, "station_type": "TERMINUS", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Empty"}, {"id": 8, "name": "Katpadi Junction", "code": "KPD", "x": 680, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Empty"}, {"id": 9, "name": "Vellore Cantonment", "code": "VLR", "x": 680, "y": 340, "platforms_occupied": 0, "platforms": 3, "station_type": "BRANCH", "is_junction": false, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 0.0, "status": "Empty"}, {"id": 10, "name": "Jolarpettai Junction", "code": "JTJ", "x": 900, "y": 220, "platforms_occupied": 0, "platforms": 6, "station_type": "MAJOR_JUNCTION", "is_junction": true, "incoming_trains": 0, "outgoing_trains": 0, "congestion": 3333.0, "status": "Empty"}], "tracks": [{"id": 1, "name": "Chennai Central - Arakkonam Trunk", "source_station_id": 1, "destination_station_id": 4, "current_trains": 0, "capacity": 5, "distance": 69, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 2, "name": "Chennai Central - Tambaram Main Line", "source_station_id": 1, "destination_station_id": 2, "current_trains": 0, "capacity": 4, "distance": 25, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 3, "name": "Arakkonam - Katpadi Main Line", "source_station_id": 4, "destination_station_id": 8, "current_trains": 0, "capacity": 4, "distance": 61, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 4, "name": "Tambaram - Kanchipuram Branch", "source_station_id": 2, "destination_station_id": 5, "current_trains": 0, "capacity": 3, "distance": 35, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 5, "name": "Katpadi - Jolarpettai Trunk Line", "source_station_id": 8, "destination_station_id": 10, "current_trains": 0, "capacity": 4, "distance": 84, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 6, "name": "Arakkonam - Tiruttani Link", "source_station_id": 4, "destination_station_id": 6, "current_trains": 0, "capacity": 3, "distance": 14, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 7, "name": "Tiruttani - Tirupati Line", "source_station_id": 6, "destination_station_id": 7, "current_trains": 0, "capacity": 3, "distance": 68, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}, {"id": 8, "name": "Kanchipuram - Arakkonam Bypass", "source_station_id": 5, "destination_station_id": 4, "current_trains": 0, "capacity": 3, "distance": 28, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 9, "name": "Katpadi - Vellore Cantonment Spur", "source_station_id": 8, "destination_station_id": 9, "current_trains": 0, "capacity": 2, "distance": 10, "occupancy_percent": 0.0, "track_type": "SINGLE_TRACK", "status": "NORMAL"}, {"id": 10, "name": "Tambaram - Chengalpattu South Line", "source_station_id": 2, "destination_station_id": 3, "current_trains": 0, "capacity": 4, "distance": 31, "occupancy_percent": 0.0, "track_type": "DOUBLE_TRACK", "status": "NORMAL"}], "events": [], "qubit_mappings": [], "quantum_result": {"execution": {"requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "fallback_reason": "None", "framework": "Qiskit", "backend": "AerSimulator", "hardware_executed": false}, "problem": {"num_variables": 10, "num_qubits": 10, "qubo_to_ising_equivalence": {"status": "PASSED", "num_variables": 10, "num_tested_bitstrings": 1024, "max_absolute_error": 8.881784197001252e-16, "mean_absolute_error": 1.7434648559924715e-16, "tolerance": 1e-08, "constant_offset": 1.3475000000000001}}, "circuit": {"qubits": 10, "qaoa_depth": 2, "circuit_depth": 23, "total_gates": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "shots": 1024}, "qaoa": {"optimizer": "COBYLA", "optimal_gamma": [], "optimal_beta": [], "expected_energy": 0.0, "best_bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475}, "benchmark": {"exact": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.001, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "greedy": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "local_search": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "simulated_annealing": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 0.0944, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "qaoa": {"status": "SUCCESS", "requested_mode": "AER", "actual_mode": "AER", "fallback_used": false, "backend": "AerSimulator", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "qubo_energy": 0.0, "ising_energy": -1.6475, "constant_offset": 1.6475, "runtime_seconds": 1.7104, "actions": [], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 100.0, "approximation_ratio": -0.0, "circuit_depth": 23, "gate_count": 166, "one_qubit_gates": 162, "two_qubit_gates": 4, "qubits": 10}, "qaoa_local_search": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.7104, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "qaoa_simulated_annealing": {"status": "SUCCESS", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.8156, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0}, "hybrid_qaoa": {"status": "EXECUTED", "backend": "AerSimulator", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "runtime_seconds": 1.7124, "actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "validation": {"valid": true, "violations": 0, "details": []}, "optimality_gap_percent": 0.0, "approximation_ratio": 1.0, "raw_qaoa_energy": 0.0, "improvement": 0.5445, "quantum_runtime_seconds": 1.7104, "classical_postprocessing_runtime_seconds": 0.002, "ablation_stages": [{"stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit"}, {"stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings"}, {"stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep"}, {"stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep"}, {"stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement"}]}}, "ablation": [{"stage": "1. Raw Qiskit QAOA", "bitstring": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "energy": 0.0, "description": "Most probable bitstring measured from Qiskit Aer QAOA circuit"}, {"stage": "2. Top-K Deduplication", "bitstring": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0], "energy": -0.1815, "description": "Best candidate among Top-8 sampled bitstrings"}, {"stage": "3. 1-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 0, 0], "energy": -0.363, "description": "Best candidate after 1-bit Hamming distance neighborhood sweep"}, {"stage": "4. 2-Bit Search", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Best candidate after 2-bit Hamming distance neighborhood sweep"}, {"stage": "5. Local SA Refinement", "bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "energy": -0.5445, "description": "Final candidate after local Simulated Annealing refinement"}], "railway": {"selected_actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "feasible": true, "predicted_delay_reduction": 0.0, "actual_delay_reduction": 0.0, "digital_twin_validated": true}, "scientific_conclusion": {"quantum_advantage_demonstrated": false, "verdict": "No Demonstrated Quantum Advantage at Tested Scale"}, "optimization_tick": 60, "selected_solver": "HYBRID_QAOA", "selected_actions": [{"action_id": 3, "action": "HOLD", "action_type": "HOLD", "train_id": "Kerala Express", "target": "Kerala Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 8, "action": "HOLD", "action_type": "HOLD", "train_id": "Tirupati Express", "target": "Tirupati Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}, {"action_id": 13, "action": "HOLD", "action_type": "HOLD", "train_id": "Lalbagh Express", "target": "Lalbagh Express", "source_station": 1, "target_station": 1, "parameters": {}, "expected_effect": {}, "constraints": {}, "expected_delay_reduction": 0.0, "expected_congestion_reduction": 0.0, "confidence": 0.9, "passenger_impact": "None", "feasible": true}], "selected_bitstring": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "reduced_variables": {"1": {"action_id": 1, "action": "HOLD", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_1", "index": 0}, "2": {"action_id": 2, "action": "HOLD", "target": "Chennai Mail Return", "feasible": true, "variable_symbol": "x_2", "index": 1}, "3": {"action_id": 3, "action": "HOLD", "target": "Kerala Express", "feasible": true, "variable_symbol": "x_3", "index": 2}, "4": {"action_id": 4, "action": "HOLD", "target": "Sapthagiri Express", "feasible": true, "variable_symbol": "x_4", "index": 3}, "5": {"action_id": 5, "action": "HOLD", "target": "Shatabdi Express", "feasible": true, "variable_symbol": "x_5", "index": 4}, "6": {"action_id": 6, "action": "HOLD", "target": "Grand Trunk Express", "feasible": true, "variable_symbol": "x_6", "index": 5}, "7": {"action_id": 7, "action": "HOLD", "target": "Double Decker Express", "feasible": true, "variable_symbol": "x_7", "index": 6}, "8": {"action_id": 8, "action": "HOLD", "target": "Tirupati Express", "feasible": true, "variable_symbol": "x_8", "index": 7}, "13": {"action_id": 13, "action": "HOLD", "target": "Lalbagh Express", "feasible": true, "variable_symbol": "x_9", "index": 8}, "17": {"action_id": 17, "action": "SPEED_ADJUST", "target": "Chennai Mail", "feasible": true, "variable_symbol": "x_10", "index": 9}}, "best_energy": -0.5445, "exact_energy": -0.5445, "warm_start_used": true, "initial_state_vector": [0, 0, 1, 0, 0, 0, 0, 1, 1, 0], "constraint_validation": {"valid": true, "violations": 0, "details": []}, "counterfactual_results": {"baseline_delay": 805.94, "optimized_delay": 749.38, "delay_reduction_percent": 7.02, "baseline_congestion": 10.42, "optimized_congestion": 12.08, "congestion_reduction_percent": -16.0}, "quantum_metrics": {"status": "SUCCESS", "backend": "AerSimulator", "qubits": 10, "circuit_depth": 23, "qaoa_reps": 2, "shots": 1024}, "winners": {"objective_winner": "EXACT", "runtime_winner": "GREEDY", "delay_reduction_winner": "EXACT", "passenger_impact_winner": "QAOA", "energy_winner": "EXACT"}, "explanations": [{"type": "SUMMARY", "text": "Optimizer HYBRID_QAOA selected 3 cooperative action(s) yielding 7.02% delay reduction and -16.0% platform/track congestion reduction."}, {"type": "ACTION_EXPLANATION", "action_id": 3, "text": "Action 1: Hold Train Kerala Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "ACTION_EXPLANATION", "action_id": 8, "text": "Action 2: Hold Train Tirupati Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "ACTION_EXPLANATION", "action_id": 13, "text": "Action 3: Hold Train Lalbagh Express at station. Intentionally delays departure to clear downstream track segment occupancy for priority trains."}, {"type": "FEASIBILITY", "text": "Constraint Validator check: PASS. All track/platform capacity constraints are satisfied."}]}, "impact": {"baseline_delay": 44.8, "optimized_delay": 41.6, "delay_reduction": 3.2, "delay_reduction_pct": 7.0, "baseline_congestion": 10.4, "optimized_congestion": 12.1, "congestion_reduction_pct": -16.0, "num_interventions": 0, "qubo_energy": -0.5445, "qaoa_raw_energy": -0.5445, "refined_energy": -0.5445, "qaoa_runtime": 1.7124, "classical_runtime": 0.0944}};
+        function updateUI(state) {
+            if (!state) return;
+            document.getElementById("sim-clock").innerText = state.sim_time_str || "--:--";
+            const disruptions = state.active_disruptions || 0;
+            const wb = document.getElementById("weather-badge-text"); if (wb) wb.innerText = disruptions > 0 ? "24°C Heavy Rain" : "28°C Clear Weather";
+            const trains = state.trains || []; const mb = document.getElementById("mode-badge");
+            if (mb) mb.textContent = `⚛️ ${state.qubits || "?"} Qubits | ${trains.length} Trains | ${(state.stations||[]).length} Stations`;
+
+            // Update tracks colors
+            (state.tracks||[]).forEach(track => {
+                const line = document.getElementById("map-track-"+track.id);
+                if (line) {
+                    if (track.status === "CONGESTED" || track.occupancy_percent >= 80) {
+                        line.setAttribute("class", "track-line track-congested");
+                    } else if (track.status === "BLOCKED") {
+                        line.setAttribute("class", "track-line track-blocked");
+                    } else {
+                        line.setAttribute("class", "track-line track-normal");
+                    }
+                }
+            });
+
+            // Update station cores colors
+            (state.stations||[]).forEach(st => {
+                const grp = document.getElementById("map-station-" + st.id);
+                if (grp) {
+                    const core = grp.querySelector(".station-core");
+                    if (core) {
+                        if (st.congestion >= 75) {
+                            core.style.fill = "var(--accent-red)";
+                        } else if (st.congestion >= 45) {
+                            core.style.fill = "var(--accent-yellow)";
+                        } else {
+                            core.style.fill = "var(--accent-green)";
+                        }
+                    }
+                }
+            });
+
+            const stationCoords = {
+                1: {x: 220, y: 220},
+                2: {x: 220, y: 340},
+                3: {x: 450, y: 340},
+                4: {x: 450, y: 220},
+                5: {x: 220, y: 420},
+                6: {x: 450, y: 130},
+                7: {x: 450, y: 50},
+                8: {x: 680, y: 220},
+                9: {x: 680, y: 340},
+                10: {x: 900, y: 220}
+            };
+            const trackStations = {
+                1: {src: 1, dest: 4},
+                2: {src: 1, dest: 2},
+                3: {src: 4, dest: 8},
+                4: {src: 2, dest: 5},
+                5: {src: 8, dest: 10},
+                6: {src: 4, dest: 6},
+                7: {src: 6, dest: 7},
+                8: {src: 5, dest: 4},
+                9: {src: 8, dest: 9},
+                10: {src: 2, dest: 3}
+            };
+
+            // Draw dynamic train markers
+            const svg = document.getElementById("topology-svg");
+            if (svg) {
+                const oldMarkers = svg.querySelectorAll(".dynamic-train-marker");
+                oldMarkers.forEach(m => m.remove());
+                trains.forEach(t => {
+                    let tx = 0, ty = 0;
+                    if (t.progress === 0 || !t.current_track_id) {
+                        const st = stationCoords[t.current_station_id];
+                        if (st) { tx = st.x; ty = st.y; }
+                    } else {
+                        const tr = trackStations[t.current_track_id];
+                        if (tr) {
+                            const srcSt = stationCoords[tr.src];
+                            const destSt = stationCoords[tr.dest];
+                            if (srcSt && destSt) {
+                                const p = t.progress / 100;
+                                tx = srcSt.x + (destSt.x - srcSt.x) * p;
+                                ty = srcSt.y + (destSt.y - srcSt.y) * p;
+                            }
+                        }
+                    }
+                    if (tx > 0 && ty > 0) {
+                        const offsetIdx = t.train_no % 3;
+                        const dy = (offsetIdx - 1) * 11;
+                        const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                        group.setAttribute("class", "dynamic-train-marker");
+                        group.setAttribute("cursor", "pointer");
+                        const circ = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                        circ.setAttribute("cx", tx);
+                        circ.setAttribute("cy", ty + dy);
+                        circ.setAttribute("r", "5.5");
+                        circ.setAttribute("fill", "var(--accent-purple)");
+                        circ.setAttribute("stroke", "white");
+                        circ.setAttribute("stroke-width", "1.5");
+                        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        text.setAttribute("x", tx);
+                        text.setAttribute("y", ty + dy - 8);
+                        text.setAttribute("text-anchor", "middle");
+                        text.setAttribute("fill", "var(--text-primary)");
+                        text.setAttribute("font-size", "7.5px");
+                        text.setAttribute("font-weight", "bold");
+                        text.setAttribute("style", "paint-order: stroke; stroke: white; stroke-width: 2.5px; stroke-linejoin: round;");
+                        text.textContent = `T${t.train_no}`;
+                        group.appendChild(circ);
+                        group.appendChild(text);
+                        svg.appendChild(group);
+                    }
+                });
+            }
+
+            const pulse = document.getElementById("map-incident-pulse"); const incBadge = document.getElementById("map-incident-badge");
+            if (pulse) pulse.setAttribute("visibility", disruptions > 0 ? "visible" : "hidden");
+            if (incBadge) {
+                incBadge.style.display = disruptions > 0 ? "flex" : "none";
+                const events = state.events || [];
+                const incText = document.getElementById("incident-text");
+                if (incText && events.length > 0) incText.innerText = events[0].name || "Disruption";
+            }
+        }
+        updateUI(EMBEDDED_STATE);
+    </script>
 </body>
+</html>
