@@ -16,6 +16,8 @@ from ai.quantum_optimization.classical_baselines import ClassicalBaselines
 
 class ControlOrchestrator:
     def __init__(self):
+        import uuid
+        self.run_id = str(uuid.uuid4())
         self.controller = AdaptiveController()
         self.intv_manager = InterventionManager()
         self.feedback_eng = FeedbackEngine()

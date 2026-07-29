@@ -965,16 +965,7 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
 </html>
 """
 
-    import time
-    for attempt in range(5):
-        try:
-            with open(dashboard_path, "w", encoding="utf-8") as f:
-                f.write(html_content)
-            break
-        except OSError as e:
-            if attempt == 4:
-                raise e
-            time.sleep(0.2)
+    FrontendGenerator._safe_write(dashboard_path, html_content)
 
 
 def main():

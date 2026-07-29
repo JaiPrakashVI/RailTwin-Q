@@ -209,8 +209,10 @@ We have successfully overhauled the Operations Control Center command dashboard 
 3. **Tab & Scroll Caching (State Persistence)**:
    - Implemented `localStorage` browser caching to persist active tab selections. Dragging playback sliders or updating the page does not reset the viewport, preventing the layout from reverting to the landing page.
    - Added automatic scroll position caching on `.main-wrapper` to keep the scroll position aligned on reloads.
-4. **File Lock Safety (Atomic Writes)**:
-   - Replaced direct file write operations with atomic temporary file renaming and a direct write fallback. This prevents lock conflicts on Windows and guarantees that local live servers never see truncated pages or go black.
+4. **File Lock Safety (Retry-Only Atomic Writes)**:
+   - Optimized `FrontendGenerator._safe_write` in [frontend_generator.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/services/frontend_generator.py) to perform atomic swaps via `os.replace` using a retry loop (up to 10 attempts with a 100ms sleep) rather than falling back to risky in-place direct truncation writes.
+   - Applied this same safe-writing routine to `datasets/dashboard.html` generated in [main.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/main.py).
+   - This prevents file truncation to 0 bytes when locked by web servers (e.g. VS Code Live Server) or the browser, eliminating the blank white page issue and ensuring auto-reload scripts are never lost.
 
 ---
 
