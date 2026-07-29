@@ -139,7 +139,7 @@ Actuate Decisions ← Decision Quality Gate ← Warm-Started Optimization (QUBO)
 
 ---
 
-## Layer 6: Receding-Horizon Adaptive Control
+## Layer 6: Receding-Horizon Adaptive  Control
 
 Layer 6 is implemented as an MPC-inspired receding-horizon adaptive control dispatcher demonstrating autonomous closed-loop control in a simulated Digital Twin environment:
 - **State Monitor & Event Detector**: Evaluates active train status, average delays, platform utilization, and triggers alerts upon detecting disruptions (e.g. Weather Change, Signal Failure).
