@@ -1,37 +1,48 @@
 # RailTwin-Q
 
-> A Hybrid Quantum-AI Digital Twin for Intelligent Railway Traffic Optimization
+> **A Hybrid Quantum-AI Digital Twin for Intelligent Railway Traffic Optimization**
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![HTML5/CSS3](https://img.shields.io/badge/HTML5/CSS3-Presentation-orange)
 ![Qiskit](https://img.shields.io/badge/Qiskit-Quantum-6929C4)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-RailTwin-Q is a hybrid Quantum-AI platform that combines Digital Twin technology, Artificial Intelligence, and Quantum Optimization to improve railway traffic management. The system predicts delays, identifies congestion, optimizes train scheduling, and assists railway operators through intelligent decision support.
+RailTwin-Q is a **Hybrid Quantum-AI Digital Twin** platform designed to support intelligent railway traffic management. It integrates **Digital Twin technology, Artificial Intelligence, Machine Learning, Graph Analytics, and Hybrid Quantum Optimization** to predict delays, forecast congestion, optimize train dispatching, and provide explainable decision support for railway operators.
 
 ---
 
-## Overview
+# Overview
 
-RailTwin-Q provides a virtual representation of railway operations that continuously analyzes network conditions, predicts disruptions, and recommends optimized routing strategies. The platform combines machine learning models with hybrid quantum optimization techniques to address complex scheduling and routing challenges.
+RailTwin-Q maintains a real-time digital representation of a railway network, continuously monitoring operational conditions and simulating future system states.
 
----
+The platform:
 
-## Features
+- Predicts train delays using AI.
+- Forecasts network congestion.
+- Generates candidate dispatch actions.
+- Optimizes scheduling using Hybrid Quantum Optimization (QUBO + QAOA).
+- Continuously re-optimizes through a closed-loop adaptive controller.
+- Provides an interactive operations dashboard for railway controllers.
 
-- Railway Digital Twin
-- Train Delay Prediction
-- Congestion Forecasting
-- Receding-Horizon MPC Adaptive Control
-- Hybrid Quantum Optimization (QAOA/QUBO)
-- Intelligent Signal Recommendation
-- Interactive Operations Dashboard
-- Railway Network Simulation
-- Performance Analytics
+The project demonstrates how **Digital Twins, AI, and Quantum Computing** can be integrated into an intelligent railway traffic management system.
 
 ---
 
-## Architecture
+# Key Features
+
+- 🚆 Railway Digital Twin Simulation
+- 🤖 AI-Based Train Delay Prediction
+- 📈 Hierarchical Congestion Forecasting
+- ⚛️ Hybrid Quantum Optimization (QUBO + QAOA)
+- 🔄 Receding-Horizon Adaptive Control
+- 🚦 Intelligent Dispatch Recommendation Engine
+- 🗺️ Railway Network Simulation
+- 📊 Interactive Operations Dashboard
+- 📉 Benchmark & Performance Analytics
+
+---
+
+# System Architecture
 
 ```text
                   Railway Operational Data
@@ -49,109 +60,347 @@ Delay Prediction   Congestion Prediction   Decision Space
         │                   │                   │
         └───────────────────┼───────────────────┘
                             ▼
-            Hybrid Quantum Optimization Engine
-                  (QAOA / QUBO Scheduler)
+           Hybrid Quantum Optimization Engine
+                 (QUBO + Hybrid QAOA)
                             │
                             ▼
-              Decision Recommendation Engine
+             Decision Recommendation Engine
                             │
                             ▼
-                 Operations Dashboard
+                Operations Dashboard
 ```
 
 ---
 
-## Technology Stack
+# Technology Stack
 
 | Category | Technologies |
 |----------|--------------|
-| Core Simulation | Python 3.10 |
-| AI Forecasting | XGBoost, NetworkX, Scikit-learn, Pandas, NumPy |
-| Quantum Engine | Qiskit, QAOA Simulation, COBYLA Optimization |
-| Closed-Loop Control | Receding-Horizon Control State Machine |
-| Presentation | Static HTML5 / CSS3 / Vanilla JS Web Dashboards |
+| Programming Language | Python 3.12 |
+| Machine Learning | XGBoost, Scikit-learn |
+| Graph Analytics | NetworkX |
+| Data Processing | Pandas, NumPy |
+| Quantum Computing | Qiskit, QAOA, COBYLA |
+| Digital Twin | Custom Railway Simulation Engine |
+| Control System | Receding-Horizon Adaptive Control |
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```text
 RailTwin-Q/
 │
 ├── ai/
-│   ├── delay_prediction/             # Layer 2: XGBoost delay models
-│   ├── delay_propagation/            # Layer 3: NetworkX critical path & propagation graphs
-│   ├── decision_space/               # Layer 4: Candidate action search spaces
-│   ├── quantum_optimization/         # Layer 5: QUBO formulations & QAOA solvers
-│   └── adaptive_control/             # Layer 6: Receding-horizon adaptive control loop
+│   ├── delay_prediction/          # Layer 2: AI delay prediction
+│   ├── delay_propagation/         # Layer 3: Delay propagation & graph analysis
+│   ├── decision_space/            # Layer 4: Candidate dispatch generation
+│   ├── quantum_optimization/      # Layer 5: QUBO & QAOA optimization
+│   └── adaptive_control/          # Layer 6: Receding-horizon adaptive controller
 │
-├── data/                             # Railway topology configuration and station layout parameters
-├── datasets/                         # State snapshots, database files, and dashboard state logs
-├── reports/                          # Generated HTML benchmark and timeline control reports
-├── tests/                            # Automated closed-loop acceptance tests
-├── requirements.txt                  # Python dependencies
-├── main.py                           # Simulation execution orchestrator
-└── README.md                         # Project documentation
+├── data/                          # Railway topology & infrastructure
+├── datasets/                      # Generated datasets & simulation snapshots
+├── reports/                       # Benchmark & experiment reports
+├── tests/                         # Automated validation tests
+├── requirements.txt
+├── main.py                        # Simulation entry point
+└── README.md
 ```
 
 ---
 
-## Workflow
+# Workflow
 
-1. Model railway network topology and timetable parameters.
-2. Initialize the Digital Twin simulation state.
-3. Formulate XGBoost delay projections and NetworkX propagation paths.
-4. Dynamically compile candidate scheduling intervention actions.
-5. Solve multi-objective QUBO matrices using classical baselines and simulated QAOA.
-6. Actuate validated plans and evaluate real-time feedback loops.
-
----
-
-## Project  Roadmap
-
-- [x] Layer 1: Digital Twin Simulator
-- [x] Layer 2: AI Delay Prediction
-- [x] Layer 3: AI Congestion Forecasting
-- [x] Layer 4: Decision Intelligence Engine
-- [x] Layer 5: Hybrid Quantum Optimization Engine
-- [x] Layer 6: Receding-Horizon Adaptive Control (Validated in simulated environment)
-- [ ] Real-world actuator hardware integration (Future Research Goal)
-- [ ] Real-time physical system data streaming (Future Research Goal)
+1. Load the railway network topology and timetable.
+2. Initialize the Digital Twin simulation.
+3. Predict train delays using AI.
+4. Forecast congestion using graph analytics.
+5. Generate candidate dispatch actions.
+6. Convert the optimization problem into a QUBO formulation.
+7. Solve the QUBO using Hybrid QAOA and classical baselines.
+8. Select the optimal dispatch strategy.
+9. Apply the decision to the Digital Twin.
+10. Monitor outcomes and continuously repeat the optimization cycle.
 
 ---
 
-## Architecture Layers
+# Development Roadmap
 
-RailTwin-Q operates as a hierarchical, closed-loop 6-layer system:
-* **Layer 1**: Digital Twin Simulator
-* **Layer 2**: Predict Delay (AI Prediction)
-* **Layer 3**: Predict Congestion (Hierarchical Forecasts)
-* **Layer 4**: Decision Intelligence Engine (Candidate Action Generation)
-* **Layer 5**: Hybrid Quantum Optimization Engine (QUBO/QAOA Scheduler)
-* **Layer 6**: **Receding-Horizon Adaptive Control & Autonomous Simulation Re-Optimization**
+- ✅ Layer 1 — Railway Digital Twin
+- ✅ Layer 2 — AI Delay Prediction
+- ✅ Layer 3 — Hierarchical Congestion Prediction
+- ✅ Layer 4 — Decision Intelligence Engine
+- ✅ Layer 5 — Hybrid Quantum Optimization
+- ✅ Layer 6 — Receding-Horizon Adaptive Control (Simulation Validated)
+- ⬜ Physical Railway Hardware Integration
+- ⬜ Real-Time Railway Data Streaming
+
+---
+
+# Six-Layer Architecture
+
+RailTwin-Q follows a hierarchical closed-loop architecture consisting of six computational layers.
+
+| Layer | Description |
+|--------|-------------|
+| **Layer 1** | Railway Digital Twin |
+| **Layer 2** | AI Delay Prediction |
+| **Layer 3** | Hierarchical Congestion Prediction |
+| **Layer 4** | Decision Intelligence Engine (Candidate Dispatch Generation) |
+| **Layer 5** | Hybrid Quantum Optimization (QUBO + QAOA) |
+| **Layer 6** | Receding-Horizon Adaptive Control & Continuous Re-Optimization |
+
+---
+
+## Overall Pipeline
 
 ```text
-Digital Twin State → Delay & Congestion Predictions → Decision Space Generation
-       ▲                                                           │
-       │                                                           ▼
-Actuate Decisions ← Decision Quality Gate ← Warm-Started Optimization (QUBO)
+Railway Network
+       │
+       ▼
+Digital Twin
+       │
+       ▼
+Delay Prediction
+       │
+       ▼
+Congestion Prediction
+       │
+       ▼
+Candidate Dispatch Actions
+       │
+       ▼
+QUBO Formulation
+       │
+       ▼
+Hybrid QAOA Optimization
+       │
+       ▼
+Optimal Dispatch Plan
+       │
+       ▼
+Adaptive Controller
+       │
+       ▼
+Digital Twin Feedback
+       │
+       └──────────────► Repeat
 ```
 
 ---
 
-## Layer 6: Receding-Horizon Adaptive  Control
+# Layer 6: Receding-Horizon Adaptive Control
 
-Layer 6 is implemented as an MPC-inspired receding-horizon adaptive control dispatcher demonstrating autonomous closed-loop control in a simulated Digital Twin environment:
-- **State Monitor & Event Detector**: Evaluates active train status, average delays, platform utilization, and triggers alerts upon detecting disruptions (e.g. Weather Change, Signal Failure).
-- **Trigger Engine**: Manages re-optimization cooldown boundaries (minimum 5 ticks) and maps severity-aware triggers (`LOW`, `MEDIUM`, `HIGH`, `CRITICAL`), where high-severity alerts bypass cooldowns immediately.
-- **Intervention Lifecycle Manager**: Enforces action statuses (`PROPOSED`, `VALIDATED`, `APPLIED`, `ACTIVE`, `FAILED`, `COMPLETED`, `EXPIRED`, `REVOKED`) to prevent duplicate actuator commands.
-- **Warm-Start & Stability Manager**: Biases QAOA and SA solvers towards the previous optimal solution vector and applies switching cost penalties ($C_{\text{switch}} = P_{\text{switch}} \times |x_i - x_i^{\text{prev}}|$) to suppress optimization oscillations.
-- **Decision Quality Gate**: Compares plan utility improvements against switching costs to only switch schedules when $\Delta \text{Utility} > \epsilon \approx 0.05$.
-- **Outcome Feedback & Calibration Engine**: Tracks actual delay reduction errors and passes outcomes to closed-loop statistics.
+Layer 6 implements an MPC-inspired receding-horizon adaptive controller that continuously monitors railway conditions and autonomously re-optimizes operations within the Digital Twin.
 
 ---
 
-## Research Focus & Verdict
-RailTwin-Q investigates the integration of Digital Twin technology, Artificial Intelligence, and Hybrid Quantum Optimization to solve large-scale railway scheduling.
-* **Quantum Verdict**: `Quantum Potential / No Demonstrated Quantum Advantage`. The architecture converts real railway intervention decisions into constrained binary variables (QUBO) solved by classical methods, Ideal QAOA, and Hybrid QAOA. While Hybrid QAOA recovers the exact classical optimum under noise, classical baselines yield lower execution runtimes at tested dimensions ($N \le 100$). RailTwin-Q demonstrates that Hybrid QAOA provides reliable optimum recovery and robustness against QAOA local minima, while quantum advantage was not observed at the tested problem sizes. Autonomous closed-loop control is demonstrated in a simulated Digital Twin environment; real-world deployment requires physical hardware actuator validation.
+## 1. State Monitoring & Event Detection
 
+The controller continuously monitors:
+
+- Train positions
+- Current delays
+- Platform occupancy
+- Track utilization
+- Signal failures
+- Weather events
+- Infrastructure disruptions
+
+Whenever an abnormal condition is detected, the optimization engine is triggered.
+
+---
+
+## 2. Trigger Engine
+
+The controller categorizes disruptions into four severity levels:
+
+- LOW
+- MEDIUM
+- HIGH
+- CRITICAL
+
+To prevent unnecessary optimization, a cooldown mechanism is applied.
+
+Critical disruptions bypass the cooldown and trigger immediate optimization.
+
+---
+
+## 3. Intervention Lifecycle
+
+Every dispatch recommendation follows a complete lifecycle.
+
+```text
+PROPOSED
+    │
+    ▼
+VALIDATED
+    │
+    ▼
+APPLIED
+    │
+    ▼
+ACTIVE
+    │
+    ▼
+COMPLETED
+```
+
+Additional terminal states include:
+
+- FAILED
+- EXPIRED
+- REVOKED
+
+This prevents duplicate or conflicting dispatch actions.
+
+---
+
+## 4. Warm-Start Optimization
+
+Instead of restarting optimization from a random state, RailTwin-Q initializes the solver using the previous optimal solution.
+
+Benefits include:
+
+- Faster convergence
+- Reduced optimization oscillation
+- Greater schedule stability
+
+A switching-cost penalty discourages unnecessary schedule changes.
+
+\[
+C_{switch}=P_{switch}\times|x_i-x_i^{previous}|
+\]
+
+---
+
+## 5. Decision Quality Gate
+
+A new dispatch strategy is accepted only if it provides a meaningful operational improvement.
+
+\[
+\Delta Utility>\epsilon
+\]
+
+where
+
+\[
+\epsilon \approx 0.05
+\]
+
+This prevents unnecessary switching between similar schedules.
+
+---
+
+## 6. Closed-Loop Feedback
+
+After applying the optimized dispatch plan, RailTwin-Q evaluates:
+
+- Delay reduction
+- Congestion reduction
+- Prediction accuracy
+- Optimization quality
+- Dispatch effectiveness
+
+These metrics update the Digital Twin for the next optimization cycle.
+
+---
+
+# Candidate Dispatch Actions
+
+When congestion or delays are detected, the Decision Intelligence Engine generates a set of candidate dispatch actions, including:
+
+- Hold Train
+- Platform Swap
+- Speed Adjustment
+- Route Diversion
+- Schedule Maintenance (Fallback)
+
+Each action is evaluated based on:
+
+- Expected delay reduction
+- Congestion impact
+- Passenger impact
+- Operational risk
+
+These actions become binary decision variables in the QUBO optimization problem.
+
+---
+
+# Hybrid Quantum Optimization
+
+The optimization engine transforms candidate dispatch actions into a **Quadratic Unconstrained Binary Optimization (QUBO)** problem.
+
+Each action corresponds to a binary decision variable:
+
+```text
+x₁ = Hold Train A
+x₂ = Speed Adjustment
+x₃ = Platform Swap
+...
+```
+
+The QUBO objective is optimized using:
+
+- Hybrid QAOA
+- Classical Optimization
+- Simulated Annealing
+- Greedy Search
+- Local Search
+
+The selected dispatch plan is then returned to the adaptive controller.
+
+---
+
+# Research Focus
+
+RailTwin-Q investigates the integration of:
+
+- Digital Twin Technology
+- Artificial Intelligence
+- Graph Analytics
+- Hybrid Quantum Optimization
+
+for intelligent railway scheduling and traffic optimization.
+
+The project demonstrates a complete pipeline from prediction through optimization to autonomous closed-loop control.
+
+---
+
+# Quantum Evaluation
+
+## Research Verdict
+
+**Quantum Potential — No Demonstrated Quantum Advantage (Current Scale)**
+
+RailTwin-Q converts railway dispatch decisions into constrained binary optimization problems using **QUBO**, solved by:
+
+- Classical Optimization
+- Simulated Annealing
+- Ideal QAOA
+- Hybrid QAOA
+
+Experimental evaluation shows:
+
+- Hybrid QAOA consistently recovers the same optimal solution as classical methods.
+- Classical solvers execute significantly faster for the evaluated problem sizes (N ≤ 100).
+- No measurable quantum advantage was observed at the tested scale.
+- The architecture provides a scalable foundation for evaluating future fault-tolerant quantum hardware.
+
+---
+
+# Future Work
+
+- Real-time railway sensor integration
+- IoT-enabled Digital Twin synchronization
+- Hardware execution on IBM Quantum devices
+- Larger-scale railway optimization
+- Multi-objective passenger-centric scheduling
+- Reinforcement Learning-assisted dispatch optimization
+
+---
+
+# License
+
+This project is released under the **MIT License**.
