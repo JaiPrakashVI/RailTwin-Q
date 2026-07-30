@@ -30,15 +30,15 @@ The project demonstrates how **Digital Twins, AI, and Quantum Computing** can be
 
 # Key Features
 
-- 🚆 Railway Digital Twin Simulation
-- 🤖 AI-Based Train Delay Prediction
-- 📈 Hierarchical Congestion Forecasting
-- ⚛️ Hybrid Quantum Optimization (QUBO + QAOA)
-- 🔄 Receding-Horizon Adaptive Control
-- 🚦 Intelligent Dispatch Recommendation Engine
-- 🗺️ Railway Network Simulation
-- 📊 Interactive Operations Dashboard
-- 📉 Benchmark & Performance Analytics
+- Railway Digital Twin Simulation
+- AI-Based Train Delay Prediction
+- Hierarchical Congestion Forecasting
+- Hybrid Quantum Optimization (QUBO + QAOA)
+- Receding-Horizon Adaptive Control
+- Intelligent Dispatch Recommendation Engine
+- Railway Network Simulation
+- Interactive Operations Dashboard
+- Benchmark & Performance Analytics
 
 ---
 
