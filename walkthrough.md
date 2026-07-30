@@ -213,7 +213,14 @@ We have successfully overhauled the Operations Control Center command dashboard 
    - Optimized `FrontendGenerator._safe_write` in [frontend_generator.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/services/frontend_generator.py) to perform atomic swaps via `os.replace` using a retry loop (up to 10 attempts with a 100ms sleep) rather than falling back to risky in-place direct truncation writes.
    - Applied this same safe-writing routine to `datasets/dashboard.html` generated in [main.py](file:///c:/Users/idhay/Desktop/RailTwin-Q/main.py).
    - This prevents file truncation to 0 bytes when locked by web servers (e.g. VS Code Live Server) or the browser, eliminating the blank white page issue and ensuring auto-reload scripts are never lost.
+5. **Session-Unique Run Isolation for Final Popup**:
+   - Integrated a unique simulation `run_id` (UUID) into the dashboard state payload.
+   - Keyed browser `sessionStorage` dismissals on `demo_popup_dismissed_` + the unique `state.run_id` instead of a static indicator.
+   - This ensures the completion popup displays automatically on fresh runs, even when executed in the same browser tab without clearing cache/session.
+6. **Real-time Live Polling Loop**:
+   - Embedded a background polling script (`pollLiveState`) inside [operations.html](file:///c:/Users/idhay/Desktop/RailTwin-Q/frontend/operations.html) that queries the backend state dynamically every 1.5 seconds.
+   - Replicated state writes to both `datasets/live_state.json` and `frontend/datasets/live_state.json` to support clean relative paths under varying local server roots (e.g. project root vs `frontend` subfolder).
+   - The polling script dynamically grows the `SIMULATION_HISTORY` array and auto-advances the timeline slider as new simulation ticks complete, triggering the completion modal modal-popup automatically in real-time.
+   - Configured robust CORS try-catch blocks to fallback gracefully and avoid crashing when run locally via raw filesystem `file://` protocols.
 
 ---
-
-

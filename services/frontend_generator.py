@@ -307,10 +307,10 @@ class FrontendGenerator:
         state = cls.generate_live_state(
             network, tick, sim_time_str, active_events, preds_delay, preds_congestion, preds_propagation, control_orchestrator
         )
-
         state_json = json.dumps(state)
-
         cls._safe_write("datasets/live_state.json", state_json)
+        os.makedirs("frontend/datasets", exist_ok=True)
+        cls._safe_write("frontend/datasets/live_state.json", state_json)
 
 
         timeline_list = cls.get_timeline_records()
@@ -599,6 +599,7 @@ class FrontendGenerator:
                 <a class="nav-item" id="nav-optimization" onclick="switchMainTab(event, 'tab-optimization')"><i data-lucide="atom"></i> 5. Quantum Optimization Center</a>
                 <a class="nav-item" id="nav-control" onclick="switchMainTab(event, 'tab-control')"><i data-lucide="sliders"></i> 6. Closed-Loop Control</a>
                 <a class="nav-item" id="nav-benchmark" onclick="switchMainTab(event, 'tab-benchmark')"><i data-lucide="trophy"></i> 7. Experiment / Benchmark Lab</a>
+                <a class="nav-item" id="nav-formulae" onclick="switchMainTab(event, 'tab-formulae')"><i data-lucide="calculator"></i> 8. Mathematical Formulation</a>
             </nav>
         </div>
         <div class="sidebar-bottom">
@@ -623,7 +624,7 @@ class FrontendGenerator:
             <!-- Left Info -->
             <div style="display: flex; flex-direction: column;">
                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                    <span>🚆</span> RailTwin-Q
+                    <span>Train</span> RailTwin-Q
                 </div>
                 <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                     Hybrid Quantum-AI Railway Decision Intelligence
@@ -647,16 +648,12 @@ class FrontendGenerator:
                 <div style="display: flex; align-items: center; gap: 5px; background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); padding: 4px 10px; border-radius: 20px; color: var(--accent-purple);">
                     QAOA <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-purple); display: inline-block;"></span> READY
                 </div>
-                <div id="topbar-network-status" style="display: flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; font-weight:700;">
-                    NETWORK <span class="status-indicator-dot" style="width: 5px; height: 5px; border-radius: 50%;"></span> READY
-                </div>
             </div>
         </header>
 
         <!-- SUB HEADER WARNING INDICATOR -->
         <div style="background:rgba(99,102,241,0.04);border-bottom:1px solid var(--border-color);padding:8px 22px;font-size:0.74rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
             <div><span>Methodology: </span><b style="color:var(--text-primary);">QAOA probabilistic sampling + classical local refinement</b></div>
-            <div style="color:var(--accent-yellow);font-weight:600;display:flex;align-items:center;gap:6px;"><i data-lucide="alert-triangle" style="width:14px;height:14px;"></i> Quantum-assisted search diversity advantage verified. Absolute simulation runtime speedup requires physical hardware.</div>
         </div>
 
         <main class="dashboard-content">
@@ -667,7 +664,7 @@ class FrontendGenerator:
                 <!-- Mockup Row 1: Header -->
                 <div style="display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--border-color); padding: 14px 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: var(--shadow-sm);">
                     <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span>🚆</span> RailTwin-Q
+                        <span>Train</span> RailTwin-Q
                     </div>
                     <div style="display: flex; align-items: center; gap: 15px;">
                         <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-green); display: flex; align-items: center; gap: 6px; text-transform: uppercase;">
@@ -1242,14 +1239,6 @@ x4   0.00  0.00  0.00 -0.12</pre>
                         </div>
                     </div>
                 </div>
-
-                <!-- Decision Gate log table at the bottom -->
-                <div class="sub-card">
-                    <h4 style="color:var(--text-primary);"><i data-lucide="file-text"></i> Decision quality gate log (MPC recede loop)</h4>
-                    <div id="results-gate-log-view" style="max-height:160px; overflow-y:auto; font-size:0.72rem; margin-top:6px; display:flex; flex-direction:column; gap:5px;">
-                        <!-- gate logs -->
-                    </div>
-                </div>
             </div>
 
             <!-- ============================================ -->
@@ -1449,6 +1438,170 @@ x4   0.00  0.00  0.00 -0.12</pre>
                     </div>
                 </div>
             </div>
+
+
+            <!-- ============================================ -->
+            <!-- TAB 8: MATHEMATICAL FORMULATION / FORMULAE -->
+            <!-- ============================================ -->
+            <div id="tab-formulae" class="main-tab-content">
+                <div class="sub-card" style="margin-bottom:16px;">
+                    <h4 style="color:var(--text-primary); margin-bottom:12px;"><i data-lucide="calculator"></i> MATHEMATICAL FORMULATION &amp; CORE FORMULAE</h4>
+                    <p style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:20px; line-height:1.5;">
+                        This center documents the complete mathematical foundations governing the physical simulation, AI predictions, multi-objective optimization (QUBO), Ising mapping, and closed-loop control quality gates.
+                    </p>
+                    
+                    <div style="display:flex; flex-direction:column; gap:20px;">
+                        
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="train"></i> 1. Train Movement &amp; Delay (Digital Twin)</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Simulates train movement every simulation tick by updating train speed based on congestion and calculating accumulated delay.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                F_congestion = max(0.5, 1.0 − 0.15 × (N_trains − 1))<br>
+                                V_current = V_current × F_congestion<br>
+                                D_t = D_(t−1) + (V_base − V_current) / V_base
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">F<sub>congestion</sub></strong> <span>– Congestion speed reduction factor.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">N<sub>trains</sub></strong> <span>– Number of trains on a track segment.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">V<sub>current</sub></strong> <span>– Current train speed.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">V<sub>base</sub></strong> <span>– Scheduled (baseline) train speed.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">V<sub>leading</sub></strong> <span>– Speed of the train ahead.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">D<sub>t</sub></strong> <span>– Delay at the current time step.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">D<sub>t−1</sub></strong> <span>– Delay at the previous time step.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">ΔP</strong> <span>– Progress increment along the track.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">d<sub>track</sub></strong> <span>– Length of the current track segment.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">v</strong> <span>– Train speed (km/h).</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">t<sub>hour</sub>, t<sub>min</sub></strong> <span>– Current hour and minute.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">I<sub>rain</sub></strong> <span>– Rain intensity (0 = no rain, 1 = heavy rain).</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">S<sub>complexity</sub></strong> <span>– Route complexity score.</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="brain"></i> 2. AI Delay Prediction</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Predicts future train delays and estimates the confidence interval of the prediction.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                95% Prediction Interval = [ μ − 1.96σ , μ + 1.96σ ]
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">μ</strong> <span>– Mean predicted delay.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">σ</strong> <span>– Standard deviation of ensemble predictions.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">C</strong> <span>– AI prediction confidence score.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">P<sub>propagation</sub></strong> <span>– Delay propagation pressure at a station.</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="atom"></i> 3. Multi-Objective Optimization (QUBO)</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Converts multiple railway objectives into a single optimization cost function.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                Minimize<br>
+                                O(x) = Σ c_i x_i<br>
+                                c_i = Σ (w_k × normalized_metric_(k,i) × direction_k)
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">O(x)</strong> <span>– Overall optimization objective.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">x<sub>i</sub></strong> <span>– Binary decision variable (0 = not selected, 1 = selected).</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">c<sub>i</sub></strong> <span>– Cost of decision i.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">w<sub>k</sub></strong> <span>– Weight assigned to objective k.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">Q</strong> <span>– QUBO cost matrix.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">P<sub>strength</sub></strong> <span>– Constraint penalty strength.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">p<sub>switch</sub></strong> <span>– Stability penalty for changing decisions.</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="git-merge"></i> 4. QUBO to Ising Mapping</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Transforms the classical QUBO optimization problem into an Ising Hamiltonian suitable for quantum computation.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                x_i = (I − Z_i) / 2<br>
+                                H_Ising = Σ h_i Z_i + Σ J_ij Z_i Z_j + C_offset
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">H<sub>Ising</sub></strong> <span>– Ising Hamiltonian equivalent of the QUBO.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">x<sub>i</sub></strong> <span>– Binary decision variable (0 = not selected, 1 = selected).</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">Z<sub>i</sub></strong> <span>– Pauli-Z operator acting on qubit i.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">h<sub>i</sub></strong> <span>– Single-qubit (Z) coefficient.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">J<sub>ij</sub></strong> <span>– Two-qubit interaction (ZZ) coefficient.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">C<sub>offset</sub></strong> <span>– Constant energy offset.</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="zap"></i> 5. QAOA Quantum Optimization</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Applies alternating Cost and Mixer operators to search for the optimal railway dispatch solution.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                |ψ(γ,β)⟩ = [ ∏ U_M(β_k) U_C(γ_k) ] |ψ₀⟩
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">|ψ<sub>0</sub>⟩</strong> <span>– Warm-start initial quantum state.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">|ψ(γ,β)⟩</strong> <span>– QAOA quantum state after optimization layers.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">γ</strong> <span>– Cost Hamiltonian parameter.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">β</strong> <span>– Mixer Hamiltonian parameter.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">p</strong> <span>– Number of QAOA layers.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">U<sub>C</sub></strong> <span>– Cost unitary.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">U<sub>M</sub></strong> <span>– Mixer unitary.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">E(γ,β)</strong> <span>– Expected energy (objective value) of the quantum state.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">M</strong> <span>– Number of measurement shots.</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid var(--border-color); padding:16px; border-radius:12px;">
+                            <h5 style="color:var(--accent-blue); font-size:0.85rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:6px;"><i data-lucide="sliders"></i> 6. Decision Quality Gate</h5>
+                            <p style="font-size:0.75rem; color:var(--text-secondary); margin-bottom:4px; line-height:1.4;">
+                                <strong>Description:</strong> Accepts a newly optimized railway schedule only if it provides sufficient improvement over the current schedule.
+                            </p>
+                            <div style="background:#ffffff; font-family:monospace; font-size:0.8rem; padding:12px; border-radius:8px; border:1px solid #e2e8f0; color:var(--text-primary); line-height:1.6; margin-top:8px;">
+                                ΔU = U_new − U_current − C_switch<br>
+                                or equivalently,<br>
+                                ΔU = E_current − E_new − C_switch<br>
+                                <br>
+                                Accept New Plan if:<br>
+                                ΔU > 0.05
+                            </div>
+                            <!-- Definitions -->
+                            <div style="margin-top:10px; border-top:1px dashed var(--border-color); padding-top:8px;">
+                                <div style="font-size:0.75rem; font-weight:700; color:var(--text-primary); margin-bottom:6px;">Symbol Definitions:</div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:0.72rem; color:var(--text-secondary); line-height:1.4;">
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">ΔU</strong> <span>– Improvement in utility after optimization.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">C<sub>switch</sub></strong> <span>– Cost of switching from the previous plan to a new plan.</span></div>
+                                    <div style="display:flex; gap:6px; align-items:baseline;"><strong style="font-family:monospace; color:var(--accent-blue); width:90px; flex-shrink:0;">ϵ</strong> <span>– Minimum utility improvement threshold for accepting a new plan.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
 
             <!-- EVENT TIMELINE CONTAINER -->
             <div style="background:var(--card-bg); border:1px solid var(--border-color); border-radius:12px; padding:12px 18px; box-shadow:var(--shadow-sm); margin-top:16px;">
@@ -2569,12 +2722,59 @@ x4   0.00  0.00  0.00 -0.12</pre>
             }}
         }}
         
-        // Setup slider initial max value matching simulation history array length
-        if (slider && SIMULATION_HISTORY) {{
-            slider.max = SIMULATION_HISTORY.length - 1;
-            slider.value = SIMULATION_HISTORY.length - 1;
-            document.getElementById("scenario-current-tick-lbl").innerText = `Current Tick: ${{slider.value}} min (${{EMBEDDED_STATE.sim_time_str}})`;
+        // Live real-time polling from backend
+        let lastPolledTick = -1;
+        let currentRunId = EMBEDDED_STATE.run_id;
+
+        async function pollLiveState() {{
+            try {{
+                const response = await fetch("datasets/live_state.json?t=" + new Date().getTime());
+                if (!response.ok) return;
+                const state = await response.json();
+                if (!state) return;
+
+                // Handle run switch (user restarted the backend)
+                if (state.run_id !== currentRunId) {{
+                    currentRunId = state.run_id;
+                    lastPolledTick = -1;
+                    SIMULATION_HISTORY.length = 0;
+                }}
+
+                // If the tick has advanced or it's the first fetch of a new run
+                if (state.tick !== lastPolledTick) {{
+                    lastPolledTick = state.tick;
+
+                    // Append state to SIMULATION_HISTORY if not already present
+                    if (!SIMULATION_HISTORY.some(h => h.tick === state.tick)) {{
+                        SIMULATION_HISTORY.push(state);
+                    }}
+
+                    // Sort history by tick to be safe
+                    SIMULATION_HISTORY.sort((a, b) => a.tick - b.tick);
+
+                    // Update slider max and current value
+                    if (slider) {{
+                        const prevMax = parseInt(slider.max);
+                        const prevVal = parseInt(slider.value);
+                        slider.max = SIMULATION_HISTORY.length - 1;
+                        
+                        // Auto-advance if slider was at previous end or matches current tick
+                        if (prevVal === prevMax || prevVal === state.tick - 1 || prevVal === slider.max - 1) {{
+                            slider.value = slider.max;
+                            document.getElementById("scenario-current-tick-lbl").innerText = `Current Tick: ${{slider.value}} min (${{state.sim_time_str}})`;
+                        }}
+                    }}
+
+                    // Update the dashboard UI
+                    updateDashboard(state);
+                }}
+            }} catch (error) {{
+                // Ignore CORS/network errors silently when run locally via file://
+            }}
         }}
+
+        // Poll every 1.5 seconds
+        setInterval(pollLiveState, 1500);
     </script>
     
     <!-- Final Demo Popup Modal -->

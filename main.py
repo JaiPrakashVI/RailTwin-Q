@@ -134,7 +134,7 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
         offset_y = (train.train_no % 3) * 12 - 6
         train_markers += f"""
         <div class='train-marker' style='left: {pos_pct}%; transform: translate(-50%, {offset_y}px);' title='Train {train.train_no}'>
-            🚆<span class='marker-label'>{train.train_no}</span>
+            Train <span class='marker-label'>{train.train_no}</span>
         </div>
         """
 

@@ -15,7 +15,7 @@ class PropagationVisualizer:
             n_type = attrs.get("type", "unknown")
             label = attrs.get("name", node)
             if n_type == "train":
-                mermaid_lines.append(f'    {node}["🚆 Train {label} (Delay: {attrs.get("current_delay", 0):.0f}m)"]')
+                mermaid_lines.append(f'    {node}["Train {label} (Delay: {attrs.get("current_delay", 0):.0f}m)"]')
             elif n_type == "station":
                 mermaid_lines.append(f'    {node}["🚉 Station {label} (Congestion: {attrs.get("current_congestion", 0):.0f}%)"]')
             elif n_type == "track":
