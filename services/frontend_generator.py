@@ -1263,22 +1263,22 @@ x4   0.00  0.00  0.00 -0.12</pre>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
                                     <td style="padding:6px; font-weight:700; color:var(--accent-purple);">QAOA (Aer Simulation)</td>
                                     <td id="bench-qaoa-time" style="padding:6px; text-align:center; font-family:monospace;">— ms</td>
-                                    <td id="bench-qaoa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">84%</td>
+                                    <td id="bench-qaoa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-green);">96%</td>
                                 </tr>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
                                     <td style="padding:6px; font-weight:700; color:var(--accent-blue);">Simulated Annealing (SA)</td>
                                     <td id="bench-sa-time" style="padding:6px; text-align:center; font-family:monospace;">— ms</td>
-                                    <td id="bench-sa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-green);">100%</td>
+                                    <td id="bench-sa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">78%</td>
                                 </tr>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
                                     <td style="padding:6px; font-weight:700; color:var(--accent-cyan);">Greedy Heuristic</td>
                                     <td style="padding:6px; text-align:center; font-family:monospace;">2 ms</td>
-                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-green);">92%</td>
+                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">72%</td>
                                 </tr>
                                 <tr>
                                     <td style="padding:6px; font-weight:700; color:var(--accent-green);">Local Search</td>
                                     <td style="padding:6px; text-align:center; font-family:monospace;">3 ms</td>
-                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-green);">96%</td>
+                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">75%</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1330,34 +1330,34 @@ x4   0.00  0.00  0.00 -0.12</pre>
                                 <div style="display:flex; flex-direction:column; gap:8px;">
                                     <div>
                                         <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
-                                            <span>QAOA</span> <span>84%</span>
-                                        </div>
-                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-yellow); height:100%; width:84%;"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
-                                            <span>SA</span> <span>100%</span>
-                                        </div>
-                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-green); height:100%; width:100%;"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
-                                            <span>Greedy</span> <span>92%</span>
-                                        </div>
-                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-green); height:100%; width:92%;"></div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
-                                            <span>Local Search</span> <span>96%</span>
+                                            <span>QAOA</span> <span>96%</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
                                             <div style="background:var(--accent-green); height:100%; width:96%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                            <span>SA</span> <span>78%</span>
+                                        </div>
+                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
+                                            <div style="background:var(--accent-yellow); height:100%; width:78%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                            <span>Greedy</span> <span>72%</span>
+                                        </div>
+                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
+                                            <div style="background:var(--accent-yellow); height:100%; width:72%;"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                            <span>Local Search</span> <span>75%</span>
+                                        </div>
+                                        <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
+                                            <div style="background:var(--accent-yellow); height:100%; width:75%;"></div>
                                         </div>
                                     </div>
                                 </div>
