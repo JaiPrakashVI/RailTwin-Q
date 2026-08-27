@@ -333,46 +333,84 @@ class FrontendGenerator:
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {{
-            --sidebar-bg: #1e293b;
+            --sidebar-bg: #ffffff;
             --main-bg: #f8fafc;
             --card-bg: #ffffff;
-            --border-color: #cbd5e1;
+            --border-color: #e2e8f0;
             --text-primary: #0f172a;
-            --text-secondary: #475569;
+            --text-secondary: #64748b;
             --text-muted: #94a3b8;
-            --accent-blue: #2563eb;
-            --accent-blue-light: #3b82f6;
-            --accent-cyan: #0891b2;
+            --accent-blue: #f97316;
+            --accent-blue-light: #ea580c;
+            --accent-cyan: #f97316;
             --accent-green: #10b981;
-            --accent-yellow: #d97706;
-            --accent-red: #dc2626;
-            --accent-purple: #7c3aed;
-            --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.05), 0 1px 2px 0 rgba(0,0,0,0.02);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --accent-yellow: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #f97316;
+            --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.02);
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }}
         body {{ background-color: var(--main-bg); color: var(--text-primary); display: flex; height: 100vh; overflow: hidden; }}
         
-        .sidebar {{ width: 260px; background: var(--sidebar-bg); border-right: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 14px; flex-shrink: 0; }}
+        .sidebar {{ width: 260px; background: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 14px; flex-shrink: 0; }}
         .brand {{ display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }}
-        .brand-icon {{ width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }}
-        .brand-title {{ font-size: 1.15rem; font-weight: 700; color: white; letter-spacing: -0.3px; }}
-        .brand-sub {{ font-size: 0.62rem; color: #38bdf8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }}
+        .brand-icon {{ width: 36px; height: 36px; background: #f97316; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #ffffff; }}
+        .brand-title {{ font-size: 1.15rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px; }}
+        .brand-sub {{ font-size: 10px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; }}
         
         .nav-menu {{ display: flex; flex-direction: column; gap: 4px; }}
-        .nav-item {{ display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; color: #94a3b8; text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: all 0.2s; cursor: pointer; }}
-        .nav-item:hover {{ background: rgba(255, 255, 255, 0.04); color: white; }}
-        .nav-item.active {{ background: var(--accent-blue); color: white; font-weight: 600; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }}
+        .nav-item {{ display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; color: #475569; text-decoration: none; font-size: 0.82rem; font-weight: 500; transition: all 0.2s; cursor: pointer; }}
+        .nav-item:hover {{ background: #f1f5f9; color: #ea580c; }}
+        .nav-item.active {{ background: #fff7ed; color: #ea580c; font-weight: 600; border-left: 3px solid #ea580c; border-top-left-radius: 0; border-bottom-left-radius: 0; box-shadow: none; }}
         
-        .sidebar-bottom {{ border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }}
+        .sidebar-bottom {{ border-top: 1px solid var(--border-color); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }}
         .status-header {{ font-size: 0.68rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }}
-        .status-list {{ display: flex; flex-direction: column; gap: 5px; font-size: 0.73rem; color: #94a3b8; }}
+        .status-list {{ display: flex; flex-direction: column; gap: 5px; font-size: 0.73rem; color: #64748b; }}
         .status-row {{ display: flex; justify-content: space-between; align-items: center; }}
         .dot {{ width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green); display: inline-block; }}
-        .sim-time-box {{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 9px 12px; }}
-        .sim-time-val {{ font-size: 1.05rem; font-weight: 700; color: white; }}
-        .badge-live {{ background: rgba(16,185,129,0.2); color: var(--accent-green); font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; float: right; }}
+        .sim-time-box {{ background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 9px 12px; }}
+        .sim-time-val {{ font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }}
+        .badge-live {{ background: #fff7ed; color: #ea580c; border: 1px solid #ffedd5; font-size: 0.62rem; font-weight: 700; padding: 2px 8px; border-radius: 12px; float: right; text-transform: uppercase; }}
         
+                .system-status-widget {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
+        .status-header {{ font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }}
+        .status-list {{ display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #64748b; }}
+        .status-row {{ display: flex; justify-content: space-between; align-items: center; }}
+        .status-dot {{ width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }}
+        .sync-pill-badge {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 4px 10px; font-size: 10px; font-weight: 600; color: #475569; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }}
+        
+        .pill-status {{ padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }}
+        .pill-low {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-medium {{ background: #fffbeb; border: 1px solid #fef3c7; color: #b45309; }}
+        .pill-high {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        .pill-nominal {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-risk {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        
+        @keyframes pulse-glow {{
+            0% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }}
+            70% {{ box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }}
+        }}
+                .system-status-widget {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
+        .status-header {{ font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }}
+        .status-list {{ display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #64748b; }}
+        .status-row {{ display: flex; justify-content: space-between; align-items: center; }}
+        .status-dot {{ width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }}
+        .sync-pill-badge {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 4px 10px; font-size: 10px; font-weight: 600; color: #475569; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }}
+        
+        .pill-status {{ padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }}
+        .pill-low {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-medium {{ background: #fffbeb; border: 1px solid #fef3c7; color: #b45309; }}
+        .pill-high {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        .pill-nominal {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-risk {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        
+        @keyframes pulse-glow {{
+            0% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }}
+            70% {{ box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }}
+        }}
         .main-wrapper {{ flex-grow: 1; display: flex; flex-direction: column; overflow-y: auto; position: relative; }}
         
         /* Premium Modal Styles */
@@ -382,7 +420,7 @@ class FrontendGenerator:
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
@@ -401,7 +439,7 @@ class FrontendGenerator:
             border: 1px solid var(--border-color);
             border-radius: 16px;
             width: 420px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
             padding: 24px;
             transform: scale(0.95);
             transition: transform 0.3s ease;
@@ -419,7 +457,7 @@ class FrontendGenerator:
         .modal-icon {{
             width: 40px;
             height: 40px;
-            background: rgba(16, 185, 129, 0.1);
+            background: #ecfdf5;
             color: var(--accent-green);
             border-radius: 50%;
             display: flex;
@@ -458,7 +496,7 @@ class FrontendGenerator:
             font-weight: 700;
         }}
         .modal-btn {{
-            background: var(--accent-blue);
+            background: #f97316;
             color: white;
             border: none;
             border-radius: 8px;
@@ -471,12 +509,12 @@ class FrontendGenerator:
             text-align: center;
             display: block;
             text-decoration: none;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2);
         }}
         .modal-btn:hover {{
-            background: var(--accent-blue-light);
+            background: #ea580c;
             transform: translateY(-1px);
-            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
         }}
         .modal-close-btn {{
             position: absolute;
@@ -493,51 +531,54 @@ class FrontendGenerator:
             color: var(--text-primary);
         }}
         
-        .topbar {{ height: 58px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }}
+        .topbar {{ height: 72px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; background: #ffffff; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); }}
         
-        .dashboard-content {{ padding: 18px 22px; display: flex; flex-direction: column; gap: 16px; flex-grow: 1; }}
+        /* Cleaned top bar typography rules */
+
+        
+        .dashboard-content {{ padding: 18px 22px; display: flex; flex-grow: 1; min-height: 0; flex-direction: column; overflow-y: auto; gap: 16px; }}
         .main-tab-content {{ display: none; }}
         .main-tab-content.active {{ display: block; }}
         
         .kpi-grid {{ display: grid; grid-template-columns: repeat(6, 1fr); gap: 13px; }}
-        .kpi-card {{ background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.2s; box-shadow: var(--shadow-sm); min-height: 90px; }}
-        .kpi-card:hover {{ border-color: rgba(37, 99, 235, 0.4); transform: translateY(-1px); box-shadow: var(--shadow-md); }}
-        .kpi-label {{ font-size: 0.65rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }}
-        .kpi-val {{ font-size: 1.6rem; font-weight: 700; color: var(--text-primary); margin-top: 4px; letter-spacing: -0.5px; }}
-        .kpi-sub {{ font-size: 0.7rem; margin-top: 3px; font-weight: 600; }}
-        .trend-up {{ color: var(--accent-red); }}
-        .trend-down {{ color: var(--accent-green); }}
-        .trend-neutral {{ color: var(--text-muted); }}
+        .kpi-card {{ background: #ffffff; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: var(--shadow-sm); transition: all 0.2s; }}
+        .kpi-card:hover {{ border-color: #f97316; transform: translateY(-1px); box-shadow: var(--shadow-md); }}
+        .kpi-label {{ font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }}
+        .kpi-val {{ font-size: 26px; font-weight: 700; color: #0f172a; }}
+        #cmd-risk-val {{ color: #ef4444 !important; }}
+        #cmd-opt-val {{ color: #f97316 !important; }}
         
         .middle-grid {{ display: grid; grid-template-columns: 1fr 320px; gap: 16px; }}
-        .map-card {{ background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-md); }}
+        .map-card {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; position: relative; box-shadow: var(--shadow-sm); }}
         .card-header-bar {{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 11px; }}
-        .card-header-bar h3 {{ font-size: 0.95rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }}
-        .map-legend {{ display: flex; align-items: center; gap: 14px; font-size: 0.7rem; color: var(--text-secondary); }}
-        .legend-dot {{ width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 4px; }}
+        .card-header-bar h3 {{ font-size: 1rem; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 8px; }}
         
-        .network-svg {{ width: 100%; height: 340px; background: #f8fafc; border-radius: 8px; border: 1px solid var(--border-color); }}
+        .map-legend {{ display: flex; align-items: center; gap: 14px; font-size: 0.7rem; color: var(--text-secondary); }}
+        .map-legend span {{ display: inline-flex; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 12px; font-weight: 500; font-size: 11px; }}
+        .legend-dot {{ width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }}
+        
+        .network-svg {{ width: 100%; height: 340px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }}
         .track-line {{ stroke-width: 3.5; fill: none; stroke-linecap: round; transition: all 0.3s; }}
         .track-normal {{ stroke: #cbd5e1; }}
-        .track-congested {{ stroke: var(--accent-yellow) !important; stroke-width: 5; }}
-        .track-blocked {{ stroke: var(--accent-red) !important; stroke-width: 5; }}
+        .track-congested {{ stroke: #f59e0b !important; stroke-width: 5; }}
+        .track-blocked {{ stroke: #ef4444 !important; stroke-width: 5; }}
         
-        .station-bg {{ fill: #ffffff; stroke: #64748b; stroke-width: 2; cursor: pointer; transition: all 0.2s; }}
-        .station-bg:hover {{ stroke: var(--accent-blue-light); fill: #f1f5f9; }}
+        .station-bg {{ fill: #ffffff; stroke: #334155; stroke-width: 1.5; cursor: pointer; transition: all 0.2s; }}
+        .station-bg:hover {{ stroke: #f97316; fill: #fff7ed; }}
         .station-core {{ fill: var(--accent-green); cursor: pointer; }}
         .station-label {{ font-size: 10px; fill: #0f172a; font-weight: 700; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: #ffffff; stroke-width: 2.5px; stroke-linejoin: round; }}
-        .incident-badge {{ position: absolute; bottom: 26px; left: 26px; background: rgba(220,38,38,0.06); border: 1px solid var(--accent-red); padding: 7px 13px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 0.76rem; color: var(--accent-red); }}
+        .incident-badge {{ position: absolute; bottom: 26px; left: 26px; background: rgba(239, 68, 68, 0.06); border: 1px solid #ef4444; padding: 7px 13px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 0.76rem; color: #ef4444; }}
         
-        .sub-card {{ background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); }}
-        .sub-card h4 {{ font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }}
+        .sub-card {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }}
+        .sub-card h4 {{ font-size: 12px; font-weight: 700; color: #0f172a; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; letter-spacing: 0.05em; text-transform: uppercase; }}
         
         .solver-table {{ width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.75rem; text-align: left; }}
-        .solver-table th {{ padding: 8px; border-bottom: 1px solid var(--border-color); color: var(--text-muted); }}
-        .solver-table td {{ padding: 8px; border-bottom: 1px solid var(--border-color); color: var(--text-primary); }}
-        .solver-table tr.highlight {{ background: rgba(37, 99, 235, 0.06); }}
+        .solver-table th {{ padding: 8px; border-bottom: 1px solid #e2e8f0; color: #64748b; }}
+        .solver-table td {{ padding: 8px; border-bottom: 1px solid #e2e8f0; color: #0f172a; }}
+        .solver-table tr.highlight {{ background: #fff7ed; }}
         
-        .btn-quantum {{ background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(37,99,235,0.15); transition: all 0.2s; }}
-        .btn-quantum:hover {{ transform: translateY(-1px); box-shadow: 0 6px 18px rgba(37,99,235,0.25); }}
+        .btn-quantum {{ background: #f97316; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15); transition: all 0.2s; }}
+        .btn-quantum:hover {{ background: #ea580c; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(249, 115, 22, 0.25); }}
         
         .nav-item i, .nav-item svg {{ width: 16px; height: 16px; stroke-width: 2px; flex-shrink: 0; }}
         .topbar i, .topbar svg {{ width: 16px; height: 16px; }}
@@ -553,18 +594,18 @@ class FrontendGenerator:
         
         /* Schematic Line Styles */
         .schematic-station {{
-            width: 24px; height: 24px; border-radius: 50%; background: #ffffff; border: 3px solid var(--accent-green);
+            width: 24px; height: 24px; border-radius: 50%; background: #ffffff; border: 3px solid #10b981;
             display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.65rem; color: #0f172a;
             position: relative; box-shadow: var(--shadow-sm);
         }}
         .schematic-station.alert {{
-            border-color: var(--accent-red);
+            border-color: #ef4444;
             animation: alert-ring 1.5s infinite;
         }}
         @keyframes alert-ring {{
-            0% {{ box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6); }}
-            70% {{ box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }}
-            100% {{ box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }}
+            0% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }}
+            70% {{ box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }}
         }}
         .schematic-station::after {{
             content: attr(data-label);
@@ -576,8 +617,8 @@ class FrontendGenerator:
         .schematic-segment.congested {{ background: var(--accent-yellow); }}
         .schematic-segment.blocked {{ background: var(--accent-red); }}
         .schematic-train {{
-            background: var(--accent-purple); color: white; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;
-            position: absolute; top: -20px; box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+            background: #f97316; color: white; font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+            position: absolute; top: -20px; box-shadow: 0 2px 6px rgba(249, 115, 22, 0.3);
         }}
         
         .clickable-station {{ cursor: pointer; }}
@@ -588,8 +629,11 @@ class FrontendGenerator:
     <aside class="sidebar">
         <div>
             <div class="brand">
-                <div class="brand-icon"><i data-lucide="train"></i></div>
-                <div><div class="brand-title">RailTwin-Q</div><div class="brand-sub">AI + Quantum Railway</div></div>
+                <div class="brand-icon"><i data-lucide="train" style="width: 18px; height: 18px; color: #fff;"></i></div>
+                <div>
+                    <div class="brand-title">RailTwin-Q</div>
+                    <div class="brand-sub">AI + QUANTUM RAILWAY</div>
+                </div>
             </div>
             <nav class="nav-menu">
                 <a class="nav-item active" id="nav-command" onclick="switchMainTab(event, 'tab-command')"><i data-lucide="layout-dashboard"></i> 1. Operations Command Center</a>
@@ -603,16 +647,18 @@ class FrontendGenerator:
             </nav>
         </div>
         <div class="sidebar-bottom">
-            <div class="status-header" style="color:#64748b;">System Status</div>
-            <div class="status-list" style="color:#94a3b8;">
-                <div class="status-row"><span>Ingestion Engine</span><span class="dot"></span></div>
-                <div class="status-row"><span>AI Delay Projections</span><span class="dot"></span></div>
-                <div class="status-row"><span>Ising Model Mapper</span><span class="dot"></span></div>
-                <div class="status-row"><span>Aer QAOA Solver</span><span class="dot"></span></div>
-            </div>
-            <div class="sim-time-box">
-                <div style="font-size:0.62rem;color:#64748b;">Operations Sync <span class="badge-live">LIVE</span></div>
-                <div class="sim-time-val" id="sidebar-clock">--:--</div>
+            <div class="system-status-widget">
+                <div class="status-header">System Status</div>
+                <div class="status-list">
+                    <div class="status-row"><span>Ingestion Engine</span><span class="status-dot"></span></div>
+                    <div class="status-row"><span>AI Delay Projections</span><span class="status-dot"></span></div>
+                    <div class="status-row"><span>Ising Model Mapper</span><span class="status-dot"></span></div>
+                    <div class="status-row"><span>Aer QAOA Solver</span><span class="status-dot"></span></div>
+                </div>
+                <div class="sync-pill-badge">
+                    <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#10b981; animation: pulse-glow 2s infinite;"></span>
+                    SYSTEM ONLINE · SYNC 14ms · <span id="sidebar-clock">--:--</span>
+                </div>
             </div>
         </div>
     </aside>
@@ -622,38 +668,39 @@ class FrontendGenerator:
         <!-- THREE-PART TOP BAR -->
         <header class="topbar">
             <!-- Left Info -->
-            <div style="display: flex; flex-direction: column;">
-                <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                    <span>Train</span> RailTwin-Q
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: #64748b; text-transform: uppercase;">
+                    RAILTWIN-Q / OPERATIONS COMMAND CENTER
                 </div>
-                <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
-                    Hybrid Quantum-AI Railway Decision Intelligence
+                <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; line-height: 1.2;">
+                    Operations Command Center
+                </h2>
+                <div style="font-size: 12px; color: #64748b;">
+                    Hybrid quantum-AI railway decision intelligence
                 </div>
             </div>
-            <!-- Center Clock -->
-            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                <div style="font-size: 0.72rem; font-weight: 800; color: var(--accent-green); display: flex; align-items: center; gap: 5px; text-transform: uppercase;">
-                    <span class="pulse-dot" style="width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green); display: inline-block;"></span>
+            <!-- Right Info Flex Container -->
+            <div style="display: flex; flex-direction: row; align-items: center; gap: 8px; flex-wrap: nowrap;">
+                <div style="font-size: 11px; font-weight: 700; color: #10b981; display: flex; align-items: center; gap: 5px; text-transform: uppercase; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 4px 12px; border-radius: 12px;">
+                    <span class="pulse-dot" style="width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
                     DIGITAL TWIN LIVE
                 </div>
-                <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary);" id="topbar-sim-clock">
+                <div style="font-size: 12px; font-weight: 600; color: #334155; font-family: ui-monospace, SFMono-Regular, monospace; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 4px 12px; border-radius: 12px;" id="topbar-sim-clock">
                     Simulation Time: --:--
                 </div>
-            </div>
-            <!-- Right Status Indicators -->
-            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 700;">
-                <div style="display: flex; align-items: center; gap: 5px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); padding: 4px 10px; border-radius: 20px; color: var(--accent-green);">
-                    AI <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-green); display: inline-block;"></span> READY
+                <div style="display: flex; align-items: center; gap: 5px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 4px 12px; border-radius: 12px; color: #0284c7; font-size: 11px; font-weight: 600;">
+                    AI READY
                 </div>
-                <div style="display: flex; align-items: center; gap: 5px; background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); padding: 4px 10px; border-radius: 20px; color: var(--accent-purple);">
-                    QAOA <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent-purple); display: inline-block;"></span> READY
+                <div style="display: flex; align-items: center; gap: 5px; background-color: #eef2ff; color: #6366f1; border: 1px solid #c7d2fe; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 600;">
+                    QAOA READY
                 </div>
             </div>
         </header>
 
         <!-- SUB HEADER WARNING INDICATOR -->
-        <div style="background:rgba(99,102,241,0.04);border-bottom:1px solid var(--border-color);padding:8px 22px;font-size:0.74rem;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
-            <div><span>Methodology: </span><b style="color:var(--text-primary);">QAOA probabilistic sampling + classical local refinement</b></div>
+        <div style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 10px 22px; display: flex; align-items: center;">
+            <span style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; margin-right: 8px;">Methodology:</span>
+            <code style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 4px 10px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: #64748b;">QAOA probabilistic sampling + classical local refinement</code>
         </div>
 
         <main class="dashboard-content">
@@ -661,25 +708,20 @@ class FrontendGenerator:
             <!-- TAB 1: OPERATIONS COMMAND CENTER -->
             <!-- ============================================ -->
             <div id="tab-command" class="main-tab-content active">
-                <!-- Mockup Row 1: Header -->
-                <div style="display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--border-color); padding: 14px 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: var(--shadow-sm);">
-                    <div style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-                        <span>Train</span> RailTwin-Q
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-green); display: flex; align-items: center; gap: 6px; text-transform: uppercase;">
-                            <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); display: inline-block; box-shadow: 0 0 8px var(--accent-green);"></span>
-                            ● SIMULATION LIVE
-                        </span>
-                        <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); font-family: monospace;" id="cmd-live-tick">Tick 0</span>
-                    </div>
-                </div>
-
                 <!-- Mockup Row 2: Navigation Sidebar + Live Network -->
                 <div class="middle-grid" style="grid-template-columns: 1fr; margin-bottom: 16px;">
                     <div class="map-card">
-                        <div class="card-header-bar">
-                            <h3><i data-lucide="network"></i> Live Railway Network</h3>
+                        <div class="card-header-bar" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <h3><i data-lucide="network"></i> Live Railway Network</h3>
+                                <div style="display: flex; align-items: center; gap: 12px; border-left: 1px solid var(--border-color); padding-left: 12px;">
+                                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent-green); display: flex; align-items: center; gap: 4px; text-transform: uppercase;">
+                                        <span class="pulse-dot" style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); display: inline-block; box-shadow: 0 0 6px var(--accent-green);"></span>
+                                        SIMULATION LIVE
+                                    </span>
+                                    <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-primary); font-family: monospace;" id="cmd-live-tick">Tick 0</span>
+                                </div>
+                            </div>
                             <div class="map-legend">
                                 <span><span class="legend-dot" style="background:#cbd5e1;"></span>Normal</span>
                                 <span><span class="legend-dot" style="background:var(--accent-yellow);"></span>Congested</span>
@@ -688,28 +730,28 @@ class FrontendGenerator:
                         </div>
                         <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg">
                             <!-- Preserved exact lines representing tracks -->
-                            <line id="map-track-1"  x1="220" y1="220" x2="450" y2="220" class="track-line track-normal"/>
-                            <line id="map-track-3"  x1="450" y1="220" x2="680" y2="220" class="track-line track-normal"/>
-                            <line id="map-track-5"  x1="680" y1="220" x2="900" y2="220" class="track-line track-normal"/>
-                            <line id="map-track-6"  x1="450" y1="220" x2="450" y2="130" class="track-line track-normal"/>
-                            <line id="map-track-7"  x1="450" y1="130" x2="450" y2="50"  class="track-line track-normal"/>
-                            <line id="map-track-2"  x1="220" y1="220" x2="220" y2="340" class="track-line track-normal"/>
-                            <line id="map-track-10" x1="220" y1="340" x2="450" y2="340" class="track-line track-normal"/>
-                            <line id="map-track-4"  x1="220" y1="340" x2="220" y2="420" class="track-line track-normal"/>
-                            <line id="map-track-8"  x1="220" y1="420" x2="450" y2="220" class="track-line track-normal"/>
-                            <line id="map-track-9"  x1="680" y1="220" x2="680" y2="340" class="track-line track-normal"/>
+                            <path id="map-track-1" d="M 220 220 C 290 190, 380 190, 450 220" class="track-line track-normal"/>
+                            <path id="map-track-3" d="M 450 220 C 520 250, 610 250, 680 220" class="track-line track-normal"/>
+                            <path id="map-track-5" d="M 680 220 C 750 190, 830 190, 900 220" class="track-line track-normal"/>
+                            <path id="map-track-6" d="M 450 220 C 480 190, 480 160, 450 130" class="track-line track-normal"/>
+                            <path id="map-track-7" d="M 450 130 C 420 110, 420 70, 450 50" class="track-line track-normal"/>
+                            <path id="map-track-2" d="M 220 220 C 240 250, 240 310, 220 340" class="track-line track-normal"/>
+                            <path id="map-track-10" d="M 220 340 C 290 370, 380 370, 450 340" class="track-line track-normal"/>
+                            <path id="map-track-4" d="M 220 340 C 200 360, 200 400, 220 420" class="track-line track-normal"/>
+                            <path id="map-track-8" d="M 220 420 C 300 390, 400 310, 450 220" class="track-line track-normal"/>
+                            <path id="map-track-9" d="M 680 220 C 660 250, 660 310, 680 340" class="track-line track-normal"/>
                             
                             <!-- Preserved exact groups representing station circles -->
-                            <g transform="translate(220,220)" id="map-station-1"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">MAS</text></g>
+                            <g transform="translate(220,220)" id="map-station-1"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text x="-22" y="4" class="station-label" style="text-anchor: end;">MAS</text></g>
                             <g transform="translate(220,340)" id="map-station-2"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">TBM</text></g>
                             <g transform="translate(450,340)" id="map-station-3"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CGL</text></g>
                             <g transform="translate(220,420)" id="map-station-5"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CJ</text></g>
-                            <g transform="translate(450,220)" id="map-station-4"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">AJJ</text></g>
+                            <g transform="translate(450,220)" id="map-station-4"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">AJJ</text></g>
                             <g transform="translate(450,130)" id="map-station-6"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">TRT</text></g>
                             <g transform="translate(450,50)" id="map-station-7"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-18" class="station-label">TPTY</text></g>
-                            <g transform="translate(680,220)" id="map-station-8"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">KPD</text></g>
+                            <g transform="translate(680,220)" id="map-station-8"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">KPD</text></g>
                             <g transform="translate(680,340)" id="map-station-9"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">VLR</text></g>
-                            <g transform="translate(900,220)" id="map-station-10"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">JTJ</text></g>
+                            <g transform="translate(900,220)" id="map-station-10"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">JTJ</text></g>
                             
                             <circle id="map-incident-pulse" cx="450" cy="220" r="22" fill="none" stroke="var(--accent-red)" stroke-width="2" visibility="hidden">
                                 <animate attributeName="r" values="16;34;16" dur="2s" repeatCount="indefinite"/>
@@ -721,33 +763,30 @@ class FrontendGenerator:
                 </div>
 
                 <!-- Mockup Row 3: Bottom Stats Bar -->
-                <div style="background: var(--card-bg); border: 1px solid var(--border-color); padding: 14px 20px; border-radius: 12px; margin-bottom: 16px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-around; font-weight: 700; font-size: 0.9rem; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px;">
-                    <div><span id="cmd-stat-trains">—</span> Trains</div>
-                    <div style="color: var(--text-muted);">|</div>
-                    <div><span id="cmd-stat-stations">10</span> Stations</div>
-                    <div style="color: var(--text-muted);">|</div>
-                    <div><span id="cmd-stat-tracks">10</span> Tracks</div>
-                    <div style="color: var(--text-muted);">|</div>
-                    <div style="color: var(--accent-red);"><span id="cmd-stat-alerts">—</span> Active Alerts</div>
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 16px; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; font-weight: 600; font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; overflow: hidden;">
+                    <div style="padding: 14px 0; border-right: 1px solid #e2e8f0;"><span id="cmd-stat-trains" style="font-weight: 700; color: var(--text-primary);">—</span> Trains</div>
+                    <div style="padding: 14px 0; border-right: 1px solid #e2e8f0;"><span id="cmd-stat-stations" style="font-weight: 700; color: var(--text-primary);">10</span> Stations</div>
+                    <div style="padding: 14px 0; border-right: 1px solid #e2e8f0;"><span id="cmd-stat-tracks" style="font-weight: 700; color: var(--text-primary);">10</span> Tracks</div>
+                    <div style="padding: 14px 0; color: #ef4444;"><span id="cmd-stat-alerts" style="font-weight: 700;">—</span> Active Alerts</div>
                 </div>
 
                 <!-- Mockup Row 4: 4 Columns Summary Panel -->
                 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
                     <div class="kpi-card" style="align-items: center; text-align: center; justify-content: center; min-height: 80px;">
                         <span class="kpi-label">Delay Risk</span>
-                        <span class="kpi-val" id="cmd-risk-val" style="color: var(--accent-red);">—</span>
+                        <span class="kpi-val" id="cmd-risk-val" style="color: #ef4444; font-size: 28px; font-weight: 700;">—</span>
                     </div>
                     <div class="kpi-card" style="align-items: center; text-align: center; justify-content: center; min-height: 80px;">
                         <span class="kpi-label">Congestion</span>
-                        <span class="kpi-val" id="cmd-congestion-val">—</span>
+                        <span class="kpi-val" id="cmd-congestion-val" style="color: #0f172a; font-size: 28px; font-weight: 700;">—</span>
                     </div>
                     <div class="kpi-card" style="align-items: center; text-align: center; justify-content: center; min-height: 80px;">
                         <span class="kpi-label">Active Disruption</span>
-                        <span class="kpi-val" id="cmd-disruption-val" style="font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">—</span>
+                        <span class="kpi-val" id="cmd-disruption-val" style="font-size: 28px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">—</span>
                     </div>
                     <div class="kpi-card" style="align-items: center; text-align: center; justify-content: center; min-height: 80px;">
                         <span class="kpi-label">Optimization</span>
-                        <span class="kpi-val" id="cmd-opt-val" style="color: var(--accent-purple); font-size: 1.25rem;">—</span>
+                        <span class="kpi-val" id="cmd-opt-val" style="color: #f97316; font-size: 28px; font-weight: 700;">—</span>
                     </div>
                 </div>
             </div>
@@ -767,28 +806,28 @@ class FrontendGenerator:
                 <div class="map-card" style="margin-bottom: 16px;">
                     <svg viewBox="0 0 1000 460" class="network-svg" id="topology-svg-twin">
                         <!-- Tracks -->
-                        <line id="twin-track-1"  x1="220" y1="220" x2="450" y2="220" class="track-line track-normal"/>
-                        <line id="twin-track-3"  x1="450" y1="220" x2="680" y2="220" class="track-line track-normal"/>
-                        <line id="twin-track-5"  x1="680" y1="220" x2="900" y2="220" class="track-line track-normal"/>
-                        <line id="twin-track-6"  x1="450" y1="220" x2="450" y2="130" class="track-line track-normal"/>
-                        <line id="twin-track-7"  x1="450" y1="130" x2="450" y2="50"  class="track-line track-normal"/>
-                        <line id="twin-track-2"  x1="220" y1="220" x2="220" y2="340" class="track-line track-normal"/>
-                        <line id="twin-track-10" x1="220" y1="340" x2="450" y2="340" class="track-line track-normal"/>
-                        <line id="twin-track-4"  x1="220" y1="340" x2="220" y2="420" class="track-line track-normal"/>
-                        <line id="twin-track-8"  x1="220" y1="420" x2="450" y2="220" class="track-line track-normal"/>
-                        <line id="twin-track-9"  x1="680" y1="220" x2="680" y2="340" class="track-line track-normal"/>
+                        <path id="twin-track-1" d="M 220 220 C 290 190, 380 190, 450 220" class="track-line track-normal"/>
+                        <path id="twin-track-3" d="M 450 220 C 520 250, 610 250, 680 220" class="track-line track-normal"/>
+                        <path id="twin-track-5" d="M 680 220 C 750 190, 830 190, 900 220" class="track-line track-normal"/>
+                        <path id="twin-track-6" d="M 450 220 C 480 190, 480 160, 450 130" class="track-line track-normal"/>
+                        <path id="twin-track-7" d="M 450 130 C 420 110, 420 70, 450 50" class="track-line track-normal"/>
+                        <path id="twin-track-2" d="M 220 220 C 240 250, 240 310, 220 340" class="track-line track-normal"/>
+                        <path id="twin-track-10" d="M 220 340 C 290 370, 380 370, 450 340" class="track-line track-normal"/>
+                        <path id="twin-track-4" d="M 220 340 C 200 360, 200 400, 220 420" class="track-line track-normal"/>
+                        <path id="twin-track-8" d="M 220 420 C 300 390, 400 310, 450 220" class="track-line track-normal"/>
+                        <path id="twin-track-9" d="M 680 220 C 660 250, 660 310, 680 340" class="track-line track-normal"/>
                         
                         <!-- Stations (Clickable) -->
-                        <g transform="translate(220,220)" id="twin-station-1" class="clickable-station" onclick="onStationClick(event, 1)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">MAS</text></g>
+                        <g transform="translate(220,220)" id="twin-station-1" class="clickable-station" onclick="onStationClick(event, 1)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text x="-22" y="4" class="station-label" style="text-anchor: end;">MAS</text></g>
                         <g transform="translate(220,340)" id="twin-station-2" class="clickable-station" onclick="onStationClick(event, 2)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">TBM</text></g>
                         <g transform="translate(450,340)" id="twin-station-3" class="clickable-station" onclick="onStationClick(event, 3)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CGL</text></g>
                         <g transform="translate(220,420)" id="twin-station-5" class="clickable-station" onclick="onStationClick(event, 5)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">CJ</text></g>
-                        <g transform="translate(450,220)" id="twin-station-4" class="clickable-station" onclick="onStationClick(event, 4)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">AJJ</text></g>
+                        <g transform="translate(450,220)" id="twin-station-4" class="clickable-station" onclick="onStationClick(event, 4)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">AJJ</text></g>
                         <g transform="translate(450,130)" id="twin-station-6" class="clickable-station" onclick="onStationClick(event, 6)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-20" class="station-label">TRT</text></g>
                         <g transform="translate(450,50)" id="twin-station-7" class="clickable-station" onclick="onStationClick(event, 7)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="-18" class="station-label">TPTY</text></g>
-                        <g transform="translate(680,220)" id="twin-station-8" class="clickable-station" onclick="onStationClick(event, 8)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">KPD</text></g>
+                        <g transform="translate(680,220)" id="twin-station-8" class="clickable-station" onclick="onStationClick(event, 8)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">KPD</text></g>
                         <g transform="translate(680,340)" id="twin-station-9" class="clickable-station" onclick="onStationClick(event, 9)"><circle r="14" class="station-bg"/><circle r="7" class="station-core"/><text y="25" class="station-label">VLR</text></g>
-                        <g transform="translate(900,220)" id="twin-station-10" class="clickable-station" onclick="onStationClick(event, 10)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:2.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">JTJ</text></g>
+                        <g transform="translate(900,220)" id="twin-station-10" class="clickable-station" onclick="onStationClick(event, 10)"><circle r="16" class="station-bg" style="stroke:#3b82f6;stroke-width:1.5;"/><circle r="8" class="station-core" style="fill:#3b82f6;"/><text y="-23" class="station-label" style="fill:#3b82f6;">JTJ</text></g>
                         
                         <circle id="twin-incident-pulse" cx="450" cy="220" r="22" fill="none" stroke="var(--accent-red)" stroke-width="2" visibility="hidden">
                             <animate attributeName="r" values="16;34;16" dur="2s" repeatCount="indefinite"/>
@@ -800,18 +839,35 @@ class FrontendGenerator:
                 <!-- Bottom Split Panel (Click Details vs Network State) -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                     <!-- Left: Selected Details panel -->
-                    <div class="sub-card" id="selected-details-container">
-                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; color: var(--text-primary); text-transform: uppercase;">STATION DETAILS</div>
-                        <div style="color: var(--text-muted); font-size: 0.8rem;">Select a station (circles) or train (markers) on the map to display real-time telemetry.</div>
+                    <div class="sub-card" id="selected-details-container" style="min-height: 250px;">
+                        <div style="font-weight: 700; font-size: 12px; letter-spacing: 0.05em; margin-bottom: 4px; color: #0f172a; text-transform: uppercase;">STATION DETAILS</div>
+                        <div style="color: var(--text-muted); font-size: 12px; margin-top: 12px;">Select a station (circles) or train (markers) on the map to display real-time telemetry.</div>
                     </div>
                     <!-- Right: Network State panel -->
-                    <div class="sub-card" style="justify-content: space-between;">
-                        <h4 style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 10px; color: var(--text-primary);"><i data-lucide="activity"></i> Network State</h4>
-                        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.82rem;">
-                            <div class="status-row"><span>Overall Occupancy:</span><strong id="twin-state-occupancy">—</strong></div>
-                            <div class="status-row"><span>Congestion Rating:</span><strong id="twin-state-congestion" style="color: var(--accent-green);">—</strong></div>
-                            <div class="status-row"><span>Active Trains:</span><strong id="twin-state-trains">—</strong></div>
-                            <div class="status-row"><span>Blocked Track Segments:</span><strong id="twin-state-blocked" style="color: var(--accent-red);">—</strong></div>
+                    <div class="sub-card" style="min-height: 250px; justify-content: flex-start;">
+                        <h4 style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 10px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; justify-content: flex-start;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #f97316; flex-shrink: 0;">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                            NETWORK STATE
+                        </h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px;">
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; min-height: 70px;">
+                                <span style="font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Overall Occupancy</span>
+                                <strong id="twin-state-occupancy" style="font-size: 20px; font-weight: 700; color: #0f172a; font-family: monospace;">—</strong>
+                            </div>
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; min-height: 70px;">
+                                <span style="font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Congestion Rating</span>
+                                <strong id="twin-state-congestion" style="font-size: 18px; font-weight: 700; color: #10b981; text-transform: uppercase;">—</strong>
+                            </div>
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; min-height: 70px;">
+                                <span style="font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Active Trains</span>
+                                <strong id="twin-state-trains" style="font-size: 20px; font-weight: 700; color: #0f172a; font-family: monospace;">—</strong>
+                            </div>
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; min-height: 70px;">
+                                <span style="font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">Blocked Tracks</span>
+                                <strong id="twin-state-blocked" style="font-size: 20px; font-weight: 700; color: #ef4444; font-family: monospace;">—</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -836,23 +892,23 @@ class FrontendGenerator:
                         <!-- Horizontal Timeline Diagram -->
                         <div style="border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 12px;">
                             <div style="font-size: 0.68rem; color: var(--text-muted); font-weight:700; text-transform:uppercase; margin-bottom: 4px;">Prediction Timeline</div>
-                            <svg viewBox="0 0 400 80" style="width:100%; height:75px; background:#f8fafc; border:1px solid var(--border-color); border-radius:8px;">
+                            <svg viewBox="0 0 400 80" style="width:100%; height:75px; background:rgba(37, 99, 235, 0.08); border:1px solid var(--border-color); border-radius:8px;">
                                 <!-- Timeline horizontal line -->
-                                <line x1="50" y1="40" x2="350" y2="40" stroke="#cbd5e1" stroke-width="3"/>
+                                <line x1="50" y1="40" x2="350" y2="40" stroke="#2563eb" stroke-width="2"/>
                                 <!-- Points -->
-                                <circle cx="50" cy="40" r="6" fill="var(--accent-blue)"/>
+                                <circle cx="50" cy="40" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                                 <text x="50" y="24" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">Current</text>
                                 <text x="50" y="58" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--accent-red)" id="tl-cur-val">0.0</text>
                                 
-                                <circle cx="150" cy="40" r="6" fill="var(--accent-blue)"/>
+                                <circle cx="150" cy="40" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                                 <text x="150" y="24" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">+15m</text>
                                 <text x="150" y="58" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)" id="tl-15-val">0.0</text>
                                 
-                                <circle cx="250" cy="40" r="6" fill="var(--accent-blue)"/>
+                                <circle cx="250" cy="40" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                                 <text x="250" y="24" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">+30m</text>
                                 <text x="250" y="58" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)" id="tl-30-val">0.0</text>
                                 
-                                <circle cx="350" cy="40" r="6" fill="var(--accent-blue)"/>
+                                <circle cx="350" cy="40" r="6" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
                                 <text x="350" y="24" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">+60m</text>
                                 <text x="350" y="58" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)" id="tl-60-val">0.0</text>
                             </svg>
@@ -891,12 +947,12 @@ class FrontendGenerator:
                                 <b style="color:var(--text-primary); font-size:0.65rem; text-transform:uppercase; display:block; margin-bottom:8px;">Ensemble Architecture</b>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #f8fafc; border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; margin-top:4px;">
                                     <div style="display: flex; flex-direction: column; gap: 5px;">
-                                        <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color:var(--text-primary);">XGBoost</div>
-                                        <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color:var(--text-primary);">LightGBM</div>
-                                        <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color:var(--text-primary);">Random Forest</div>
+                                        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color: #475569;">XGBoost</div>
+                                        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color: #475569;">LightGBM</div>
+                                        <div style="background: #f8fafc; border: 1px solid var(--border-color); padding: 4px 8px; border-radius: 4px; font-weight: 700; font-size: 0.58rem; text-align: center; color: #475569;">Random Forest</div>
                                     </div>
                                     <div style="font-size: 1rem; color: var(--text-muted);">➔</div>
-                                    <div style="background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); color: white; padding: 8px 12px; border-radius: 6px; font-weight: 700; font-size: 0.65rem; text-align: center; box-shadow: var(--shadow-sm);">
+                                    <div style="background: #0f172a; color: #ffffff; padding: 8px 12px; border-radius: 6px; font-weight: 700; font-size: 0.65rem; text-align: center; box-shadow: var(--shadow-sm);">
                                         Ensemble Prediction
                                     </div>
                                 </div>
@@ -908,11 +964,11 @@ class FrontendGenerator:
                     <div class="sub-card" style="justify-content:space-between;">
                         <h4 style="color:var(--text-primary);"><i data-lucide="network"></i> HIERARCHICAL FLOW</h4>
                         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #f8fafc; border: 1px solid var(--border-color); padding: 12px; border-radius: 8px;">
-                            <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: var(--accent-blue);">Station</div>
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: #334155;">Station</div>
                             <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1;">↓</div>
-                            <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: var(--accent-cyan);">Track</div>
+                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: #334155;">Track</div>
                             <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1;">↓</div>
-                            <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: var(--accent-green);">Network</div>
+                            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 5px 12px; border-radius: 6px; font-weight: 700; font-size: 0.72rem; min-width: 100px; text-align: center; color: #065f46;">Network</div>
                         </div>
                     </div>
                 </div>
@@ -1261,24 +1317,24 @@ x4   0.00  0.00  0.00 -0.12</pre>
                             </thead>
                             <tbody>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
-                                    <td style="padding:6px; font-weight:700; color:var(--accent-purple);">QAOA (Aer Simulation)</td>
+                                    <td style="padding:6px;"><span style="background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; padding: 2px 6px; border-radius: 4px; display: inline-block; font-weight: 600;">QAOA (Aer Simulation)</span></td>
                                     <td id="bench-qaoa-time" style="padding:6px; text-align:center; font-family:monospace;">— ms</td>
-                                    <td id="bench-qaoa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-green);">96%</td>
+                                    <td id="bench-qaoa-qual" style="padding:6px; text-align:center; font-weight:bold; color:#059669;">96%</td>
                                 </tr>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
-                                    <td style="padding:6px; font-weight:700; color:var(--accent-blue);">Simulated Annealing (SA)</td>
+                                    <td style="padding:6px;"><span style="background: #fffbeb; color: #b45309; border: 1px solid #fde68a; padding: 2px 6px; border-radius: 4px; display: inline-block; font-weight: 600;">Simulated Annealing (SA)</span></td>
                                     <td id="bench-sa-time" style="padding:6px; text-align:center; font-family:monospace;">— ms</td>
-                                    <td id="bench-sa-qual" style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">78%</td>
+                                    <td id="bench-sa-qual" style="padding:6px; text-align:center; font-weight:bold; color:#0f172a;">78%</td>
                                 </tr>
                                 <tr style="border-bottom:1px solid #f1f5f9;">
-                                    <td style="padding:6px; font-weight:700; color:var(--accent-cyan);">Greedy Heuristic</td>
+                                    <td style="padding:6px;"><span style="background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; padding: 2px 6px; border-radius: 4px; display: inline-block; font-weight: 600;">Greedy Heuristic</span></td>
                                     <td style="padding:6px; text-align:center; font-family:monospace;">2 ms</td>
-                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">72%</td>
+                                    <td style="padding:6px; text-align:center; font-weight:bold; color:#0f172a;">72%</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:6px; font-weight:700; color:var(--accent-green);">Local Search</td>
+                                    <td style="padding:6px;"><span style="background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; padding: 2px 6px; border-radius: 4px; display: inline-block; font-weight: 600;">Local Search</span></td>
                                     <td style="padding:6px; text-align:center; font-family:monospace;">3 ms</td>
-                                    <td style="padding:6px; text-align:center; font-weight:bold; color:var(--accent-yellow);">75%</td>
+                                    <td style="padding:6px; text-align:center; font-weight:bold; color:#0f172a;">75%</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1290,35 +1346,35 @@ x4   0.00  0.00  0.00 -0.12</pre>
                                 <b style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; display:block; margin-bottom:8px;">Execution Time (ms)</b>
                                 <div style="display:flex; flex-direction:column; gap:8px;">
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>QAOA</span> <span id="bar-qaoa-time-lbl">— ms</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div id="bar-qaoa-time-fill" style="background:var(--accent-purple); height:100%; width:80%;"></div>
+                                            <div id="bar-qaoa-time-fill" style="background:#6366f1; height:100%; width:80%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>SA</span> <span id="bar-sa-time-lbl">— ms</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div id="bar-sa-time-fill" style="background:var(--accent-blue); height:100%; width:10%;"></div>
+                                            <div id="bar-sa-time-fill" style="background:#38bdf8; height:100%; width:10%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>Greedy</span> <span>2 ms</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-cyan); height:100%; width:1%;"></div>
+                                            <div style="background:#38bdf8; height:100%; width:1%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>Local Search</span> <span>3 ms</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-green); height:100%; width:1%;"></div>
+                                            <div style="background:#38bdf8; height:100%; width:1%;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1329,35 +1385,35 @@ x4   0.00  0.00  0.00 -0.12</pre>
                                 <b style="font-size:0.65rem; color:var(--text-muted); text-transform:uppercase; display:block; margin-bottom:8px;">Solution Quality (%)</b>
                                 <div style="display:flex; flex-direction:column; gap:8px;">
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>QAOA</span> <span>96%</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-green); height:100%; width:96%;"></div>
+                                            <div style="background:#10b981; height:100%; width:96%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>SA</span> <span>78%</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-yellow); height:100%; width:78%;"></div>
+                                            <div style="background:#3b82f6; height:100%; width:78%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>Greedy</span> <span>72%</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-yellow); height:100%; width:72%;"></div>
+                                            <div style="background:#f59e0b; height:100%; width:72%;"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600;">
+                                        <div style="display:flex; justify-content:space-between; font-size:0.68rem; margin-bottom:2px; font-weight:600; color:#0f172a;">
                                             <span>Local Search</span> <span>75%</span>
                                         </div>
                                         <div style="background:#e2e8f0; height:6px; border-radius:3px; width:100%; overflow:hidden;">
-                                            <div style="background:var(--accent-yellow); height:100%; width:75%;"></div>
+                                            <div style="background:#f59e0b; height:100%; width:75%;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1366,38 +1422,38 @@ x4   0.00  0.00  0.00 -0.12</pre>
                     </div>
 
                     <!-- Simulation Outcome Card -->
-                    <div class="sub-card" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.02); justify-content:space-between;">
+                    <div class="sub-card" style="border-color: #e2e8f0; background: #ffffff; justify-content:space-between;">
                         <div>
-                            <h4 style="color: var(--accent-green);"><i data-lucide="activity"></i> Simulation Outcome</h4>
+                            <h4 style="color: #0f172a; font-weight: 700; text-transform: uppercase;"><i data-lucide="activity"></i> Simulation Outcome</h4>
                             <div style="font-size:0.76rem; line-height:1.4; color:var(--text-secondary); margin-top:8px; display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Initial Delay</span>
-                                    <strong id="sim-outcome-init-delay" style="color:var(--text-primary); font-size:1rem;">— min</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Initial Delay</span>
+                                    <strong id="sim-outcome-init-delay" style="color:#0f172a; font-size:1rem;">— min</strong>
                                 </div>
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Final Delay</span>
-                                    <strong id="sim-outcome-final-delay" style="color:var(--text-primary); font-size:1rem;">— min</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Final Delay</span>
+                                    <strong id="sim-outcome-final-delay" style="color:#0f172a; font-size:1rem;">— min</strong>
                                 </div>
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Delay Reduction</span>
-                                    <strong id="sim-outcome-delay-red" style="color:var(--accent-green); font-size:1rem;">—%</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Delay Reduction</span>
+                                    <strong id="sim-outcome-delay-red" style="color:#059669; font-size:1rem;">—%</strong>
                                 </div>
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Initial Congestion</span>
-                                    <strong id="sim-outcome-init-cong" style="color:var(--text-primary); font-size:1rem;">—%</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Initial Congestion</span>
+                                    <strong id="sim-outcome-init-cong" style="color:#d97706; font-size:1rem;">—%</strong>
                                 </div>
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Final Congestion</span>
-                                    <strong id="sim-outcome-final-cong" style="color:var(--text-primary); font-size:1rem;">—%</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Final Congestion</span>
+                                    <strong id="sim-outcome-final-cong" style="color:#d97706; font-size:1rem;">—%</strong>
                                 </div>
-                                <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px;">
-                                    <span style="color:var(--text-muted); display:block; font-size:0.68rem; text-transform:uppercase;">Passenger Hours Saved</span>
-                                    <strong id="sim-outcome-pax-saved" style="color:var(--accent-blue); font-size:1rem;">—</strong>
+                                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px; border-radius:8px;">
+                                    <span style="color:#64748b; display:block; font-size:0.68rem; text-transform:uppercase;">Passenger Hours Saved</span>
+                                    <strong id="sim-outcome-pax-saved" style="color:#0d9488; font-size:1rem;">—</strong>
                                 </div>
                             </div>
                             <div style="background:#ffffff; border:1px solid var(--border-color); padding:8px 10px; border-radius:8px; margin-top:10px; display:flex; justify-content:space-between; align-items:center;">
-                                <span style="color:var(--text-muted); font-size:0.68rem; text-transform:uppercase;">Network Status</span>
-                                <strong id="sim-outcome-net-status" style="color:var(--accent-green); font-size:0.85rem; text-transform:uppercase;">Stable</strong>
+                                <span style="color:#64748b; font-size:0.68rem; text-transform:uppercase;">Network Status</span>
+                                <span id="sim-outcome-net-status" style="font-size:0.75rem; font-weight:700; text-transform:uppercase; padding: 4px 10px; border-radius: 6px;">Stable</span>
                             </div>
                         </div>
                         <div style="font-size:0.7rem; color:var(--text-muted); border-top:1px solid var(--border-color); padding-top:8px; margin-top:12px;">
@@ -1414,25 +1470,69 @@ x4   0.00  0.00  0.00 -0.12</pre>
                             Review timeline events step-by-step from 0 to 120 minutes.
                         </p>
                         <div style="background: #f1f5f9; border: 1px solid var(--border-color); padding: 15px; border-radius: 12px;">
+                            <style>
+                                #scenario-tick-slider {{
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    width: 100%;
+                                    height: 6px;
+                                    background: #e2e8f0;
+                                    border-radius: 999px;
+                                    outline: none;
+                                }}
+                                #scenario-tick-slider::-webkit-slider-runnable-track {{
+                                    width: 100%;
+                                    height: 6px;
+                                    background: transparent;
+                                    border-radius: 999px;
+                                }}
+                                #scenario-tick-slider::-webkit-slider-thumb {{
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50%;
+                                    background: #ea580c;
+                                    border: 2px solid #ffffff;
+                                    box-shadow: 0 0 0 1px #ea580c;
+                                    cursor: pointer;
+                                    margin-top: -5px;
+                                }}
+                                #scenario-tick-slider::-moz-range-track {{
+                                    width: 100%;
+                                    height: 6px;
+                                    background: transparent;
+                                    border-radius: 999px;
+                                }}
+                                #scenario-tick-slider::-moz-range-thumb {{
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: 50%;
+                                    background: #ea580c;
+                                    border: 2px solid #ffffff;
+                                    box-shadow: 0 0 0 1px #ea580c;
+                                    cursor: pointer;
+                                }}
+                            </style>
                             <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px;">
-                                <span id="scenario-current-tick-lbl" style="color: var(--accent-blue); font-family: monospace;">Current Tick: 0 min (08:00 AM)</span>
+                                <span id="scenario-current-tick-lbl" style="color: #0f172a; font-family: monospace;">Current Tick: 0 min (08:00 AM)</span>
                                 <span style="color: var(--text-muted);">Total: 120 min</span>
                             </div>
-                            <input type="range" id="scenario-tick-slider" min="0" max="120" value="0" style="width: 100%; height: 6px; background: rgba(0, 0, 0, 0.1); border-radius: 4px; outline: none; cursor: pointer; accent-color: var(--accent-blue);">
+                            <input type="range" id="scenario-tick-slider" min="0" max="120" value="0">
                         </div>
                     </div>
                     <div class="sub-card">
                         <h4 style="color:var(--text-primary);"><i data-lucide="hash"></i> Hardware Ansätz Detail</h4>
-                        <div style="font-size:0.75rem; line-height:1.5; color:var(--text-secondary); display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px;">
+                        <div style="font-size:0.75rem; line-height:1.8; color:var(--text-secondary); display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px;">
                             <div>
-                                <b>Device Coupling Map:</b> ibm_kyoto<br>
-                                <b>Transpiled Qubits:</b> 10 qubits<br>
-                                <b>ANSATZ GATES:</b> 166 (CX=4)
+                                <b>Device Coupling Map:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">ibm_kyoto</span><br>
+                                <b>Transpiled Qubits:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">10 qubits</span><br>
+                                <b>ANSATZ GATES:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">166 (CX=4)</span>
                             </div>
                             <div>
-                                <b>Error Mitigation:</b> PEC / ZNE<br>
-                                <b>Aer Simulation:</b> 1024 shots<br>
-                                <b>Optimization Loop:</b> COBYLA
+                                <b>Error Mitigation:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">PEC / ZNE</span><br>
+                                <b>Aer Simulation:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">1024 shots</span><br>
+                                <b>Optimization Loop:</b> <span style="background: #f3f4f6; color: #312e81; font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 4px;">COBYLA</span>
                             </div>
                         </div>
                     </div>
@@ -1720,41 +1820,48 @@ x4   0.00  0.00  0.00 -0.12</pre>
                         if (hit) activeDis = "⚠ " + hit.name;
                     }}
 
+                    const congPill = st.congestion >= 75 ? '<span class="pill-status pill-high">HIGH</span>' : (st.congestion >= 45 ? '<span class="pill-status pill-medium">MEDIUM</span>' : '<span class="pill-status pill-low">LOW</span>');
+                    const activeDisPill = activeDis === "Nominal" ? '<span class="pill-status pill-nominal">NOMINAL</span>' : `<span class="pill-status pill-high">\${activeDis}</span>`;
+                    
                     container.innerHTML = `
-                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 6px; color: var(--text-primary); text-transform: uppercase;">STATION DETAILS</div>
-                        <div style="font-size: 0.8rem; margin-bottom: 12px; color: var(--text-secondary);">Station: ${{st.name}} | ID: ${{st.id}}</div>
+                        <div style="font-weight: 700; font-size: 12px; letter-spacing: 0.05em; margin-bottom: 4px; color: #0f172a; text-transform: uppercase;">STATION DETAILS</div>
+                        <div style="font-size: 12px; margin-bottom: 16px; color: #64748b;">Station: \${st.name} | ID: \${st.id}</div>
                         
-                        <div style="margin-bottom: 12px;">
-                            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:3px;">
+                        <div style="border-bottom: 1px solid #f1f5f9; padding: 8px 0;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; margin-bottom:6px; color:#64748b;">
                                 <span>Platform Capacity:</span>
-                                <strong>${{platPct}}%</strong>
+                                <strong style="color:#0f172a;">\${platPct}%</strong>
                             </div>
-                            <div style="font-family: monospace; font-size: 1.1rem; color: var(--accent-blue); letter-spacing: 2px;">${{platBar}}</div>
+                            <div style="height: 6px; border-radius: 999px; background: #e2e8f0; overflow: hidden;">
+                                <div style="height: 100%; width: \${platPct}%; background: #f97316; border-radius: 999px;"></div>
+                            </div>
                         </div>
                         
-                        <div style="margin-bottom: 12px; font-size:0.75rem; display:flex; justify-content:space-between; border-bottom:1px solid #f1f5f9; padding-bottom:6px;">
+                        <div style="font-size:12px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #f1f5f9; padding: 8px 0; color:#64748b;">
                             <span>Current Trains:</span>
-                            <strong style="color:var(--text-primary);">${{st.platforms_occupied}}</strong>
+                            <strong style="color:#0f172a; font-family: monospace; font-size: 13px;">\${st.platforms_occupied}</strong>
                         </div>
                         
-                        <div style="margin-bottom: 12px;">
-                            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:3px;">
+                        <div style="border-bottom: 1px solid #f1f5f9; padding: 8px 0;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; margin-bottom:6px; color:#64748b;">
                                 <span>Predicted Congestion:</span>
-                                <strong>${{congRating}}</strong>
+                                <span>\${congPill}</span>
                             </div>
-                            <div style="font-family: monospace; font-size: 1.1rem; color: ${{st.congestion >= 75 ? 'var(--accent-red)' : 'var(--accent-yellow)'}}; letter-spacing: 2px;">${{congBar}}</div>
+                            <div style="height: 6px; border-radius: 999px; background: #e2e8f0; overflow: hidden;">
+                                <div style="height: 100%; width: \subst_congestion%; background: #f97316; border-radius: 999px;"></div>
+                            </div>
                         </div>
                         
-                        <div style="margin-bottom: 12px; font-size:0.75rem; display:flex; justify-content:space-between; border-bottom:1px solid #f1f5f9; padding-bottom:6px;">
+                        <div style="font-size:12px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #f1f5f9; padding: 8px 0; color:#64748b;">
                             <span>Predicted Delay +30m:</span>
-                            <strong>${{(st.congestion * 0.22).toFixed(1)}} min</strong>
+                            <strong style="color:#0f172a; font-family: monospace; font-size: 13px;">+\${(st.congestion * 0.22).toFixed(1)} min</strong>
                         </div>
                         
-                        <div style="font-size:0.75rem; display:flex; justify-content:space-between; padding-top:4px;">
+                        <div style="font-size:12px; display:flex; justify-content:space-between; align-items:center; color:#64748b; padding-top:8px;">
                             <span>Active Disruption:</span>
-                            <strong style="color: ${{activeDis !== 'Nominal' ? 'var(--accent-red)' : 'var(--accent-green)'}};">${{activeDis}}</strong>
+                            <span>\${activeDisPill}</span>
                         </div>
-                    `;
+                    `.replace('subst_congestion', '${st.congestion}');
                 }}
             }} else if (selected_train_no) {{
                 const t = (current_state.trains||[]).find(tr => tr.train_no === selected_train_no);
@@ -1768,21 +1875,47 @@ x4   0.00  0.00  0.00 -0.12</pre>
                     }}
                     const status = t.delay > 10 ? "AT RISK" : "NORMAL";
 
+                    const speedColor = curSpeed < baseSpeed ? "#f97316" : "#10b981";
+                    const statusPill = t.delay > 10 ? '<span class="pill-status pill-high">AT RISK</span>' : '<span class="pill-status pill-nominal">NORMAL</span>';
+                    const actionPill = action === "NOMINAL" ? '<span class="pill-status pill-nominal">NOMINAL</span>' : `<span class="pill-status pill-medium">\${action}</span>`;
+
                     container.innerHTML = `
-                        <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; color: var(--text-primary); text-transform: uppercase;">TRAIN T${{t.train_no}}</div>
-                        <div style="font-size: 0.8rem; margin-bottom: 12px; color: var(--text-secondary);">${{t.name}}</div>
+                        <div style="font-weight: 700; font-size: 12px; letter-spacing: 0.05em; margin-bottom: 4px; color: #0f172a; text-transform: uppercase;">TRAIN DETAILS</div>
+                        <div style="font-size: 12px; margin-bottom: 16px; color: #64748b;">Train T\${t.train_no} | \subst_tname</div>
                         
-                        <table style="width:100%; border-collapse:collapse; font-size:0.76rem; text-align:left;">
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Current Speed</td><td style="font-weight:700; text-align:right; color:var(--text-primary);">${{curSpeed}} km/h</td></tr>
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Base Speed</td><td style="font-weight:700; text-align:right; color:var(--text-primary);">${{baseSpeed}} km/h</td></tr>
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Current Delay</td><td style="font-weight:700; color:var(--accent-red); text-align:right;">+${{t.delay.toFixed(1)}} min</td></tr>
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Predicted +15m</td><td style="font-weight:700; text-align:right; color:var(--text-primary);">+${{t.predicted_delay_15.toFixed(1)}} min</td></tr>
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Predicted +30m</td><td style="font-weight:700; text-align:right; color:var(--text-primary);">+${{t.predicted_delay_30.toFixed(1)}} min</td></tr>
-                            <tr style="height:25px; border-bottom:1px solid #f8fafc;"><td style="color:var(--text-secondary);">Predicted +60m</td><td style="font-weight:700; text-align:right; color:var(--text-primary);">+${{t.predicted_delay_60.toFixed(1)}} min</td></tr>
-                            <tr style="height:28px; border-top:1px solid var(--border-color);"><td style="color:var(--text-secondary); padding-top:4px;">Current Action</td><td style="font-weight:700; color:var(--accent-purple); text-align:right; padding-top:4px;">${{action}}</td></tr>
-                            <tr style="height:24px;"><td style="color:var(--text-secondary);">Status</td><td style="font-weight:700; color:${{status === 'AT RISK' ? 'var(--accent-red)' : 'var(--accent-green)'}}; text-align:right;">${{status}}</td></tr>
-                        </table>
-                    `;
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Current Speed:</span>
+                            <strong style="color:\${speedColor}; font-family: monospace; font-size:13px;">\${curSpeed} km/h</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Base Speed:</span>
+                            <strong style="color:#0f172a; font-family: monospace; font-size:13px;">\${baseSpeed} km/h</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Current Delay:</span>
+                            <strong style="color:#ef4444; font-family: monospace; font-size:13px;">+\${t.delay.toFixed(1)} min</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Predicted Delay +15m:</span>
+                            <strong style="color:#0f172a; font-family: monospace; font-size:13px;">+\${t.predicted_delay_15.toFixed(1)} min</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Predicted Delay +30m:</span>
+                            <strong style="color:#0f172a; font-family: monospace; font-size:13px;">+\${t.predicted_delay_30.toFixed(1)} min</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Predicted Delay +60m:</span>
+                            <strong style="color:#0f172a; font-family: monospace; font-size:13px;">+\subst_pred60 min</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:8px; margin-bottom:8px; color:#64748b;">
+                            <span>Current Action:</span>
+                            <span>\${actionPill}</span>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#64748b; padding-top:2px;">
+                            <span>Status:</span>
+                            <span>\${statusPill}</span>
+                        </div>
+                    `.replace('subst_tname', '${t.name}').replace('subst_pred60', '${t.predicted_delay_60.toFixed(1)}');
                 }}
             }}
         }}
@@ -2031,7 +2164,22 @@ x4   0.00  0.00  0.00 -0.12</pre>
             const elNetStatus = document.getElementById("sim-outcome-net-status");
             if (elNetStatus) {{
                 elNetStatus.innerText = netStatusText;
-                elNetStatus.style.color = (netStatusText === "Stable") ? "var(--accent-green)" : ((netStatusText === "Stabilizing") ? "var(--accent-yellow)" : "var(--accent-red)");
+                if (netStatusText === "Stable") {{
+                    elNetStatus.style.background = "#ecfdf5";
+                    elNetStatus.style.color = "#10b981";
+                    elNetStatus.style.border = "1px solid #a7f3d0";
+                    elNetStatus.style.fontWeight = "700";
+                }} else if (netStatusText === "Stabilizing") {{
+                    elNetStatus.style.background = "#fffbeb";
+                    elNetStatus.style.color = "#d97706";
+                    elNetStatus.style.border = "1px solid #fde68a";
+                    elNetStatus.style.fontWeight = "700";
+                }} else {{
+                    elNetStatus.style.background = "#fef2f2";
+                    elNetStatus.style.color = "#dc2626";
+                    elNetStatus.style.border = "1px solid #fecaca";
+                    elNetStatus.style.fontWeight = "700";
+                }}
             }}
         }}
 
@@ -2128,17 +2276,39 @@ x4   0.00  0.00  0.00 -0.12</pre>
             
             const maxVal = Math.max(20, p15, p30, p60);
             
-            // Generate visual blocks
-            const drawBlocks = (val) => {{
-                const count = Math.min(12, Math.max(1, Math.round(val / 2)));
-                return "█".repeat(count).padEnd(12, "░");
-            }};
+            const p15Pct = Math.min(100, Math.round((p15 / maxVal) * 100));
+            const p30Pct = Math.min(100, Math.round((p30 / maxVal) * 100));
+            const p60Pct = Math.min(100, Math.round((p60 / maxVal) * 100));
 
             barsContainer.innerHTML = `
-                <div style="margin-bottom: 12px; font-family: monospace; font-size: 0.82rem; line-height: 1.6;">
-                    <div>+15m <span style="color:var(--accent-blue);">${{drawBlocks(p15)}}</span> ${{p15.toFixed(1)}}</div>
-                    <div>+30m <span style="color:var(--accent-purple);">${{drawBlocks(p30)}}</span> ${{p30.toFixed(1)}}</div>
-                    <div>+60m <span style="color:var(--accent-cyan);">${{drawBlocks(p60)}}</span> ${{p60.toFixed(1)}}</div>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; margin-bottom: 4px;">
+                            <span>+15m Horizon</span>
+                            <strong style="color: #0f172a;">+${{p15.toFixed(1)}} min</strong>
+                        </div>
+                        <div style="height: 6px; border-radius: 999px; background: #e2e8f0; overflow: hidden;">
+                            <div style="height: 100%; width: ${{p15Pct}}%; background: #0ea5e9; border-radius: 999px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; margin-bottom: 4px;">
+                            <span>+30m Horizon</span>
+                            <strong style="color: #0f172a;">+${{p30.toFixed(1)}} min</strong>
+                        </div>
+                        <div style="height: 6px; border-radius: 999px; background: #e2e8f0; overflow: hidden;">
+                            <div style="height: 100%; width: ${{p30Pct}}%; background: #f59e0b; border-radius: 999px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; font-size: 11px; color: #64748b; margin-bottom: 4px;">
+                            <span>+60m Horizon</span>
+                            <strong style="color: #ef4444;">+${{p60.toFixed(1)}} min</strong>
+                        </div>
+                        <div style="height: 6px; border-radius: 999px; background: #e2e8f0; overflow: hidden;">
+                            <div style="height: 100%; width: ${{p60Pct}}%; background: #ef4444; border-radius: 999px;"></div>
+                        </div>
+                    </div>
                 </div>
             `;
             
@@ -2396,7 +2566,8 @@ x4   0.00  0.00  0.00 -0.12</pre>
                     10: {{src: 2, dest: 3}}
                 }};
 
-                trains.forEach(t => {{
+                const coordinateHits = {{}};
+                trains.forEach((t, idx) => {{
                     let tx = 0, ty = 0;
                     if (t.progress === 0 || !t.current_track_id) {{
                         const st = stationCoords[t.current_station_id];
@@ -2408,8 +2579,27 @@ x4   0.00  0.00  0.00 -0.12</pre>
                             const destSt = stationCoords[tr.dest];
                             if (srcSt && destSt) {{
                                 const p = t.progress / 100;
-                                tx = srcSt.x + (destSt.x - srcSt.x) * p;
-                                ty = srcSt.y + (destSt.y - srcSt.y) * p;
+                                const controlPoints = {{
+                                    1: {{cx1: 290, cy1: 190, cx2: 380, cy2: 190}},
+                                    2: {{cx1: 240, cy1: 250, cx2: 240, cy2: 310}},
+                                    3: {{cx1: 520, cy1: 250, cx2: 610, cy2: 250}},
+                                    4: {{cx1: 200, cy1: 360, cx2: 200, cy2: 400}},
+                                    5: {{cx1: 750, cy1: 190, cx2: 830, cy2: 190}},
+                                    6: {{cx1: 480, cy1: 190, cx2: 480, cy2: 160}},
+                                    7: {{cx1: 420, cy1: 110, cx2: 420, cy2: 70}},
+                                    8: {{cx1: 300, cy1: 390, cx2: 400, cy2: 310}},
+                                    9: {{cx1: 660, cy1: 250, cx2: 660, cy2: 310}},
+                                    10: {{cx1: 290, cy1: 370, cx2: 380, cy2: 370}}
+                                }};
+                                const cp = controlPoints[t.current_track_id];
+                                if (cp) {{
+                                    const mt = 1 - p;
+                                    tx = mt*mt*mt * srcSt.x + 3 * mt*mt * p * cp.cx1 + 3 * mt * p*p * cp.cx2 + p*p*p * destSt.x;
+                                    ty = mt*mt*mt * srcSt.y + 3 * mt*mt * p * cp.cy1 + 3 * mt * p*p * cp.cy2 + p*p*p * destSt.y;
+                                }} else {{
+                                    tx = srcSt.x + (destSt.x - srcSt.x) * p;
+                                    ty = srcSt.y + (destSt.y - srcSt.y) * p;
+                                }}
                             }}
                         }}
                     }}
@@ -2430,9 +2620,16 @@ x4   0.00  0.00  0.00 -0.12</pre>
                         circ.setAttribute("stroke-width", "1.5");
                         
                         const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                        text.setAttribute("x", tx);
-                        text.setAttribute("y", ty + dy - 8);
-                        text.setAttribute("text-anchor", "middle");
+                        const isLeft = (idx % 2 === 0);
+                        if (isLeft) {{
+                            text.setAttribute("x", tx - 9);
+                            text.setAttribute("y", ty + dy + 3);
+                            text.setAttribute("text-anchor", "end");
+                        }} else {{
+                            text.setAttribute("x", tx + 9);
+                            text.setAttribute("y", ty + dy + 3);
+                            text.setAttribute("text-anchor", "start");
+                        }}
                         text.setAttribute("fill", "#0f172a");
                         text.setAttribute("font-size", "7.5px");
                         text.setAttribute("font-weight", "bold");
@@ -2691,15 +2888,26 @@ x4   0.00  0.00  0.00 -0.12</pre>
             }}
         }};
 
+        function updateSliderFill() {{
+            if (!slider) return;
+            const val = slider.value;
+            const min = slider.min ? parseInt(slider.min) : 0;
+            const max = slider.max ? parseInt(slider.max) : 120;
+            const pct = ((val - min) / (max - min)) * 100;
+            slider.style.background = `linear-gradient(to right, #f97316 0%, #f97316 \${pct}%, #e2e8f0 \${pct}%, #e2e8f0 100%)`;
+        }}
+
         if (slider) {{
             slider.addEventListener("input", function() {{
                 const tick = parseInt(this.value);
-                const snap = SIMULATION_HISTORY[tick] || SIMULATION_HISTORY[SIMULATION_HISTORY.length - 1];
+                const snap = SIMULATION_HISTORY.find(h => h.tick === tick) || SIMULATION_HISTORY[SIMULATION_HISTORY.length - 1];
                 if (snap) {{
                     updateDashboard(snap);
-                    document.getElementById("scenario-current-tick-lbl").innerText = `Current Tick: ${{tick}} min (${{snap.sim_time_str}})`;
+                    document.getElementById("scenario-current-tick-lbl").innerText = `Current Tick: \${tick} min (\${snap.sim_time_str})`;
                 }}
+                updateSliderFill();
             }});
+            updateSliderFill();
         }}
 
         // Initialize dashboard active tab from localStorage or default
@@ -2708,9 +2916,53 @@ x4   0.00  0.00  0.00 -0.12</pre>
 
         // Initialize dashboard with current state
         updateDashboard(EMBEDDED_STATE);
+        if (slider) {{
+            slider.max = SIMULATION_HISTORY.length > 0 ? SIMULATION_HISTORY.length - 1 : 120;
+            slider.value = EMBEDDED_STATE.tick;
+            updateSliderFill();
+            document.getElementById("scenario-current-tick-lbl").innerText = `Current Tick: \${slider.value} min (\${EMBEDDED_STATE.sim_time_str})`;
+        }}
         
         // Persist scroll position across refreshes
-        const wrapper = document.querySelector(".main-wrapper");
+        const wrapper = document.querySelector("        .system-status-widget {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
+        .status-header {{ font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }}
+        .status-list {{ display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #64748b; }}
+        .status-row {{ display: flex; justify-content: space-between; align-items: center; }}
+        .status-dot {{ width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }}
+        .sync-pill-badge {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 4px 10px; font-size: 10px; font-weight: 600; color: #475569; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }}
+        
+        .pill-status {{ padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }}
+        .pill-low {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-medium {{ background: #fffbeb; border: 1px solid #fef3c7; color: #b45309; }}
+        .pill-high {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        .pill-nominal {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-risk {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        
+        @keyframes pulse-glow {{
+            0% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }}
+            70% {{ box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }}
+        }}
+                .system-status-widget {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }}
+        .status-header {{ font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }}
+        .status-list {{ display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #64748b; }}
+        .status-row {{ display: flex; justify-content: space-between; align-items: center; }}
+        .status-dot {{ width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }}
+        .sync-pill-badge {{ background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 4px 10px; font-size: 10px; font-weight: 600; color: #475569; display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }}
+        
+        .pill-status {{ padding: 2px 8px; border-radius: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }}
+        .pill-low {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-medium {{ background: #fffbeb; border: 1px solid #fef3c7; color: #b45309; }}
+        .pill-high {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        .pill-nominal {{ background: #ecfdf5; border: 1px solid #d1fae5; color: #065f46; }}
+        .pill-risk {{ background: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; }}
+        
+        @keyframes pulse-glow {{
+            0% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }}
+            70% {{ box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }}
+        }}
+        .main-wrapper");
         if (wrapper) {{
             wrapper.addEventListener("scroll", () => {{
                 localStorage.setItem("scroll_pos", wrapper.scrollTop);
@@ -2773,8 +3025,9 @@ x4   0.00  0.00  0.00 -0.12</pre>
             }}
         }}
 
-        // Poll every 1.5 seconds
+        // Poll every 1.5 seconds, and fire immediately on load
         setInterval(pollLiveState, 1500);
+        pollLiveState();
     </script>
     
     <!-- Final Demo Popup Modal -->
