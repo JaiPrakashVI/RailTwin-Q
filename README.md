@@ -331,4 +331,4 @@ Any real-world deployment would require appropriate testing, validation, cyberse
 
 This project is licensed under the **MIT License**.
 
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE](LICENSE.txt) file for details.
